@@ -3,7 +3,6 @@
   <viewpoint:DAnalysis uid="_5EE5oIfNEe-j2tw991iliw" selectedViews="_89ZUkIfNEe-j2tw991iliw" version="15.2.0.202303281325">
     <semanticResources>ecom.ecore</semanticResources>
     <semanticResources>ecom.genmodel</semanticResources>
-    <semanticResources>Marketplace.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_89ZUkIfNEe-j2tw991iliw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_9AnAoIfNEe-j2tw991iliw" name="ecom" repPath="#_8_b78IfNEe-j2tw991iliw" changeId="1728677753904">
