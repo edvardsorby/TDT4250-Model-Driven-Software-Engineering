@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecom:Marketplace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecom="http://www.ntnu.no/tdt4250/ecom" name="Finn">
-  <items/>
-  <category name="Cars"/>
-  <category name="Boats"/>
+<ecom:Marketplace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecom="http://www.ntnu.no/tdt4250/ecom" name="FINN.no">
+  <categories name="Torget" description="Misc items">
+    <items category="//@categories.0" title="Chair" price="1000" description="Old but good chair for sale" published="1728678173" seller="//@users.0"/>
+    <items category="//@categories.0" title="T-shirt" price="1000" description="Color: red, size: XL" published="1728658178" seller="//@users.1"/>
+  </categories>
+  <categories name="Realestate" description="">
+    <items category="//@categories.1" title="Apartment" price="5000000" description="Modern 91 m^2 apartment for sale" published="1728273153" seller="//@users.2"/>
+  </categories>
+  <languages languageCode="NB" languageName="Norwegian" currency="NOK"/>
+  <users name="Ole" username="olec" role="//@roles.1"/>
+  <users name="Knut" username="knutby" role="//@roles.0"/>
+  <users name="Gunhild" username="gnhld" role="//@roles.1"/>
+  <roles xsi:type="ecom:Admin" roleName="Administrator">
+    <privileges privilege="EDIT_CATEGORIES"/>
+    <privileges privilege="MANAGE_USERS"/>
+    <privileges privilege="MODERATE_ITEMS"/>
+  </roles>
+  <roles xsi:type="ecom:NormalUser" roleName="User">
+    <privileges/>
+  </roles>
 </ecom:Marketplace>
