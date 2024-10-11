@@ -206,7 +206,7 @@ public class EcomPackageImpl extends EPackageImpl implements EcomPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMarketplace_Category() {
+	public EReference getMarketplace_Categories() {
 		return (EReference) marketplaceEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -216,7 +216,7 @@ public class EcomPackageImpl extends EPackageImpl implements EcomPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMarketplace_Language() {
+	public EReference getMarketplace_Languages() {
 		return (EReference) marketplaceEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -228,6 +228,36 @@ public class EcomPackageImpl extends EPackageImpl implements EcomPackage {
 	@Override
 	public EAttribute getMarketplace_Name() {
 		return (EAttribute) marketplaceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMarketplace_NumberOfItems() {
+		return (EAttribute) marketplaceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMarketplace_Users() {
+		return (EReference) marketplaceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMarketplace_Roles() {
+		return (EReference) marketplaceEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -378,6 +408,16 @@ public class EcomPackageImpl extends EPackageImpl implements EcomPackage {
 	@Override
 	public EAttribute getCategory_Description() {
 		return (EAttribute) categoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCategory_Items() {
+		return (EReference) categoryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -542,9 +582,12 @@ public class EcomPackageImpl extends EPackageImpl implements EcomPackage {
 		// Create classes and their features
 		marketplaceEClass = createEClass(MARKETPLACE);
 		createEReference(marketplaceEClass, MARKETPLACE__ITEMS);
-		createEReference(marketplaceEClass, MARKETPLACE__CATEGORY);
-		createEReference(marketplaceEClass, MARKETPLACE__LANGUAGE);
+		createEReference(marketplaceEClass, MARKETPLACE__CATEGORIES);
+		createEReference(marketplaceEClass, MARKETPLACE__LANGUAGES);
 		createEAttribute(marketplaceEClass, MARKETPLACE__NAME);
+		createEAttribute(marketplaceEClass, MARKETPLACE__NUMBER_OF_ITEMS);
+		createEReference(marketplaceEClass, MARKETPLACE__USERS);
+		createEReference(marketplaceEClass, MARKETPLACE__ROLES);
 
 		userEClass = createEClass(USER);
 		createEReference(userEClass, USER__ITEMS);
@@ -563,6 +606,7 @@ public class EcomPackageImpl extends EPackageImpl implements EcomPackage {
 		categoryEClass = createEClass(CATEGORY);
 		createEAttribute(categoryEClass, CATEGORY__NAME);
 		createEAttribute(categoryEClass, CATEGORY__DESCRIPTION);
+		createEReference(categoryEClass, CATEGORY__ITEMS);
 
 		roleEClass = createEClass(ROLE);
 		createEAttribute(roleEClass, ROLE__ROLE_NAME);
@@ -625,16 +669,25 @@ public class EcomPackageImpl extends EPackageImpl implements EcomPackage {
 		initEClass(marketplaceEClass, Marketplace.class, "Marketplace", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMarketplace_Items(), this.getItem(), null, "items", null, 0, -1, Marketplace.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMarketplace_Category(), this.getCategory(), null, "category", null, 0, -1, Marketplace.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMarketplace_Language(), this.getLanguage(), null, "language", null, 1, -1, Marketplace.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMarketplace_Categories(), this.getCategory(), null, "categories", null, 0, -1,
+				Marketplace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMarketplace_Languages(), this.getLanguage(), null, "languages", null, 1, -1,
+				Marketplace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMarketplace_Name(), ecorePackage.getEString(), "name", null, 1, 1, Marketplace.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMarketplace_NumberOfItems(), theXMLTypePackage.getInt(), "numberOfItems", null, 1, 1,
+				Marketplace.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				IS_DERIVED, IS_ORDERED);
+		initEReference(getMarketplace_Users(), this.getUser(), null, "users", null, 0, -1, Marketplace.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMarketplace_Roles(), this.getRole(), null, "roles", null, 0, -1, Marketplace.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(userEClass, User.class, "User", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUser_Items(), this.getItem(), null, "items", null, 0, -1, User.class, !IS_TRANSIENT,
@@ -670,6 +723,9 @@ public class EcomPackageImpl extends EPackageImpl implements EcomPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCategory_Description(), ecorePackage.getEString(), "description", null, 0, 1, Category.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCategory_Items(), this.getItem(), null, "items", null, 0, -1, Category.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(roleEClass, Role.class, "Role", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRole_RoleName(), ecorePackage.getEString(), "roleName", null, 0, 1, Role.class, !IS_TRANSIENT,
@@ -688,13 +744,13 @@ public class EcomPackageImpl extends EPackageImpl implements EcomPackage {
 
 		initEClass(adminEClass, Admin.class, "Admin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAdmin_Privileges(), this.getPrivilege(), null, "privileges", null, 0, -1, Admin.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(normalUserEClass, NormalUser.class, "NormalUser", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNormalUser_Privileges(), this.getPrivilege(), null, "privileges", null, 0, -1,
-				NormalUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				NormalUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(privilegeEClass, Privilege.class, "Privilege", !IS_ABSTRACT, !IS_INTERFACE,

@@ -3,12 +3,19 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ecom" nsURI="http://www.ntnu.no/tdt4250/ecom" nsPrefix="ecom">
   <eClassifiers xsi:type="ecore:EClass" name="Marketplace">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//Item" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="category" upperBound="-1"
+        eType="#//Item"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="categories" upperBound="-1"
         eType="#//Category" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="language" lowerBound="1"
-        upperBound="-1" eType="#//Language"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="languages" lowerBound="1"
+        upperBound="-1" eType="#//Language" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfItems" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int" changeable="false"
+        volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
+        eType="#//User" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
+        eType="#//Role" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="User">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
@@ -35,6 +42,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Category">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Item" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Role" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="roleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -50,11 +59,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Admin" eSuperTypes="#//Role">
     <eStructuralFeatures xsi:type="ecore:EReference" name="privileges" upperBound="-1"
-        eType="#//Privilege"/>
+        eType="#//Privilege" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NormalUser" eSuperTypes="#//Role">
     <eStructuralFeatures xsi:type="ecore:EReference" name="privileges" upperBound="-1"
-        eType="#//Privilege"/>
+        eType="#//Privilege" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PrivilegeType">
     <eLiterals name="POST_ITEMS"/>

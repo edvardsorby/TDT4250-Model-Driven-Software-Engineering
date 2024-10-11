@@ -16,9 +16,12 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link no.ntnu.tdt4250.ecom.Marketplace#getItems <em>Items</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.ecom.Marketplace#getCategory <em>Category</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.ecom.Marketplace#getLanguage <em>Language</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.ecom.Marketplace#getCategories <em>Categories</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.ecom.Marketplace#getLanguages <em>Languages</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.ecom.Marketplace#getName <em>Name</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.ecom.Marketplace#getNumberOfItems <em>Number Of Items</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.ecom.Marketplace#getUsers <em>Users</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.ecom.Marketplace#getRoles <em>Roles</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.ecom.EcomPackage#getMarketplace()
@@ -27,40 +30,40 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Marketplace extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Items</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Items</b></em>' reference list.
 	 * The list contents are of type {@link no.ntnu.tdt4250.ecom.Item}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Items</em>' containment reference list.
+	 * @return the value of the '<em>Items</em>' reference list.
 	 * @see no.ntnu.tdt4250.ecom.EcomPackage#getMarketplace_Items()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<Item> getItems();
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Categories</b></em>' containment reference list.
 	 * The list contents are of type {@link no.ntnu.tdt4250.ecom.Category}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference list.
-	 * @see no.ntnu.tdt4250.ecom.EcomPackage#getMarketplace_Category()
+	 * @return the value of the '<em>Categories</em>' containment reference list.
+	 * @see no.ntnu.tdt4250.ecom.EcomPackage#getMarketplace_Categories()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Category> getCategory();
+	EList<Category> getCategories();
 
 	/**
-	 * Returns the value of the '<em><b>Language</b></em>' reference list.
+	 * Returns the value of the '<em><b>Languages</b></em>' containment reference list.
 	 * The list contents are of type {@link no.ntnu.tdt4250.ecom.Language}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Language</em>' reference list.
-	 * @see no.ntnu.tdt4250.ecom.EcomPackage#getMarketplace_Language()
-	 * @model required="true"
+	 * @return the value of the '<em>Languages</em>' containment reference list.
+	 * @see no.ntnu.tdt4250.ecom.EcomPackage#getMarketplace_Languages()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Language> getLanguage();
+	EList<Language> getLanguages();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -83,5 +86,40 @@ public interface Marketplace extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Number Of Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Number Of Items</em>' attribute.
+	 * @see no.ntnu.tdt4250.ecom.EcomPackage#getMarketplace_NumberOfItems()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Int" required="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	int getNumberOfItems();
+
+	/**
+	 * Returns the value of the '<em><b>Users</b></em>' containment reference list.
+	 * The list contents are of type {@link no.ntnu.tdt4250.ecom.User}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Users</em>' containment reference list.
+	 * @see no.ntnu.tdt4250.ecom.EcomPackage#getMarketplace_Users()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<User> getUsers();
+
+	/**
+	 * Returns the value of the '<em><b>Roles</b></em>' containment reference list.
+	 * The list contents are of type {@link no.ntnu.tdt4250.ecom.Role}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Roles</em>' containment reference list.
+	 * @see no.ntnu.tdt4250.ecom.EcomPackage#getMarketplace_Roles()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Role> getRoles();
 
 } // Marketplace

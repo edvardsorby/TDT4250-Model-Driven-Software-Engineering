@@ -17,10 +17,13 @@
       <genEnumLiterals ecoreEnumLiteral="ecom.ecore#//PrivilegeType/MODERATE_ITEMS"/>
     </genEnums>
     <genClasses ecoreClass="ecom.ecore#//Marketplace">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecom.ecore#//Marketplace/items"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecom.ecore#//Marketplace/category"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecom.ecore#//Marketplace/language"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ecom.ecore#//Marketplace/items"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecom.ecore#//Marketplace/categories"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ecom.ecore#//Marketplace/languages"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecom.ecore#//Marketplace/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecom.ecore#//Marketplace/numberOfItems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecom.ecore#//Marketplace/users"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecom.ecore#//Marketplace/roles"/>
     </genClasses>
     <genClasses ecoreClass="ecom.ecore#//User">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ecom.ecore#//User/items"/>
@@ -39,6 +42,7 @@
     <genClasses ecoreClass="ecom.ecore#//Category">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecom.ecore#//Category/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecom.ecore#//Category/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ecom.ecore#//Category/items"/>
     </genClasses>
     <genClasses ecoreClass="ecom.ecore#//Role">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecom.ecore#//Role/roleName"/>
@@ -49,10 +53,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecom.ecore#//Language/currency"/>
     </genClasses>
     <genClasses ecoreClass="ecom.ecore#//Admin">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecom.ecore#//Admin/privileges"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ecom.ecore#//Admin/privileges"/>
     </genClasses>
     <genClasses ecoreClass="ecom.ecore#//NormalUser">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ecom.ecore#//NormalUser/privileges"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference ecom.ecore#//NormalUser/privileges"/>
     </genClasses>
     <genClasses ecoreClass="ecom.ecore#//Privilege">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ecom.ecore#//Privilege/privilege"/>

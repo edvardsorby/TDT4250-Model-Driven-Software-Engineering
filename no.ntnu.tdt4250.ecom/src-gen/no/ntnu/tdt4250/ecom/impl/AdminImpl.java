@@ -8,11 +8,14 @@ import no.ntnu.tdt4250.ecom.Admin;
 import no.ntnu.tdt4250.ecom.EcomPackage;
 import no.ntnu.tdt4250.ecom.Privilege;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class AdminImpl extends RoleImpl implements Admin {
 	/**
-	 * The cached value of the '{@link #getPrivileges() <em>Privileges</em>}' reference list.
+	 * The cached value of the '{@link #getPrivileges() <em>Privileges</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPrivileges()
@@ -65,9 +68,23 @@ public class AdminImpl extends RoleImpl implements Admin {
 	@Override
 	public EList<Privilege> getPrivileges() {
 		if (privileges == null) {
-			privileges = new EObjectResolvingEList<Privilege>(Privilege.class, this, EcomPackage.ADMIN__PRIVILEGES);
+			privileges = new EObjectContainmentEList<Privilege>(Privilege.class, this, EcomPackage.ADMIN__PRIVILEGES);
 		}
 		return privileges;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case EcomPackage.ADMIN__PRIVILEGES:
+			return ((InternalEList<?>) getPrivileges()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

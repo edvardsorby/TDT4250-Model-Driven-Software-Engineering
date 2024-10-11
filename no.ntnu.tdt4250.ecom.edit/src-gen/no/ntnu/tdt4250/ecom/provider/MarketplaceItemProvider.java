@@ -56,25 +56,26 @@ public class MarketplaceItemProvider extends ItemProviderAdapter implements IEdi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLanguagePropertyDescriptor(object);
+			addLanguagesPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addNumberOfItemsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Language feature.
+	 * This adds a property descriptor for the Languages feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLanguagePropertyDescriptor(Object object) {
+	protected void addLanguagesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Marketplace_language_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Marketplace_language_feature",
+						getResourceLocator(), getString("_UI_Marketplace_languages_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Marketplace_languages_feature",
 								"_UI_Marketplace_type"),
-						EcomPackage.Literals.MARKETPLACE__LANGUAGE, true, false, true, null, null, null));
+						EcomPackage.Literals.MARKETPLACE__LANGUAGES, true, false, true, null, null, null));
 	}
 
 	/**
@@ -94,6 +95,22 @@ public class MarketplaceItemProvider extends ItemProviderAdapter implements IEdi
 	}
 
 	/**
+	 * This adds a property descriptor for the Number Of Items feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNumberOfItemsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Marketplace_numberOfItems_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Marketplace_numberOfItems_feature",
+								"_UI_Marketplace_type"),
+						EcomPackage.Literals.MARKETPLACE__NUMBER_OF_ITEMS, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -105,8 +122,10 @@ public class MarketplaceItemProvider extends ItemProviderAdapter implements IEdi
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EcomPackage.Literals.MARKETPLACE__ITEMS);
-			childrenFeatures.add(EcomPackage.Literals.MARKETPLACE__CATEGORY);
+			childrenFeatures.add(EcomPackage.Literals.MARKETPLACE__CATEGORIES);
+			childrenFeatures.add(EcomPackage.Literals.MARKETPLACE__LANGUAGES);
+			childrenFeatures.add(EcomPackage.Literals.MARKETPLACE__USERS);
+			childrenFeatures.add(EcomPackage.Literals.MARKETPLACE__ROLES);
 		}
 		return childrenFeatures;
 	}
@@ -171,10 +190,13 @@ public class MarketplaceItemProvider extends ItemProviderAdapter implements IEdi
 
 		switch (notification.getFeatureID(Marketplace.class)) {
 		case EcomPackage.MARKETPLACE__NAME:
+		case EcomPackage.MARKETPLACE__NUMBER_OF_ITEMS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case EcomPackage.MARKETPLACE__ITEMS:
-		case EcomPackage.MARKETPLACE__CATEGORY:
+		case EcomPackage.MARKETPLACE__CATEGORIES:
+		case EcomPackage.MARKETPLACE__LANGUAGES:
+		case EcomPackage.MARKETPLACE__USERS:
+		case EcomPackage.MARKETPLACE__ROLES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -192,11 +214,20 @@ public class MarketplaceItemProvider extends ItemProviderAdapter implements IEdi
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors
-				.add(createChildParameter(EcomPackage.Literals.MARKETPLACE__ITEMS, EcomFactory.eINSTANCE.createItem()));
-
-		newChildDescriptors.add(createChildParameter(EcomPackage.Literals.MARKETPLACE__CATEGORY,
+		newChildDescriptors.add(createChildParameter(EcomPackage.Literals.MARKETPLACE__CATEGORIES,
 				EcomFactory.eINSTANCE.createCategory()));
+
+		newChildDescriptors.add(createChildParameter(EcomPackage.Literals.MARKETPLACE__LANGUAGES,
+				EcomFactory.eINSTANCE.createLanguage()));
+
+		newChildDescriptors
+				.add(createChildParameter(EcomPackage.Literals.MARKETPLACE__USERS, EcomFactory.eINSTANCE.createUser()));
+
+		newChildDescriptors.add(
+				createChildParameter(EcomPackage.Literals.MARKETPLACE__ROLES, EcomFactory.eINSTANCE.createAdmin()));
+
+		newChildDescriptors.add(createChildParameter(EcomPackage.Literals.MARKETPLACE__ROLES,
+				EcomFactory.eINSTANCE.createNormalUser()));
 	}
 
 	/**

@@ -68,7 +68,7 @@ public interface EcomPackage extends EPackage {
 	int MARKETPLACE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Items</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -77,22 +77,22 @@ public interface EcomPackage extends EPackage {
 	int MARKETPLACE__ITEMS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Category</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Categories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKETPLACE__CATEGORY = 1;
+	int MARKETPLACE__CATEGORIES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Language</b></em>' reference list.
+	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKETPLACE__LANGUAGE = 2;
+	int MARKETPLACE__LANGUAGES = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -104,13 +104,40 @@ public interface EcomPackage extends EPackage {
 	int MARKETPLACE__NAME = 3;
 
 	/**
+	 * The feature id for the '<em><b>Number Of Items</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKETPLACE__NUMBER_OF_ITEMS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Users</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKETPLACE__USERS = 5;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKETPLACE__ROLES = 6;
+
+	/**
 	 * The number of structural features of the '<em>Marketplace</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKETPLACE_FEATURE_COUNT = 4;
+	int MARKETPLACE_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Marketplace</em>' class.
@@ -296,13 +323,22 @@ public interface EcomPackage extends EPackage {
 	int CATEGORY__DESCRIPTION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__ITEMS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Category</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_FEATURE_COUNT = 2;
+	int CATEGORY_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Category</em>' class.
@@ -425,7 +461,7 @@ public interface EcomPackage extends EPackage {
 	int ADMIN__ROLE_NAME = ROLE__ROLE_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Privileges</b></em>' reference list.
+	 * The feature id for the '<em><b>Privileges</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -471,7 +507,7 @@ public interface EcomPackage extends EPackage {
 	int NORMAL_USER__ROLE_NAME = ROLE__ROLE_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Privileges</b></em>' reference list.
+	 * The feature id for the '<em><b>Privileges</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -555,10 +591,10 @@ public interface EcomPackage extends EPackage {
 	EClass getMarketplace();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.ecom.Marketplace#getItems <em>Items</em>}'.
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.ecom.Marketplace#getItems <em>Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Items</em>'.
+	 * @return the meta object for the reference list '<em>Items</em>'.
 	 * @see no.ntnu.tdt4250.ecom.Marketplace#getItems()
 	 * @see #getMarketplace()
 	 * @generated
@@ -566,26 +602,26 @@ public interface EcomPackage extends EPackage {
 	EReference getMarketplace_Items();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.ecom.Marketplace#getCategory <em>Category</em>}'.
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.ecom.Marketplace#getCategories <em>Categories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Category</em>'.
-	 * @see no.ntnu.tdt4250.ecom.Marketplace#getCategory()
+	 * @return the meta object for the containment reference list '<em>Categories</em>'.
+	 * @see no.ntnu.tdt4250.ecom.Marketplace#getCategories()
 	 * @see #getMarketplace()
 	 * @generated
 	 */
-	EReference getMarketplace_Category();
+	EReference getMarketplace_Categories();
 
 	/**
-	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.ecom.Marketplace#getLanguage <em>Language</em>}'.
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.ecom.Marketplace#getLanguages <em>Languages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Language</em>'.
-	 * @see no.ntnu.tdt4250.ecom.Marketplace#getLanguage()
+	 * @return the meta object for the containment reference list '<em>Languages</em>'.
+	 * @see no.ntnu.tdt4250.ecom.Marketplace#getLanguages()
 	 * @see #getMarketplace()
 	 * @generated
 	 */
-	EReference getMarketplace_Language();
+	EReference getMarketplace_Languages();
 
 	/**
 	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.ecom.Marketplace#getName <em>Name</em>}'.
@@ -597,6 +633,39 @@ public interface EcomPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMarketplace_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.ecom.Marketplace#getNumberOfItems <em>Number Of Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Number Of Items</em>'.
+	 * @see no.ntnu.tdt4250.ecom.Marketplace#getNumberOfItems()
+	 * @see #getMarketplace()
+	 * @generated
+	 */
+	EAttribute getMarketplace_NumberOfItems();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.ecom.Marketplace#getUsers <em>Users</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Users</em>'.
+	 * @see no.ntnu.tdt4250.ecom.Marketplace#getUsers()
+	 * @see #getMarketplace()
+	 * @generated
+	 */
+	EReference getMarketplace_Users();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.ecom.Marketplace#getRoles <em>Roles</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Roles</em>'.
+	 * @see no.ntnu.tdt4250.ecom.Marketplace#getRoles()
+	 * @see #getMarketplace()
+	 * @generated
+	 */
+	EReference getMarketplace_Roles();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.ecom.User <em>User</em>}'.
@@ -761,6 +830,17 @@ public interface EcomPackage extends EPackage {
 	EAttribute getCategory_Description();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.ecom.Category#getItems <em>Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Items</em>'.
+	 * @see no.ntnu.tdt4250.ecom.Category#getItems()
+	 * @see #getCategory()
+	 * @generated
+	 */
+	EReference getCategory_Items();
+
+	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.ecom.Role <em>Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -835,10 +915,10 @@ public interface EcomPackage extends EPackage {
 	EClass getAdmin();
 
 	/**
-	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.ecom.Admin#getPrivileges <em>Privileges</em>}'.
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.ecom.Admin#getPrivileges <em>Privileges</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Privileges</em>'.
+	 * @return the meta object for the containment reference list '<em>Privileges</em>'.
 	 * @see no.ntnu.tdt4250.ecom.Admin#getPrivileges()
 	 * @see #getAdmin()
 	 * @generated
@@ -856,10 +936,10 @@ public interface EcomPackage extends EPackage {
 	EClass getNormalUser();
 
 	/**
-	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.ecom.NormalUser#getPrivileges <em>Privileges</em>}'.
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.ecom.NormalUser#getPrivileges <em>Privileges</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Privileges</em>'.
+	 * @return the meta object for the containment reference list '<em>Privileges</em>'.
 	 * @see no.ntnu.tdt4250.ecom.NormalUser#getPrivileges()
 	 * @see #getNormalUser()
 	 * @generated
@@ -931,7 +1011,7 @@ public interface EcomPackage extends EPackage {
 		EClass MARKETPLACE = eINSTANCE.getMarketplace();
 
 		/**
-		 * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Items</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -939,20 +1019,20 @@ public interface EcomPackage extends EPackage {
 		EReference MARKETPLACE__ITEMS = eINSTANCE.getMarketplace_Items();
 
 		/**
-		 * The meta object literal for the '<em><b>Category</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MARKETPLACE__CATEGORY = eINSTANCE.getMarketplace_Category();
+		EReference MARKETPLACE__CATEGORIES = eINSTANCE.getMarketplace_Categories();
 
 		/**
-		 * The meta object literal for the '<em><b>Language</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Languages</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MARKETPLACE__LANGUAGE = eINSTANCE.getMarketplace_Language();
+		EReference MARKETPLACE__LANGUAGES = eINSTANCE.getMarketplace_Languages();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -961,6 +1041,30 @@ public interface EcomPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MARKETPLACE__NAME = eINSTANCE.getMarketplace_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Number Of Items</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARKETPLACE__NUMBER_OF_ITEMS = eINSTANCE.getMarketplace_NumberOfItems();
+
+		/**
+		 * The meta object literal for the '<em><b>Users</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MARKETPLACE__USERS = eINSTANCE.getMarketplace_Users();
+
+		/**
+		 * The meta object literal for the '<em><b>Roles</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MARKETPLACE__ROLES = eINSTANCE.getMarketplace_Roles();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.ecom.impl.UserImpl <em>User</em>}' class.
@@ -1089,6 +1193,14 @@ public interface EcomPackage extends EPackage {
 		EAttribute CATEGORY__DESCRIPTION = eINSTANCE.getCategory_Description();
 
 		/**
+		 * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORY__ITEMS = eINSTANCE.getCategory_Items();
+
+		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.ecom.impl.RoleImpl <em>Role</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1151,7 +1263,7 @@ public interface EcomPackage extends EPackage {
 		EClass ADMIN = eINSTANCE.getAdmin();
 
 		/**
-		 * The meta object literal for the '<em><b>Privileges</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Privileges</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1169,7 +1281,7 @@ public interface EcomPackage extends EPackage {
 		EClass NORMAL_USER = eINSTANCE.getNormalUser();
 
 		/**
-		 * The meta object literal for the '<em><b>Privileges</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Privileges</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
