@@ -2,10 +2,10 @@
 
 Import these projects in the development workspace (1st instance of Eclipse):
 
-no.ntnu.tdt4250.ecom
-no.ntnu.tdt4250.ecom.edit
-no.ntnu.tdt4250.ecom.editor
+* no.ntnu.tdt4250.ecom
+* no.ntnu.tdt4250.ecom.edit
+* no.ntnu.tdt4250.ecom.editor
 
 Import these projects in the runtime workspace (2nd instance of Eclipse):
 
-example-instances
+* example-instances
