@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecom:Marketplace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecom="http://www.ntnu.no/tdt4250/ecom" name="Finn">
+  <items/>
+  <category name="Cars"/>
+  <category name="Boats"/>
+</ecom:Marketplace>
