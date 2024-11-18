@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/no.ntnu.tdt4250.group07.bg/src-gen" creationIcons="false"
+    editDirectory="/no.ntnu.tdt4250.group07.bg.edit/src-gen" editorDirectory="/no.ntnu.tdt4250.group07.bg.editor/src-gen"
+    modelPluginID="no.ntnu.tdt4250.group07.bg" modelName="Bg" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>bg.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Bg" basePackage="no.ntnu.tdt4250.group07" disposableProviderFactory="true"
+      ecorePackage="bg.ecore#/">
+    <genClasses ecoreClass="bg.ecore#//Rules">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Rules/board"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//Board">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Board/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Board/StartPosition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//Board/playerbrickset"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Board/cell"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Board/Width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Board/Height"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Board/boardstate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//Board/validmove"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//PlayerBrickSet">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//PlayerBrickSet/brick"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//PlayerBrickSet/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//Brick">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Brick/bricktype"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Brick/startCell"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//BrickType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//BrickType/brickstate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BrickType/Name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//BrickType/effectoncell"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//BrickState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BrickState/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//Cell">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Cell/Xposition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Cell/Yposition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Cell/celltype"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//CellType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//CellType/cellstate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//CellType/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//CellState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//CellState/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//BoardState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BoardState/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BoardState/Toggleable"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//ValidMove">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//ValidMove/Name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//ValidMove/brickchange"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//ValidMove/cellchange"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//Condition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Condition/boardstate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Condition/relativeposition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Condition/mandatory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Condition/prohibited"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Condition/bricktype"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Condition/brickstate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Condition/celltype"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Condition/cellstate"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//BrickChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//BrickChange/positionchange"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//BrickChange/movingBrick"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//BrickChange/changeFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//BrickChange/changeTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//BrickChange/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//RelativePosition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//RelativePosition/Xchange"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//RelativePosition/Ychange"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//CellChange">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//CellChange/condition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//CellChange/changeFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//CellChange/changeTo"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//EffectOnCell">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//EffectOnCell/relativeposition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//EffectOnCell/cellstate"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

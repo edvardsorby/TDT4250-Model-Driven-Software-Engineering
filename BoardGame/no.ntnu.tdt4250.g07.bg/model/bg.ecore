@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bg" nsURI="http://www.example.org/bg" nsPrefix="bg">
+  <eClassifiers xsi:type="ecore:EClass" name="Rules">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="board" lowerBound="1" upperBound="-1"
+        eType="#//Board" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Board">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartPosition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="playerbrickset" lowerBound="1"
+        upperBound="-1" eType="#//PlayerBrickSet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cell" lowerBound="1" upperBound="-1"
+        eType="#//Cell"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Width" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Height" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boardstate" upperBound="-1"
+        eType="#//BoardState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validmove" lowerBound="1"
+        upperBound="-1" eType="#//ValidMove" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlayerBrickSet">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="brick" lowerBound="1" upperBound="-1"
+        eType="#//Brick"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Brick">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bricktype" lowerBound="1"
+        eType="#//BrickType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startCell" eType="#//Cell"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BrickType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="brickstate" lowerBound="1"
+        upperBound="-1" eType="#//BrickState"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effectoncell" upperBound="-1"
+        eType="#//EffectOnCell"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BrickState">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cell">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Xposition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Yposition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="celltype" lowerBound="1"
+        eType="#//CellType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CellType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cellstate" lowerBound="1"
+        upperBound="-1" eType="#//CellState"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CellState">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BoardState">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Toggleable" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValidMove">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="brickchange" upperBound="-1"
+        eType="#//BrickChange"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cellchange" upperBound="-1"
+        eType="#//CellChange"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boardstate" upperBound="-1"
+        eType="#//BoardState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relativeposition" eType="#//RelativePosition"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mandatory" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prohibited" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bricktype" eType="#//BrickType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="brickstate" eType="#//BrickState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="celltype" eType="#//CellType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cellstate" eType="#//CellState"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BrickChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="positionchange" eType="#//RelativePosition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="movingBrick" eType="#//BrickType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeFrom" eType="#//BrickType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeTo" eType="#//BrickType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" upperBound="-1"
+        eType="#//Condition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelativePosition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Xchange" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ychange" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CellChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" upperBound="-1"
+        eType="#//Condition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeFrom" lowerBound="1"
+        eType="#//CellType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeTo" lowerBound="1"
+        eType="#//CellType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EffectOnCell">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relativeposition" eType="#//RelativePosition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cellstate" eType="#//CellState"/>
+  </eClassifiers>
+</ecore:EPackage>
