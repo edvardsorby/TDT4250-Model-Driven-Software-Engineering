@@ -28,34 +28,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ValidMoveImpl#getName <em>Name</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ValidMoveImpl#getBrickchange <em>Brickchange</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ValidMoveImpl#getCellchange <em>Cellchange</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ValidMoveImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ValidMoveImpl extends MinimalEObjectImpl.Container implements ValidMove {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getBrickchange() <em>Brickchange</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -75,6 +55,26 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	 * @ordered
 	 */
 	protected EList<CellChange> cellchange;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,12 +154,12 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case BgPackage.VALID_MOVE__NAME:
-			return getName();
 		case BgPackage.VALID_MOVE__BRICKCHANGE:
 			return getBrickchange();
 		case BgPackage.VALID_MOVE__CELLCHANGE:
 			return getCellchange();
+		case BgPackage.VALID_MOVE__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -173,9 +173,6 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case BgPackage.VALID_MOVE__NAME:
-			setName((String) newValue);
-			return;
 		case BgPackage.VALID_MOVE__BRICKCHANGE:
 			getBrickchange().clear();
 			getBrickchange().addAll((Collection<? extends BrickChange>) newValue);
@@ -183,6 +180,9 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 		case BgPackage.VALID_MOVE__CELLCHANGE:
 			getCellchange().clear();
 			getCellchange().addAll((Collection<? extends CellChange>) newValue);
+			return;
+		case BgPackage.VALID_MOVE__NAME:
+			setName((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,14 +196,14 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case BgPackage.VALID_MOVE__NAME:
-			setName(NAME_EDEFAULT);
-			return;
 		case BgPackage.VALID_MOVE__BRICKCHANGE:
 			getBrickchange().clear();
 			return;
 		case BgPackage.VALID_MOVE__CELLCHANGE:
 			getCellchange().clear();
+			return;
+		case BgPackage.VALID_MOVE__NAME:
+			setName(NAME_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -217,12 +217,12 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case BgPackage.VALID_MOVE__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case BgPackage.VALID_MOVE__BRICKCHANGE:
 			return brickchange != null && !brickchange.isEmpty();
 		case BgPackage.VALID_MOVE__CELLCHANGE:
 			return cellchange != null && !cellchange.isEmpty();
+		case BgPackage.VALID_MOVE__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}

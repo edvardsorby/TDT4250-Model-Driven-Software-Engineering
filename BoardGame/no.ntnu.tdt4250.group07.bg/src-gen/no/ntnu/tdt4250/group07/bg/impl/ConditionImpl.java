@@ -43,6 +43,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ConditionImpl#getCelltype <em>Celltype</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ConditionImpl#getCellstate <em>Cellstate</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ConditionImpl#getLine <em>Line</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ConditionImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -157,6 +158,26 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 	 * @ordered
 	 */
 	protected EList<Line> line;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -467,6 +488,29 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.CONDITION__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case BgPackage.CONDITION__BOARDSTATE:
@@ -497,6 +541,8 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 			return basicGetCellstate();
 		case BgPackage.CONDITION__LINE:
 			return getLine();
+		case BgPackage.CONDITION__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -539,6 +585,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 			getLine().clear();
 			getLine().addAll((Collection<? extends Line>) newValue);
 			return;
+		case BgPackage.CONDITION__NAME:
+			setName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -578,6 +627,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 		case BgPackage.CONDITION__LINE:
 			getLine().clear();
 			return;
+		case BgPackage.CONDITION__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -608,6 +660,8 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 			return cellstate != null;
 		case BgPackage.CONDITION__LINE:
 			return line != null && !line.isEmpty();
+		case BgPackage.CONDITION__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -627,6 +681,8 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 		result.append(mandatory);
 		result.append(", prohibited: ");
 		result.append(prohibited);
+		result.append(", Name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

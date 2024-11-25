@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.EffectOnCellImpl#getRelativeposition <em>Relativeposition</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.EffectOnCellImpl#getCellstate <em>Cellstate</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.EffectOnCellImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,6 +53,26 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	 * @ordered
 	 */
 	protected CellState cellstate;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,6 +155,29 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.EFFECT_ON_CELL__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION:
@@ -142,6 +186,8 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 			if (resolve)
 				return getCellstate();
 			return basicGetCellstate();
+		case BgPackage.EFFECT_ON_CELL__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,6 +208,9 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
 			setCellstate((CellState) newValue);
 			return;
+		case BgPackage.EFFECT_ON_CELL__NAME:
+			setName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -180,6 +229,9 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
 			setCellstate((CellState) null);
 			return;
+		case BgPackage.EFFECT_ON_CELL__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,8 +248,27 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 			return relativeposition != null && !relativeposition.isEmpty();
 		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
 			return cellstate != null;
+		case BgPackage.EFFECT_ON_CELL__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (Name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EffectOnCellImpl

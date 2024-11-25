@@ -27,13 +27,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface PlayerBrickSet extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Brick</b></em>' reference list.
+	 * Returns the value of the '<em><b>Brick</b></em>' containment reference list.
 	 * The list contents are of type {@link no.ntnu.tdt4250.group07.bg.Brick}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Brick</em>' reference list.
+	 * @return the value of the '<em>Brick</em>' containment reference list.
 	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getPlayerBrickSet_Brick()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Brick> getBrick();

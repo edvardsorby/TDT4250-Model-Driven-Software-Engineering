@@ -621,7 +621,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 */
 	@Override
 	public EAttribute getValidMove_Name() {
-		return (EAttribute) validMoveEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) validMoveEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -631,7 +631,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 */
 	@Override
 	public EReference getValidMove_Brickchange() {
-		return (EReference) validMoveEClass.getEStructuralFeatures().get(1);
+		return (EReference) validMoveEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -641,7 +641,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 */
 	@Override
 	public EReference getValidMove_Cellchange() {
-		return (EReference) validMoveEClass.getEStructuralFeatures().get(2);
+		return (EReference) validMoveEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -750,6 +750,16 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getCondition_Name() {
+		return (EAttribute) conditionEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBrickChange() {
 		return brickChangeEClass;
 	}
@@ -802,6 +812,16 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	@Override
 	public EReference getBrickChange_Condition() {
 		return (EReference) brickChangeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBrickChange_Name() {
+		return (EAttribute) brickChangeEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -880,6 +900,16 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getCellChange_Name() {
+		return (EAttribute) cellChangeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getEffectOnCell() {
 		return effectOnCellEClass;
 	}
@@ -902,6 +932,16 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	@Override
 	public EReference getEffectOnCell_Cellstate() {
 		return (EReference) effectOnCellEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEffectOnCell_Name() {
+		return (EAttribute) effectOnCellEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1040,6 +1080,16 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getOutcome_Name() {
+		return (EAttribute) outcomeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public BgFactory getBgFactory() {
 		return (BgFactory) getEFactoryInstance();
 	}
@@ -1112,9 +1162,9 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		createEAttribute(boardStateEClass, BOARD_STATE__TOGGLEABLE);
 
 		validMoveEClass = createEClass(VALID_MOVE);
-		createEAttribute(validMoveEClass, VALID_MOVE__NAME);
 		createEReference(validMoveEClass, VALID_MOVE__BRICKCHANGE);
 		createEReference(validMoveEClass, VALID_MOVE__CELLCHANGE);
+		createEAttribute(validMoveEClass, VALID_MOVE__NAME);
 
 		conditionEClass = createEClass(CONDITION);
 		createEReference(conditionEClass, CONDITION__BOARDSTATE);
@@ -1126,6 +1176,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		createEReference(conditionEClass, CONDITION__CELLTYPE);
 		createEReference(conditionEClass, CONDITION__CELLSTATE);
 		createEReference(conditionEClass, CONDITION__LINE);
+		createEAttribute(conditionEClass, CONDITION__NAME);
 
 		brickChangeEClass = createEClass(BRICK_CHANGE);
 		createEReference(brickChangeEClass, BRICK_CHANGE__POSITIONCHANGE);
@@ -1133,6 +1184,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		createEReference(brickChangeEClass, BRICK_CHANGE__CHANGE_FROM);
 		createEReference(brickChangeEClass, BRICK_CHANGE__CHANGE_TO);
 		createEReference(brickChangeEClass, BRICK_CHANGE__CONDITION);
+		createEAttribute(brickChangeEClass, BRICK_CHANGE__NAME);
 
 		relativePositionEClass = createEClass(RELATIVE_POSITION);
 		createEAttribute(relativePositionEClass, RELATIVE_POSITION__XCHANGE);
@@ -1142,10 +1194,12 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		createEReference(cellChangeEClass, CELL_CHANGE__CONDITION);
 		createEReference(cellChangeEClass, CELL_CHANGE__CHANGE_FROM);
 		createEReference(cellChangeEClass, CELL_CHANGE__CHANGE_TO);
+		createEAttribute(cellChangeEClass, CELL_CHANGE__NAME);
 
 		effectOnCellEClass = createEClass(EFFECT_ON_CELL);
 		createEReference(effectOnCellEClass, EFFECT_ON_CELL__RELATIVEPOSITION);
 		createEReference(effectOnCellEClass, EFFECT_ON_CELL__CELLSTATE);
+		createEAttribute(effectOnCellEClass, EFFECT_ON_CELL__NAME);
 
 		lineEClass = createEClass(LINE);
 		createEAttribute(lineEClass, LINE__HORIZONTAL);
@@ -1162,6 +1216,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 
 		outcomeEClass = createEClass(OUTCOME);
 		createEReference(outcomeEClass, OUTCOME__CONDITION);
+		createEAttribute(outcomeEClass, OUTCOME__NAME);
 	}
 
 	/**
@@ -1225,7 +1280,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		initEClass(playerBrickSetEClass, PlayerBrickSet.class, "PlayerBrickSet", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlayerBrickSet_Brick(), this.getBrick(), null, "brick", null, 1, -1, PlayerBrickSet.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlayerBrickSet_Name(), ecorePackage.getEString(), "Name", null, 1, 1, PlayerBrickSet.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1292,14 +1347,14 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 
 		initEClass(validMoveEClass, ValidMove.class, "ValidMove", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getValidMove_Name(), ecorePackage.getEString(), "Name", null, 0, 1, ValidMove.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getValidMove_Brickchange(), this.getBrickChange(), null, "brickchange", null, 0, -1,
 				ValidMove.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getValidMove_Cellchange(), this.getCellChange(), null, "cellchange", null, 0, -1,
 				ValidMove.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValidMove_Name(), ecorePackage.getEString(), "Name", null, 1, 1, ValidMove.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1328,6 +1383,8 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		initEReference(getCondition_Line(), this.getLine(), null, "line", null, 0, -1, Condition.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getCondition_Name(), ecorePackage.getEString(), "Name", null, 1, 1, Condition.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(brickChangeEClass, BrickChange.class, "BrickChange", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1346,6 +1403,8 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		initEReference(getBrickChange_Condition(), this.getCondition(), null, "condition", null, 0, -1,
 				BrickChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBrickChange_Name(), ecorePackage.getEString(), "Name", null, 1, 1, BrickChange.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(relativePositionEClass, RelativePosition.class, "RelativePosition", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1367,6 +1426,8 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		initEReference(getCellChange_ChangeTo(), this.getCellType(), null, "changeTo", null, 1, 1, CellChange.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCellChange_Name(), ecorePackage.getEString(), "Name", null, 1, 1, CellChange.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(effectOnCellEClass, EffectOnCell.class, "EffectOnCell", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1376,6 +1437,8 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		initEReference(getEffectOnCell_Cellstate(), this.getCellState(), null, "cellstate", null, 1, 1,
 				EffectOnCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEffectOnCell_Name(), ecorePackage.getEString(), "Name", null, 1, 1, EffectOnCell.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLine_Horizontal(), ecorePackage.getEBoolean(), "Horizontal", null, 1, 1, Line.class,
@@ -1409,6 +1472,8 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		initEReference(getOutcome_Condition(), this.getCondition(), null, "condition", null, 1, -1, Outcome.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOutcome_Name(), ecorePackage.getEString(), "Name", null, 1, 1, Outcome.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

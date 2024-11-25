@@ -4,14 +4,11 @@ package no.ntnu.tdt4250.group07.bg.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import no.ntnu.tdt4250.group07.bg.BgPackage;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;

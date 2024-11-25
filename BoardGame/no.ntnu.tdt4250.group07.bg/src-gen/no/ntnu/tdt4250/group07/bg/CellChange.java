@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link no.ntnu.tdt4250.group07.bg.CellChange#getCondition <em>Condition</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.CellChange#getChangeFrom <em>Change From</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.CellChange#getChangeTo <em>Change To</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.CellChange#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.group07.bg.BgPackage#getCellChange()
@@ -80,5 +81,27 @@ public interface CellChange extends EObject {
 	 * @generated
 	 */
 	void setChangeTo(CellType value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getCellChange_Name()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link no.ntnu.tdt4250.group07.bg.CellChange#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // CellChange

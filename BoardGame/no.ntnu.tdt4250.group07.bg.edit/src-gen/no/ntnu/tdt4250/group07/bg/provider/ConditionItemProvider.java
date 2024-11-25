@@ -62,6 +62,7 @@ public class ConditionItemProvider extends ItemProviderAdapter implements IEditi
 			addCelltypePropertyDescriptor(object);
 			addCellstatePropertyDescriptor(object);
 			addLinePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -204,6 +205,22 @@ public class ConditionItemProvider extends ItemProviderAdapter implements IEditi
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Condition_Name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Condition_Name_feature",
+								"_UI_Condition_type"),
+						BgPackage.Literals.CONDITION__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns Condition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -232,8 +249,9 @@ public class ConditionItemProvider extends ItemProviderAdapter implements IEditi
 	 */
 	@Override
 	public String getText(Object object) {
-		Condition condition = (Condition) object;
-		return getString("_UI_Condition_type") + " " + condition.isMandatory();
+		String label = ((Condition) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Condition_type")
+				: getString("_UI_Condition_type") + " " + label;
 	}
 
 	/**
@@ -250,6 +268,7 @@ public class ConditionItemProvider extends ItemProviderAdapter implements IEditi
 		switch (notification.getFeatureID(Condition.class)) {
 		case BgPackage.CONDITION__MANDATORY:
 		case BgPackage.CONDITION__PROHIBITED:
+		case BgPackage.CONDITION__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

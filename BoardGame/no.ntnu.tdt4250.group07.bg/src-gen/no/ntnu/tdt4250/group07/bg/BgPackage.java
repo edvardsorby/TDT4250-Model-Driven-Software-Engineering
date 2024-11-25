@@ -204,7 +204,7 @@ public interface BgPackage extends EPackage {
 	int PLAYER_BRICK_SET = 2;
 
 	/**
-	 * The feature id for the '<em><b>Brick</b></em>' reference list.
+	 * The feature id for the '<em><b>Brick</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -590,22 +590,13 @@ public interface BgPackage extends EPackage {
 	int VALID_MOVE = 10;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALID_MOVE__NAME = 0;
-
-	/**
 	 * The feature id for the '<em><b>Brickchange</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALID_MOVE__BRICKCHANGE = 1;
+	int VALID_MOVE__BRICKCHANGE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Cellchange</b></em>' reference list.
@@ -614,7 +605,16 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALID_MOVE__CELLCHANGE = 2;
+	int VALID_MOVE__CELLCHANGE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALID_MOVE__NAME = 2;
 
 	/**
 	 * The number of structural features of the '<em>Valid Move</em>' class.
@@ -726,13 +726,22 @@ public interface BgPackage extends EPackage {
 	int CONDITION__LINE = 8;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__NAME = 9;
+
+	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = 9;
+	int CONDITION_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -799,13 +808,22 @@ public interface BgPackage extends EPackage {
 	int BRICK_CHANGE__CONDITION = 4;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRICK_CHANGE__NAME = 5;
+
+	/**
 	 * The number of structural features of the '<em>Brick Change</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BRICK_CHANGE_FEATURE_COUNT = 5;
+	int BRICK_CHANGE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Brick Change</em>' class.
@@ -900,13 +918,22 @@ public interface BgPackage extends EPackage {
 	int CELL_CHANGE__CHANGE_TO = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CELL_CHANGE__NAME = 3;
+
+	/**
 	 * The number of structural features of the '<em>Cell Change</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CELL_CHANGE_FEATURE_COUNT = 3;
+	int CELL_CHANGE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Cell Change</em>' class.
@@ -946,13 +973,22 @@ public interface BgPackage extends EPackage {
 	int EFFECT_ON_CELL__CELLSTATE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFECT_ON_CELL__NAME = 2;
+
+	/**
 	 * The number of structural features of the '<em>Effect On Cell</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECT_ON_CELL_FEATURE_COUNT = 2;
+	int EFFECT_ON_CELL_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Effect On Cell</em>' class.
@@ -1120,13 +1156,22 @@ public interface BgPackage extends EPackage {
 	int OUTCOME__CONDITION = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTCOME__NAME = 1;
+
+	/**
 	 * The number of structural features of the '<em>Outcome</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTCOME_FEATURE_COUNT = 1;
+	int OUTCOME_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Outcome</em>' class.
@@ -1267,10 +1312,10 @@ public interface BgPackage extends EPackage {
 	EClass getPlayerBrickSet();
 
 	/**
-	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.group07.bg.PlayerBrickSet#getBrick <em>Brick</em>}'.
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.group07.bg.PlayerBrickSet#getBrick <em>Brick</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Brick</em>'.
+	 * @return the meta object for the containment reference list '<em>Brick</em>'.
 	 * @see no.ntnu.tdt4250.group07.bg.PlayerBrickSet#getBrick()
 	 * @see #getPlayerBrickSet()
 	 * @generated
@@ -1687,6 +1732,17 @@ public interface BgPackage extends EPackage {
 	EReference getCondition_Line();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.group07.bg.Condition#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.Condition#getName()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EAttribute getCondition_Name();
+
+	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.group07.bg.BrickChange <em>Brick Change</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1750,6 +1806,17 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBrickChange_Condition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.group07.bg.BrickChange#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.BrickChange#getName()
+	 * @see #getBrickChange()
+	 * @generated
+	 */
+	EAttribute getBrickChange_Name();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.group07.bg.RelativePosition <em>Relative Position</em>}'.
@@ -1827,6 +1894,17 @@ public interface BgPackage extends EPackage {
 	EReference getCellChange_ChangeTo();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.group07.bg.CellChange#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.CellChange#getName()
+	 * @see #getCellChange()
+	 * @generated
+	 */
+	EAttribute getCellChange_Name();
+
+	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.group07.bg.EffectOnCell <em>Effect On Cell</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1857,6 +1935,17 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEffectOnCell_Cellstate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.group07.bg.EffectOnCell#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.EffectOnCell#getName()
+	 * @see #getEffectOnCell()
+	 * @generated
+	 */
+	EAttribute getEffectOnCell_Name();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.group07.bg.Line <em>Line</em>}'.
@@ -1999,6 +2088,17 @@ public interface BgPackage extends EPackage {
 	EReference getOutcome_Condition();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.group07.bg.Outcome#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.Outcome#getName()
+	 * @see #getOutcome()
+	 * @generated
+	 */
+	EAttribute getOutcome_Name();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2124,7 +2224,7 @@ public interface BgPackage extends EPackage {
 		EClass PLAYER_BRICK_SET = eINSTANCE.getPlayerBrickSet();
 
 		/**
-		 * The meta object literal for the '<em><b>Brick</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Brick</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2454,6 +2554,14 @@ public interface BgPackage extends EPackage {
 		EReference CONDITION__LINE = eINSTANCE.getCondition_Line();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONDITION__NAME = eINSTANCE.getCondition_Name();
+
+		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.group07.bg.impl.BrickChangeImpl <em>Brick Change</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2502,6 +2610,14 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BRICK_CHANGE__CONDITION = eINSTANCE.getBrickChange_Condition();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BRICK_CHANGE__NAME = eINSTANCE.getBrickChange_Name();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.group07.bg.impl.RelativePositionImpl <em>Relative Position</em>}' class.
@@ -2564,6 +2680,14 @@ public interface BgPackage extends EPackage {
 		EReference CELL_CHANGE__CHANGE_TO = eINSTANCE.getCellChange_ChangeTo();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CELL_CHANGE__NAME = eINSTANCE.getCellChange_Name();
+
+		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.group07.bg.impl.EffectOnCellImpl <em>Effect On Cell</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2588,6 +2712,14 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EFFECT_ON_CELL__CELLSTATE = eINSTANCE.getEffectOnCell_Cellstate();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EFFECT_ON_CELL__NAME = eINSTANCE.getEffectOnCell_Name();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.group07.bg.impl.LineImpl <em>Line</em>}' class.
@@ -2698,6 +2830,14 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OUTCOME__CONDITION = eINSTANCE.getOutcome_Condition();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTCOME__NAME = eINSTANCE.getOutcome_Name();
 
 	}
 

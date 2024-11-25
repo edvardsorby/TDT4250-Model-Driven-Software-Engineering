@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.group07.bg.ValidMove#getName <em>Name</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.ValidMove#getBrickchange <em>Brickchange</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.ValidMove#getCellchange <em>Cellchange</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.ValidMove#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.group07.bg.BgPackage#getValidMove()
@@ -32,7 +32,7 @@ public interface ValidMove extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getValidMove_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

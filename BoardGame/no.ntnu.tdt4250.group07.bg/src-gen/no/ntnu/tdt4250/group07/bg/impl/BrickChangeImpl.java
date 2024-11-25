@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.BrickChangeImpl#getChangeFrom <em>Change From</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.BrickChangeImpl#getChangeTo <em>Change To</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.BrickChangeImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.BrickChangeImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +90,26 @@ public class BrickChangeImpl extends MinimalEObjectImpl.Container implements Bri
 	 * @ordered
 	 */
 	protected EList<Condition> condition;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -296,6 +317,29 @@ public class BrickChangeImpl extends MinimalEObjectImpl.Container implements Bri
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.BRICK_CHANGE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case BgPackage.BRICK_CHANGE__POSITIONCHANGE:
@@ -316,6 +360,8 @@ public class BrickChangeImpl extends MinimalEObjectImpl.Container implements Bri
 			return basicGetChangeTo();
 		case BgPackage.BRICK_CHANGE__CONDITION:
 			return getCondition();
+		case BgPackage.BRICK_CHANGE__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -345,6 +391,9 @@ public class BrickChangeImpl extends MinimalEObjectImpl.Container implements Bri
 			getCondition().clear();
 			getCondition().addAll((Collection<? extends Condition>) newValue);
 			return;
+		case BgPackage.BRICK_CHANGE__NAME:
+			setName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -372,6 +421,9 @@ public class BrickChangeImpl extends MinimalEObjectImpl.Container implements Bri
 		case BgPackage.BRICK_CHANGE__CONDITION:
 			getCondition().clear();
 			return;
+		case BgPackage.BRICK_CHANGE__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -394,8 +446,27 @@ public class BrickChangeImpl extends MinimalEObjectImpl.Container implements Bri
 			return changeTo != null;
 		case BgPackage.BRICK_CHANGE__CONDITION:
 			return condition != null && !condition.isEmpty();
+		case BgPackage.BRICK_CHANGE__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (Name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //BrickChangeImpl

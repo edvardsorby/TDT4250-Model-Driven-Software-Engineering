@@ -8,10 +8,12 @@ import no.ntnu.tdt4250.group07.bg.BgPackage;
 import no.ntnu.tdt4250.group07.bg.Condition;
 import no.ntnu.tdt4250.group07.bg.Outcome;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -25,6 +27,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.OutcomeImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.OutcomeImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,6 +42,25 @@ public class OutcomeImpl extends MinimalEObjectImpl.Container implements Outcome
 	 * @ordered
 	 */
 	protected EList<Condition> condition;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,10 +100,35 @@ public class OutcomeImpl extends MinimalEObjectImpl.Container implements Outcome
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.OUTCOME__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case BgPackage.OUTCOME__CONDITION:
 			return getCondition();
+		case BgPackage.OUTCOME__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -99,6 +146,9 @@ public class OutcomeImpl extends MinimalEObjectImpl.Container implements Outcome
 			getCondition().clear();
 			getCondition().addAll((Collection<? extends Condition>) newValue);
 			return;
+		case BgPackage.OUTCOME__NAME:
+			setName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -114,6 +164,9 @@ public class OutcomeImpl extends MinimalEObjectImpl.Container implements Outcome
 		case BgPackage.OUTCOME__CONDITION:
 			getCondition().clear();
 			return;
+		case BgPackage.OUTCOME__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -128,8 +181,27 @@ public class OutcomeImpl extends MinimalEObjectImpl.Container implements Outcome
 		switch (featureID) {
 		case BgPackage.OUTCOME__CONDITION:
 			return condition != null && !condition.isEmpty();
+		case BgPackage.OUTCOME__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (Name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //OutcomeImpl
