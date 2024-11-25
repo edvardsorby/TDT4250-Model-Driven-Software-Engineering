@@ -26,6 +26,8 @@
     <genClasses ecoreClass="bg.ecore#//PlayerBrickSet">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//PlayerBrickSet/brick"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//PlayerBrickSet/Name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//PlayerBrickSet/win"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//PlayerBrickSet/draw"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//Brick">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Brick/bricktype"/>
@@ -69,6 +71,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Condition/brickstate"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Condition/celltype"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Condition/cellstate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Condition/line"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//BrickChange">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//BrickChange/positionchange"/>
@@ -89,6 +92,22 @@
     <genClasses ecoreClass="bg.ecore#//EffectOnCell">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//EffectOnCell/relativeposition"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//EffectOnCell/cellstate"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//Line">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Line/Horizontal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Line/Vertical"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Line/Diagonal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//Line/lineelement"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//LineElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//LineElement/Position"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//LineElement/celltype"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//LineElement/cellstate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//LineElement/brickstate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//LineElement/bricktype"/>
+    </genClasses>
+    <genClasses ecoreClass="bg.ecore#//Outcome">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//Outcome/condition"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

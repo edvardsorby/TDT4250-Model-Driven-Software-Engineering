@@ -441,6 +441,75 @@ public class BgItemProviderAdapterFactory extends BgAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.Line} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LineItemProvider lineItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.Line}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLineAdapter() {
+		if (lineItemProvider == null) {
+			lineItemProvider = new LineItemProvider(this);
+		}
+
+		return lineItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.LineElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LineElementItemProvider lineElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.LineElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLineElementAdapter() {
+		if (lineElementItemProvider == null) {
+			lineElementItemProvider = new LineElementItemProvider(this);
+		}
+
+		return lineElementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.Outcome} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OutcomeItemProvider outcomeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.Outcome}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOutcomeAdapter() {
+		if (outcomeItemProvider == null) {
+			outcomeItemProvider = new OutcomeItemProvider(this);
+		}
+
+		return outcomeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -577,6 +646,12 @@ public class BgItemProviderAdapterFactory extends BgAdapterFactory
 			cellChangeItemProvider.dispose();
 		if (effectOnCellItemProvider != null)
 			effectOnCellItemProvider.dispose();
+		if (lineItemProvider != null)
+			lineItemProvider.dispose();
+		if (lineElementItemProvider != null)
+			lineElementItemProvider.dispose();
+		if (outcomeItemProvider != null)
+			outcomeItemProvider.dispose();
 	}
 
 }

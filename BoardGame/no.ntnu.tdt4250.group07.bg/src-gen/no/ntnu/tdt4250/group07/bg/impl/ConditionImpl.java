@@ -11,6 +11,7 @@ import no.ntnu.tdt4250.group07.bg.BrickType;
 import no.ntnu.tdt4250.group07.bg.CellState;
 import no.ntnu.tdt4250.group07.bg.CellType;
 import no.ntnu.tdt4250.group07.bg.Condition;
+import no.ntnu.tdt4250.group07.bg.Line;
 import no.ntnu.tdt4250.group07.bg.RelativePosition;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ConditionImpl#getBrickstate <em>Brickstate</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ConditionImpl#getCelltype <em>Celltype</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ConditionImpl#getCellstate <em>Cellstate</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ConditionImpl#getLine <em>Line</em>}</li>
  * </ul>
  *
  * @generated
@@ -145,6 +147,16 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 	 * @ordered
 	 */
 	protected CellState cellstate;
+
+	/**
+	 * The cached value of the '{@link #getLine() <em>Line</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLine()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Line> line;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -442,6 +454,19 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 	 * @generated
 	 */
 	@Override
+	public EList<Line> getLine() {
+		if (line == null) {
+			line = new EObjectResolvingEList<Line>(Line.class, this, BgPackage.CONDITION__LINE);
+		}
+		return line;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case BgPackage.CONDITION__BOARDSTATE:
@@ -470,6 +495,8 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 			if (resolve)
 				return getCellstate();
 			return basicGetCellstate();
+		case BgPackage.CONDITION__LINE:
+			return getLine();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -508,6 +535,10 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 		case BgPackage.CONDITION__CELLSTATE:
 			setCellstate((CellState) newValue);
 			return;
+		case BgPackage.CONDITION__LINE:
+			getLine().clear();
+			getLine().addAll((Collection<? extends Line>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -544,6 +575,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 		case BgPackage.CONDITION__CELLSTATE:
 			setCellstate((CellState) null);
 			return;
+		case BgPackage.CONDITION__LINE:
+			getLine().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -572,6 +606,8 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
 			return celltype != null;
 		case BgPackage.CONDITION__CELLSTATE:
 			return cellstate != null;
+		case BgPackage.CONDITION__LINE:
+			return line != null && !line.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

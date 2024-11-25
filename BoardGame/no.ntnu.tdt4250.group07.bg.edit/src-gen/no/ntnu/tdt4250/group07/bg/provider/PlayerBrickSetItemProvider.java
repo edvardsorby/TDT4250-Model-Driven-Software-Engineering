@@ -55,6 +55,8 @@ public class PlayerBrickSetItemProvider extends ItemProviderAdapter implements I
 
 			addBrickPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addWinPropertyDescriptor(object);
+			addDrawPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -88,6 +90,36 @@ public class PlayerBrickSetItemProvider extends ItemProviderAdapter implements I
 								"_UI_PlayerBrickSet_type"),
 						BgPackage.Literals.PLAYER_BRICK_SET__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Win feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWinPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_PlayerBrickSet_win_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_PlayerBrickSet_win_feature",
+								"_UI_PlayerBrickSet_type"),
+						BgPackage.Literals.PLAYER_BRICK_SET__WIN, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Draw feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDrawPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_PlayerBrickSet_draw_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_PlayerBrickSet_draw_feature",
+								"_UI_PlayerBrickSet_type"),
+						BgPackage.Literals.PLAYER_BRICK_SET__DRAW, true, false, true, null, null, null));
 	}
 
 	/**

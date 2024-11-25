@@ -222,13 +222,31 @@ public interface BgPackage extends EPackage {
 	int PLAYER_BRICK_SET__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>Win</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER_BRICK_SET__WIN = 2;
+
+	/**
+	 * The feature id for the '<em><b>Draw</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER_BRICK_SET__DRAW = 3;
+
+	/**
 	 * The number of structural features of the '<em>Player Brick Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER_BRICK_SET_FEATURE_COUNT = 2;
+	int PLAYER_BRICK_SET_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Player Brick Set</em>' class.
@@ -699,13 +717,22 @@ public interface BgPackage extends EPackage {
 	int CONDITION__CELLSTATE = 7;
 
 	/**
+	 * The feature id for the '<em><b>Line</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__LINE = 8;
+
+	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = 8;
+	int CONDITION_FEATURE_COUNT = 9;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -901,7 +928,7 @@ public interface BgPackage extends EPackage {
 	int EFFECT_ON_CELL = 15;
 
 	/**
-	 * The feature id for the '<em><b>Relativeposition</b></em>' reference.
+	 * The feature id for the '<em><b>Relativeposition</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -935,6 +962,180 @@ public interface BgPackage extends EPackage {
 	 * @ordered
 	 */
 	int EFFECT_ON_CELL_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link no.ntnu.tdt4250.group07.bg.impl.LineImpl <em>Line</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.ntnu.tdt4250.group07.bg.impl.LineImpl
+	 * @see no.ntnu.tdt4250.group07.bg.impl.BgPackageImpl#getLine()
+	 * @generated
+	 */
+	int LINE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Horizontal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE__HORIZONTAL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Vertical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE__VERTICAL = 1;
+
+	/**
+	 * The feature id for the '<em><b>Diagonal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE__DIAGONAL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Lineelement</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE__LINEELEMENT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Line</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Line</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link no.ntnu.tdt4250.group07.bg.impl.LineElementImpl <em>Line Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.ntnu.tdt4250.group07.bg.impl.LineElementImpl
+	 * @see no.ntnu.tdt4250.group07.bg.impl.BgPackageImpl#getLineElement()
+	 * @generated
+	 */
+	int LINE_ELEMENT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_ELEMENT__POSITION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Celltype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_ELEMENT__CELLTYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Cellstate</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_ELEMENT__CELLSTATE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Brickstate</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_ELEMENT__BRICKSTATE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Bricktype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_ELEMENT__BRICKTYPE = 4;
+
+	/**
+	 * The number of structural features of the '<em>Line Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_ELEMENT_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Line Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link no.ntnu.tdt4250.group07.bg.impl.OutcomeImpl <em>Outcome</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.ntnu.tdt4250.group07.bg.impl.OutcomeImpl
+	 * @see no.ntnu.tdt4250.group07.bg.impl.BgPackageImpl#getOutcome()
+	 * @generated
+	 */
+	int OUTCOME = 18;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTCOME__CONDITION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Outcome</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTCOME_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Outcome</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTCOME_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.group07.bg.Rules <em>Rules</em>}'.
@@ -1086,6 +1287,28 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPlayerBrickSet_Name();
+
+	/**
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.group07.bg.PlayerBrickSet#getWin <em>Win</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Win</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.PlayerBrickSet#getWin()
+	 * @see #getPlayerBrickSet()
+	 * @generated
+	 */
+	EReference getPlayerBrickSet_Win();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.ntnu.tdt4250.group07.bg.PlayerBrickSet#getDraw <em>Draw</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Draw</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.PlayerBrickSet#getDraw()
+	 * @see #getPlayerBrickSet()
+	 * @generated
+	 */
+	EReference getPlayerBrickSet_Draw();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.group07.bg.Brick <em>Brick</em>}'.
@@ -1453,6 +1676,17 @@ public interface BgPackage extends EPackage {
 	EReference getCondition_Cellstate();
 
 	/**
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.group07.bg.Condition#getLine <em>Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Line</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.Condition#getLine()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EReference getCondition_Line();
+
+	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.group07.bg.BrickChange <em>Brick Change</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1603,10 +1837,10 @@ public interface BgPackage extends EPackage {
 	EClass getEffectOnCell();
 
 	/**
-	 * Returns the meta object for the reference '{@link no.ntnu.tdt4250.group07.bg.EffectOnCell#getRelativeposition <em>Relativeposition</em>}'.
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.group07.bg.EffectOnCell#getRelativeposition <em>Relativeposition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Relativeposition</em>'.
+	 * @return the meta object for the reference list '<em>Relativeposition</em>'.
 	 * @see no.ntnu.tdt4250.group07.bg.EffectOnCell#getRelativeposition()
 	 * @see #getEffectOnCell()
 	 * @generated
@@ -1623,6 +1857,146 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEffectOnCell_Cellstate();
+
+	/**
+	 * Returns the meta object for class '{@link no.ntnu.tdt4250.group07.bg.Line <em>Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Line</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.Line
+	 * @generated
+	 */
+	EClass getLine();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.group07.bg.Line#isHorizontal <em>Horizontal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Horizontal</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.Line#isHorizontal()
+	 * @see #getLine()
+	 * @generated
+	 */
+	EAttribute getLine_Horizontal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.group07.bg.Line#isVertical <em>Vertical</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Vertical</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.Line#isVertical()
+	 * @see #getLine()
+	 * @generated
+	 */
+	EAttribute getLine_Vertical();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.group07.bg.Line#isDiagonal <em>Diagonal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Diagonal</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.Line#isDiagonal()
+	 * @see #getLine()
+	 * @generated
+	 */
+	EAttribute getLine_Diagonal();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.group07.bg.Line#getLineelement <em>Lineelement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Lineelement</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.Line#getLineelement()
+	 * @see #getLine()
+	 * @generated
+	 */
+	EReference getLine_Lineelement();
+
+	/**
+	 * Returns the meta object for class '{@link no.ntnu.tdt4250.group07.bg.LineElement <em>Line Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Line Element</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.LineElement
+	 * @generated
+	 */
+	EClass getLineElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.group07.bg.LineElement#getPosition <em>Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Position</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.LineElement#getPosition()
+	 * @see #getLineElement()
+	 * @generated
+	 */
+	EAttribute getLineElement_Position();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.ntnu.tdt4250.group07.bg.LineElement#getCelltype <em>Celltype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Celltype</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.LineElement#getCelltype()
+	 * @see #getLineElement()
+	 * @generated
+	 */
+	EReference getLineElement_Celltype();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.ntnu.tdt4250.group07.bg.LineElement#getCellstate <em>Cellstate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Cellstate</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.LineElement#getCellstate()
+	 * @see #getLineElement()
+	 * @generated
+	 */
+	EReference getLineElement_Cellstate();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.ntnu.tdt4250.group07.bg.LineElement#getBrickstate <em>Brickstate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Brickstate</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.LineElement#getBrickstate()
+	 * @see #getLineElement()
+	 * @generated
+	 */
+	EReference getLineElement_Brickstate();
+
+	/**
+	 * Returns the meta object for the reference '{@link no.ntnu.tdt4250.group07.bg.LineElement#getBricktype <em>Bricktype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Bricktype</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.LineElement#getBricktype()
+	 * @see #getLineElement()
+	 * @generated
+	 */
+	EReference getLineElement_Bricktype();
+
+	/**
+	 * Returns the meta object for class '{@link no.ntnu.tdt4250.group07.bg.Outcome <em>Outcome</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Outcome</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.Outcome
+	 * @generated
+	 */
+	EClass getOutcome();
+
+	/**
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.group07.bg.Outcome#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Condition</em>'.
+	 * @see no.ntnu.tdt4250.group07.bg.Outcome#getCondition()
+	 * @see #getOutcome()
+	 * @generated
+	 */
+	EReference getOutcome_Condition();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1764,6 +2138,22 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PLAYER_BRICK_SET__NAME = eINSTANCE.getPlayerBrickSet_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Win</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLAYER_BRICK_SET__WIN = eINSTANCE.getPlayerBrickSet_Win();
+
+		/**
+		 * The meta object literal for the '<em><b>Draw</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLAYER_BRICK_SET__DRAW = eINSTANCE.getPlayerBrickSet_Draw();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.group07.bg.impl.BrickImpl <em>Brick</em>}' class.
@@ -2056,6 +2446,14 @@ public interface BgPackage extends EPackage {
 		EReference CONDITION__CELLSTATE = eINSTANCE.getCondition_Cellstate();
 
 		/**
+		 * The meta object literal for the '<em><b>Line</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITION__LINE = eINSTANCE.getCondition_Line();
+
+		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.group07.bg.impl.BrickChangeImpl <em>Brick Change</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2176,7 +2574,7 @@ public interface BgPackage extends EPackage {
 		EClass EFFECT_ON_CELL = eINSTANCE.getEffectOnCell();
 
 		/**
-		 * The meta object literal for the '<em><b>Relativeposition</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Relativeposition</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2190,6 +2588,116 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EFFECT_ON_CELL__CELLSTATE = eINSTANCE.getEffectOnCell_Cellstate();
+
+		/**
+		 * The meta object literal for the '{@link no.ntnu.tdt4250.group07.bg.impl.LineImpl <em>Line</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.ntnu.tdt4250.group07.bg.impl.LineImpl
+		 * @see no.ntnu.tdt4250.group07.bg.impl.BgPackageImpl#getLine()
+		 * @generated
+		 */
+		EClass LINE = eINSTANCE.getLine();
+
+		/**
+		 * The meta object literal for the '<em><b>Horizontal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINE__HORIZONTAL = eINSTANCE.getLine_Horizontal();
+
+		/**
+		 * The meta object literal for the '<em><b>Vertical</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINE__VERTICAL = eINSTANCE.getLine_Vertical();
+
+		/**
+		 * The meta object literal for the '<em><b>Diagonal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINE__DIAGONAL = eINSTANCE.getLine_Diagonal();
+
+		/**
+		 * The meta object literal for the '<em><b>Lineelement</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LINE__LINEELEMENT = eINSTANCE.getLine_Lineelement();
+
+		/**
+		 * The meta object literal for the '{@link no.ntnu.tdt4250.group07.bg.impl.LineElementImpl <em>Line Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.ntnu.tdt4250.group07.bg.impl.LineElementImpl
+		 * @see no.ntnu.tdt4250.group07.bg.impl.BgPackageImpl#getLineElement()
+		 * @generated
+		 */
+		EClass LINE_ELEMENT = eINSTANCE.getLineElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINE_ELEMENT__POSITION = eINSTANCE.getLineElement_Position();
+
+		/**
+		 * The meta object literal for the '<em><b>Celltype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LINE_ELEMENT__CELLTYPE = eINSTANCE.getLineElement_Celltype();
+
+		/**
+		 * The meta object literal for the '<em><b>Cellstate</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LINE_ELEMENT__CELLSTATE = eINSTANCE.getLineElement_Cellstate();
+
+		/**
+		 * The meta object literal for the '<em><b>Brickstate</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LINE_ELEMENT__BRICKSTATE = eINSTANCE.getLineElement_Brickstate();
+
+		/**
+		 * The meta object literal for the '<em><b>Bricktype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LINE_ELEMENT__BRICKTYPE = eINSTANCE.getLineElement_Bricktype();
+
+		/**
+		 * The meta object literal for the '{@link no.ntnu.tdt4250.group07.bg.impl.OutcomeImpl <em>Outcome</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.ntnu.tdt4250.group07.bg.impl.OutcomeImpl
+		 * @see no.ntnu.tdt4250.group07.bg.impl.BgPackageImpl#getOutcome()
+		 * @generated
+		 */
+		EClass OUTCOME = eINSTANCE.getOutcome();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTCOME__CONDITION = eINSTANCE.getOutcome_Condition();
 
 	}
 

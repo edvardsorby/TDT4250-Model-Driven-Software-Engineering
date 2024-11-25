@@ -87,6 +87,12 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 			return createCellChange();
 		case BgPackage.EFFECT_ON_CELL:
 			return createEffectOnCell();
+		case BgPackage.LINE:
+			return createLine();
+		case BgPackage.LINE_ELEMENT:
+			return createLineElement();
+		case BgPackage.OUTCOME:
+			return createOutcome();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -266,6 +272,39 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 	public EffectOnCell createEffectOnCell() {
 		EffectOnCellImpl effectOnCell = new EffectOnCellImpl();
 		return effectOnCell;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Line createLine() {
+		LineImpl line = new LineImpl();
+		return line;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LineElement createLineElement() {
+		LineElementImpl lineElement = new LineElementImpl();
+		return lineElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Outcome createOutcome() {
+		OutcomeImpl outcome = new OutcomeImpl();
+		return outcome;
 	}
 
 	/**

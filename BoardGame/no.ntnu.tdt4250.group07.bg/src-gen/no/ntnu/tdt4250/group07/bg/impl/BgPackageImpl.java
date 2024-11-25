@@ -16,6 +16,9 @@ import no.ntnu.tdt4250.group07.bg.CellState;
 import no.ntnu.tdt4250.group07.bg.CellType;
 import no.ntnu.tdt4250.group07.bg.Condition;
 import no.ntnu.tdt4250.group07.bg.EffectOnCell;
+import no.ntnu.tdt4250.group07.bg.Line;
+import no.ntnu.tdt4250.group07.bg.LineElement;
+import no.ntnu.tdt4250.group07.bg.Outcome;
 import no.ntnu.tdt4250.group07.bg.PlayerBrickSet;
 import no.ntnu.tdt4250.group07.bg.RelativePosition;
 import no.ntnu.tdt4250.group07.bg.Rules;
@@ -146,6 +149,27 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	private EClass effectOnCellEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass lineEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass lineElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass outcomeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -348,6 +372,26 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	@Override
 	public EAttribute getPlayerBrickSet_Name() {
 		return (EAttribute) playerBrickSetEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPlayerBrickSet_Win() {
+		return (EReference) playerBrickSetEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPlayerBrickSet_Draw() {
+		return (EReference) playerBrickSetEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -696,6 +740,16 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getCondition_Line() {
+		return (EReference) conditionEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBrickChange() {
 		return brickChangeEClass;
 	}
@@ -856,6 +910,136 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getLine() {
+		return lineEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLine_Horizontal() {
+		return (EAttribute) lineEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLine_Vertical() {
+		return (EAttribute) lineEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLine_Diagonal() {
+		return (EAttribute) lineEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getLine_Lineelement() {
+		return (EReference) lineEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLineElement() {
+		return lineElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLineElement_Position() {
+		return (EAttribute) lineElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getLineElement_Celltype() {
+		return (EReference) lineElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getLineElement_Cellstate() {
+		return (EReference) lineElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getLineElement_Brickstate() {
+		return (EReference) lineElementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getLineElement_Bricktype() {
+		return (EReference) lineElementEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getOutcome() {
+		return outcomeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOutcome_Condition() {
+		return (EReference) outcomeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public BgFactory getBgFactory() {
 		return (BgFactory) getEFactoryInstance();
 	}
@@ -896,6 +1080,8 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		playerBrickSetEClass = createEClass(PLAYER_BRICK_SET);
 		createEReference(playerBrickSetEClass, PLAYER_BRICK_SET__BRICK);
 		createEAttribute(playerBrickSetEClass, PLAYER_BRICK_SET__NAME);
+		createEReference(playerBrickSetEClass, PLAYER_BRICK_SET__WIN);
+		createEReference(playerBrickSetEClass, PLAYER_BRICK_SET__DRAW);
 
 		brickEClass = createEClass(BRICK);
 		createEReference(brickEClass, BRICK__BRICKTYPE);
@@ -939,6 +1125,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		createEReference(conditionEClass, CONDITION__BRICKSTATE);
 		createEReference(conditionEClass, CONDITION__CELLTYPE);
 		createEReference(conditionEClass, CONDITION__CELLSTATE);
+		createEReference(conditionEClass, CONDITION__LINE);
 
 		brickChangeEClass = createEClass(BRICK_CHANGE);
 		createEReference(brickChangeEClass, BRICK_CHANGE__POSITIONCHANGE);
@@ -959,6 +1146,22 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		effectOnCellEClass = createEClass(EFFECT_ON_CELL);
 		createEReference(effectOnCellEClass, EFFECT_ON_CELL__RELATIVEPOSITION);
 		createEReference(effectOnCellEClass, EFFECT_ON_CELL__CELLSTATE);
+
+		lineEClass = createEClass(LINE);
+		createEAttribute(lineEClass, LINE__HORIZONTAL);
+		createEAttribute(lineEClass, LINE__VERTICAL);
+		createEAttribute(lineEClass, LINE__DIAGONAL);
+		createEReference(lineEClass, LINE__LINEELEMENT);
+
+		lineElementEClass = createEClass(LINE_ELEMENT);
+		createEAttribute(lineElementEClass, LINE_ELEMENT__POSITION);
+		createEReference(lineElementEClass, LINE_ELEMENT__CELLTYPE);
+		createEReference(lineElementEClass, LINE_ELEMENT__CELLSTATE);
+		createEReference(lineElementEClass, LINE_ELEMENT__BRICKSTATE);
+		createEReference(lineElementEClass, LINE_ELEMENT__BRICKTYPE);
+
+		outcomeEClass = createEClass(OUTCOME);
+		createEReference(outcomeEClass, OUTCOME__CONDITION);
 	}
 
 	/**
@@ -1026,6 +1229,12 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlayerBrickSet_Name(), ecorePackage.getEString(), "Name", null, 1, 1, PlayerBrickSet.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlayerBrickSet_Win(), this.getOutcome(), null, "win", null, 1, -1, PlayerBrickSet.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlayerBrickSet_Draw(), this.getOutcome(), null, "draw", null, 0, 1, PlayerBrickSet.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(brickEClass, Brick.class, "Brick", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBrick_Bricktype(), this.getBrickType(), null, "bricktype", null, 1, 1, Brick.class,
@@ -1116,6 +1325,9 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		initEReference(getCondition_Cellstate(), this.getCellState(), null, "cellstate", null, 0, 1, Condition.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCondition_Line(), this.getLine(), null, "line", null, 0, -1, Condition.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(brickChangeEClass, BrickChange.class, "BrickChange", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1159,11 +1371,44 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		initEClass(effectOnCellEClass, EffectOnCell.class, "EffectOnCell", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEffectOnCell_Relativeposition(), this.getRelativePosition(), null, "relativeposition", null,
-				0, 1, EffectOnCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEffectOnCell_Cellstate(), this.getCellState(), null, "cellstate", null, 0, 1,
+				1, -1, EffectOnCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEffectOnCell_Cellstate(), this.getCellState(), null, "cellstate", null, 1, 1,
 				EffectOnCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLine_Horizontal(), ecorePackage.getEBoolean(), "Horizontal", null, 1, 1, Line.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLine_Vertical(), ecorePackage.getEBoolean(), "Vertical", null, 1, 1, Line.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLine_Diagonal(), ecorePackage.getEBoolean(), "Diagonal", null, 1, 1, Line.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLine_Lineelement(), this.getLineElement(), null, "lineelement", null, 1, -1, Line.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(lineElementEClass, LineElement.class, "LineElement", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLineElement_Position(), ecorePackage.getEInt(), "Position", null, 0, 1, LineElement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLineElement_Celltype(), this.getCellType(), null, "celltype", null, 0, 1, LineElement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLineElement_Cellstate(), this.getCellState(), null, "cellstate", null, 0, 1,
+				LineElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLineElement_Brickstate(), this.getBrickState(), null, "brickstate", null, 0, 1,
+				LineElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLineElement_Bricktype(), this.getBrickType(), null, "bricktype", null, 0, 1,
+				LineElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(outcomeEClass, Outcome.class, "Outcome", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOutcome_Condition(), this.getCondition(), null, "condition", null, 1, -1, Outcome.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -166,6 +166,33 @@ public interface BgFactory extends EFactory {
 	EffectOnCell createEffectOnCell();
 
 	/**
+	 * Returns a new object of class '<em>Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Line</em>'.
+	 * @generated
+	 */
+	Line createLine();
+
+	/**
+	 * Returns a new object of class '<em>Line Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Line Element</em>'.
+	 * @generated
+	 */
+	LineElement createLineElement();
+
+	/**
+	 * Returns a new object of class '<em>Outcome</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Outcome</em>'.
+	 * @generated
+	 */
+	Outcome createOutcome();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

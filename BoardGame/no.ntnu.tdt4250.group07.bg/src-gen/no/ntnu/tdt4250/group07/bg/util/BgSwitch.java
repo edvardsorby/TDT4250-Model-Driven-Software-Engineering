@@ -178,6 +178,27 @@ public class BgSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case BgPackage.LINE: {
+			Line line = (Line) theEObject;
+			T result = caseLine(line);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BgPackage.LINE_ELEMENT: {
+			LineElement lineElement = (LineElement) theEObject;
+			T result = caseLineElement(lineElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BgPackage.OUTCOME: {
+			Outcome outcome = (Outcome) theEObject;
+			T result = caseOutcome(outcome);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -420,6 +441,51 @@ public class BgSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEffectOnCell(EffectOnCell object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Line</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLine(Line object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Line Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Line Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLineElement(LineElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Outcome</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Outcome</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOutcome(Outcome object) {
 		return null;
 	}
 

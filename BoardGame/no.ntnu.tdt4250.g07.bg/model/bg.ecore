@@ -25,6 +25,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="brick" lowerBound="1" upperBound="-1"
         eType="#//Brick"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="win" lowerBound="1" upperBound="-1"
+        eType="#//Outcome"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="draw" eType="#//Outcome"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Brick">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bricktype" lowerBound="1"
@@ -81,6 +84,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="brickstate" eType="#//BrickState"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="celltype" eType="#//CellType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cellstate" eType="#//CellState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="line" upperBound="-1" eType="#//Line"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BrickChange">
     <eStructuralFeatures xsi:type="ecore:EReference" name="positionchange" eType="#//RelativePosition"/>
@@ -105,7 +109,30 @@
         eType="#//CellType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EffectOnCell">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relativeposition" eType="#//RelativePosition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relativeposition" lowerBound="1"
+        upperBound="-1" eType="#//RelativePosition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cellstate" lowerBound="1"
+        eType="#//CellState"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Line">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Horizontal" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Vertical" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Diagonal" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lineelement" lowerBound="1"
+        upperBound="-1" eType="#//LineElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LineElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="celltype" eType="#//CellType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cellstate" eType="#//CellState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="brickstate" eType="#//BrickState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bricktype" eType="#//BrickType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Outcome">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+        upperBound="-1" eType="#//Condition"/>
   </eClassifiers>
 </ecore:EPackage>

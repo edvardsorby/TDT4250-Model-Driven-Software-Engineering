@@ -61,6 +61,7 @@ public class ConditionItemProvider extends ItemProviderAdapter implements IEditi
 			addBrickstatePropertyDescriptor(object);
 			addCelltypePropertyDescriptor(object);
 			addCellstatePropertyDescriptor(object);
+			addLinePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -185,6 +186,21 @@ public class ConditionItemProvider extends ItemProviderAdapter implements IEditi
 						getString("_UI_PropertyDescriptor_description", "_UI_Condition_cellstate_feature",
 								"_UI_Condition_type"),
 						BgPackage.Literals.CONDITION__CELLSTATE, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Line feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLinePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Condition_line_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Condition_line_feature",
+								"_UI_Condition_type"),
+						BgPackage.Literals.CONDITION__LINE, true, false, true, null, null, null));
 	}
 
 	/**

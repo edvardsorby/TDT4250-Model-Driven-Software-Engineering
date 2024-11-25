@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link no.ntnu.tdt4250.group07.bg.Condition#getBrickstate <em>Brickstate</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.Condition#getCelltype <em>Celltype</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.Condition#getCellstate <em>Cellstate</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.Condition#getLine <em>Line</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.group07.bg.BgPackage#getCondition()
@@ -195,5 +196,17 @@ public interface Condition extends EObject {
 	 * @generated
 	 */
 	void setCellstate(CellState value);
+
+	/**
+	 * Returns the value of the '<em><b>Line</b></em>' reference list.
+	 * The list contents are of type {@link no.ntnu.tdt4250.group07.bg.Line}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Line</em>' reference list.
+	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getCondition_Line()
+	 * @model
+	 * @generated
+	 */
+	EList<Line> getLine();
 
 } // Condition

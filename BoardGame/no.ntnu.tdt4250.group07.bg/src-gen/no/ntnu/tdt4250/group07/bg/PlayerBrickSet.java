@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.PlayerBrickSet#getBrick <em>Brick</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.PlayerBrickSet#getName <em>Name</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.PlayerBrickSet#getWin <em>Win</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.PlayerBrickSet#getDraw <em>Draw</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.group07.bg.BgPackage#getPlayerBrickSet()
@@ -57,5 +59,39 @@ public interface PlayerBrickSet extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Win</b></em>' reference list.
+	 * The list contents are of type {@link no.ntnu.tdt4250.group07.bg.Outcome}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Win</em>' reference list.
+	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getPlayerBrickSet_Win()
+	 * @model required="true"
+	 * @generated
+	 */
+	EList<Outcome> getWin();
+
+	/**
+	 * Returns the value of the '<em><b>Draw</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Draw</em>' reference.
+	 * @see #setDraw(Outcome)
+	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getPlayerBrickSet_Draw()
+	 * @model
+	 * @generated
+	 */
+	Outcome getDraw();
+
+	/**
+	 * Sets the value of the '{@link no.ntnu.tdt4250.group07.bg.PlayerBrickSet#getDraw <em>Draw</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Draw</em>' reference.
+	 * @see #getDraw()
+	 * @generated
+	 */
+	void setDraw(Outcome value);
 
 } // PlayerBrickSet

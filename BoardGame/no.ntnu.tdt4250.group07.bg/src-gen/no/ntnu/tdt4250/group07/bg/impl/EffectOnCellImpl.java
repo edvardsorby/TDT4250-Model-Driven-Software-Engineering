@@ -2,6 +2,7 @@
  */
 package no.ntnu.tdt4250.group07.bg.impl;
 
+import java.util.Collection;
 import no.ntnu.tdt4250.group07.bg.BgPackage;
 import no.ntnu.tdt4250.group07.bg.CellState;
 import no.ntnu.tdt4250.group07.bg.EffectOnCell;
@@ -9,11 +10,13 @@ import no.ntnu.tdt4250.group07.bg.RelativePosition;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,14 +34,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements EffectOnCell {
 	/**
-	 * The cached value of the '{@link #getRelativeposition() <em>Relativeposition</em>}' reference.
+	 * The cached value of the '{@link #getRelativeposition() <em>Relativeposition</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRelativeposition()
 	 * @generated
 	 * @ordered
 	 */
-	protected RelativePosition relativeposition;
+	protected EList<RelativePosition> relativeposition;
 
 	/**
 	 * The cached value of the '{@link #getCellstate() <em>Cellstate</em>}' reference.
@@ -75,40 +78,12 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	 * @generated
 	 */
 	@Override
-	public RelativePosition getRelativeposition() {
-		if (relativeposition != null && relativeposition.eIsProxy()) {
-			InternalEObject oldRelativeposition = (InternalEObject) relativeposition;
-			relativeposition = (RelativePosition) eResolveProxy(oldRelativeposition);
-			if (relativeposition != oldRelativeposition) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION, oldRelativeposition, relativeposition));
-			}
+	public EList<RelativePosition> getRelativeposition() {
+		if (relativeposition == null) {
+			relativeposition = new EObjectResolvingEList<RelativePosition>(RelativePosition.class, this,
+					BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION);
 		}
 		return relativeposition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RelativePosition basicGetRelativeposition() {
-		return relativeposition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRelativeposition(RelativePosition newRelativeposition) {
-		RelativePosition oldRelativeposition = relativeposition;
-		relativeposition = newRelativeposition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION,
-					oldRelativeposition, relativeposition));
 	}
 
 	/**
@@ -162,9 +137,7 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION:
-			if (resolve)
-				return getRelativeposition();
-			return basicGetRelativeposition();
+			return getRelativeposition();
 		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
 			if (resolve)
 				return getCellstate();
@@ -178,11 +151,13 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION:
-			setRelativeposition((RelativePosition) newValue);
+			getRelativeposition().clear();
+			getRelativeposition().addAll((Collection<? extends RelativePosition>) newValue);
 			return;
 		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
 			setCellstate((CellState) newValue);
@@ -200,7 +175,7 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION:
-			setRelativeposition((RelativePosition) null);
+			getRelativeposition().clear();
 			return;
 		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
 			setCellstate((CellState) null);
@@ -218,7 +193,7 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION:
-			return relativeposition != null;
+			return relativeposition != null && !relativeposition.isEmpty();
 		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
 			return cellstate != null;
 		}

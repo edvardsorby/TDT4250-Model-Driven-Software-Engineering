@@ -2,6 +2,7 @@
  */
 package no.ntnu.tdt4250.group07.bg;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -23,26 +24,16 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface EffectOnCell extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Relativeposition</b></em>' reference.
+	 * Returns the value of the '<em><b>Relativeposition</b></em>' reference list.
+	 * The list contents are of type {@link no.ntnu.tdt4250.group07.bg.RelativePosition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relativeposition</em>' reference.
-	 * @see #setRelativeposition(RelativePosition)
+	 * @return the value of the '<em>Relativeposition</em>' reference list.
 	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getEffectOnCell_Relativeposition()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	RelativePosition getRelativeposition();
-
-	/**
-	 * Sets the value of the '{@link no.ntnu.tdt4250.group07.bg.EffectOnCell#getRelativeposition <em>Relativeposition</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relativeposition</em>' reference.
-	 * @see #getRelativeposition()
-	 * @generated
-	 */
-	void setRelativeposition(RelativePosition value);
+	EList<RelativePosition> getRelativeposition();
 
 	/**
 	 * Returns the value of the '<em><b>Cellstate</b></em>' reference.
@@ -51,7 +42,7 @@ public interface EffectOnCell extends EObject {
 	 * @return the value of the '<em>Cellstate</em>' reference.
 	 * @see #setCellstate(CellState)
 	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getEffectOnCell_Cellstate()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	CellState getCellstate();

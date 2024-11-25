@@ -147,6 +147,21 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseLine(Line object) {
+			return createLineAdapter();
+		}
+
+		@Override
+		public Adapter caseLineElement(LineElement object) {
+			return createLineElementAdapter();
+		}
+
+		@Override
+		public Adapter caseOutcome(Outcome object) {
+			return createOutcomeAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -386,6 +401,48 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEffectOnCellAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.Line <em>Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.ntnu.tdt4250.group07.bg.Line
+	 * @generated
+	 */
+	public Adapter createLineAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.LineElement <em>Line Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.ntnu.tdt4250.group07.bg.LineElement
+	 * @generated
+	 */
+	public Adapter createLineElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.Outcome <em>Outcome</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.ntnu.tdt4250.group07.bg.Outcome
+	 * @generated
+	 */
+	public Adapter createOutcomeAdapter() {
 		return null;
 	}
 
