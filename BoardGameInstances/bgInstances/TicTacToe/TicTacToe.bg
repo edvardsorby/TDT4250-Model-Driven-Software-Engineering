@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bg:Rules xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bg="http://www.example.org/bg">
-  <board Width="3" Height="3">
+  <board Name="TicTacToeBoard" Width="3" Height="3">
     <playerbrickset Name="Circles">
       <brick>
         <bricktype href="CircleType.bg#/"/>
@@ -19,6 +19,15 @@
       </brick>
       <win href="HorizontalWinCircles.bg#/"/>
     </playerbrickset>
+    <cell href="../Cell1-1.bg#/"/>
+    <cell href="../Cell1-2.bg#/"/>
+    <cell href="../Cell1-3.bg#/"/>
+    <cell href="../Cell2-1.bg#/"/>
+    <cell href="../Cell2-2.bg#/"/>
+    <cell href="../Cell2-3.bg#/"/>
+    <cell href="../Cell3-1.bg#/"/>
+    <cell href="../Cell3-2.bg#/"/>
+    <cell href="../Cell3-3.bg#/"/>
     <validmove Name="Place Circle">
       <brickchange href="PlaceCircleBrickChange.bg#/"/>
     </validmove>
