@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="assignment2.edit/src-gen"/>
-	<classpathentry kind="src" path="assignment2.editor/src-gen"/>
-	<classpathentry kind="src" path="assignment-2-Jakub202/src-gen"/>
-	<classpathentry kind="output" path="assignment-2-Jakub202/bin"/>
-</classpath>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<assignment2:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:assignment2="http://www.example.org/assignment2" name="Chess">
-  <rules href="Rules.assignment2#/"/>
-  <board Name="Chess Board">
-    <sheetsConfig Ranking="None" Sheet="StandardStartingSheet" Player="None" Score="None"/>
-  </board>
-  <platform href="../WebBrowser.assignment2#/"/>
-</assignment2:App>
