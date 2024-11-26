@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bg:BrickChange xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bg="http://www.example.org/bg" Name="Place Circle Brick Change (0,0)">
+  <positionchange href="SamePosition.bg#/"/>
+  <movingBrick href="CircleType.bg#/"/>
+</bg:BrickChange>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bg:Condition xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bg="http://www.example.org/bg" prohibited="true" Name="Cell Not Occupied">
+  <relativeposition href="SamePosition.bg#/"/>
+  <cellstate href="CellStateOccupied.bg#/"/>
+</bg:Condition>
