@@ -8,9 +8,12 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-21
-Export-Package: no.ntnu.tdt4250.group07.bg,
- no.ntnu.tdt4250.group07.bg.impl,
- no.ntnu.tdt4250.group07.bg.util
+Export-Package: no.ntnu.tdt4250.g07.BoardGame,
+ no.ntnu.tdt4250.g07.BoardGame.impl,
+ no.ntnu.tdt4250.g07.BoardGame.util,
+ no.ntnu.tdt4250.g07.bg,
+ no.ntnu.tdt4250.g07.bg.impl,
+ no.ntnu.tdt4250.g07.bg.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy

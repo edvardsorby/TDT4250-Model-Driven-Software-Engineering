@@ -9,8 +9,8 @@ Bundle-Activator: no.ntnu.tdt4250.g07.bg.presentation.BgEditorPlugin$Implementat
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-21
-Export-Package: no.ntnu.tdt4250.g07.bg.presentation,
- no.ntnu.tdt4250.group07.bg.presentation
+Export-Package: no.ntnu.tdt4250.g07.BoardGame.presentation,
+ no.ntnu.tdt4250.g07.bg.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  no.ntnu.tdt4250.g07.bg.edit;visibility:=reexport,

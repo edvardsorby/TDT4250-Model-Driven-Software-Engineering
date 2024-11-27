@@ -13,7 +13,7 @@ public abstract class AbstractBoardGameDLValidator extends AbstractDeclarativeVa
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.example.org/bg"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.ntnu.no/tdt4250/g07/bg"));
 		return result;
 	}
 }

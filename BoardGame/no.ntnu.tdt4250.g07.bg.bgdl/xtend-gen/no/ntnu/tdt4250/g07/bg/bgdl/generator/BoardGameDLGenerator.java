@@ -4,12 +4,12 @@
 package no.ntnu.tdt4250.g07.bg.bgdl.generator;
 
 import com.google.common.collect.Iterators;
-import no.ntnu.tdt4250.group07.bg.BoardGame;
-import no.ntnu.tdt4250.group07.bg.CellState;
-import no.ntnu.tdt4250.group07.bg.Condition;
-import no.ntnu.tdt4250.group07.bg.PieceType;
-import no.ntnu.tdt4250.group07.bg.ValidMove;
-import no.ntnu.tdt4250.group07.bg.WinCondition;
+import no.ntnu.tdt4250.g07.bg.BoardGame;
+import no.ntnu.tdt4250.g07.bg.CellState;
+import no.ntnu.tdt4250.g07.bg.Condition;
+import no.ntnu.tdt4250.g07.bg.PieceType;
+import no.ntnu.tdt4250.g07.bg.ValidMove;
+import no.ntnu.tdt4250.g07.bg.WinCondition;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
@@ -63,7 +63,7 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("        ");
     final Function1<CellState, String> _function_1 = (CellState it) -> {
-      return CellState.class.getName();
+      return no.ntnu.tdt4250.g07.BoardGame.CellState.class.getName();
     };
     String _join_1 = IterableExtensions.join(ListExtensions.<CellState, String>map(boardGame.getCellstates(), _function_1), ", ");
     _builder.append(_join_1, "        ");

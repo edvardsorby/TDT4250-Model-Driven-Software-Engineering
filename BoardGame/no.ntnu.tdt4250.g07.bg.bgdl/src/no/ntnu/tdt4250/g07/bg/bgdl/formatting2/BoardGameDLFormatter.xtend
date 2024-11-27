@@ -4,9 +4,9 @@
 package no.ntnu.tdt4250.g07.bg.bgdl.formatting2
 
 import com.google.inject.Inject
+import no.ntnu.tdt4250.g07.bg.BoardGame
+import no.ntnu.tdt4250.g07.bg.PieceType
 import no.ntnu.tdt4250.g07.bg.bgdl.services.BoardGameDLGrammarAccess
-import no.ntnu.tdt4250.group07.bg.BoardGame
-import no.ntnu.tdt4250.group07.bg.PieceType
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 

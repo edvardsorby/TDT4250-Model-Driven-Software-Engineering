@@ -11,7 +11,7 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>bg.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="Bg" basePackage="no.ntnu.tdt4250.group07" disposableProviderFactory="true"
+  <genPackages prefix="Bg" basePackage="no.ntnu.tdt4250.g07" disposableProviderFactory="true"
       ecorePackage="bg.ecore#/">
     <genClasses ecoreClass="bg.ecore#//BoardGame">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/piecetypes"/>

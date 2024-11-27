@@ -3,16 +3,16 @@
  */
 package no.ntnu.tdt4250.g07.bg.bgdl.generator
 
+import no.ntnu.tdt4250.g07.BoardGame.CellState
+import no.ntnu.tdt4250.g07.bg.BoardGame
+import no.ntnu.tdt4250.g07.bg.Condition
+import no.ntnu.tdt4250.g07.bg.PieceType
+import no.ntnu.tdt4250.g07.bg.ValidMove
+import no.ntnu.tdt4250.g07.bg.WinCondition
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import no.ntnu.tdt4250.group07.bg.BoardGame
-import no.ntnu.tdt4250.group07.bg.PieceType
-import no.ntnu.tdt4250.group07.bg.ValidMove
-import no.ntnu.tdt4250.group07.bg.Condition
-import no.ntnu.tdt4250.group07.bg.WinCondition
-import no.ntnu.tdt4250.group07.bg.CellState
 
 /**
  * Generates code from your model files on save.

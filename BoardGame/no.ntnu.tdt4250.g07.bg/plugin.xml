@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated bg -->
       <package
-            uri="http://www.example.org/bg"
-            class="no.ntnu.tdt4250.group07.bg.BgPackage"
+            uri="http://www.ntnu.no/tdt4250/g07/bg"
+            class="no.ntnu.tdt4250.g07.bg.BgPackage"
             genModel="model/bg.genmodel"/>
    </extension>
 
