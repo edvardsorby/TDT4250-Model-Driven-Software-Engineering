@@ -13,18 +13,18 @@
     <genClasses ecoreClass="bg.ecore#//BoardGame">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BoardGame/name"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/piecetypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/cellstate"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/wincondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/cellstates"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/winConditions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BoardGame/size"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//PieceType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//PieceType/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//PieceType/validmove"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//PieceType/validmoves"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//PieceType/symbol"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//PieceType/effectoncell"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//PieceType/effectsoncell"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//ValidMove">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//ValidMove/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//ValidMove/conditions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//ValidMove/placeAnywhere"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//Condition">
