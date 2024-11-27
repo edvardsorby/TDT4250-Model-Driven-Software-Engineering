@@ -1,7 +1,5 @@
 # Eclipse settings
-.project
 .buildpath
-.settings/
 
 # Build output directories
 /bin/
@@ -13,10 +11,7 @@
 build/
 
 # Eclipse-specific files for Xtext projects
-*.genmodel
-*.ecore
 *.xtextbin
-*.mwe2
 
 # Generated code
 *.xtend-gen/
