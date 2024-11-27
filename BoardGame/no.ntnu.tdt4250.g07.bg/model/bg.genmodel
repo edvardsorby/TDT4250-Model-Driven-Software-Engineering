@@ -15,6 +15,7 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/piecetypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/cellstate"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/wincondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BoardGame/size"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//PieceType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//PieceType/name"/>
