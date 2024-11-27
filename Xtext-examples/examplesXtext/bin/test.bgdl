@@ -1,0 +1,53 @@
+BoardGame{
+	size 5
+	
+	piecetypes {
+		PieceType X {
+			symbol "X"
+			validmoves {
+				placeAnywhere 
+				ValidMove {
+					conditions {
+						Condition
+						{
+							cellstate Occupied
+						}
+					}
+				}
+			}
+		},
+		PieceType O {
+			symbol "O"
+			validmoves {
+				placeAnywhere 
+				ValidMove {
+					conditions {
+						Condition
+						{
+							cellstate Occupied
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	cellstates  {
+		CellState Occupied,
+		CellState Available
+	}
+
+winConditions {
+	WinCondition
+	{
+		inarow diagonal horizontal vertical
+	InARow {
+		count 5
+		
+		}
+	
+	
+	}
+	}
+
+}
