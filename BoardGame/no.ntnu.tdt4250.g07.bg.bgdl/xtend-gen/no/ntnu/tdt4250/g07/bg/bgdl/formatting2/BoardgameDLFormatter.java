@@ -11,6 +11,7 @@ import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.XbaseGenerated;
 
 @SuppressWarnings("all")
 public class BoardgameDLFormatter extends AbstractFormatter2 {
@@ -32,6 +33,7 @@ public class BoardgameDLFormatter extends AbstractFormatter2 {
       + "\nformat cannot be resolved");
   }
 
+  @XbaseGenerated
   public void format(final Object rules, final IFormattableDocument document) {
     if (rules instanceof XtextResource) {
       _format((XtextResource)rules, document);
