@@ -18,6 +18,7 @@ import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.XbaseGenerated;
 
 @SuppressWarnings("all")
 public class BoardGameDLFormatter extends AbstractFormatter2 {
@@ -51,6 +52,7 @@ public class BoardGameDLFormatter extends AbstractFormatter2 {
     }
   }
 
+  @XbaseGenerated
   public void format(final Object boardGame, final IFormattableDocument document) {
     if (boardGame instanceof XtextResource) {
       _format((XtextResource)boardGame, document);
