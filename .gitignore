@@ -2,7 +2,7 @@
 .buildpath
 
 # Build output directories
-/bin/
+./bin/
 /target/
 
 # Maven and Gradle related files

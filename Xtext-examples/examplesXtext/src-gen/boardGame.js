@@ -9,22 +9,7 @@ const boardGame = {
                     placeAnywhere: true,
                     conditions: [
                         {
-                            cellstate: "Occupied"
-                        }
-                    ]
-                }
-            ]
-        }
-        ,
-        {
-            name: "O",
-            symbol: "O",
-            validmoves: [
-                {
-                    placeAnywhere: true,
-                    conditions: [
-                        {
-                            cellstate: "Occupied"
+                            cellstate: "Empty"
                         }
                     ]
                 }
@@ -32,7 +17,7 @@ const boardGame = {
         }
     ],
     cellstates: [
-        no.ntnu.tdt4250.group07.bg.CellState, no.ntnu.tdt4250.group07.bg.CellState
+        no.ntnu.tdt4250.g07.BoardGame.CellState, no.ntnu.tdt4250.g07.BoardGame.CellState
     ],
     winConditions: [
         {

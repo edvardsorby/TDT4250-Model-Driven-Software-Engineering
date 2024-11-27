@@ -58,6 +58,7 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 
 			addPiecetypesPropertyDescriptor(object);
 			addSizePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -91,6 +92,22 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 								"_UI_BoardGame_type"),
 						BgPackage.Literals.BOARD_GAME__SIZE, true, false, false,
 						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_BoardGame_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_BoardGame_name_feature",
+								"_UI_BoardGame_type"),
+						BgPackage.Literals.BOARD_GAME__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -154,8 +171,9 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 	 */
 	@Override
 	public String getText(Object object) {
-		BoardGame boardGame = (BoardGame) object;
-		return getString("_UI_BoardGame_type") + " " + boardGame.getSize();
+		String label = ((BoardGame) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_BoardGame_type")
+				: getString("_UI_BoardGame_type") + " " + label;
 	}
 
 	/**
@@ -171,6 +189,7 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 
 		switch (notification.getFeatureID(BoardGame.class)) {
 		case BgPackage.BOARD_GAME__SIZE:
+		case BgPackage.BOARD_GAME__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case BgPackage.BOARD_GAME__PIECETYPES:

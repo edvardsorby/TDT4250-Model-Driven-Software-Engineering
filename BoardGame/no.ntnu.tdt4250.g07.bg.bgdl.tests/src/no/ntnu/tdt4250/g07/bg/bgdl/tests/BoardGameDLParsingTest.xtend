@@ -4,7 +4,7 @@
 package no.ntnu.tdt4250.g07.bg.bgdl.tests
 
 import com.google.inject.Inject
-import no.ntnu.tdt4250.group07.bg.BoardGame
+import no.ntnu.tdt4250.g07.bg.BoardGame
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper

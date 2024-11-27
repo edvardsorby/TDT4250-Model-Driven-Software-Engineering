@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'BoardGame'", "'{'", "'size'", "'piecetypes'", "','", "'}'", "'cellstates'", "'winConditions'", "'PieceType'", "'symbol'", "'validmoves'", "'effectsoncell'", "'CellState'", "'WinCondition'", "'inarow'", "'-'", "'placeAnywhere'", "'ValidMove'", "'conditions'", "'EffectOnCell'", "'x'", "'y'", "'cellstate'", "'Condition'", "'diagonal'", "'horizontal'", "'vertical'", "'InARow'", "'count'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Title'", "'BoardSize'", "'pieceTypes'", "'['", "','", "']'", "'cellStates'", "'winConditions'", "'PieceType'", "'Symbol'", "'hasValidMovesWhen'", "'hasEffectOnCell'", "'InARow'", "'-'", "'ValidMove'", "'{'", "'placeAnywhere'", "'when'", "'and'", "'}'", "'effect'", "'->'", "'('", "'relativePosition'", "')'", "'newCellState'", "'cellstate'", "'horizontal'", "'vertical'", "'diagonal'", "'count'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -58,6 +58,8 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
+    public static final int T__40=40;
+    public static final int T__41=41;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -137,12 +139,11 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBoardGame"
-    // InternalBoardGameDL.g:71:1: ruleBoardGame returns [EObject current=null] : (otherlv_0= 'BoardGame' otherlv_1= '{' otherlv_2= 'size' ( (lv_size_3_0= ruleEInt ) ) otherlv_4= 'piecetypes' otherlv_5= '{' ( (lv_piecetypes_6_0= rulePieceType ) ) (otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) ) )* otherlv_9= '}' (otherlv_10= 'cellstates' otherlv_11= '{' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= '}' )? otherlv_16= 'winConditions' otherlv_17= '{' ( (lv_winConditions_18_0= ruleWinCondition ) ) (otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) ) )* otherlv_21= '}' otherlv_22= '}' ) ;
+    // InternalBoardGameDL.g:71:1: ruleBoardGame returns [EObject current=null] : (otherlv_0= 'Title' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'BoardSize' ( (lv_size_3_0= ruleEInt ) ) otherlv_4= 'pieceTypes' otherlv_5= '[' ( (lv_piecetypes_6_0= rulePieceType ) ) (otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) ) )* otherlv_9= ']' (otherlv_10= 'cellStates' otherlv_11= '[' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= ']' )? otherlv_16= 'winConditions' otherlv_17= '[' ( (lv_winConditions_18_0= ruleWinCondition ) ) (otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) ) )* otherlv_21= ']' ) ;
     public final EObject ruleBoardGame() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_1=null;
         Token otherlv_2=null;
         Token otherlv_4=null;
         Token otherlv_5=null;
@@ -156,7 +157,8 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
         Token otherlv_17=null;
         Token otherlv_19=null;
         Token otherlv_21=null;
-        Token otherlv_22=null;
+        AntlrDatatypeRuleToken lv_name_1_0 = null;
+
         AntlrDatatypeRuleToken lv_size_3_0 = null;
 
         EObject lv_piecetypes_6_0 = null;
@@ -176,29 +178,56 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBoardGameDL.g:77:2: ( (otherlv_0= 'BoardGame' otherlv_1= '{' otherlv_2= 'size' ( (lv_size_3_0= ruleEInt ) ) otherlv_4= 'piecetypes' otherlv_5= '{' ( (lv_piecetypes_6_0= rulePieceType ) ) (otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) ) )* otherlv_9= '}' (otherlv_10= 'cellstates' otherlv_11= '{' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= '}' )? otherlv_16= 'winConditions' otherlv_17= '{' ( (lv_winConditions_18_0= ruleWinCondition ) ) (otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) ) )* otherlv_21= '}' otherlv_22= '}' ) )
-            // InternalBoardGameDL.g:78:2: (otherlv_0= 'BoardGame' otherlv_1= '{' otherlv_2= 'size' ( (lv_size_3_0= ruleEInt ) ) otherlv_4= 'piecetypes' otherlv_5= '{' ( (lv_piecetypes_6_0= rulePieceType ) ) (otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) ) )* otherlv_9= '}' (otherlv_10= 'cellstates' otherlv_11= '{' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= '}' )? otherlv_16= 'winConditions' otherlv_17= '{' ( (lv_winConditions_18_0= ruleWinCondition ) ) (otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) ) )* otherlv_21= '}' otherlv_22= '}' )
+            // InternalBoardGameDL.g:77:2: ( (otherlv_0= 'Title' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'BoardSize' ( (lv_size_3_0= ruleEInt ) ) otherlv_4= 'pieceTypes' otherlv_5= '[' ( (lv_piecetypes_6_0= rulePieceType ) ) (otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) ) )* otherlv_9= ']' (otherlv_10= 'cellStates' otherlv_11= '[' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= ']' )? otherlv_16= 'winConditions' otherlv_17= '[' ( (lv_winConditions_18_0= ruleWinCondition ) ) (otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) ) )* otherlv_21= ']' ) )
+            // InternalBoardGameDL.g:78:2: (otherlv_0= 'Title' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'BoardSize' ( (lv_size_3_0= ruleEInt ) ) otherlv_4= 'pieceTypes' otherlv_5= '[' ( (lv_piecetypes_6_0= rulePieceType ) ) (otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) ) )* otherlv_9= ']' (otherlv_10= 'cellStates' otherlv_11= '[' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= ']' )? otherlv_16= 'winConditions' otherlv_17= '[' ( (lv_winConditions_18_0= ruleWinCondition ) ) (otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) ) )* otherlv_21= ']' )
             {
-            // InternalBoardGameDL.g:78:2: (otherlv_0= 'BoardGame' otherlv_1= '{' otherlv_2= 'size' ( (lv_size_3_0= ruleEInt ) ) otherlv_4= 'piecetypes' otherlv_5= '{' ( (lv_piecetypes_6_0= rulePieceType ) ) (otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) ) )* otherlv_9= '}' (otherlv_10= 'cellstates' otherlv_11= '{' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= '}' )? otherlv_16= 'winConditions' otherlv_17= '{' ( (lv_winConditions_18_0= ruleWinCondition ) ) (otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) ) )* otherlv_21= '}' otherlv_22= '}' )
-            // InternalBoardGameDL.g:79:3: otherlv_0= 'BoardGame' otherlv_1= '{' otherlv_2= 'size' ( (lv_size_3_0= ruleEInt ) ) otherlv_4= 'piecetypes' otherlv_5= '{' ( (lv_piecetypes_6_0= rulePieceType ) ) (otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) ) )* otherlv_9= '}' (otherlv_10= 'cellstates' otherlv_11= '{' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= '}' )? otherlv_16= 'winConditions' otherlv_17= '{' ( (lv_winConditions_18_0= ruleWinCondition ) ) (otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) ) )* otherlv_21= '}' otherlv_22= '}'
+            // InternalBoardGameDL.g:78:2: (otherlv_0= 'Title' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'BoardSize' ( (lv_size_3_0= ruleEInt ) ) otherlv_4= 'pieceTypes' otherlv_5= '[' ( (lv_piecetypes_6_0= rulePieceType ) ) (otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) ) )* otherlv_9= ']' (otherlv_10= 'cellStates' otherlv_11= '[' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= ']' )? otherlv_16= 'winConditions' otherlv_17= '[' ( (lv_winConditions_18_0= ruleWinCondition ) ) (otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) ) )* otherlv_21= ']' )
+            // InternalBoardGameDL.g:79:3: otherlv_0= 'Title' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'BoardSize' ( (lv_size_3_0= ruleEInt ) ) otherlv_4= 'pieceTypes' otherlv_5= '[' ( (lv_piecetypes_6_0= rulePieceType ) ) (otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) ) )* otherlv_9= ']' (otherlv_10= 'cellStates' otherlv_11= '[' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= ']' )? otherlv_16= 'winConditions' otherlv_17= '[' ( (lv_winConditions_18_0= ruleWinCondition ) ) (otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) ) )* otherlv_21= ']'
             {
             otherlv_0=(Token)match(input,11,FOLLOW_3); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getBoardGameAccess().getBoardGameKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getBoardGameAccess().getTitleKeyword_0());
             		
-            otherlv_1=(Token)match(input,12,FOLLOW_4); 
-
-            			newLeafNode(otherlv_1, grammarAccess.getBoardGameAccess().getLeftCurlyBracketKeyword_1());
-            		
-            otherlv_2=(Token)match(input,13,FOLLOW_5); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getBoardGameAccess().getSizeKeyword_2());
-            		
-            // InternalBoardGameDL.g:91:3: ( (lv_size_3_0= ruleEInt ) )
-            // InternalBoardGameDL.g:92:4: (lv_size_3_0= ruleEInt )
+            // InternalBoardGameDL.g:83:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalBoardGameDL.g:84:4: (lv_name_1_0= ruleEString )
             {
-            // InternalBoardGameDL.g:92:4: (lv_size_3_0= ruleEInt )
-            // InternalBoardGameDL.g:93:5: lv_size_3_0= ruleEInt
+            // InternalBoardGameDL.g:84:4: (lv_name_1_0= ruleEString )
+            // InternalBoardGameDL.g:85:5: lv_name_1_0= ruleEString
+            {
+
+            					newCompositeNode(grammarAccess.getBoardGameAccess().getNameEStringParserRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_4);
+            lv_name_1_0=ruleEString();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getBoardGameRule());
+            					}
+            					set(
+            						current,
+            						"name",
+            						lv_name_1_0,
+            						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EString");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            otherlv_2=(Token)match(input,12,FOLLOW_5); 
+
+            			newLeafNode(otherlv_2, grammarAccess.getBoardGameAccess().getBoardSizeKeyword_2());
+            		
+            // InternalBoardGameDL.g:106:3: ( (lv_size_3_0= ruleEInt ) )
+            // InternalBoardGameDL.g:107:4: (lv_size_3_0= ruleEInt )
+            {
+            // InternalBoardGameDL.g:107:4: (lv_size_3_0= ruleEInt )
+            // InternalBoardGameDL.g:108:5: lv_size_3_0= ruleEInt
             {
 
             					newCompositeNode(grammarAccess.getBoardGameAccess().getSizeEIntParserRuleCall_3_0());
@@ -225,24 +254,24 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,14,FOLLOW_3); 
+            otherlv_4=(Token)match(input,13,FOLLOW_7); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getBoardGameAccess().getPiecetypesKeyword_4());
+            			newLeafNode(otherlv_4, grammarAccess.getBoardGameAccess().getPieceTypesKeyword_4());
             		
-            otherlv_5=(Token)match(input,12,FOLLOW_7); 
+            otherlv_5=(Token)match(input,14,FOLLOW_8); 
 
-            			newLeafNode(otherlv_5, grammarAccess.getBoardGameAccess().getLeftCurlyBracketKeyword_5());
+            			newLeafNode(otherlv_5, grammarAccess.getBoardGameAccess().getLeftSquareBracketKeyword_5());
             		
-            // InternalBoardGameDL.g:118:3: ( (lv_piecetypes_6_0= rulePieceType ) )
-            // InternalBoardGameDL.g:119:4: (lv_piecetypes_6_0= rulePieceType )
+            // InternalBoardGameDL.g:133:3: ( (lv_piecetypes_6_0= rulePieceType ) )
+            // InternalBoardGameDL.g:134:4: (lv_piecetypes_6_0= rulePieceType )
             {
-            // InternalBoardGameDL.g:119:4: (lv_piecetypes_6_0= rulePieceType )
-            // InternalBoardGameDL.g:120:5: lv_piecetypes_6_0= rulePieceType
+            // InternalBoardGameDL.g:134:4: (lv_piecetypes_6_0= rulePieceType )
+            // InternalBoardGameDL.g:135:5: lv_piecetypes_6_0= rulePieceType
             {
 
             					newCompositeNode(grammarAccess.getBoardGameAccess().getPiecetypesPieceTypeParserRuleCall_6_0());
             				
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_9);
             lv_piecetypes_6_0=rulePieceType();
 
             state._fsp--;
@@ -264,7 +293,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBoardGameDL.g:137:3: (otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) ) )*
+            // InternalBoardGameDL.g:152:3: (otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) ) )*
             loop1:
             do {
                 int alt1=2;
@@ -277,22 +306,22 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalBoardGameDL.g:138:4: otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) )
+            	    // InternalBoardGameDL.g:153:4: otherlv_7= ',' ( (lv_piecetypes_8_0= rulePieceType ) )
             	    {
-            	    otherlv_7=(Token)match(input,15,FOLLOW_7); 
+            	    otherlv_7=(Token)match(input,15,FOLLOW_8); 
 
             	    				newLeafNode(otherlv_7, grammarAccess.getBoardGameAccess().getCommaKeyword_7_0());
             	    			
-            	    // InternalBoardGameDL.g:142:4: ( (lv_piecetypes_8_0= rulePieceType ) )
-            	    // InternalBoardGameDL.g:143:5: (lv_piecetypes_8_0= rulePieceType )
+            	    // InternalBoardGameDL.g:157:4: ( (lv_piecetypes_8_0= rulePieceType ) )
+            	    // InternalBoardGameDL.g:158:5: (lv_piecetypes_8_0= rulePieceType )
             	    {
-            	    // InternalBoardGameDL.g:143:5: (lv_piecetypes_8_0= rulePieceType )
-            	    // InternalBoardGameDL.g:144:6: lv_piecetypes_8_0= rulePieceType
+            	    // InternalBoardGameDL.g:158:5: (lv_piecetypes_8_0= rulePieceType )
+            	    // InternalBoardGameDL.g:159:6: lv_piecetypes_8_0= rulePieceType
             	    {
 
             	    						newCompositeNode(grammarAccess.getBoardGameAccess().getPiecetypesPieceTypeParserRuleCall_7_1_0());
             	    					
-            	    pushFollow(FOLLOW_8);
+            	    pushFollow(FOLLOW_9);
             	    lv_piecetypes_8_0=rulePieceType();
 
             	    state._fsp--;
@@ -323,11 +352,11 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_9=(Token)match(input,16,FOLLOW_9); 
+            otherlv_9=(Token)match(input,16,FOLLOW_10); 
 
-            			newLeafNode(otherlv_9, grammarAccess.getBoardGameAccess().getRightCurlyBracketKeyword_8());
+            			newLeafNode(otherlv_9, grammarAccess.getBoardGameAccess().getRightSquareBracketKeyword_8());
             		
-            // InternalBoardGameDL.g:166:3: (otherlv_10= 'cellstates' otherlv_11= '{' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= '}' )?
+            // InternalBoardGameDL.g:181:3: (otherlv_10= 'cellStates' otherlv_11= '[' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= ']' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -336,26 +365,26 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalBoardGameDL.g:167:4: otherlv_10= 'cellstates' otherlv_11= '{' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= '}'
+                    // InternalBoardGameDL.g:182:4: otherlv_10= 'cellStates' otherlv_11= '[' ( (lv_cellstates_12_0= ruleCellState ) ) (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )* otherlv_15= ']'
                     {
-                    otherlv_10=(Token)match(input,17,FOLLOW_3); 
+                    otherlv_10=(Token)match(input,17,FOLLOW_7); 
 
-                    				newLeafNode(otherlv_10, grammarAccess.getBoardGameAccess().getCellstatesKeyword_9_0());
+                    				newLeafNode(otherlv_10, grammarAccess.getBoardGameAccess().getCellStatesKeyword_9_0());
                     			
-                    otherlv_11=(Token)match(input,12,FOLLOW_10); 
+                    otherlv_11=(Token)match(input,14,FOLLOW_11); 
 
-                    				newLeafNode(otherlv_11, grammarAccess.getBoardGameAccess().getLeftCurlyBracketKeyword_9_1());
+                    				newLeafNode(otherlv_11, grammarAccess.getBoardGameAccess().getLeftSquareBracketKeyword_9_1());
                     			
-                    // InternalBoardGameDL.g:175:4: ( (lv_cellstates_12_0= ruleCellState ) )
-                    // InternalBoardGameDL.g:176:5: (lv_cellstates_12_0= ruleCellState )
+                    // InternalBoardGameDL.g:190:4: ( (lv_cellstates_12_0= ruleCellState ) )
+                    // InternalBoardGameDL.g:191:5: (lv_cellstates_12_0= ruleCellState )
                     {
-                    // InternalBoardGameDL.g:176:5: (lv_cellstates_12_0= ruleCellState )
-                    // InternalBoardGameDL.g:177:6: lv_cellstates_12_0= ruleCellState
+                    // InternalBoardGameDL.g:191:5: (lv_cellstates_12_0= ruleCellState )
+                    // InternalBoardGameDL.g:192:6: lv_cellstates_12_0= ruleCellState
                     {
 
                     						newCompositeNode(grammarAccess.getBoardGameAccess().getCellstatesCellStateParserRuleCall_9_2_0());
                     					
-                    pushFollow(FOLLOW_8);
+                    pushFollow(FOLLOW_9);
                     lv_cellstates_12_0=ruleCellState();
 
                     state._fsp--;
@@ -377,7 +406,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBoardGameDL.g:194:4: (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )*
+                    // InternalBoardGameDL.g:209:4: (otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) ) )*
                     loop2:
                     do {
                         int alt2=2;
@@ -390,22 +419,22 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // InternalBoardGameDL.g:195:5: otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) )
+                    	    // InternalBoardGameDL.g:210:5: otherlv_13= ',' ( (lv_cellstates_14_0= ruleCellState ) )
                     	    {
-                    	    otherlv_13=(Token)match(input,15,FOLLOW_10); 
+                    	    otherlv_13=(Token)match(input,15,FOLLOW_11); 
 
                     	    					newLeafNode(otherlv_13, grammarAccess.getBoardGameAccess().getCommaKeyword_9_3_0());
                     	    				
-                    	    // InternalBoardGameDL.g:199:5: ( (lv_cellstates_14_0= ruleCellState ) )
-                    	    // InternalBoardGameDL.g:200:6: (lv_cellstates_14_0= ruleCellState )
+                    	    // InternalBoardGameDL.g:214:5: ( (lv_cellstates_14_0= ruleCellState ) )
+                    	    // InternalBoardGameDL.g:215:6: (lv_cellstates_14_0= ruleCellState )
                     	    {
-                    	    // InternalBoardGameDL.g:200:6: (lv_cellstates_14_0= ruleCellState )
-                    	    // InternalBoardGameDL.g:201:7: lv_cellstates_14_0= ruleCellState
+                    	    // InternalBoardGameDL.g:215:6: (lv_cellstates_14_0= ruleCellState )
+                    	    // InternalBoardGameDL.g:216:7: lv_cellstates_14_0= ruleCellState
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getBoardGameAccess().getCellstatesCellStateParserRuleCall_9_3_1_0());
                     	    						
-                    	    pushFollow(FOLLOW_8);
+                    	    pushFollow(FOLLOW_9);
                     	    lv_cellstates_14_0=ruleCellState();
 
                     	    state._fsp--;
@@ -436,9 +465,9 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_15=(Token)match(input,16,FOLLOW_11); 
+                    otherlv_15=(Token)match(input,16,FOLLOW_12); 
 
-                    				newLeafNode(otherlv_15, grammarAccess.getBoardGameAccess().getRightCurlyBracketKeyword_9_4());
+                    				newLeafNode(otherlv_15, grammarAccess.getBoardGameAccess().getRightSquareBracketKeyword_9_4());
                     			
 
                     }
@@ -446,24 +475,24 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_16=(Token)match(input,18,FOLLOW_3); 
+            otherlv_16=(Token)match(input,18,FOLLOW_7); 
 
             			newLeafNode(otherlv_16, grammarAccess.getBoardGameAccess().getWinConditionsKeyword_10());
             		
-            otherlv_17=(Token)match(input,12,FOLLOW_12); 
+            otherlv_17=(Token)match(input,14,FOLLOW_13); 
 
-            			newLeafNode(otherlv_17, grammarAccess.getBoardGameAccess().getLeftCurlyBracketKeyword_11());
+            			newLeafNode(otherlv_17, grammarAccess.getBoardGameAccess().getLeftSquareBracketKeyword_11());
             		
-            // InternalBoardGameDL.g:232:3: ( (lv_winConditions_18_0= ruleWinCondition ) )
-            // InternalBoardGameDL.g:233:4: (lv_winConditions_18_0= ruleWinCondition )
+            // InternalBoardGameDL.g:247:3: ( (lv_winConditions_18_0= ruleWinCondition ) )
+            // InternalBoardGameDL.g:248:4: (lv_winConditions_18_0= ruleWinCondition )
             {
-            // InternalBoardGameDL.g:233:4: (lv_winConditions_18_0= ruleWinCondition )
-            // InternalBoardGameDL.g:234:5: lv_winConditions_18_0= ruleWinCondition
+            // InternalBoardGameDL.g:248:4: (lv_winConditions_18_0= ruleWinCondition )
+            // InternalBoardGameDL.g:249:5: lv_winConditions_18_0= ruleWinCondition
             {
 
             					newCompositeNode(grammarAccess.getBoardGameAccess().getWinConditionsWinConditionParserRuleCall_12_0());
             				
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_9);
             lv_winConditions_18_0=ruleWinCondition();
 
             state._fsp--;
@@ -485,7 +514,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBoardGameDL.g:251:3: (otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) ) )*
+            // InternalBoardGameDL.g:266:3: (otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) ) )*
             loop4:
             do {
                 int alt4=2;
@@ -498,22 +527,22 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalBoardGameDL.g:252:4: otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) )
+            	    // InternalBoardGameDL.g:267:4: otherlv_19= ',' ( (lv_winConditions_20_0= ruleWinCondition ) )
             	    {
-            	    otherlv_19=(Token)match(input,15,FOLLOW_12); 
+            	    otherlv_19=(Token)match(input,15,FOLLOW_13); 
 
             	    				newLeafNode(otherlv_19, grammarAccess.getBoardGameAccess().getCommaKeyword_13_0());
             	    			
-            	    // InternalBoardGameDL.g:256:4: ( (lv_winConditions_20_0= ruleWinCondition ) )
-            	    // InternalBoardGameDL.g:257:5: (lv_winConditions_20_0= ruleWinCondition )
+            	    // InternalBoardGameDL.g:271:4: ( (lv_winConditions_20_0= ruleWinCondition ) )
+            	    // InternalBoardGameDL.g:272:5: (lv_winConditions_20_0= ruleWinCondition )
             	    {
-            	    // InternalBoardGameDL.g:257:5: (lv_winConditions_20_0= ruleWinCondition )
-            	    // InternalBoardGameDL.g:258:6: lv_winConditions_20_0= ruleWinCondition
+            	    // InternalBoardGameDL.g:272:5: (lv_winConditions_20_0= ruleWinCondition )
+            	    // InternalBoardGameDL.g:273:6: lv_winConditions_20_0= ruleWinCondition
             	    {
 
             	    						newCompositeNode(grammarAccess.getBoardGameAccess().getWinConditionsWinConditionParserRuleCall_13_1_0());
             	    					
-            	    pushFollow(FOLLOW_8);
+            	    pushFollow(FOLLOW_9);
             	    lv_winConditions_20_0=ruleWinCondition();
 
             	    state._fsp--;
@@ -544,13 +573,9 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_21=(Token)match(input,16,FOLLOW_13); 
+            otherlv_21=(Token)match(input,16,FOLLOW_2); 
 
-            			newLeafNode(otherlv_21, grammarAccess.getBoardGameAccess().getRightCurlyBracketKeyword_14());
-            		
-            otherlv_22=(Token)match(input,16,FOLLOW_2); 
-
-            			newLeafNode(otherlv_22, grammarAccess.getBoardGameAccess().getRightCurlyBracketKeyword_15());
+            			newLeafNode(otherlv_21, grammarAccess.getBoardGameAccess().getRightSquareBracketKeyword_14());
             		
 
             }
@@ -575,7 +600,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePieceType"
-    // InternalBoardGameDL.g:288:1: entryRulePieceType returns [EObject current=null] : iv_rulePieceType= rulePieceType EOF ;
+    // InternalBoardGameDL.g:299:1: entryRulePieceType returns [EObject current=null] : iv_rulePieceType= rulePieceType EOF ;
     public final EObject entryRulePieceType() throws RecognitionException {
         EObject current = null;
 
@@ -583,8 +608,8 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBoardGameDL.g:288:50: (iv_rulePieceType= rulePieceType EOF )
-            // InternalBoardGameDL.g:289:2: iv_rulePieceType= rulePieceType EOF
+            // InternalBoardGameDL.g:299:50: (iv_rulePieceType= rulePieceType EOF )
+            // InternalBoardGameDL.g:300:2: iv_rulePieceType= rulePieceType EOF
             {
              newCompositeNode(grammarAccess.getPieceTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -611,59 +636,57 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePieceType"
-    // InternalBoardGameDL.g:295:1: rulePieceType returns [EObject current=null] : (otherlv_0= 'PieceType' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'symbol' ( (lv_symbol_4_0= ruleEString ) ) otherlv_5= 'validmoves' otherlv_6= '{' ( (lv_validmoves_7_0= ruleValidMove ) ) (otherlv_8= ',' ( (lv_validmoves_9_0= ruleValidMove ) ) )* otherlv_10= '}' (otherlv_11= 'effectsoncell' otherlv_12= '{' ( (lv_effectsoncell_13_0= ruleEffectOnCell ) ) (otherlv_14= ',' ( (lv_effectsoncell_15_0= ruleEffectOnCell ) ) )* otherlv_16= '}' )? otherlv_17= '}' ) ;
+    // InternalBoardGameDL.g:306:1: rulePieceType returns [EObject current=null] : (otherlv_0= 'PieceType' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'Symbol' ( (lv_symbol_3_0= ruleEString ) ) otherlv_4= 'hasValidMovesWhen' otherlv_5= '[' ( (lv_validmoves_6_0= ruleValidMove ) ) (otherlv_7= ',' ( (lv_validmoves_8_0= ruleValidMove ) ) )* otherlv_9= ']' (otherlv_10= 'hasEffectOnCell' otherlv_11= '[' ( (lv_effectsoncell_12_0= ruleEffectOnCell ) ) (otherlv_13= ',' ( (lv_effectsoncell_14_0= ruleEffectOnCell ) ) )* otherlv_15= ']' )? ) ;
     public final EObject rulePieceType() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_2=null;
-        Token otherlv_3=null;
+        Token otherlv_4=null;
         Token otherlv_5=null;
-        Token otherlv_6=null;
-        Token otherlv_8=null;
+        Token otherlv_7=null;
+        Token otherlv_9=null;
         Token otherlv_10=null;
         Token otherlv_11=null;
-        Token otherlv_12=null;
-        Token otherlv_14=null;
-        Token otherlv_16=null;
-        Token otherlv_17=null;
+        Token otherlv_13=null;
+        Token otherlv_15=null;
         AntlrDatatypeRuleToken lv_name_1_0 = null;
 
-        AntlrDatatypeRuleToken lv_symbol_4_0 = null;
+        AntlrDatatypeRuleToken lv_symbol_3_0 = null;
 
-        EObject lv_validmoves_7_0 = null;
+        EObject lv_validmoves_6_0 = null;
 
-        EObject lv_validmoves_9_0 = null;
+        EObject lv_validmoves_8_0 = null;
 
-        EObject lv_effectsoncell_13_0 = null;
+        EObject lv_effectsoncell_12_0 = null;
 
-        EObject lv_effectsoncell_15_0 = null;
+        EObject lv_effectsoncell_14_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBoardGameDL.g:301:2: ( (otherlv_0= 'PieceType' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'symbol' ( (lv_symbol_4_0= ruleEString ) ) otherlv_5= 'validmoves' otherlv_6= '{' ( (lv_validmoves_7_0= ruleValidMove ) ) (otherlv_8= ',' ( (lv_validmoves_9_0= ruleValidMove ) ) )* otherlv_10= '}' (otherlv_11= 'effectsoncell' otherlv_12= '{' ( (lv_effectsoncell_13_0= ruleEffectOnCell ) ) (otherlv_14= ',' ( (lv_effectsoncell_15_0= ruleEffectOnCell ) ) )* otherlv_16= '}' )? otherlv_17= '}' ) )
-            // InternalBoardGameDL.g:302:2: (otherlv_0= 'PieceType' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'symbol' ( (lv_symbol_4_0= ruleEString ) ) otherlv_5= 'validmoves' otherlv_6= '{' ( (lv_validmoves_7_0= ruleValidMove ) ) (otherlv_8= ',' ( (lv_validmoves_9_0= ruleValidMove ) ) )* otherlv_10= '}' (otherlv_11= 'effectsoncell' otherlv_12= '{' ( (lv_effectsoncell_13_0= ruleEffectOnCell ) ) (otherlv_14= ',' ( (lv_effectsoncell_15_0= ruleEffectOnCell ) ) )* otherlv_16= '}' )? otherlv_17= '}' )
+            // InternalBoardGameDL.g:312:2: ( (otherlv_0= 'PieceType' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'Symbol' ( (lv_symbol_3_0= ruleEString ) ) otherlv_4= 'hasValidMovesWhen' otherlv_5= '[' ( (lv_validmoves_6_0= ruleValidMove ) ) (otherlv_7= ',' ( (lv_validmoves_8_0= ruleValidMove ) ) )* otherlv_9= ']' (otherlv_10= 'hasEffectOnCell' otherlv_11= '[' ( (lv_effectsoncell_12_0= ruleEffectOnCell ) ) (otherlv_13= ',' ( (lv_effectsoncell_14_0= ruleEffectOnCell ) ) )* otherlv_15= ']' )? ) )
+            // InternalBoardGameDL.g:313:2: (otherlv_0= 'PieceType' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'Symbol' ( (lv_symbol_3_0= ruleEString ) ) otherlv_4= 'hasValidMovesWhen' otherlv_5= '[' ( (lv_validmoves_6_0= ruleValidMove ) ) (otherlv_7= ',' ( (lv_validmoves_8_0= ruleValidMove ) ) )* otherlv_9= ']' (otherlv_10= 'hasEffectOnCell' otherlv_11= '[' ( (lv_effectsoncell_12_0= ruleEffectOnCell ) ) (otherlv_13= ',' ( (lv_effectsoncell_14_0= ruleEffectOnCell ) ) )* otherlv_15= ']' )? )
             {
-            // InternalBoardGameDL.g:302:2: (otherlv_0= 'PieceType' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'symbol' ( (lv_symbol_4_0= ruleEString ) ) otherlv_5= 'validmoves' otherlv_6= '{' ( (lv_validmoves_7_0= ruleValidMove ) ) (otherlv_8= ',' ( (lv_validmoves_9_0= ruleValidMove ) ) )* otherlv_10= '}' (otherlv_11= 'effectsoncell' otherlv_12= '{' ( (lv_effectsoncell_13_0= ruleEffectOnCell ) ) (otherlv_14= ',' ( (lv_effectsoncell_15_0= ruleEffectOnCell ) ) )* otherlv_16= '}' )? otherlv_17= '}' )
-            // InternalBoardGameDL.g:303:3: otherlv_0= 'PieceType' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'symbol' ( (lv_symbol_4_0= ruleEString ) ) otherlv_5= 'validmoves' otherlv_6= '{' ( (lv_validmoves_7_0= ruleValidMove ) ) (otherlv_8= ',' ( (lv_validmoves_9_0= ruleValidMove ) ) )* otherlv_10= '}' (otherlv_11= 'effectsoncell' otherlv_12= '{' ( (lv_effectsoncell_13_0= ruleEffectOnCell ) ) (otherlv_14= ',' ( (lv_effectsoncell_15_0= ruleEffectOnCell ) ) )* otherlv_16= '}' )? otherlv_17= '}'
+            // InternalBoardGameDL.g:313:2: (otherlv_0= 'PieceType' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'Symbol' ( (lv_symbol_3_0= ruleEString ) ) otherlv_4= 'hasValidMovesWhen' otherlv_5= '[' ( (lv_validmoves_6_0= ruleValidMove ) ) (otherlv_7= ',' ( (lv_validmoves_8_0= ruleValidMove ) ) )* otherlv_9= ']' (otherlv_10= 'hasEffectOnCell' otherlv_11= '[' ( (lv_effectsoncell_12_0= ruleEffectOnCell ) ) (otherlv_13= ',' ( (lv_effectsoncell_14_0= ruleEffectOnCell ) ) )* otherlv_15= ']' )? )
+            // InternalBoardGameDL.g:314:3: otherlv_0= 'PieceType' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'Symbol' ( (lv_symbol_3_0= ruleEString ) ) otherlv_4= 'hasValidMovesWhen' otherlv_5= '[' ( (lv_validmoves_6_0= ruleValidMove ) ) (otherlv_7= ',' ( (lv_validmoves_8_0= ruleValidMove ) ) )* otherlv_9= ']' (otherlv_10= 'hasEffectOnCell' otherlv_11= '[' ( (lv_effectsoncell_12_0= ruleEffectOnCell ) ) (otherlv_13= ',' ( (lv_effectsoncell_14_0= ruleEffectOnCell ) ) )* otherlv_15= ']' )?
             {
-            otherlv_0=(Token)match(input,19,FOLLOW_14); 
+            otherlv_0=(Token)match(input,19,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPieceTypeAccess().getPieceTypeKeyword_0());
             		
-            // InternalBoardGameDL.g:307:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalBoardGameDL.g:308:4: (lv_name_1_0= ruleEString )
+            // InternalBoardGameDL.g:318:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalBoardGameDL.g:319:4: (lv_name_1_0= ruleEString )
             {
-            // InternalBoardGameDL.g:308:4: (lv_name_1_0= ruleEString )
-            // InternalBoardGameDL.g:309:5: lv_name_1_0= ruleEString
+            // InternalBoardGameDL.g:319:4: (lv_name_1_0= ruleEString )
+            // InternalBoardGameDL.g:320:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getPieceTypeAccess().getNameEStringParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_14);
             lv_name_1_0=ruleEString();
 
             state._fsp--;
@@ -685,25 +708,21 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FOLLOW_15); 
+            otherlv_2=(Token)match(input,20,FOLLOW_3); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getPieceTypeAccess().getLeftCurlyBracketKeyword_2());
+            			newLeafNode(otherlv_2, grammarAccess.getPieceTypeAccess().getSymbolKeyword_2());
             		
-            otherlv_3=(Token)match(input,20,FOLLOW_14); 
-
-            			newLeafNode(otherlv_3, grammarAccess.getPieceTypeAccess().getSymbolKeyword_3());
-            		
-            // InternalBoardGameDL.g:334:3: ( (lv_symbol_4_0= ruleEString ) )
-            // InternalBoardGameDL.g:335:4: (lv_symbol_4_0= ruleEString )
+            // InternalBoardGameDL.g:341:3: ( (lv_symbol_3_0= ruleEString ) )
+            // InternalBoardGameDL.g:342:4: (lv_symbol_3_0= ruleEString )
             {
-            // InternalBoardGameDL.g:335:4: (lv_symbol_4_0= ruleEString )
-            // InternalBoardGameDL.g:336:5: lv_symbol_4_0= ruleEString
+            // InternalBoardGameDL.g:342:4: (lv_symbol_3_0= ruleEString )
+            // InternalBoardGameDL.g:343:5: lv_symbol_3_0= ruleEString
             {
 
-            					newCompositeNode(grammarAccess.getPieceTypeAccess().getSymbolEStringParserRuleCall_4_0());
+            					newCompositeNode(grammarAccess.getPieceTypeAccess().getSymbolEStringParserRuleCall_3_0());
             				
-            pushFollow(FOLLOW_16);
-            lv_symbol_4_0=ruleEString();
+            pushFollow(FOLLOW_15);
+            lv_symbol_3_0=ruleEString();
 
             state._fsp--;
 
@@ -714,7 +733,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"symbol",
-            						lv_symbol_4_0,
+            						lv_symbol_3_0,
             						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EString");
             					afterParserOrEnumRuleCall();
             				
@@ -724,25 +743,25 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,21,FOLLOW_3); 
+            otherlv_4=(Token)match(input,21,FOLLOW_7); 
 
-            			newLeafNode(otherlv_5, grammarAccess.getPieceTypeAccess().getValidmovesKeyword_5());
+            			newLeafNode(otherlv_4, grammarAccess.getPieceTypeAccess().getHasValidMovesWhenKeyword_4());
             		
-            otherlv_6=(Token)match(input,12,FOLLOW_17); 
+            otherlv_5=(Token)match(input,14,FOLLOW_16); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getPieceTypeAccess().getLeftCurlyBracketKeyword_6());
+            			newLeafNode(otherlv_5, grammarAccess.getPieceTypeAccess().getLeftSquareBracketKeyword_5());
             		
-            // InternalBoardGameDL.g:361:3: ( (lv_validmoves_7_0= ruleValidMove ) )
-            // InternalBoardGameDL.g:362:4: (lv_validmoves_7_0= ruleValidMove )
+            // InternalBoardGameDL.g:368:3: ( (lv_validmoves_6_0= ruleValidMove ) )
+            // InternalBoardGameDL.g:369:4: (lv_validmoves_6_0= ruleValidMove )
             {
-            // InternalBoardGameDL.g:362:4: (lv_validmoves_7_0= ruleValidMove )
-            // InternalBoardGameDL.g:363:5: lv_validmoves_7_0= ruleValidMove
+            // InternalBoardGameDL.g:369:4: (lv_validmoves_6_0= ruleValidMove )
+            // InternalBoardGameDL.g:370:5: lv_validmoves_6_0= ruleValidMove
             {
 
-            					newCompositeNode(grammarAccess.getPieceTypeAccess().getValidmovesValidMoveParserRuleCall_7_0());
+            					newCompositeNode(grammarAccess.getPieceTypeAccess().getValidmovesValidMoveParserRuleCall_6_0());
             				
-            pushFollow(FOLLOW_8);
-            lv_validmoves_7_0=ruleValidMove();
+            pushFollow(FOLLOW_9);
+            lv_validmoves_6_0=ruleValidMove();
 
             state._fsp--;
 
@@ -753,7 +772,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
             					add(
             						current,
             						"validmoves",
-            						lv_validmoves_7_0,
+            						lv_validmoves_6_0,
             						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.ValidMove");
             					afterParserOrEnumRuleCall();
             				
@@ -763,7 +782,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBoardGameDL.g:380:3: (otherlv_8= ',' ( (lv_validmoves_9_0= ruleValidMove ) ) )*
+            // InternalBoardGameDL.g:387:3: (otherlv_7= ',' ( (lv_validmoves_8_0= ruleValidMove ) ) )*
             loop5:
             do {
                 int alt5=2;
@@ -776,23 +795,23 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalBoardGameDL.g:381:4: otherlv_8= ',' ( (lv_validmoves_9_0= ruleValidMove ) )
+            	    // InternalBoardGameDL.g:388:4: otherlv_7= ',' ( (lv_validmoves_8_0= ruleValidMove ) )
             	    {
-            	    otherlv_8=(Token)match(input,15,FOLLOW_17); 
+            	    otherlv_7=(Token)match(input,15,FOLLOW_16); 
 
-            	    				newLeafNode(otherlv_8, grammarAccess.getPieceTypeAccess().getCommaKeyword_8_0());
+            	    				newLeafNode(otherlv_7, grammarAccess.getPieceTypeAccess().getCommaKeyword_7_0());
             	    			
-            	    // InternalBoardGameDL.g:385:4: ( (lv_validmoves_9_0= ruleValidMove ) )
-            	    // InternalBoardGameDL.g:386:5: (lv_validmoves_9_0= ruleValidMove )
+            	    // InternalBoardGameDL.g:392:4: ( (lv_validmoves_8_0= ruleValidMove ) )
+            	    // InternalBoardGameDL.g:393:5: (lv_validmoves_8_0= ruleValidMove )
             	    {
-            	    // InternalBoardGameDL.g:386:5: (lv_validmoves_9_0= ruleValidMove )
-            	    // InternalBoardGameDL.g:387:6: lv_validmoves_9_0= ruleValidMove
+            	    // InternalBoardGameDL.g:393:5: (lv_validmoves_8_0= ruleValidMove )
+            	    // InternalBoardGameDL.g:394:6: lv_validmoves_8_0= ruleValidMove
             	    {
 
-            	    						newCompositeNode(grammarAccess.getPieceTypeAccess().getValidmovesValidMoveParserRuleCall_8_1_0());
+            	    						newCompositeNode(grammarAccess.getPieceTypeAccess().getValidmovesValidMoveParserRuleCall_7_1_0());
             	    					
-            	    pushFollow(FOLLOW_8);
-            	    lv_validmoves_9_0=ruleValidMove();
+            	    pushFollow(FOLLOW_9);
+            	    lv_validmoves_8_0=ruleValidMove();
 
             	    state._fsp--;
 
@@ -803,7 +822,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
             	    						add(
             	    							current,
             	    							"validmoves",
-            	    							lv_validmoves_9_0,
+            	    							lv_validmoves_8_0,
             	    							"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.ValidMove");
             	    						afterParserOrEnumRuleCall();
             	    					
@@ -822,11 +841,11 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_10=(Token)match(input,16,FOLLOW_18); 
+            otherlv_9=(Token)match(input,16,FOLLOW_17); 
 
-            			newLeafNode(otherlv_10, grammarAccess.getPieceTypeAccess().getRightCurlyBracketKeyword_9());
+            			newLeafNode(otherlv_9, grammarAccess.getPieceTypeAccess().getRightSquareBracketKeyword_8());
             		
-            // InternalBoardGameDL.g:409:3: (otherlv_11= 'effectsoncell' otherlv_12= '{' ( (lv_effectsoncell_13_0= ruleEffectOnCell ) ) (otherlv_14= ',' ( (lv_effectsoncell_15_0= ruleEffectOnCell ) ) )* otherlv_16= '}' )?
+            // InternalBoardGameDL.g:416:3: (otherlv_10= 'hasEffectOnCell' otherlv_11= '[' ( (lv_effectsoncell_12_0= ruleEffectOnCell ) ) (otherlv_13= ',' ( (lv_effectsoncell_14_0= ruleEffectOnCell ) ) )* otherlv_15= ']' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -835,27 +854,27 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalBoardGameDL.g:410:4: otherlv_11= 'effectsoncell' otherlv_12= '{' ( (lv_effectsoncell_13_0= ruleEffectOnCell ) ) (otherlv_14= ',' ( (lv_effectsoncell_15_0= ruleEffectOnCell ) ) )* otherlv_16= '}'
+                    // InternalBoardGameDL.g:417:4: otherlv_10= 'hasEffectOnCell' otherlv_11= '[' ( (lv_effectsoncell_12_0= ruleEffectOnCell ) ) (otherlv_13= ',' ( (lv_effectsoncell_14_0= ruleEffectOnCell ) ) )* otherlv_15= ']'
                     {
-                    otherlv_11=(Token)match(input,22,FOLLOW_3); 
+                    otherlv_10=(Token)match(input,22,FOLLOW_7); 
 
-                    				newLeafNode(otherlv_11, grammarAccess.getPieceTypeAccess().getEffectsoncellKeyword_10_0());
+                    				newLeafNode(otherlv_10, grammarAccess.getPieceTypeAccess().getHasEffectOnCellKeyword_9_0());
                     			
-                    otherlv_12=(Token)match(input,12,FOLLOW_19); 
+                    otherlv_11=(Token)match(input,14,FOLLOW_18); 
 
-                    				newLeafNode(otherlv_12, grammarAccess.getPieceTypeAccess().getLeftCurlyBracketKeyword_10_1());
+                    				newLeafNode(otherlv_11, grammarAccess.getPieceTypeAccess().getLeftSquareBracketKeyword_9_1());
                     			
-                    // InternalBoardGameDL.g:418:4: ( (lv_effectsoncell_13_0= ruleEffectOnCell ) )
-                    // InternalBoardGameDL.g:419:5: (lv_effectsoncell_13_0= ruleEffectOnCell )
+                    // InternalBoardGameDL.g:425:4: ( (lv_effectsoncell_12_0= ruleEffectOnCell ) )
+                    // InternalBoardGameDL.g:426:5: (lv_effectsoncell_12_0= ruleEffectOnCell )
                     {
-                    // InternalBoardGameDL.g:419:5: (lv_effectsoncell_13_0= ruleEffectOnCell )
-                    // InternalBoardGameDL.g:420:6: lv_effectsoncell_13_0= ruleEffectOnCell
+                    // InternalBoardGameDL.g:426:5: (lv_effectsoncell_12_0= ruleEffectOnCell )
+                    // InternalBoardGameDL.g:427:6: lv_effectsoncell_12_0= ruleEffectOnCell
                     {
 
-                    						newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellParserRuleCall_10_2_0());
+                    						newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellParserRuleCall_9_2_0());
                     					
-                    pushFollow(FOLLOW_8);
-                    lv_effectsoncell_13_0=ruleEffectOnCell();
+                    pushFollow(FOLLOW_9);
+                    lv_effectsoncell_12_0=ruleEffectOnCell();
 
                     state._fsp--;
 
@@ -866,7 +885,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                     						add(
                     							current,
                     							"effectsoncell",
-                    							lv_effectsoncell_13_0,
+                    							lv_effectsoncell_12_0,
                     							"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EffectOnCell");
                     						afterParserOrEnumRuleCall();
                     					
@@ -876,7 +895,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBoardGameDL.g:437:4: (otherlv_14= ',' ( (lv_effectsoncell_15_0= ruleEffectOnCell ) ) )*
+                    // InternalBoardGameDL.g:444:4: (otherlv_13= ',' ( (lv_effectsoncell_14_0= ruleEffectOnCell ) ) )*
                     loop6:
                     do {
                         int alt6=2;
@@ -889,23 +908,23 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // InternalBoardGameDL.g:438:5: otherlv_14= ',' ( (lv_effectsoncell_15_0= ruleEffectOnCell ) )
+                    	    // InternalBoardGameDL.g:445:5: otherlv_13= ',' ( (lv_effectsoncell_14_0= ruleEffectOnCell ) )
                     	    {
-                    	    otherlv_14=(Token)match(input,15,FOLLOW_19); 
+                    	    otherlv_13=(Token)match(input,15,FOLLOW_18); 
 
-                    	    					newLeafNode(otherlv_14, grammarAccess.getPieceTypeAccess().getCommaKeyword_10_3_0());
+                    	    					newLeafNode(otherlv_13, grammarAccess.getPieceTypeAccess().getCommaKeyword_9_3_0());
                     	    				
-                    	    // InternalBoardGameDL.g:442:5: ( (lv_effectsoncell_15_0= ruleEffectOnCell ) )
-                    	    // InternalBoardGameDL.g:443:6: (lv_effectsoncell_15_0= ruleEffectOnCell )
+                    	    // InternalBoardGameDL.g:449:5: ( (lv_effectsoncell_14_0= ruleEffectOnCell ) )
+                    	    // InternalBoardGameDL.g:450:6: (lv_effectsoncell_14_0= ruleEffectOnCell )
                     	    {
-                    	    // InternalBoardGameDL.g:443:6: (lv_effectsoncell_15_0= ruleEffectOnCell )
-                    	    // InternalBoardGameDL.g:444:7: lv_effectsoncell_15_0= ruleEffectOnCell
+                    	    // InternalBoardGameDL.g:450:6: (lv_effectsoncell_14_0= ruleEffectOnCell )
+                    	    // InternalBoardGameDL.g:451:7: lv_effectsoncell_14_0= ruleEffectOnCell
                     	    {
 
-                    	    							newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellParserRuleCall_10_3_1_0());
+                    	    							newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellParserRuleCall_9_3_1_0());
                     	    						
-                    	    pushFollow(FOLLOW_8);
-                    	    lv_effectsoncell_15_0=ruleEffectOnCell();
+                    	    pushFollow(FOLLOW_9);
+                    	    lv_effectsoncell_14_0=ruleEffectOnCell();
 
                     	    state._fsp--;
 
@@ -916,7 +935,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                     	    							add(
                     	    								current,
                     	    								"effectsoncell",
-                    	    								lv_effectsoncell_15_0,
+                    	    								lv_effectsoncell_14_0,
                     	    								"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EffectOnCell");
                     	    							afterParserOrEnumRuleCall();
                     	    						
@@ -935,9 +954,9 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_16=(Token)match(input,16,FOLLOW_13); 
+                    otherlv_15=(Token)match(input,16,FOLLOW_2); 
 
-                    				newLeafNode(otherlv_16, grammarAccess.getPieceTypeAccess().getRightCurlyBracketKeyword_10_4());
+                    				newLeafNode(otherlv_15, grammarAccess.getPieceTypeAccess().getRightSquareBracketKeyword_9_4());
                     			
 
                     }
@@ -945,10 +964,6 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_17=(Token)match(input,16,FOLLOW_2); 
-
-            			newLeafNode(otherlv_17, grammarAccess.getPieceTypeAccess().getRightCurlyBracketKeyword_11());
-            		
 
             }
 
@@ -972,7 +987,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCellState"
-    // InternalBoardGameDL.g:475:1: entryRuleCellState returns [EObject current=null] : iv_ruleCellState= ruleCellState EOF ;
+    // InternalBoardGameDL.g:478:1: entryRuleCellState returns [EObject current=null] : iv_ruleCellState= ruleCellState EOF ;
     public final EObject entryRuleCellState() throws RecognitionException {
         EObject current = null;
 
@@ -980,8 +995,8 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBoardGameDL.g:475:50: (iv_ruleCellState= ruleCellState EOF )
-            // InternalBoardGameDL.g:476:2: iv_ruleCellState= ruleCellState EOF
+            // InternalBoardGameDL.g:478:50: (iv_ruleCellState= ruleCellState EOF )
+            // InternalBoardGameDL.g:479:2: iv_ruleCellState= ruleCellState EOF
             {
              newCompositeNode(grammarAccess.getCellStateRule()); 
             pushFollow(FOLLOW_1);
@@ -1008,50 +1023,39 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCellState"
-    // InternalBoardGameDL.g:482:1: ruleCellState returns [EObject current=null] : (otherlv_0= 'CellState' ( (lv_name_1_0= RULE_ID ) ) ) ;
+    // InternalBoardGameDL.g:485:1: ruleCellState returns [EObject current=null] : ( (lv_name_0_0= RULE_ID ) ) ;
     public final EObject ruleCellState() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_0=null;
-        Token lv_name_1_0=null;
+        Token lv_name_0_0=null;
 
 
         	enterRule();
 
         try {
-            // InternalBoardGameDL.g:488:2: ( (otherlv_0= 'CellState' ( (lv_name_1_0= RULE_ID ) ) ) )
-            // InternalBoardGameDL.g:489:2: (otherlv_0= 'CellState' ( (lv_name_1_0= RULE_ID ) ) )
+            // InternalBoardGameDL.g:491:2: ( ( (lv_name_0_0= RULE_ID ) ) )
+            // InternalBoardGameDL.g:492:2: ( (lv_name_0_0= RULE_ID ) )
             {
-            // InternalBoardGameDL.g:489:2: (otherlv_0= 'CellState' ( (lv_name_1_0= RULE_ID ) ) )
-            // InternalBoardGameDL.g:490:3: otherlv_0= 'CellState' ( (lv_name_1_0= RULE_ID ) )
+            // InternalBoardGameDL.g:492:2: ( (lv_name_0_0= RULE_ID ) )
+            // InternalBoardGameDL.g:493:3: (lv_name_0_0= RULE_ID )
             {
-            otherlv_0=(Token)match(input,23,FOLLOW_20); 
-
-            			newLeafNode(otherlv_0, grammarAccess.getCellStateAccess().getCellStateKeyword_0());
-            		
-            // InternalBoardGameDL.g:494:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalBoardGameDL.g:495:4: (lv_name_1_0= RULE_ID )
+            // InternalBoardGameDL.g:493:3: (lv_name_0_0= RULE_ID )
+            // InternalBoardGameDL.g:494:4: lv_name_0_0= RULE_ID
             {
-            // InternalBoardGameDL.g:495:4: (lv_name_1_0= RULE_ID )
-            // InternalBoardGameDL.g:496:5: lv_name_1_0= RULE_ID
-            {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
-            					newLeafNode(lv_name_1_0, grammarAccess.getCellStateAccess().getNameIDTerminalRuleCall_1_0());
-            				
+            				newLeafNode(lv_name_0_0, grammarAccess.getCellStateAccess().getNameIDTerminalRuleCall_0());
+            			
 
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getCellStateRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"name",
-            						lv_name_1_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
-            				
-
-            }
-
+            				if (current==null) {
+            					current = createModelElement(grammarAccess.getCellStateRule());
+            				}
+            				setWithLastConsumed(
+            					current,
+            					"name",
+            					lv_name_0_0,
+            					"org.eclipse.xtext.common.Terminals.ID");
+            			
 
             }
 
@@ -1078,7 +1082,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleWinCondition"
-    // InternalBoardGameDL.g:516:1: entryRuleWinCondition returns [EObject current=null] : iv_ruleWinCondition= ruleWinCondition EOF ;
+    // InternalBoardGameDL.g:513:1: entryRuleWinCondition returns [EObject current=null] : iv_ruleWinCondition= ruleWinCondition EOF ;
     public final EObject entryRuleWinCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1086,8 +1090,8 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBoardGameDL.g:516:53: (iv_ruleWinCondition= ruleWinCondition EOF )
-            // InternalBoardGameDL.g:517:2: iv_ruleWinCondition= ruleWinCondition EOF
+            // InternalBoardGameDL.g:513:53: (iv_ruleWinCondition= ruleWinCondition EOF )
+            // InternalBoardGameDL.g:514:2: iv_ruleWinCondition= ruleWinCondition EOF
             {
              newCompositeNode(grammarAccess.getWinConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -1114,50 +1118,39 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleWinCondition"
-    // InternalBoardGameDL.g:523:1: ruleWinCondition returns [EObject current=null] : (otherlv_0= 'WinCondition' otherlv_1= '{' otherlv_2= 'inarow' ( (lv_inarow_3_0= ruleInARow ) ) otherlv_4= '}' ) ;
+    // InternalBoardGameDL.g:520:1: ruleWinCondition returns [EObject current=null] : (otherlv_0= 'InARow' ( (lv_inarow_1_0= ruleInARow ) ) ) ;
     public final EObject ruleWinCondition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_1=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        EObject lv_inarow_3_0 = null;
+        EObject lv_inarow_1_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBoardGameDL.g:529:2: ( (otherlv_0= 'WinCondition' otherlv_1= '{' otherlv_2= 'inarow' ( (lv_inarow_3_0= ruleInARow ) ) otherlv_4= '}' ) )
-            // InternalBoardGameDL.g:530:2: (otherlv_0= 'WinCondition' otherlv_1= '{' otherlv_2= 'inarow' ( (lv_inarow_3_0= ruleInARow ) ) otherlv_4= '}' )
+            // InternalBoardGameDL.g:526:2: ( (otherlv_0= 'InARow' ( (lv_inarow_1_0= ruleInARow ) ) ) )
+            // InternalBoardGameDL.g:527:2: (otherlv_0= 'InARow' ( (lv_inarow_1_0= ruleInARow ) ) )
             {
-            // InternalBoardGameDL.g:530:2: (otherlv_0= 'WinCondition' otherlv_1= '{' otherlv_2= 'inarow' ( (lv_inarow_3_0= ruleInARow ) ) otherlv_4= '}' )
-            // InternalBoardGameDL.g:531:3: otherlv_0= 'WinCondition' otherlv_1= '{' otherlv_2= 'inarow' ( (lv_inarow_3_0= ruleInARow ) ) otherlv_4= '}'
+            // InternalBoardGameDL.g:527:2: (otherlv_0= 'InARow' ( (lv_inarow_1_0= ruleInARow ) ) )
+            // InternalBoardGameDL.g:528:3: otherlv_0= 'InARow' ( (lv_inarow_1_0= ruleInARow ) )
             {
-            otherlv_0=(Token)match(input,24,FOLLOW_3); 
+            otherlv_0=(Token)match(input,23,FOLLOW_19); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getWinConditionAccess().getWinConditionKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getWinConditionAccess().getInARowKeyword_0());
             		
-            otherlv_1=(Token)match(input,12,FOLLOW_21); 
-
-            			newLeafNode(otherlv_1, grammarAccess.getWinConditionAccess().getLeftCurlyBracketKeyword_1());
-            		
-            otherlv_2=(Token)match(input,25,FOLLOW_22); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getWinConditionAccess().getInarowKeyword_2());
-            		
-            // InternalBoardGameDL.g:543:3: ( (lv_inarow_3_0= ruleInARow ) )
-            // InternalBoardGameDL.g:544:4: (lv_inarow_3_0= ruleInARow )
+            // InternalBoardGameDL.g:532:3: ( (lv_inarow_1_0= ruleInARow ) )
+            // InternalBoardGameDL.g:533:4: (lv_inarow_1_0= ruleInARow )
             {
-            // InternalBoardGameDL.g:544:4: (lv_inarow_3_0= ruleInARow )
-            // InternalBoardGameDL.g:545:5: lv_inarow_3_0= ruleInARow
+            // InternalBoardGameDL.g:533:4: (lv_inarow_1_0= ruleInARow )
+            // InternalBoardGameDL.g:534:5: lv_inarow_1_0= ruleInARow
             {
 
-            					newCompositeNode(grammarAccess.getWinConditionAccess().getInarowInARowParserRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getWinConditionAccess().getInarowInARowParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_13);
-            lv_inarow_3_0=ruleInARow();
+            pushFollow(FOLLOW_2);
+            lv_inarow_1_0=ruleInARow();
 
             state._fsp--;
 
@@ -1168,7 +1161,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"inarow",
-            						lv_inarow_3_0,
+            						lv_inarow_1_0,
             						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.InARow");
             					afterParserOrEnumRuleCall();
             				
@@ -1178,10 +1171,6 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,16,FOLLOW_2); 
-
-            			newLeafNode(otherlv_4, grammarAccess.getWinConditionAccess().getRightCurlyBracketKeyword_4());
-            		
 
             }
 
@@ -1205,7 +1194,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEInt"
-    // InternalBoardGameDL.g:570:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    // InternalBoardGameDL.g:555:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
     public final String entryRuleEInt() throws RecognitionException {
         String current = null;
 
@@ -1213,8 +1202,8 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBoardGameDL.g:570:44: (iv_ruleEInt= ruleEInt EOF )
-            // InternalBoardGameDL.g:571:2: iv_ruleEInt= ruleEInt EOF
+            // InternalBoardGameDL.g:555:44: (iv_ruleEInt= ruleEInt EOF )
+            // InternalBoardGameDL.g:556:2: iv_ruleEInt= ruleEInt EOF
             {
              newCompositeNode(grammarAccess.getEIntRule()); 
             pushFollow(FOLLOW_1);
@@ -1241,7 +1230,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // InternalBoardGameDL.g:577:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    // InternalBoardGameDL.g:562:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1252,24 +1241,24 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBoardGameDL.g:583:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
-            // InternalBoardGameDL.g:584:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalBoardGameDL.g:568:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // InternalBoardGameDL.g:569:2: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            // InternalBoardGameDL.g:584:2: ( (kw= '-' )? this_INT_1= RULE_INT )
-            // InternalBoardGameDL.g:585:3: (kw= '-' )? this_INT_1= RULE_INT
+            // InternalBoardGameDL.g:569:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalBoardGameDL.g:570:3: (kw= '-' )? this_INT_1= RULE_INT
             {
-            // InternalBoardGameDL.g:585:3: (kw= '-' )?
+            // InternalBoardGameDL.g:570:3: (kw= '-' )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==26) ) {
+            if ( (LA8_0==24) ) {
                 alt8=1;
             }
             switch (alt8) {
                 case 1 :
-                    // InternalBoardGameDL.g:586:4: kw= '-'
+                    // InternalBoardGameDL.g:571:4: kw= '-'
                     {
-                    kw=(Token)match(input,26,FOLLOW_23); 
+                    kw=(Token)match(input,24,FOLLOW_20); 
 
                     				current.merge(kw);
                     				newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0());
@@ -1310,7 +1299,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalBoardGameDL.g:603:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalBoardGameDL.g:588:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -1318,8 +1307,8 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBoardGameDL.g:603:47: (iv_ruleEString= ruleEString EOF )
-            // InternalBoardGameDL.g:604:2: iv_ruleEString= ruleEString EOF
+            // InternalBoardGameDL.g:588:47: (iv_ruleEString= ruleEString EOF )
+            // InternalBoardGameDL.g:589:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -1346,7 +1335,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalBoardGameDL.g:610:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // InternalBoardGameDL.g:595:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1357,10 +1346,10 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBoardGameDL.g:616:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // InternalBoardGameDL.g:617:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalBoardGameDL.g:601:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // InternalBoardGameDL.g:602:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // InternalBoardGameDL.g:617:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalBoardGameDL.g:602:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1378,7 +1367,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalBoardGameDL.g:618:3: this_STRING_0= RULE_STRING
+                    // InternalBoardGameDL.g:603:3: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -1391,7 +1380,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBoardGameDL.g:626:3: this_ID_1= RULE_ID
+                    // InternalBoardGameDL.g:611:3: this_ID_1= RULE_ID
                     {
                     this_ID_1=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -1426,7 +1415,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleValidMove"
-    // InternalBoardGameDL.g:637:1: entryRuleValidMove returns [EObject current=null] : iv_ruleValidMove= ruleValidMove EOF ;
+    // InternalBoardGameDL.g:622:1: entryRuleValidMove returns [EObject current=null] : iv_ruleValidMove= ruleValidMove EOF ;
     public final EObject entryRuleValidMove() throws RecognitionException {
         EObject current = null;
 
@@ -1434,8 +1423,8 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBoardGameDL.g:637:50: (iv_ruleValidMove= ruleValidMove EOF )
-            // InternalBoardGameDL.g:638:2: iv_ruleValidMove= ruleValidMove EOF
+            // InternalBoardGameDL.g:622:50: (iv_ruleValidMove= ruleValidMove EOF )
+            // InternalBoardGameDL.g:623:2: iv_ruleValidMove= ruleValidMove EOF
             {
              newCompositeNode(grammarAccess.getValidMoveRule()); 
             pushFollow(FOLLOW_1);
@@ -1462,48 +1451,54 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleValidMove"
-    // InternalBoardGameDL.g:644:1: ruleValidMove returns [EObject current=null] : ( ( (lv_placeAnywhere_0_0= 'placeAnywhere' ) ) otherlv_1= 'ValidMove' otherlv_2= '{' (otherlv_3= 'conditions' otherlv_4= '{' ( (lv_conditions_5_0= ruleCondition ) ) (otherlv_6= ',' ( (lv_conditions_7_0= ruleCondition ) ) )* otherlv_8= '}' )? otherlv_9= '}' ) ;
+    // InternalBoardGameDL.g:629:1: ruleValidMove returns [EObject current=null] : (otherlv_0= 'ValidMove' otherlv_1= '{' ( (lv_placeAnywhere_2_0= 'placeAnywhere' ) ) (otherlv_3= 'when' ( (lv_conditions_4_0= ruleCondition ) ) (otherlv_5= 'and' ( (lv_conditions_6_0= ruleCondition ) ) )* )? otherlv_7= '}' ) ;
     public final EObject ruleValidMove() throws RecognitionException {
         EObject current = null;
 
-        Token lv_placeAnywhere_0_0=null;
+        Token otherlv_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
+        Token lv_placeAnywhere_2_0=null;
         Token otherlv_3=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        Token otherlv_8=null;
-        Token otherlv_9=null;
-        EObject lv_conditions_5_0 = null;
+        Token otherlv_5=null;
+        Token otherlv_7=null;
+        EObject lv_conditions_4_0 = null;
 
-        EObject lv_conditions_7_0 = null;
+        EObject lv_conditions_6_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBoardGameDL.g:650:2: ( ( ( (lv_placeAnywhere_0_0= 'placeAnywhere' ) ) otherlv_1= 'ValidMove' otherlv_2= '{' (otherlv_3= 'conditions' otherlv_4= '{' ( (lv_conditions_5_0= ruleCondition ) ) (otherlv_6= ',' ( (lv_conditions_7_0= ruleCondition ) ) )* otherlv_8= '}' )? otherlv_9= '}' ) )
-            // InternalBoardGameDL.g:651:2: ( ( (lv_placeAnywhere_0_0= 'placeAnywhere' ) ) otherlv_1= 'ValidMove' otherlv_2= '{' (otherlv_3= 'conditions' otherlv_4= '{' ( (lv_conditions_5_0= ruleCondition ) ) (otherlv_6= ',' ( (lv_conditions_7_0= ruleCondition ) ) )* otherlv_8= '}' )? otherlv_9= '}' )
+            // InternalBoardGameDL.g:635:2: ( (otherlv_0= 'ValidMove' otherlv_1= '{' ( (lv_placeAnywhere_2_0= 'placeAnywhere' ) ) (otherlv_3= 'when' ( (lv_conditions_4_0= ruleCondition ) ) (otherlv_5= 'and' ( (lv_conditions_6_0= ruleCondition ) ) )* )? otherlv_7= '}' ) )
+            // InternalBoardGameDL.g:636:2: (otherlv_0= 'ValidMove' otherlv_1= '{' ( (lv_placeAnywhere_2_0= 'placeAnywhere' ) ) (otherlv_3= 'when' ( (lv_conditions_4_0= ruleCondition ) ) (otherlv_5= 'and' ( (lv_conditions_6_0= ruleCondition ) ) )* )? otherlv_7= '}' )
             {
-            // InternalBoardGameDL.g:651:2: ( ( (lv_placeAnywhere_0_0= 'placeAnywhere' ) ) otherlv_1= 'ValidMove' otherlv_2= '{' (otherlv_3= 'conditions' otherlv_4= '{' ( (lv_conditions_5_0= ruleCondition ) ) (otherlv_6= ',' ( (lv_conditions_7_0= ruleCondition ) ) )* otherlv_8= '}' )? otherlv_9= '}' )
-            // InternalBoardGameDL.g:652:3: ( (lv_placeAnywhere_0_0= 'placeAnywhere' ) ) otherlv_1= 'ValidMove' otherlv_2= '{' (otherlv_3= 'conditions' otherlv_4= '{' ( (lv_conditions_5_0= ruleCondition ) ) (otherlv_6= ',' ( (lv_conditions_7_0= ruleCondition ) ) )* otherlv_8= '}' )? otherlv_9= '}'
+            // InternalBoardGameDL.g:636:2: (otherlv_0= 'ValidMove' otherlv_1= '{' ( (lv_placeAnywhere_2_0= 'placeAnywhere' ) ) (otherlv_3= 'when' ( (lv_conditions_4_0= ruleCondition ) ) (otherlv_5= 'and' ( (lv_conditions_6_0= ruleCondition ) ) )* )? otherlv_7= '}' )
+            // InternalBoardGameDL.g:637:3: otherlv_0= 'ValidMove' otherlv_1= '{' ( (lv_placeAnywhere_2_0= 'placeAnywhere' ) ) (otherlv_3= 'when' ( (lv_conditions_4_0= ruleCondition ) ) (otherlv_5= 'and' ( (lv_conditions_6_0= ruleCondition ) ) )* )? otherlv_7= '}'
             {
-            // InternalBoardGameDL.g:652:3: ( (lv_placeAnywhere_0_0= 'placeAnywhere' ) )
-            // InternalBoardGameDL.g:653:4: (lv_placeAnywhere_0_0= 'placeAnywhere' )
-            {
-            // InternalBoardGameDL.g:653:4: (lv_placeAnywhere_0_0= 'placeAnywhere' )
-            // InternalBoardGameDL.g:654:5: lv_placeAnywhere_0_0= 'placeAnywhere'
-            {
-            lv_placeAnywhere_0_0=(Token)match(input,27,FOLLOW_24); 
+            otherlv_0=(Token)match(input,25,FOLLOW_21); 
 
-            					newLeafNode(lv_placeAnywhere_0_0, grammarAccess.getValidMoveAccess().getPlaceAnywherePlaceAnywhereKeyword_0_0());
+            			newLeafNode(otherlv_0, grammarAccess.getValidMoveAccess().getValidMoveKeyword_0());
+            		
+            otherlv_1=(Token)match(input,26,FOLLOW_22); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getValidMoveAccess().getLeftCurlyBracketKeyword_1());
+            		
+            // InternalBoardGameDL.g:645:3: ( (lv_placeAnywhere_2_0= 'placeAnywhere' ) )
+            // InternalBoardGameDL.g:646:4: (lv_placeAnywhere_2_0= 'placeAnywhere' )
+            {
+            // InternalBoardGameDL.g:646:4: (lv_placeAnywhere_2_0= 'placeAnywhere' )
+            // InternalBoardGameDL.g:647:5: lv_placeAnywhere_2_0= 'placeAnywhere'
+            {
+            lv_placeAnywhere_2_0=(Token)match(input,27,FOLLOW_23); 
+
+            					newLeafNode(lv_placeAnywhere_2_0, grammarAccess.getValidMoveAccess().getPlaceAnywherePlaceAnywhereKeyword_2_0());
             				
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getValidMoveRule());
             					}
-            					setWithLastConsumed(current, "placeAnywhere", lv_placeAnywhere_0_0 != null, "placeAnywhere");
+            					setWithLastConsumed(current, "placeAnywhere", lv_placeAnywhere_2_0 != null, "placeAnywhere");
             				
 
             }
@@ -1511,44 +1506,32 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,28,FOLLOW_3); 
-
-            			newLeafNode(otherlv_1, grammarAccess.getValidMoveAccess().getValidMoveKeyword_1());
-            		
-            otherlv_2=(Token)match(input,12,FOLLOW_25); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getValidMoveAccess().getLeftCurlyBracketKeyword_2());
-            		
-            // InternalBoardGameDL.g:674:3: (otherlv_3= 'conditions' otherlv_4= '{' ( (lv_conditions_5_0= ruleCondition ) ) (otherlv_6= ',' ( (lv_conditions_7_0= ruleCondition ) ) )* otherlv_8= '}' )?
+            // InternalBoardGameDL.g:659:3: (otherlv_3= 'when' ( (lv_conditions_4_0= ruleCondition ) ) (otherlv_5= 'and' ( (lv_conditions_6_0= ruleCondition ) ) )* )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==29) ) {
+            if ( (LA11_0==28) ) {
                 alt11=1;
             }
             switch (alt11) {
                 case 1 :
-                    // InternalBoardGameDL.g:675:4: otherlv_3= 'conditions' otherlv_4= '{' ( (lv_conditions_5_0= ruleCondition ) ) (otherlv_6= ',' ( (lv_conditions_7_0= ruleCondition ) ) )* otherlv_8= '}'
+                    // InternalBoardGameDL.g:660:4: otherlv_3= 'when' ( (lv_conditions_4_0= ruleCondition ) ) (otherlv_5= 'and' ( (lv_conditions_6_0= ruleCondition ) ) )*
                     {
-                    otherlv_3=(Token)match(input,29,FOLLOW_3); 
+                    otherlv_3=(Token)match(input,28,FOLLOW_24); 
 
-                    				newLeafNode(otherlv_3, grammarAccess.getValidMoveAccess().getConditionsKeyword_3_0());
+                    				newLeafNode(otherlv_3, grammarAccess.getValidMoveAccess().getWhenKeyword_3_0());
                     			
-                    otherlv_4=(Token)match(input,12,FOLLOW_26); 
-
-                    				newLeafNode(otherlv_4, grammarAccess.getValidMoveAccess().getLeftCurlyBracketKeyword_3_1());
-                    			
-                    // InternalBoardGameDL.g:683:4: ( (lv_conditions_5_0= ruleCondition ) )
-                    // InternalBoardGameDL.g:684:5: (lv_conditions_5_0= ruleCondition )
+                    // InternalBoardGameDL.g:664:4: ( (lv_conditions_4_0= ruleCondition ) )
+                    // InternalBoardGameDL.g:665:5: (lv_conditions_4_0= ruleCondition )
                     {
-                    // InternalBoardGameDL.g:684:5: (lv_conditions_5_0= ruleCondition )
-                    // InternalBoardGameDL.g:685:6: lv_conditions_5_0= ruleCondition
+                    // InternalBoardGameDL.g:665:5: (lv_conditions_4_0= ruleCondition )
+                    // InternalBoardGameDL.g:666:6: lv_conditions_4_0= ruleCondition
                     {
 
-                    						newCompositeNode(grammarAccess.getValidMoveAccess().getConditionsConditionParserRuleCall_3_2_0());
+                    						newCompositeNode(grammarAccess.getValidMoveAccess().getConditionsConditionParserRuleCall_3_1_0());
                     					
-                    pushFollow(FOLLOW_8);
-                    lv_conditions_5_0=ruleCondition();
+                    pushFollow(FOLLOW_25);
+                    lv_conditions_4_0=ruleCondition();
 
                     state._fsp--;
 
@@ -1559,7 +1542,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                     						add(
                     							current,
                     							"conditions",
-                    							lv_conditions_5_0,
+                    							lv_conditions_4_0,
                     							"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.Condition");
                     						afterParserOrEnumRuleCall();
                     					
@@ -1569,36 +1552,36 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBoardGameDL.g:702:4: (otherlv_6= ',' ( (lv_conditions_7_0= ruleCondition ) ) )*
+                    // InternalBoardGameDL.g:683:4: (otherlv_5= 'and' ( (lv_conditions_6_0= ruleCondition ) ) )*
                     loop10:
                     do {
                         int alt10=2;
                         int LA10_0 = input.LA(1);
 
-                        if ( (LA10_0==15) ) {
+                        if ( (LA10_0==29) ) {
                             alt10=1;
                         }
 
 
                         switch (alt10) {
                     	case 1 :
-                    	    // InternalBoardGameDL.g:703:5: otherlv_6= ',' ( (lv_conditions_7_0= ruleCondition ) )
+                    	    // InternalBoardGameDL.g:684:5: otherlv_5= 'and' ( (lv_conditions_6_0= ruleCondition ) )
                     	    {
-                    	    otherlv_6=(Token)match(input,15,FOLLOW_26); 
+                    	    otherlv_5=(Token)match(input,29,FOLLOW_24); 
 
-                    	    					newLeafNode(otherlv_6, grammarAccess.getValidMoveAccess().getCommaKeyword_3_3_0());
+                    	    					newLeafNode(otherlv_5, grammarAccess.getValidMoveAccess().getAndKeyword_3_2_0());
                     	    				
-                    	    // InternalBoardGameDL.g:707:5: ( (lv_conditions_7_0= ruleCondition ) )
-                    	    // InternalBoardGameDL.g:708:6: (lv_conditions_7_0= ruleCondition )
+                    	    // InternalBoardGameDL.g:688:5: ( (lv_conditions_6_0= ruleCondition ) )
+                    	    // InternalBoardGameDL.g:689:6: (lv_conditions_6_0= ruleCondition )
                     	    {
-                    	    // InternalBoardGameDL.g:708:6: (lv_conditions_7_0= ruleCondition )
-                    	    // InternalBoardGameDL.g:709:7: lv_conditions_7_0= ruleCondition
+                    	    // InternalBoardGameDL.g:689:6: (lv_conditions_6_0= ruleCondition )
+                    	    // InternalBoardGameDL.g:690:7: lv_conditions_6_0= ruleCondition
                     	    {
 
-                    	    							newCompositeNode(grammarAccess.getValidMoveAccess().getConditionsConditionParserRuleCall_3_3_1_0());
+                    	    							newCompositeNode(grammarAccess.getValidMoveAccess().getConditionsConditionParserRuleCall_3_2_1_0());
                     	    						
-                    	    pushFollow(FOLLOW_8);
-                    	    lv_conditions_7_0=ruleCondition();
+                    	    pushFollow(FOLLOW_25);
+                    	    lv_conditions_6_0=ruleCondition();
 
                     	    state._fsp--;
 
@@ -1609,7 +1592,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                     	    							add(
                     	    								current,
                     	    								"conditions",
-                    	    								lv_conditions_7_0,
+                    	    								lv_conditions_6_0,
                     	    								"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.Condition");
                     	    							afterParserOrEnumRuleCall();
                     	    						
@@ -1628,19 +1611,15 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_8=(Token)match(input,16,FOLLOW_13); 
-
-                    				newLeafNode(otherlv_8, grammarAccess.getValidMoveAccess().getRightCurlyBracketKeyword_3_4());
-                    			
 
                     }
                     break;
 
             }
 
-            otherlv_9=(Token)match(input,16,FOLLOW_2); 
+            otherlv_7=(Token)match(input,30,FOLLOW_2); 
 
-            			newLeafNode(otherlv_9, grammarAccess.getValidMoveAccess().getRightCurlyBracketKeyword_4());
+            			newLeafNode(otherlv_7, grammarAccess.getValidMoveAccess().getRightCurlyBracketKeyword_4());
             		
 
             }
@@ -1665,7 +1644,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEffectOnCell"
-    // InternalBoardGameDL.g:740:1: entryRuleEffectOnCell returns [EObject current=null] : iv_ruleEffectOnCell= ruleEffectOnCell EOF ;
+    // InternalBoardGameDL.g:717:1: entryRuleEffectOnCell returns [EObject current=null] : iv_ruleEffectOnCell= ruleEffectOnCell EOF ;
     public final EObject entryRuleEffectOnCell() throws RecognitionException {
         EObject current = null;
 
@@ -1673,8 +1652,8 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBoardGameDL.g:740:53: (iv_ruleEffectOnCell= ruleEffectOnCell EOF )
-            // InternalBoardGameDL.g:741:2: iv_ruleEffectOnCell= ruleEffectOnCell EOF
+            // InternalBoardGameDL.g:717:53: (iv_ruleEffectOnCell= ruleEffectOnCell EOF )
+            // InternalBoardGameDL.g:718:2: iv_ruleEffectOnCell= ruleEffectOnCell EOF
             {
              newCompositeNode(grammarAccess.getEffectOnCellRule()); 
             pushFollow(FOLLOW_1);
@@ -1701,54 +1680,67 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEffectOnCell"
-    // InternalBoardGameDL.g:747:1: ruleEffectOnCell returns [EObject current=null] : (otherlv_0= 'EffectOnCell' otherlv_1= '{' otherlv_2= 'x' ( (lv_x_3_0= ruleEInt ) ) otherlv_4= 'y' ( (lv_y_5_0= ruleEInt ) ) otherlv_6= 'cellstate' ( ( ruleEString ) ) otherlv_8= '}' ) ;
+    // InternalBoardGameDL.g:724:1: ruleEffectOnCell returns [EObject current=null] : (otherlv_0= 'effect' otherlv_1= '->' otherlv_2= '(' otherlv_3= 'relativePosition' otherlv_4= '(' ( (lv_x_5_0= ruleEInt ) ) otherlv_6= ',' ( (lv_y_7_0= ruleEInt ) ) otherlv_8= ')' otherlv_9= 'newCellState' otherlv_10= '(' ( ( ruleEString ) ) otherlv_12= ')' otherlv_13= ')' ) ;
     public final EObject ruleEffectOnCell() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_1=null;
         Token otherlv_2=null;
+        Token otherlv_3=null;
         Token otherlv_4=null;
         Token otherlv_6=null;
         Token otherlv_8=null;
-        AntlrDatatypeRuleToken lv_x_3_0 = null;
+        Token otherlv_9=null;
+        Token otherlv_10=null;
+        Token otherlv_12=null;
+        Token otherlv_13=null;
+        AntlrDatatypeRuleToken lv_x_5_0 = null;
 
-        AntlrDatatypeRuleToken lv_y_5_0 = null;
+        AntlrDatatypeRuleToken lv_y_7_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBoardGameDL.g:753:2: ( (otherlv_0= 'EffectOnCell' otherlv_1= '{' otherlv_2= 'x' ( (lv_x_3_0= ruleEInt ) ) otherlv_4= 'y' ( (lv_y_5_0= ruleEInt ) ) otherlv_6= 'cellstate' ( ( ruleEString ) ) otherlv_8= '}' ) )
-            // InternalBoardGameDL.g:754:2: (otherlv_0= 'EffectOnCell' otherlv_1= '{' otherlv_2= 'x' ( (lv_x_3_0= ruleEInt ) ) otherlv_4= 'y' ( (lv_y_5_0= ruleEInt ) ) otherlv_6= 'cellstate' ( ( ruleEString ) ) otherlv_8= '}' )
+            // InternalBoardGameDL.g:730:2: ( (otherlv_0= 'effect' otherlv_1= '->' otherlv_2= '(' otherlv_3= 'relativePosition' otherlv_4= '(' ( (lv_x_5_0= ruleEInt ) ) otherlv_6= ',' ( (lv_y_7_0= ruleEInt ) ) otherlv_8= ')' otherlv_9= 'newCellState' otherlv_10= '(' ( ( ruleEString ) ) otherlv_12= ')' otherlv_13= ')' ) )
+            // InternalBoardGameDL.g:731:2: (otherlv_0= 'effect' otherlv_1= '->' otherlv_2= '(' otherlv_3= 'relativePosition' otherlv_4= '(' ( (lv_x_5_0= ruleEInt ) ) otherlv_6= ',' ( (lv_y_7_0= ruleEInt ) ) otherlv_8= ')' otherlv_9= 'newCellState' otherlv_10= '(' ( ( ruleEString ) ) otherlv_12= ')' otherlv_13= ')' )
             {
-            // InternalBoardGameDL.g:754:2: (otherlv_0= 'EffectOnCell' otherlv_1= '{' otherlv_2= 'x' ( (lv_x_3_0= ruleEInt ) ) otherlv_4= 'y' ( (lv_y_5_0= ruleEInt ) ) otherlv_6= 'cellstate' ( ( ruleEString ) ) otherlv_8= '}' )
-            // InternalBoardGameDL.g:755:3: otherlv_0= 'EffectOnCell' otherlv_1= '{' otherlv_2= 'x' ( (lv_x_3_0= ruleEInt ) ) otherlv_4= 'y' ( (lv_y_5_0= ruleEInt ) ) otherlv_6= 'cellstate' ( ( ruleEString ) ) otherlv_8= '}'
+            // InternalBoardGameDL.g:731:2: (otherlv_0= 'effect' otherlv_1= '->' otherlv_2= '(' otherlv_3= 'relativePosition' otherlv_4= '(' ( (lv_x_5_0= ruleEInt ) ) otherlv_6= ',' ( (lv_y_7_0= ruleEInt ) ) otherlv_8= ')' otherlv_9= 'newCellState' otherlv_10= '(' ( ( ruleEString ) ) otherlv_12= ')' otherlv_13= ')' )
+            // InternalBoardGameDL.g:732:3: otherlv_0= 'effect' otherlv_1= '->' otherlv_2= '(' otherlv_3= 'relativePosition' otherlv_4= '(' ( (lv_x_5_0= ruleEInt ) ) otherlv_6= ',' ( (lv_y_7_0= ruleEInt ) ) otherlv_8= ')' otherlv_9= 'newCellState' otherlv_10= '(' ( ( ruleEString ) ) otherlv_12= ')' otherlv_13= ')'
             {
-            otherlv_0=(Token)match(input,30,FOLLOW_3); 
+            otherlv_0=(Token)match(input,31,FOLLOW_26); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getEffectOnCellAccess().getEffectOnCellKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getEffectOnCellAccess().getEffectKeyword_0());
             		
-            otherlv_1=(Token)match(input,12,FOLLOW_27); 
+            otherlv_1=(Token)match(input,32,FOLLOW_27); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getEffectOnCellAccess().getLeftCurlyBracketKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getEffectOnCellAccess().getHyphenMinusGreaterThanSignKeyword_1());
             		
-            otherlv_2=(Token)match(input,31,FOLLOW_5); 
+            otherlv_2=(Token)match(input,33,FOLLOW_28); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getEffectOnCellAccess().getXKeyword_2());
+            			newLeafNode(otherlv_2, grammarAccess.getEffectOnCellAccess().getLeftParenthesisKeyword_2());
             		
-            // InternalBoardGameDL.g:767:3: ( (lv_x_3_0= ruleEInt ) )
-            // InternalBoardGameDL.g:768:4: (lv_x_3_0= ruleEInt )
+            otherlv_3=(Token)match(input,34,FOLLOW_27); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getEffectOnCellAccess().getRelativePositionKeyword_3());
+            		
+            otherlv_4=(Token)match(input,33,FOLLOW_5); 
+
+            			newLeafNode(otherlv_4, grammarAccess.getEffectOnCellAccess().getLeftParenthesisKeyword_4());
+            		
+            // InternalBoardGameDL.g:752:3: ( (lv_x_5_0= ruleEInt ) )
+            // InternalBoardGameDL.g:753:4: (lv_x_5_0= ruleEInt )
             {
-            // InternalBoardGameDL.g:768:4: (lv_x_3_0= ruleEInt )
-            // InternalBoardGameDL.g:769:5: lv_x_3_0= ruleEInt
+            // InternalBoardGameDL.g:753:4: (lv_x_5_0= ruleEInt )
+            // InternalBoardGameDL.g:754:5: lv_x_5_0= ruleEInt
             {
 
-            					newCompositeNode(grammarAccess.getEffectOnCellAccess().getXEIntParserRuleCall_3_0());
+            					newCompositeNode(grammarAccess.getEffectOnCellAccess().getXEIntParserRuleCall_5_0());
             				
-            pushFollow(FOLLOW_28);
-            lv_x_3_0=ruleEInt();
+            pushFollow(FOLLOW_29);
+            lv_x_5_0=ruleEInt();
 
             state._fsp--;
 
@@ -1759,7 +1751,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"x",
-            						lv_x_3_0,
+            						lv_x_5_0,
             						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EInt");
             					afterParserOrEnumRuleCall();
             				
@@ -1769,21 +1761,21 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,32,FOLLOW_5); 
+            otherlv_6=(Token)match(input,15,FOLLOW_5); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getEffectOnCellAccess().getYKeyword_4());
+            			newLeafNode(otherlv_6, grammarAccess.getEffectOnCellAccess().getCommaKeyword_6());
             		
-            // InternalBoardGameDL.g:790:3: ( (lv_y_5_0= ruleEInt ) )
-            // InternalBoardGameDL.g:791:4: (lv_y_5_0= ruleEInt )
+            // InternalBoardGameDL.g:775:3: ( (lv_y_7_0= ruleEInt ) )
+            // InternalBoardGameDL.g:776:4: (lv_y_7_0= ruleEInt )
             {
-            // InternalBoardGameDL.g:791:4: (lv_y_5_0= ruleEInt )
-            // InternalBoardGameDL.g:792:5: lv_y_5_0= ruleEInt
+            // InternalBoardGameDL.g:776:4: (lv_y_7_0= ruleEInt )
+            // InternalBoardGameDL.g:777:5: lv_y_7_0= ruleEInt
             {
 
-            					newCompositeNode(grammarAccess.getEffectOnCellAccess().getYEIntParserRuleCall_5_0());
+            					newCompositeNode(grammarAccess.getEffectOnCellAccess().getYEIntParserRuleCall_7_0());
             				
-            pushFollow(FOLLOW_29);
-            lv_y_5_0=ruleEInt();
+            pushFollow(FOLLOW_30);
+            lv_y_7_0=ruleEInt();
 
             state._fsp--;
 
@@ -1794,7 +1786,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"y",
-            						lv_y_5_0,
+            						lv_y_7_0,
             						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EInt");
             					afterParserOrEnumRuleCall();
             				
@@ -1804,15 +1796,23 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,33,FOLLOW_14); 
+            otherlv_8=(Token)match(input,35,FOLLOW_31); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getEffectOnCellAccess().getCellstateKeyword_6());
+            			newLeafNode(otherlv_8, grammarAccess.getEffectOnCellAccess().getRightParenthesisKeyword_8());
             		
-            // InternalBoardGameDL.g:813:3: ( ( ruleEString ) )
-            // InternalBoardGameDL.g:814:4: ( ruleEString )
+            otherlv_9=(Token)match(input,36,FOLLOW_27); 
+
+            			newLeafNode(otherlv_9, grammarAccess.getEffectOnCellAccess().getNewCellStateKeyword_9());
+            		
+            otherlv_10=(Token)match(input,33,FOLLOW_3); 
+
+            			newLeafNode(otherlv_10, grammarAccess.getEffectOnCellAccess().getLeftParenthesisKeyword_10());
+            		
+            // InternalBoardGameDL.g:806:3: ( ( ruleEString ) )
+            // InternalBoardGameDL.g:807:4: ( ruleEString )
             {
-            // InternalBoardGameDL.g:814:4: ( ruleEString )
-            // InternalBoardGameDL.g:815:5: ruleEString
+            // InternalBoardGameDL.g:807:4: ( ruleEString )
+            // InternalBoardGameDL.g:808:5: ruleEString
             {
 
             					if (current==null) {
@@ -1820,9 +1820,9 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
             					}
             				
 
-            					newCompositeNode(grammarAccess.getEffectOnCellAccess().getCellstateCellStateCrossReference_7_0());
+            					newCompositeNode(grammarAccess.getEffectOnCellAccess().getCellstateCellStateCrossReference_11_0());
             				
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_30);
             ruleEString();
 
             state._fsp--;
@@ -1836,9 +1836,13 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,16,FOLLOW_2); 
+            otherlv_12=(Token)match(input,35,FOLLOW_30); 
 
-            			newLeafNode(otherlv_8, grammarAccess.getEffectOnCellAccess().getRightCurlyBracketKeyword_8());
+            			newLeafNode(otherlv_12, grammarAccess.getEffectOnCellAccess().getRightParenthesisKeyword_12());
+            		
+            otherlv_13=(Token)match(input,35,FOLLOW_2); 
+
+            			newLeafNode(otherlv_13, grammarAccess.getEffectOnCellAccess().getRightParenthesisKeyword_13());
             		
 
             }
@@ -1863,7 +1867,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCondition"
-    // InternalBoardGameDL.g:837:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
+    // InternalBoardGameDL.g:834:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
     public final EObject entryRuleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -1871,8 +1875,8 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBoardGameDL.g:837:50: (iv_ruleCondition= ruleCondition EOF )
-            // InternalBoardGameDL.g:838:2: iv_ruleCondition= ruleCondition EOF
+            // InternalBoardGameDL.g:834:50: (iv_ruleCondition= ruleCondition EOF )
+            // InternalBoardGameDL.g:835:2: iv_ruleCondition= ruleCondition EOF
             {
              newCompositeNode(grammarAccess.getConditionRule()); 
             pushFollow(FOLLOW_1);
@@ -1899,42 +1903,36 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCondition"
-    // InternalBoardGameDL.g:844:1: ruleCondition returns [EObject current=null] : (otherlv_0= 'Condition' otherlv_1= '{' otherlv_2= 'cellstate' ( ( ruleEString ) ) otherlv_4= '}' ) ;
+    // InternalBoardGameDL.g:841:1: ruleCondition returns [EObject current=null] : (otherlv_0= 'cellstate' otherlv_1= '->' ( ( ruleEString ) ) ) ;
     public final EObject ruleCondition() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_1=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
 
 
         	enterRule();
 
         try {
-            // InternalBoardGameDL.g:850:2: ( (otherlv_0= 'Condition' otherlv_1= '{' otherlv_2= 'cellstate' ( ( ruleEString ) ) otherlv_4= '}' ) )
-            // InternalBoardGameDL.g:851:2: (otherlv_0= 'Condition' otherlv_1= '{' otherlv_2= 'cellstate' ( ( ruleEString ) ) otherlv_4= '}' )
+            // InternalBoardGameDL.g:847:2: ( (otherlv_0= 'cellstate' otherlv_1= '->' ( ( ruleEString ) ) ) )
+            // InternalBoardGameDL.g:848:2: (otherlv_0= 'cellstate' otherlv_1= '->' ( ( ruleEString ) ) )
             {
-            // InternalBoardGameDL.g:851:2: (otherlv_0= 'Condition' otherlv_1= '{' otherlv_2= 'cellstate' ( ( ruleEString ) ) otherlv_4= '}' )
-            // InternalBoardGameDL.g:852:3: otherlv_0= 'Condition' otherlv_1= '{' otherlv_2= 'cellstate' ( ( ruleEString ) ) otherlv_4= '}'
+            // InternalBoardGameDL.g:848:2: (otherlv_0= 'cellstate' otherlv_1= '->' ( ( ruleEString ) ) )
+            // InternalBoardGameDL.g:849:3: otherlv_0= 'cellstate' otherlv_1= '->' ( ( ruleEString ) )
             {
-            otherlv_0=(Token)match(input,34,FOLLOW_3); 
+            otherlv_0=(Token)match(input,37,FOLLOW_26); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getConditionKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getCellstateKeyword_0());
             		
-            otherlv_1=(Token)match(input,12,FOLLOW_29); 
+            otherlv_1=(Token)match(input,32,FOLLOW_3); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getConditionAccess().getLeftCurlyBracketKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getConditionAccess().getHyphenMinusGreaterThanSignKeyword_1());
             		
-            otherlv_2=(Token)match(input,33,FOLLOW_14); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getConditionAccess().getCellstateKeyword_2());
-            		
-            // InternalBoardGameDL.g:864:3: ( ( ruleEString ) )
-            // InternalBoardGameDL.g:865:4: ( ruleEString )
+            // InternalBoardGameDL.g:857:3: ( ( ruleEString ) )
+            // InternalBoardGameDL.g:858:4: ( ruleEString )
             {
-            // InternalBoardGameDL.g:865:4: ( ruleEString )
-            // InternalBoardGameDL.g:866:5: ruleEString
+            // InternalBoardGameDL.g:858:4: ( ruleEString )
+            // InternalBoardGameDL.g:859:5: ruleEString
             {
 
             					if (current==null) {
@@ -1942,9 +1940,9 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
             					}
             				
 
-            					newCompositeNode(grammarAccess.getConditionAccess().getCellstateCellStateCrossReference_3_0());
+            					newCompositeNode(grammarAccess.getConditionAccess().getCellstateCellStateCrossReference_2_0());
             				
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
@@ -1958,10 +1956,6 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,16,FOLLOW_2); 
-
-            			newLeafNode(otherlv_4, grammarAccess.getConditionAccess().getRightCurlyBracketKeyword_4());
-            		
 
             }
 
@@ -1985,7 +1979,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInARow"
-    // InternalBoardGameDL.g:888:1: entryRuleInARow returns [EObject current=null] : iv_ruleInARow= ruleInARow EOF ;
+    // InternalBoardGameDL.g:877:1: entryRuleInARow returns [EObject current=null] : iv_ruleInARow= ruleInARow EOF ;
     public final EObject entryRuleInARow() throws RecognitionException {
         EObject current = null;
 
@@ -1993,8 +1987,8 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBoardGameDL.g:888:47: (iv_ruleInARow= ruleInARow EOF )
-            // InternalBoardGameDL.g:889:2: iv_ruleInARow= ruleInARow EOF
+            // InternalBoardGameDL.g:877:47: (iv_ruleInARow= ruleInARow EOF )
+            // InternalBoardGameDL.g:878:2: iv_ruleInARow= ruleInARow EOF
             {
              newCompositeNode(grammarAccess.getInARowRule()); 
             pushFollow(FOLLOW_1);
@@ -2021,45 +2015,42 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInARow"
-    // InternalBoardGameDL.g:895:1: ruleInARow returns [EObject current=null] : ( ( (lv_diagonal_0_0= 'diagonal' ) ) ( (lv_horizontal_1_0= 'horizontal' ) ) ( (lv_vertical_2_0= 'vertical' ) ) otherlv_3= 'InARow' otherlv_4= '{' otherlv_5= 'count' ( (lv_count_6_0= ruleEInt ) ) otherlv_7= '}' ) ;
+    // InternalBoardGameDL.g:884:1: ruleInARow returns [EObject current=null] : ( ( (lv_horizontal_0_0= 'horizontal' ) ) ( (lv_vertical_1_0= 'vertical' ) ) ( (lv_diagonal_2_0= 'diagonal' ) ) otherlv_3= 'count' ( (lv_count_4_0= ruleEInt ) ) ) ;
     public final EObject ruleInARow() throws RecognitionException {
         EObject current = null;
 
-        Token lv_diagonal_0_0=null;
-        Token lv_horizontal_1_0=null;
-        Token lv_vertical_2_0=null;
+        Token lv_horizontal_0_0=null;
+        Token lv_vertical_1_0=null;
+        Token lv_diagonal_2_0=null;
         Token otherlv_3=null;
-        Token otherlv_4=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        AntlrDatatypeRuleToken lv_count_6_0 = null;
+        AntlrDatatypeRuleToken lv_count_4_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalBoardGameDL.g:901:2: ( ( ( (lv_diagonal_0_0= 'diagonal' ) ) ( (lv_horizontal_1_0= 'horizontal' ) ) ( (lv_vertical_2_0= 'vertical' ) ) otherlv_3= 'InARow' otherlv_4= '{' otherlv_5= 'count' ( (lv_count_6_0= ruleEInt ) ) otherlv_7= '}' ) )
-            // InternalBoardGameDL.g:902:2: ( ( (lv_diagonal_0_0= 'diagonal' ) ) ( (lv_horizontal_1_0= 'horizontal' ) ) ( (lv_vertical_2_0= 'vertical' ) ) otherlv_3= 'InARow' otherlv_4= '{' otherlv_5= 'count' ( (lv_count_6_0= ruleEInt ) ) otherlv_7= '}' )
+            // InternalBoardGameDL.g:890:2: ( ( ( (lv_horizontal_0_0= 'horizontal' ) ) ( (lv_vertical_1_0= 'vertical' ) ) ( (lv_diagonal_2_0= 'diagonal' ) ) otherlv_3= 'count' ( (lv_count_4_0= ruleEInt ) ) ) )
+            // InternalBoardGameDL.g:891:2: ( ( (lv_horizontal_0_0= 'horizontal' ) ) ( (lv_vertical_1_0= 'vertical' ) ) ( (lv_diagonal_2_0= 'diagonal' ) ) otherlv_3= 'count' ( (lv_count_4_0= ruleEInt ) ) )
             {
-            // InternalBoardGameDL.g:902:2: ( ( (lv_diagonal_0_0= 'diagonal' ) ) ( (lv_horizontal_1_0= 'horizontal' ) ) ( (lv_vertical_2_0= 'vertical' ) ) otherlv_3= 'InARow' otherlv_4= '{' otherlv_5= 'count' ( (lv_count_6_0= ruleEInt ) ) otherlv_7= '}' )
-            // InternalBoardGameDL.g:903:3: ( (lv_diagonal_0_0= 'diagonal' ) ) ( (lv_horizontal_1_0= 'horizontal' ) ) ( (lv_vertical_2_0= 'vertical' ) ) otherlv_3= 'InARow' otherlv_4= '{' otherlv_5= 'count' ( (lv_count_6_0= ruleEInt ) ) otherlv_7= '}'
+            // InternalBoardGameDL.g:891:2: ( ( (lv_horizontal_0_0= 'horizontal' ) ) ( (lv_vertical_1_0= 'vertical' ) ) ( (lv_diagonal_2_0= 'diagonal' ) ) otherlv_3= 'count' ( (lv_count_4_0= ruleEInt ) ) )
+            // InternalBoardGameDL.g:892:3: ( (lv_horizontal_0_0= 'horizontal' ) ) ( (lv_vertical_1_0= 'vertical' ) ) ( (lv_diagonal_2_0= 'diagonal' ) ) otherlv_3= 'count' ( (lv_count_4_0= ruleEInt ) )
             {
-            // InternalBoardGameDL.g:903:3: ( (lv_diagonal_0_0= 'diagonal' ) )
-            // InternalBoardGameDL.g:904:4: (lv_diagonal_0_0= 'diagonal' )
+            // InternalBoardGameDL.g:892:3: ( (lv_horizontal_0_0= 'horizontal' ) )
+            // InternalBoardGameDL.g:893:4: (lv_horizontal_0_0= 'horizontal' )
             {
-            // InternalBoardGameDL.g:904:4: (lv_diagonal_0_0= 'diagonal' )
-            // InternalBoardGameDL.g:905:5: lv_diagonal_0_0= 'diagonal'
+            // InternalBoardGameDL.g:893:4: (lv_horizontal_0_0= 'horizontal' )
+            // InternalBoardGameDL.g:894:5: lv_horizontal_0_0= 'horizontal'
             {
-            lv_diagonal_0_0=(Token)match(input,35,FOLLOW_30); 
+            lv_horizontal_0_0=(Token)match(input,38,FOLLOW_32); 
 
-            					newLeafNode(lv_diagonal_0_0, grammarAccess.getInARowAccess().getDiagonalDiagonalKeyword_0_0());
+            					newLeafNode(lv_horizontal_0_0, grammarAccess.getInARowAccess().getHorizontalHorizontalKeyword_0_0());
             				
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getInARowRule());
             					}
-            					setWithLastConsumed(current, "diagonal", lv_diagonal_0_0 != null, "diagonal");
+            					setWithLastConsumed(current, "horizontal", lv_horizontal_0_0 != null, "horizontal");
             				
 
             }
@@ -2067,43 +2058,21 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBoardGameDL.g:917:3: ( (lv_horizontal_1_0= 'horizontal' ) )
-            // InternalBoardGameDL.g:918:4: (lv_horizontal_1_0= 'horizontal' )
+            // InternalBoardGameDL.g:906:3: ( (lv_vertical_1_0= 'vertical' ) )
+            // InternalBoardGameDL.g:907:4: (lv_vertical_1_0= 'vertical' )
             {
-            // InternalBoardGameDL.g:918:4: (lv_horizontal_1_0= 'horizontal' )
-            // InternalBoardGameDL.g:919:5: lv_horizontal_1_0= 'horizontal'
+            // InternalBoardGameDL.g:907:4: (lv_vertical_1_0= 'vertical' )
+            // InternalBoardGameDL.g:908:5: lv_vertical_1_0= 'vertical'
             {
-            lv_horizontal_1_0=(Token)match(input,36,FOLLOW_31); 
+            lv_vertical_1_0=(Token)match(input,39,FOLLOW_33); 
 
-            					newLeafNode(lv_horizontal_1_0, grammarAccess.getInARowAccess().getHorizontalHorizontalKeyword_1_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getInARowRule());
-            					}
-            					setWithLastConsumed(current, "horizontal", lv_horizontal_1_0 != null, "horizontal");
-            				
-
-            }
-
-
-            }
-
-            // InternalBoardGameDL.g:931:3: ( (lv_vertical_2_0= 'vertical' ) )
-            // InternalBoardGameDL.g:932:4: (lv_vertical_2_0= 'vertical' )
-            {
-            // InternalBoardGameDL.g:932:4: (lv_vertical_2_0= 'vertical' )
-            // InternalBoardGameDL.g:933:5: lv_vertical_2_0= 'vertical'
-            {
-            lv_vertical_2_0=(Token)match(input,37,FOLLOW_32); 
-
-            					newLeafNode(lv_vertical_2_0, grammarAccess.getInARowAccess().getVerticalVerticalKeyword_2_0());
+            					newLeafNode(lv_vertical_1_0, grammarAccess.getInARowAccess().getVerticalVerticalKeyword_1_0());
             				
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getInARowRule());
             					}
-            					setWithLastConsumed(current, "vertical", lv_vertical_2_0 != null, "vertical");
+            					setWithLastConsumed(current, "vertical", lv_vertical_1_0 != null, "vertical");
             				
 
             }
@@ -2111,29 +2080,43 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,38,FOLLOW_3); 
-
-            			newLeafNode(otherlv_3, grammarAccess.getInARowAccess().getInARowKeyword_3());
-            		
-            otherlv_4=(Token)match(input,12,FOLLOW_33); 
-
-            			newLeafNode(otherlv_4, grammarAccess.getInARowAccess().getLeftCurlyBracketKeyword_4());
-            		
-            otherlv_5=(Token)match(input,39,FOLLOW_5); 
-
-            			newLeafNode(otherlv_5, grammarAccess.getInARowAccess().getCountKeyword_5());
-            		
-            // InternalBoardGameDL.g:957:3: ( (lv_count_6_0= ruleEInt ) )
-            // InternalBoardGameDL.g:958:4: (lv_count_6_0= ruleEInt )
+            // InternalBoardGameDL.g:920:3: ( (lv_diagonal_2_0= 'diagonal' ) )
+            // InternalBoardGameDL.g:921:4: (lv_diagonal_2_0= 'diagonal' )
             {
-            // InternalBoardGameDL.g:958:4: (lv_count_6_0= ruleEInt )
-            // InternalBoardGameDL.g:959:5: lv_count_6_0= ruleEInt
+            // InternalBoardGameDL.g:921:4: (lv_diagonal_2_0= 'diagonal' )
+            // InternalBoardGameDL.g:922:5: lv_diagonal_2_0= 'diagonal'
             {
+            lv_diagonal_2_0=(Token)match(input,40,FOLLOW_34); 
 
-            					newCompositeNode(grammarAccess.getInARowAccess().getCountEIntParserRuleCall_6_0());
+            					newLeafNode(lv_diagonal_2_0, grammarAccess.getInARowAccess().getDiagonalDiagonalKeyword_2_0());
             				
-            pushFollow(FOLLOW_13);
-            lv_count_6_0=ruleEInt();
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getInARowRule());
+            					}
+            					setWithLastConsumed(current, "diagonal", lv_diagonal_2_0 != null, "diagonal");
+            				
+
+            }
+
+
+            }
+
+            otherlv_3=(Token)match(input,41,FOLLOW_5); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getInARowAccess().getCountKeyword_3());
+            		
+            // InternalBoardGameDL.g:938:3: ( (lv_count_4_0= ruleEInt ) )
+            // InternalBoardGameDL.g:939:4: (lv_count_4_0= ruleEInt )
+            {
+            // InternalBoardGameDL.g:939:4: (lv_count_4_0= ruleEInt )
+            // InternalBoardGameDL.g:940:5: lv_count_4_0= ruleEInt
+            {
+
+            					newCompositeNode(grammarAccess.getInARowAccess().getCountEIntParserRuleCall_4_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_count_4_0=ruleEInt();
 
             state._fsp--;
 
@@ -2144,7 +2127,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"count",
-            						lv_count_6_0,
+            						lv_count_4_0,
             						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EInt");
             					afterParserOrEnumRuleCall();
             				
@@ -2154,10 +2137,6 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,16,FOLLOW_2); 
-
-            			newLeafNode(otherlv_7, grammarAccess.getInARowAccess().getRightCurlyBracketKeyword_7());
-            		
 
             }
 
@@ -2186,36 +2165,37 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000004000020L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000018000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000050L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000410000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000020010000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000050L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000001000020L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000018000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000060000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000050000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000060000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000020000000000L});
 
 }

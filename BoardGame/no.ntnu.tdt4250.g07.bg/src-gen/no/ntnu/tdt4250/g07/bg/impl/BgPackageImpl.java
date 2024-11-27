@@ -202,6 +202,16 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getBoardGame_Name() {
+		return (EAttribute) boardGameEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPieceType() {
 		return pieceTypeEClass;
 	}
@@ -461,6 +471,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		createEReference(boardGameEClass, BOARD_GAME__CELLSTATES);
 		createEReference(boardGameEClass, BOARD_GAME__WIN_CONDITIONS);
 		createEAttribute(boardGameEClass, BOARD_GAME__SIZE);
+		createEAttribute(boardGameEClass, BOARD_GAME__NAME);
 
 		pieceTypeEClass = createEClass(PIECE_TYPE);
 		createEAttribute(pieceTypeEClass, PIECE_TYPE__NAME);
@@ -537,6 +548,8 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBoardGame_Size(), ecorePackage.getEInt(), "size", null, 1, 1, BoardGame.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBoardGame_Name(), ecorePackage.getEString(), "name", null, 1, 1, BoardGame.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pieceTypeEClass, PieceType.class, "PieceType", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

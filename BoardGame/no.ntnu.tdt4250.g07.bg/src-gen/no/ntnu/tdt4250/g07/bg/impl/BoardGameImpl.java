@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getCellstates <em>Cellstates</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getWinConditions <em>Win Conditions</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getSize <em>Size</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +91,26 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 	 * @ordered
 	 */
 	protected int size = SIZE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,6 +202,29 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.BOARD_GAME__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case BgPackage.BOARD_GAME__PIECETYPES:
@@ -209,6 +253,8 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 			return getWinConditions();
 		case BgPackage.BOARD_GAME__SIZE:
 			return getSize();
+		case BgPackage.BOARD_GAME__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -237,6 +283,9 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 		case BgPackage.BOARD_GAME__SIZE:
 			setSize((Integer) newValue);
 			return;
+		case BgPackage.BOARD_GAME__NAME:
+			setName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -261,6 +310,9 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 		case BgPackage.BOARD_GAME__SIZE:
 			setSize(SIZE_EDEFAULT);
 			return;
+		case BgPackage.BOARD_GAME__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -281,6 +333,8 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 			return winConditions != null && !winConditions.isEmpty();
 		case BgPackage.BOARD_GAME__SIZE:
 			return size != SIZE_EDEFAULT;
+		case BgPackage.BOARD_GAME__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -298,6 +352,8 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (size: ");
 		result.append(size);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

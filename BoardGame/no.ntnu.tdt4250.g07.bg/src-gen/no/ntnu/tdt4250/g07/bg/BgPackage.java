@@ -103,13 +103,22 @@ public interface BgPackage extends EPackage {
 	int BOARD_GAME__SIZE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD_GAME__NAME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Board Game</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_GAME_FEATURE_COUNT = 4;
+	int BOARD_GAME_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Board Game</em>' class.
@@ -515,6 +524,17 @@ public interface BgPackage extends EPackage {
 	EAttribute getBoardGame_Size();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.BoardGame#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.BoardGame#getName()
+	 * @see #getBoardGame()
+	 * @generated
+	 */
+	EAttribute getBoardGame_Name();
+
+	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.PieceType <em>Piece Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -824,6 +844,14 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BOARD_GAME__SIZE = eINSTANCE.getBoardGame_Size();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOARD_GAME__NAME = eINSTANCE.getBoardGame_Name();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl <em>Piece Type</em>}' class.
