@@ -4,25 +4,17 @@ package no.ntnu.tdt4250.group07.bg.provider;
 
 import java.util.Collection;
 import java.util.List;
-
-import no.ntnu.tdt4250.group07.bg.BgPackage;
-import no.ntnu.tdt4250.group07.bg.CellState;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link no.ntnu.tdt4250.group07.bg.CellState} object.
@@ -53,25 +45,8 @@ public class CellStateItemProvider extends ItemProviderAdapter implements IEditi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_CellState_Name_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_CellState_Name_feature",
-								"_UI_CellState_type"),
-						BgPackage.Literals.CELL_STATE__NAME, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -103,9 +78,7 @@ public class CellStateItemProvider extends ItemProviderAdapter implements IEditi
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CellState) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_CellState_type")
-				: getString("_UI_CellState_type") + " " + label;
+		return getString("_UI_CellState_type");
 	}
 
 	/**
@@ -118,12 +91,6 @@ public class CellStateItemProvider extends ItemProviderAdapter implements IEditi
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(CellState.class)) {
-		case BgPackage.CELL_STATE__NAME:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		}
 		super.notifyChanged(notification);
 	}
 

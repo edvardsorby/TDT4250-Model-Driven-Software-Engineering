@@ -53,26 +53,11 @@ public class EffectOnCellItemProvider extends ItemProviderAdapter implements IEd
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRelativepositionPropertyDescriptor(object);
 			addCellstatePropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
+			addXPropertyDescriptor(object);
+			addYPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Relativeposition feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRelativepositionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_EffectOnCell_relativeposition_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_EffectOnCell_relativeposition_feature",
-								"_UI_EffectOnCell_type"),
-						BgPackage.Literals.EFFECT_ON_CELL__RELATIVEPOSITION, true, false, true, null, null, null));
 	}
 
 	/**
@@ -91,19 +76,35 @@ public class EffectOnCellItemProvider extends ItemProviderAdapter implements IEd
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the X feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addXPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_EffectOnCell_Name_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_EffectOnCell_Name_feature",
+						getResourceLocator(), getString("_UI_EffectOnCell_x_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_EffectOnCell_x_feature",
 								"_UI_EffectOnCell_type"),
-						BgPackage.Literals.EFFECT_ON_CELL__NAME, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+						BgPackage.Literals.EFFECT_ON_CELL__X, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Y feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addYPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_EffectOnCell_y_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_EffectOnCell_y_feature",
+								"_UI_EffectOnCell_type"),
+						BgPackage.Literals.EFFECT_ON_CELL__Y, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -135,9 +136,8 @@ public class EffectOnCellItemProvider extends ItemProviderAdapter implements IEd
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EffectOnCell) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_EffectOnCell_type")
-				: getString("_UI_EffectOnCell_type") + " " + label;
+		EffectOnCell effectOnCell = (EffectOnCell) object;
+		return getString("_UI_EffectOnCell_type") + " " + effectOnCell.getX();
 	}
 
 	/**
@@ -152,7 +152,8 @@ public class EffectOnCellItemProvider extends ItemProviderAdapter implements IEd
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EffectOnCell.class)) {
-		case BgPackage.EFFECT_ON_CELL__NAME:
+		case BgPackage.EFFECT_ON_CELL__X:
+		case BgPackage.EFFECT_ON_CELL__Y:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

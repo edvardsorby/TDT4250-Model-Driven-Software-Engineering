@@ -6,12 +6,16 @@ package no.ntnu.tdt4250.g07.bg.bgdl.formatting2;
 import com.google.inject.Inject;
 import java.util.Arrays;
 import no.ntnu.tdt4250.g07.bg.bgdl.services.BoardgameDLGrammarAccess;
+import no.ntnu.tdt4250.group07.bg.Board;
+import no.ntnu.tdt4250.group07.bg.PlayerBrickSet;
+import no.ntnu.tdt4250.group07.bg.Rules;
+import no.ntnu.tdt4250.group07.bg.ValidMove;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.XbaseGenerated;
 
 @SuppressWarnings("all")
 public class BoardgameDLFormatter extends AbstractFormatter2 {
@@ -19,40 +23,46 @@ public class BoardgameDLFormatter extends AbstractFormatter2 {
   @Extension
   private BoardgameDLGrammarAccess _boardgameDLGrammarAccess;
 
-  protected void _format(final /* Rules */Object rules, @Extension final IFormattableDocument document) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nboard cannot be resolved"
-      + "\nformat cannot be resolved");
+  protected void _format(final Rules rules, @Extension final IFormattableDocument document) {
+    EList<Board> _board = rules.getBoard();
+    for (final Board board : _board) {
+      document.<Board>format(board);
+    }
   }
 
-  protected void _format(final /* Board */Object board, @Extension final IFormattableDocument document) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nplayerbrickset cannot be resolved"
-      + "\nformat cannot be resolved"
-      + "\nvalidmove cannot be resolved"
-      + "\nformat cannot be resolved");
+  protected void _format(final Board board, @Extension final IFormattableDocument document) {
+    EList<PlayerBrickSet> _playerbrickset = board.getPlayerbrickset();
+    for (final PlayerBrickSet playerBrickSet : _playerbrickset) {
+      document.<PlayerBrickSet>format(playerBrickSet);
+    }
+    EList<ValidMove> _validmove = board.getValidmove();
+    for (final ValidMove validMove : _validmove) {
+      document.<ValidMove>format(validMove);
+    }
   }
 
-  @XbaseGenerated
-  public void format(final Object rules, final IFormattableDocument document) {
-    if (rules instanceof XtextResource) {
-      _format((XtextResource)rules, document);
+  public void format(final Object board, final IFormattableDocument document) {
+    if (board instanceof XtextResource) {
+      _format((XtextResource)board, document);
       return;
-    } else if (rules instanceof EObject) {
-      _format((EObject)rules, document);
+    } else if (board instanceof Board) {
+      _format((Board)board, document);
       return;
-    } else if (rules == null) {
+    } else if (board instanceof Rules) {
+      _format((Rules)board, document);
+      return;
+    } else if (board instanceof EObject) {
+      _format((EObject)board, document);
+      return;
+    } else if (board == null) {
       _format((Void)null, document);
       return;
-    } else if (rules != null) {
-      _format(rules, document);
-      return;
-    } else if (rules != null) {
-      _format(rules, document);
+    } else if (board != null) {
+      _format(board, document);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(rules, document).toString());
+        Arrays.<Object>asList(board, document).toString());
     }
   }
 }

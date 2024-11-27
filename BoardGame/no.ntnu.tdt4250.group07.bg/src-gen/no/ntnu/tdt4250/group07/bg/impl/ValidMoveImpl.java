@@ -5,20 +5,22 @@ package no.ntnu.tdt4250.group07.bg.impl;
 import java.util.Collection;
 
 import no.ntnu.tdt4250.group07.bg.BgPackage;
-import no.ntnu.tdt4250.group07.bg.BrickChange;
-import no.ntnu.tdt4250.group07.bg.CellChange;
+import no.ntnu.tdt4250.group07.bg.Condition;
 import no.ntnu.tdt4250.group07.bg.ValidMove;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,53 +30,42 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ValidMoveImpl#getBrickchange <em>Brickchange</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ValidMoveImpl#getCellchange <em>Cellchange</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ValidMoveImpl#getName <em>Name</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ValidMoveImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.ValidMoveImpl#isPlaceAnywhere <em>Place Anywhere</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ValidMoveImpl extends MinimalEObjectImpl.Container implements ValidMove {
 	/**
-	 * The cached value of the '{@link #getBrickchange() <em>Brickchange</em>}' reference list.
+	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBrickchange()
+	 * @see #getCondition()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BrickChange> brickchange;
+	protected EList<Condition> condition;
 
 	/**
-	 * The cached value of the '{@link #getCellchange() <em>Cellchange</em>}' reference list.
+	 * The default value of the '{@link #isPlaceAnywhere() <em>Place Anywhere</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCellchange()
+	 * @see #isPlaceAnywhere()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CellChange> cellchange;
+	protected static final boolean PLACE_ANYWHERE_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #isPlaceAnywhere() <em>Place Anywhere</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #isPlaceAnywhere()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+	protected boolean placeAnywhere = PLACE_ANYWHERE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,8 +92,11 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	 * @generated
 	 */
 	@Override
-	public String getName() {
-		return name;
+	public EList<Condition> getCondition() {
+		if (condition == null) {
+			condition = new EObjectContainmentEList<Condition>(Condition.class, this, BgPackage.VALID_MOVE__CONDITION);
+		}
+		return condition;
 	}
 
 	/**
@@ -111,11 +105,22 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	 * @generated
 	 */
 	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public boolean isPlaceAnywhere() {
+		return placeAnywhere;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPlaceAnywhere(boolean newPlaceAnywhere) {
+		boolean oldPlaceAnywhere = placeAnywhere;
+		placeAnywhere = newPlaceAnywhere;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.VALID_MOVE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.VALID_MOVE__PLACE_ANYWHERE,
+					oldPlaceAnywhere, placeAnywhere));
 	}
 
 	/**
@@ -124,26 +129,12 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	 * @generated
 	 */
 	@Override
-	public EList<BrickChange> getBrickchange() {
-		if (brickchange == null) {
-			brickchange = new EObjectResolvingEList<BrickChange>(BrickChange.class, this,
-					BgPackage.VALID_MOVE__BRICKCHANGE);
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case BgPackage.VALID_MOVE__CONDITION:
+			return ((InternalEList<?>) getCondition()).basicRemove(otherEnd, msgs);
 		}
-		return brickchange;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<CellChange> getCellchange() {
-		if (cellchange == null) {
-			cellchange = new EObjectResolvingEList<CellChange>(CellChange.class, this,
-					BgPackage.VALID_MOVE__CELLCHANGE);
-		}
-		return cellchange;
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -154,12 +145,10 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case BgPackage.VALID_MOVE__BRICKCHANGE:
-			return getBrickchange();
-		case BgPackage.VALID_MOVE__CELLCHANGE:
-			return getCellchange();
-		case BgPackage.VALID_MOVE__NAME:
-			return getName();
+		case BgPackage.VALID_MOVE__CONDITION:
+			return getCondition();
+		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
+			return isPlaceAnywhere();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -173,16 +162,12 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case BgPackage.VALID_MOVE__BRICKCHANGE:
-			getBrickchange().clear();
-			getBrickchange().addAll((Collection<? extends BrickChange>) newValue);
+		case BgPackage.VALID_MOVE__CONDITION:
+			getCondition().clear();
+			getCondition().addAll((Collection<? extends Condition>) newValue);
 			return;
-		case BgPackage.VALID_MOVE__CELLCHANGE:
-			getCellchange().clear();
-			getCellchange().addAll((Collection<? extends CellChange>) newValue);
-			return;
-		case BgPackage.VALID_MOVE__NAME:
-			setName((String) newValue);
+		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
+			setPlaceAnywhere((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,14 +181,11 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case BgPackage.VALID_MOVE__BRICKCHANGE:
-			getBrickchange().clear();
+		case BgPackage.VALID_MOVE__CONDITION:
+			getCondition().clear();
 			return;
-		case BgPackage.VALID_MOVE__CELLCHANGE:
-			getCellchange().clear();
-			return;
-		case BgPackage.VALID_MOVE__NAME:
-			setName(NAME_EDEFAULT);
+		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
+			setPlaceAnywhere(PLACE_ANYWHERE_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -217,12 +199,10 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case BgPackage.VALID_MOVE__BRICKCHANGE:
-			return brickchange != null && !brickchange.isEmpty();
-		case BgPackage.VALID_MOVE__CELLCHANGE:
-			return cellchange != null && !cellchange.isEmpty();
-		case BgPackage.VALID_MOVE__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case BgPackage.VALID_MOVE__CONDITION:
+			return condition != null && !condition.isEmpty();
+		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
+			return placeAnywhere != PLACE_ANYWHERE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -238,8 +218,8 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (Name: ");
-		result.append(name);
+		result.append(" (placeAnywhere: ");
+		result.append(placeAnywhere);
 		result.append(')');
 		return result.toString();
 	}

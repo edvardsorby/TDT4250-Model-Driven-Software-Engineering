@@ -67,53 +67,13 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected BgSwitch<Adapter> modelSwitch = new BgSwitch<Adapter>() {
 		@Override
-		public Adapter caseRules(Rules object) {
-			return createRulesAdapter();
+		public Adapter caseBoardGame(BoardGame object) {
+			return createBoardGameAdapter();
 		}
 
 		@Override
-		public Adapter caseBoard(Board object) {
-			return createBoardAdapter();
-		}
-
-		@Override
-		public Adapter casePlayerBrickSet(PlayerBrickSet object) {
-			return createPlayerBrickSetAdapter();
-		}
-
-		@Override
-		public Adapter caseBrick(Brick object) {
-			return createBrickAdapter();
-		}
-
-		@Override
-		public Adapter caseBrickType(BrickType object) {
-			return createBrickTypeAdapter();
-		}
-
-		@Override
-		public Adapter caseBrickState(BrickState object) {
-			return createBrickStateAdapter();
-		}
-
-		@Override
-		public Adapter caseCell(Cell object) {
-			return createCellAdapter();
-		}
-
-		@Override
-		public Adapter caseCellType(CellType object) {
-			return createCellTypeAdapter();
-		}
-
-		@Override
-		public Adapter caseCellState(CellState object) {
-			return createCellStateAdapter();
-		}
-
-		@Override
-		public Adapter caseBoardState(BoardState object) {
-			return createBoardStateAdapter();
+		public Adapter casePieceType(PieceType object) {
+			return createPieceTypeAdapter();
 		}
 
 		@Override
@@ -127,18 +87,8 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseBrickChange(BrickChange object) {
-			return createBrickChangeAdapter();
-		}
-
-		@Override
-		public Adapter caseRelativePosition(RelativePosition object) {
-			return createRelativePositionAdapter();
-		}
-
-		@Override
-		public Adapter caseCellChange(CellChange object) {
-			return createCellChangeAdapter();
+		public Adapter caseCellState(CellState object) {
+			return createCellStateAdapter();
 		}
 
 		@Override
@@ -147,18 +97,13 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseLine(Line object) {
-			return createLineAdapter();
+		public Adapter caseWinCondition(WinCondition object) {
+			return createWinConditionAdapter();
 		}
 
 		@Override
-		public Adapter caseLineElement(LineElement object) {
-			return createLineElementAdapter();
-		}
-
-		@Override
-		public Adapter caseOutcome(Outcome object) {
-			return createOutcomeAdapter();
+		public Adapter caseInARow(InARow object) {
+			return createInARowAdapter();
 		}
 
 		@Override
@@ -181,114 +126,30 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.Rules <em>Rules</em>}'.
+	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.BoardGame <em>Board Game</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.Rules
+	 * @see no.ntnu.tdt4250.group07.bg.BoardGame
 	 * @generated
 	 */
-	public Adapter createRulesAdapter() {
+	public Adapter createBoardGameAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.Board <em>Board</em>}'.
+	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.PieceType <em>Piece Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.Board
+	 * @see no.ntnu.tdt4250.group07.bg.PieceType
 	 * @generated
 	 */
-	public Adapter createBoardAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.PlayerBrickSet <em>Player Brick Set</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.PlayerBrickSet
-	 * @generated
-	 */
-	public Adapter createPlayerBrickSetAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.Brick <em>Brick</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.Brick
-	 * @generated
-	 */
-	public Adapter createBrickAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.BrickType <em>Brick Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.BrickType
-	 * @generated
-	 */
-	public Adapter createBrickTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.BrickState <em>Brick State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.BrickState
-	 * @generated
-	 */
-	public Adapter createBrickStateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.Cell <em>Cell</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.Cell
-	 * @generated
-	 */
-	public Adapter createCellAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.CellType <em>Cell Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.CellType
-	 * @generated
-	 */
-	public Adapter createCellTypeAdapter() {
+	public Adapter createPieceTypeAdapter() {
 		return null;
 	}
 
@@ -303,20 +164,6 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCellStateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.BoardState <em>Board State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.BoardState
-	 * @generated
-	 */
-	public Adapter createBoardStateAdapter() {
 		return null;
 	}
 
@@ -349,48 +196,6 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.BrickChange <em>Brick Change</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.BrickChange
-	 * @generated
-	 */
-	public Adapter createBrickChangeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.RelativePosition <em>Relative Position</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.RelativePosition
-	 * @generated
-	 */
-	public Adapter createRelativePositionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.CellChange <em>Cell Change</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.CellChange
-	 * @generated
-	 */
-	public Adapter createCellChangeAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.EffectOnCell <em>Effect On Cell</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -405,44 +210,30 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.Line <em>Line</em>}'.
+	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.WinCondition <em>Win Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.Line
+	 * @see no.ntnu.tdt4250.group07.bg.WinCondition
 	 * @generated
 	 */
-	public Adapter createLineAdapter() {
+	public Adapter createWinConditionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.LineElement <em>Line Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.InARow <em>In ARow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.LineElement
+	 * @see no.ntnu.tdt4250.group07.bg.InARow
 	 * @generated
 	 */
-	public Adapter createLineElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.group07.bg.Outcome <em>Outcome</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.group07.bg.Outcome
-	 * @generated
-	 */
-	public Adapter createOutcomeAdapter() {
+	public Adapter createInARowAdapter() {
 		return null;
 	}
 

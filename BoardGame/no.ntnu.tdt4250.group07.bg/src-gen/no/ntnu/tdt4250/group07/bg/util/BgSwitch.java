@@ -66,72 +66,16 @@ public class BgSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case BgPackage.RULES: {
-			Rules rules = (Rules) theEObject;
-			T result = caseRules(rules);
+		case BgPackage.BOARD_GAME: {
+			BoardGame boardGame = (BoardGame) theEObject;
+			T result = caseBoardGame(boardGame);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case BgPackage.BOARD: {
-			Board board = (Board) theEObject;
-			T result = caseBoard(board);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case BgPackage.PLAYER_BRICK_SET: {
-			PlayerBrickSet playerBrickSet = (PlayerBrickSet) theEObject;
-			T result = casePlayerBrickSet(playerBrickSet);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case BgPackage.BRICK: {
-			Brick brick = (Brick) theEObject;
-			T result = caseBrick(brick);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case BgPackage.BRICK_TYPE: {
-			BrickType brickType = (BrickType) theEObject;
-			T result = caseBrickType(brickType);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case BgPackage.BRICK_STATE: {
-			BrickState brickState = (BrickState) theEObject;
-			T result = caseBrickState(brickState);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case BgPackage.CELL: {
-			Cell cell = (Cell) theEObject;
-			T result = caseCell(cell);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case BgPackage.CELL_TYPE: {
-			CellType cellType = (CellType) theEObject;
-			T result = caseCellType(cellType);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case BgPackage.CELL_STATE: {
-			CellState cellState = (CellState) theEObject;
-			T result = caseCellState(cellState);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case BgPackage.BOARD_STATE: {
-			BoardState boardState = (BoardState) theEObject;
-			T result = caseBoardState(boardState);
+		case BgPackage.PIECE_TYPE: {
+			PieceType pieceType = (PieceType) theEObject;
+			T result = casePieceType(pieceType);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -150,23 +94,9 @@ public class BgSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case BgPackage.BRICK_CHANGE: {
-			BrickChange brickChange = (BrickChange) theEObject;
-			T result = caseBrickChange(brickChange);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case BgPackage.RELATIVE_POSITION: {
-			RelativePosition relativePosition = (RelativePosition) theEObject;
-			T result = caseRelativePosition(relativePosition);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case BgPackage.CELL_CHANGE: {
-			CellChange cellChange = (CellChange) theEObject;
-			T result = caseCellChange(cellChange);
+		case BgPackage.CELL_STATE: {
+			CellState cellState = (CellState) theEObject;
+			T result = caseCellState(cellState);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -178,23 +108,16 @@ public class BgSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case BgPackage.LINE: {
-			Line line = (Line) theEObject;
-			T result = caseLine(line);
+		case BgPackage.WIN_CONDITION: {
+			WinCondition winCondition = (WinCondition) theEObject;
+			T result = caseWinCondition(winCondition);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case BgPackage.LINE_ELEMENT: {
-			LineElement lineElement = (LineElement) theEObject;
-			T result = caseLineElement(lineElement);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case BgPackage.OUTCOME: {
-			Outcome outcome = (Outcome) theEObject;
-			T result = caseOutcome(outcome);
+		case BgPackage.IN_AROW: {
+			InARow inARow = (InARow) theEObject;
+			T result = caseInARow(inARow);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -205,122 +128,32 @@ public class BgSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rules</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Board Game</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rules</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Board Game</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRules(Rules object) {
+	public T caseBoardGame(BoardGame object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Board</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Piece Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Board</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Piece Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBoard(Board object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Player Brick Set</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Player Brick Set</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePlayerBrickSet(PlayerBrickSet object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Brick</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Brick</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBrick(Brick object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Brick Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Brick Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBrickType(BrickType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Brick State</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Brick State</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBrickState(BrickState object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Cell</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Cell</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCell(Cell object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Cell Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Cell Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCellType(CellType object) {
+	public T casePieceType(PieceType object) {
 		return null;
 	}
 
@@ -336,21 +169,6 @@ public class BgSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCellState(CellState object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Board State</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Board State</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBoardState(BoardState object) {
 		return null;
 	}
 
@@ -385,51 +203,6 @@ public class BgSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Brick Change</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Brick Change</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBrickChange(BrickChange object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Relative Position</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Relative Position</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRelativePosition(RelativePosition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Cell Change</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Cell Change</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCellChange(CellChange object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Effect On Cell</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -445,47 +218,32 @@ public class BgSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Line</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Win Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Line</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Win Condition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLine(Line object) {
+	public T caseWinCondition(WinCondition object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Line Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>In ARow</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Line Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>In ARow</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLineElement(LineElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Outcome</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Outcome</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOutcome(Outcome object) {
+	public T caseInARow(InARow object) {
 		return null;
 	}
 

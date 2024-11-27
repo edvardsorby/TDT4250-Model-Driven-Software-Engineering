@@ -22,76 +22,22 @@ public interface BgFactory extends EFactory {
 	BgFactory eINSTANCE = no.ntnu.tdt4250.group07.bg.impl.BgFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Rules</em>'.
+	 * Returns a new object of class '<em>Board Game</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rules</em>'.
+	 * @return a new object of class '<em>Board Game</em>'.
 	 * @generated
 	 */
-	Rules createRules();
+	BoardGame createBoardGame();
 
 	/**
-	 * Returns a new object of class '<em>Board</em>'.
+	 * Returns a new object of class '<em>Piece Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Board</em>'.
+	 * @return a new object of class '<em>Piece Type</em>'.
 	 * @generated
 	 */
-	Board createBoard();
-
-	/**
-	 * Returns a new object of class '<em>Player Brick Set</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Player Brick Set</em>'.
-	 * @generated
-	 */
-	PlayerBrickSet createPlayerBrickSet();
-
-	/**
-	 * Returns a new object of class '<em>Brick</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Brick</em>'.
-	 * @generated
-	 */
-	Brick createBrick();
-
-	/**
-	 * Returns a new object of class '<em>Brick Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Brick Type</em>'.
-	 * @generated
-	 */
-	BrickType createBrickType();
-
-	/**
-	 * Returns a new object of class '<em>Brick State</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Brick State</em>'.
-	 * @generated
-	 */
-	BrickState createBrickState();
-
-	/**
-	 * Returns a new object of class '<em>Cell</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cell</em>'.
-	 * @generated
-	 */
-	Cell createCell();
-
-	/**
-	 * Returns a new object of class '<em>Cell Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cell Type</em>'.
-	 * @generated
-	 */
-	CellType createCellType();
+	PieceType createPieceType();
 
 	/**
 	 * Returns a new object of class '<em>Cell State</em>'.
@@ -101,15 +47,6 @@ public interface BgFactory extends EFactory {
 	 * @generated
 	 */
 	CellState createCellState();
-
-	/**
-	 * Returns a new object of class '<em>Board State</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Board State</em>'.
-	 * @generated
-	 */
-	BoardState createBoardState();
 
 	/**
 	 * Returns a new object of class '<em>Valid Move</em>'.
@@ -130,33 +67,6 @@ public interface BgFactory extends EFactory {
 	Condition createCondition();
 
 	/**
-	 * Returns a new object of class '<em>Brick Change</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Brick Change</em>'.
-	 * @generated
-	 */
-	BrickChange createBrickChange();
-
-	/**
-	 * Returns a new object of class '<em>Relative Position</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Relative Position</em>'.
-	 * @generated
-	 */
-	RelativePosition createRelativePosition();
-
-	/**
-	 * Returns a new object of class '<em>Cell Change</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cell Change</em>'.
-	 * @generated
-	 */
-	CellChange createCellChange();
-
-	/**
 	 * Returns a new object of class '<em>Effect On Cell</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,31 +76,22 @@ public interface BgFactory extends EFactory {
 	EffectOnCell createEffectOnCell();
 
 	/**
-	 * Returns a new object of class '<em>Line</em>'.
+	 * Returns a new object of class '<em>Win Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Line</em>'.
+	 * @return a new object of class '<em>Win Condition</em>'.
 	 * @generated
 	 */
-	Line createLine();
+	WinCondition createWinCondition();
 
 	/**
-	 * Returns a new object of class '<em>Line Element</em>'.
+	 * Returns a new object of class '<em>In ARow</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Line Element</em>'.
+	 * @return a new object of class '<em>In ARow</em>'.
 	 * @generated
 	 */
-	LineElement createLineElement();
-
-	/**
-	 * Returns a new object of class '<em>Outcome</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Outcome</em>'.
-	 * @generated
-	 */
-	Outcome createOutcome();
+	InARow createInARow();
 
 	/**
 	 * Returns the package supported by this factory.

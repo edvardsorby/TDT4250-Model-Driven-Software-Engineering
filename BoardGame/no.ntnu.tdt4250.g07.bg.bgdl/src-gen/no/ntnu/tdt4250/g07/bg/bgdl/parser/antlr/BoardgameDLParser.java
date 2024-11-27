@@ -27,7 +27,7 @@ public class BoardgameDLParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Rules";
+		return "BoardGame";
 	}
 
 	public BoardgameDLGrammarAccess getGrammarAccess() {

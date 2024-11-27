@@ -73,187 +73,49 @@ public class BgItemProviderAdapterFactory extends BgAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.Rules} instances.
+	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.BoardGame} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RulesItemProvider rulesItemProvider;
+	protected BoardGameItemProvider boardGameItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.Rules}.
+	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.BoardGame}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRulesAdapter() {
-		if (rulesItemProvider == null) {
-			rulesItemProvider = new RulesItemProvider(this);
+	public Adapter createBoardGameAdapter() {
+		if (boardGameItemProvider == null) {
+			boardGameItemProvider = new BoardGameItemProvider(this);
 		}
 
-		return rulesItemProvider;
+		return boardGameItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.Board} instances.
+	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.PieceType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BoardItemProvider boardItemProvider;
+	protected PieceTypeItemProvider pieceTypeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.Board}.
+	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.PieceType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createBoardAdapter() {
-		if (boardItemProvider == null) {
-			boardItemProvider = new BoardItemProvider(this);
+	public Adapter createPieceTypeAdapter() {
+		if (pieceTypeItemProvider == null) {
+			pieceTypeItemProvider = new PieceTypeItemProvider(this);
 		}
 
-		return boardItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.PlayerBrickSet} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PlayerBrickSetItemProvider playerBrickSetItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.PlayerBrickSet}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPlayerBrickSetAdapter() {
-		if (playerBrickSetItemProvider == null) {
-			playerBrickSetItemProvider = new PlayerBrickSetItemProvider(this);
-		}
-
-		return playerBrickSetItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.Brick} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BrickItemProvider brickItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.Brick}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBrickAdapter() {
-		if (brickItemProvider == null) {
-			brickItemProvider = new BrickItemProvider(this);
-		}
-
-		return brickItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.BrickType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BrickTypeItemProvider brickTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.BrickType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBrickTypeAdapter() {
-		if (brickTypeItemProvider == null) {
-			brickTypeItemProvider = new BrickTypeItemProvider(this);
-		}
-
-		return brickTypeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.BrickState} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BrickStateItemProvider brickStateItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.BrickState}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBrickStateAdapter() {
-		if (brickStateItemProvider == null) {
-			brickStateItemProvider = new BrickStateItemProvider(this);
-		}
-
-		return brickStateItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.Cell} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CellItemProvider cellItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.Cell}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCellAdapter() {
-		if (cellItemProvider == null) {
-			cellItemProvider = new CellItemProvider(this);
-		}
-
-		return cellItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.CellType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CellTypeItemProvider cellTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.CellType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCellTypeAdapter() {
-		if (cellTypeItemProvider == null) {
-			cellTypeItemProvider = new CellTypeItemProvider(this);
-		}
-
-		return cellTypeItemProvider;
+		return pieceTypeItemProvider;
 	}
 
 	/**
@@ -277,29 +139,6 @@ public class BgItemProviderAdapterFactory extends BgAdapterFactory
 		}
 
 		return cellStateItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.BoardState} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BoardStateItemProvider boardStateItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.BoardState}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBoardStateAdapter() {
-		if (boardStateItemProvider == null) {
-			boardStateItemProvider = new BoardStateItemProvider(this);
-		}
-
-		return boardStateItemProvider;
 	}
 
 	/**
@@ -349,75 +188,6 @@ public class BgItemProviderAdapterFactory extends BgAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.BrickChange} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BrickChangeItemProvider brickChangeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.BrickChange}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBrickChangeAdapter() {
-		if (brickChangeItemProvider == null) {
-			brickChangeItemProvider = new BrickChangeItemProvider(this);
-		}
-
-		return brickChangeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.RelativePosition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RelativePositionItemProvider relativePositionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.RelativePosition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRelativePositionAdapter() {
-		if (relativePositionItemProvider == null) {
-			relativePositionItemProvider = new RelativePositionItemProvider(this);
-		}
-
-		return relativePositionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.CellChange} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CellChangeItemProvider cellChangeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.CellChange}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCellChangeAdapter() {
-		if (cellChangeItemProvider == null) {
-			cellChangeItemProvider = new CellChangeItemProvider(this);
-		}
-
-		return cellChangeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.EffectOnCell} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -441,72 +211,49 @@ public class BgItemProviderAdapterFactory extends BgAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.Line} instances.
+	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.WinCondition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LineItemProvider lineItemProvider;
+	protected WinConditionItemProvider winConditionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.Line}.
+	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.WinCondition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLineAdapter() {
-		if (lineItemProvider == null) {
-			lineItemProvider = new LineItemProvider(this);
+	public Adapter createWinConditionAdapter() {
+		if (winConditionItemProvider == null) {
+			winConditionItemProvider = new WinConditionItemProvider(this);
 		}
 
-		return lineItemProvider;
+		return winConditionItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.LineElement} instances.
+	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.InARow} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LineElementItemProvider lineElementItemProvider;
+	protected InARowItemProvider inARowItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.LineElement}.
+	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.InARow}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLineElementAdapter() {
-		if (lineElementItemProvider == null) {
-			lineElementItemProvider = new LineElementItemProvider(this);
+	public Adapter createInARowAdapter() {
+		if (inARowItemProvider == null) {
+			inARowItemProvider = new InARowItemProvider(this);
 		}
 
-		return lineElementItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.group07.bg.Outcome} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OutcomeItemProvider outcomeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.group07.bg.Outcome}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOutcomeAdapter() {
-		if (outcomeItemProvider == null) {
-			outcomeItemProvider = new OutcomeItemProvider(this);
-		}
-
-		return outcomeItemProvider;
+		return inARowItemProvider;
 	}
 
 	/**
@@ -614,44 +361,22 @@ public class BgItemProviderAdapterFactory extends BgAdapterFactory
 	 */
 	@Override
 	public void dispose() {
-		if (rulesItemProvider != null)
-			rulesItemProvider.dispose();
-		if (boardItemProvider != null)
-			boardItemProvider.dispose();
-		if (playerBrickSetItemProvider != null)
-			playerBrickSetItemProvider.dispose();
-		if (brickItemProvider != null)
-			brickItemProvider.dispose();
-		if (brickTypeItemProvider != null)
-			brickTypeItemProvider.dispose();
-		if (brickStateItemProvider != null)
-			brickStateItemProvider.dispose();
-		if (cellItemProvider != null)
-			cellItemProvider.dispose();
-		if (cellTypeItemProvider != null)
-			cellTypeItemProvider.dispose();
-		if (cellStateItemProvider != null)
-			cellStateItemProvider.dispose();
-		if (boardStateItemProvider != null)
-			boardStateItemProvider.dispose();
+		if (boardGameItemProvider != null)
+			boardGameItemProvider.dispose();
+		if (pieceTypeItemProvider != null)
+			pieceTypeItemProvider.dispose();
 		if (validMoveItemProvider != null)
 			validMoveItemProvider.dispose();
 		if (conditionItemProvider != null)
 			conditionItemProvider.dispose();
-		if (brickChangeItemProvider != null)
-			brickChangeItemProvider.dispose();
-		if (relativePositionItemProvider != null)
-			relativePositionItemProvider.dispose();
-		if (cellChangeItemProvider != null)
-			cellChangeItemProvider.dispose();
+		if (cellStateItemProvider != null)
+			cellStateItemProvider.dispose();
 		if (effectOnCellItemProvider != null)
 			effectOnCellItemProvider.dispose();
-		if (lineItemProvider != null)
-			lineItemProvider.dispose();
-		if (lineElementItemProvider != null)
-			lineElementItemProvider.dispose();
-		if (outcomeItemProvider != null)
-			outcomeItemProvider.dispose();
+		if (winConditionItemProvider != null)
+			winConditionItemProvider.dispose();
+		if (inARowItemProvider != null)
+			inARowItemProvider.dispose();
 	}
 
 }

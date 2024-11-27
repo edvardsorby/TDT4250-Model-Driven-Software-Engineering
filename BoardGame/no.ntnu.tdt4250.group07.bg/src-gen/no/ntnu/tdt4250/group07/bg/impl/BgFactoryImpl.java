@@ -55,44 +55,22 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case BgPackage.RULES:
-			return createRules();
-		case BgPackage.BOARD:
-			return createBoard();
-		case BgPackage.PLAYER_BRICK_SET:
-			return createPlayerBrickSet();
-		case BgPackage.BRICK:
-			return createBrick();
-		case BgPackage.BRICK_TYPE:
-			return createBrickType();
-		case BgPackage.BRICK_STATE:
-			return createBrickState();
-		case BgPackage.CELL:
-			return createCell();
-		case BgPackage.CELL_TYPE:
-			return createCellType();
-		case BgPackage.CELL_STATE:
-			return createCellState();
-		case BgPackage.BOARD_STATE:
-			return createBoardState();
+		case BgPackage.BOARD_GAME:
+			return createBoardGame();
+		case BgPackage.PIECE_TYPE:
+			return createPieceType();
 		case BgPackage.VALID_MOVE:
 			return createValidMove();
 		case BgPackage.CONDITION:
 			return createCondition();
-		case BgPackage.BRICK_CHANGE:
-			return createBrickChange();
-		case BgPackage.RELATIVE_POSITION:
-			return createRelativePosition();
-		case BgPackage.CELL_CHANGE:
-			return createCellChange();
+		case BgPackage.CELL_STATE:
+			return createCellState();
 		case BgPackage.EFFECT_ON_CELL:
 			return createEffectOnCell();
-		case BgPackage.LINE:
-			return createLine();
-		case BgPackage.LINE_ELEMENT:
-			return createLineElement();
-		case BgPackage.OUTCOME:
-			return createOutcome();
+		case BgPackage.WIN_CONDITION:
+			return createWinCondition();
+		case BgPackage.IN_AROW:
+			return createInARow();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -104,9 +82,9 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 	 * @generated
 	 */
 	@Override
-	public Rules createRules() {
-		RulesImpl rules = new RulesImpl();
-		return rules;
+	public BoardGame createBoardGame() {
+		BoardGameImpl boardGame = new BoardGameImpl();
+		return boardGame;
 	}
 
 	/**
@@ -115,75 +93,9 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 	 * @generated
 	 */
 	@Override
-	public Board createBoard() {
-		BoardImpl board = new BoardImpl();
-		return board;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public PlayerBrickSet createPlayerBrickSet() {
-		PlayerBrickSetImpl playerBrickSet = new PlayerBrickSetImpl();
-		return playerBrickSet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Brick createBrick() {
-		BrickImpl brick = new BrickImpl();
-		return brick;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public BrickType createBrickType() {
-		BrickTypeImpl brickType = new BrickTypeImpl();
-		return brickType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public BrickState createBrickState() {
-		BrickStateImpl brickState = new BrickStateImpl();
-		return brickState;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Cell createCell() {
-		CellImpl cell = new CellImpl();
-		return cell;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public CellType createCellType() {
-		CellTypeImpl cellType = new CellTypeImpl();
-		return cellType;
+	public PieceType createPieceType() {
+		PieceTypeImpl pieceType = new PieceTypeImpl();
+		return pieceType;
 	}
 
 	/**
@@ -195,17 +107,6 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 	public CellState createCellState() {
 		CellStateImpl cellState = new CellStateImpl();
 		return cellState;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public BoardState createBoardState() {
-		BoardStateImpl boardState = new BoardStateImpl();
-		return boardState;
 	}
 
 	/**
@@ -236,39 +137,6 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 	 * @generated
 	 */
 	@Override
-	public BrickChange createBrickChange() {
-		BrickChangeImpl brickChange = new BrickChangeImpl();
-		return brickChange;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public RelativePosition createRelativePosition() {
-		RelativePositionImpl relativePosition = new RelativePositionImpl();
-		return relativePosition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public CellChange createCellChange() {
-		CellChangeImpl cellChange = new CellChangeImpl();
-		return cellChange;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EffectOnCell createEffectOnCell() {
 		EffectOnCellImpl effectOnCell = new EffectOnCellImpl();
 		return effectOnCell;
@@ -280,9 +148,9 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 	 * @generated
 	 */
 	@Override
-	public Line createLine() {
-		LineImpl line = new LineImpl();
-		return line;
+	public WinCondition createWinCondition() {
+		WinConditionImpl winCondition = new WinConditionImpl();
+		return winCondition;
 	}
 
 	/**
@@ -291,20 +159,9 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 	 * @generated
 	 */
 	@Override
-	public LineElement createLineElement() {
-		LineElementImpl lineElement = new LineElementImpl();
-		return lineElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Outcome createOutcome() {
-		OutcomeImpl outcome = new OutcomeImpl();
-		return outcome;
+	public InARow createInARow() {
+		InARowImpl inARow = new InARowImpl();
+		return inARow;
 	}
 
 	/**

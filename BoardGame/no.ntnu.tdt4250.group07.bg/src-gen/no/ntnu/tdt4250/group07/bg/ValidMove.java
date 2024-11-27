@@ -15,9 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.group07.bg.ValidMove#getBrickchange <em>Brickchange</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.group07.bg.ValidMove#getCellchange <em>Cellchange</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.group07.bg.ValidMove#getName <em>Name</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.ValidMove#getCondition <em>Condition</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.ValidMove#isPlaceAnywhere <em>Place Anywhere</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.group07.bg.BgPackage#getValidMove()
@@ -26,49 +25,37 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ValidMove extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
+	 * The list contents are of type {@link no.ntnu.tdt4250.group07.bg.Condition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getValidMove_Name()
+	 * @return the value of the '<em>Condition</em>' containment reference list.
+	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getValidMove_Condition()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Condition> getCondition();
+
+	/**
+	 * Returns the value of the '<em><b>Place Anywhere</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Place Anywhere</em>' attribute.
+	 * @see #setPlaceAnywhere(boolean)
+	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getValidMove_PlaceAnywhere()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getName();
+	boolean isPlaceAnywhere();
 
 	/**
-	 * Sets the value of the '{@link no.ntnu.tdt4250.group07.bg.ValidMove#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link no.ntnu.tdt4250.group07.bg.ValidMove#isPlaceAnywhere <em>Place Anywhere</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Place Anywhere</em>' attribute.
+	 * @see #isPlaceAnywhere()
 	 * @generated
 	 */
-	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Brickchange</b></em>' reference list.
-	 * The list contents are of type {@link no.ntnu.tdt4250.group07.bg.BrickChange}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Brickchange</em>' reference list.
-	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getValidMove_Brickchange()
-	 * @model
-	 * @generated
-	 */
-	EList<BrickChange> getBrickchange();
-
-	/**
-	 * Returns the value of the '<em><b>Cellchange</b></em>' reference list.
-	 * The list contents are of type {@link no.ntnu.tdt4250.group07.bg.CellChange}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cellchange</em>' reference list.
-	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getValidMove_Cellchange()
-	 * @model
-	 * @generated
-	 */
-	EList<CellChange> getCellchange();
+	void setPlaceAnywhere(boolean value);
 
 } // ValidMove

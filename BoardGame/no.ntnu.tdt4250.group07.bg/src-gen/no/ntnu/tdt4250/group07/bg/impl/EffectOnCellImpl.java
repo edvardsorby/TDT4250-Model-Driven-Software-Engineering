@@ -2,21 +2,15 @@
  */
 package no.ntnu.tdt4250.group07.bg.impl;
 
-import java.util.Collection;
 import no.ntnu.tdt4250.group07.bg.BgPackage;
 import no.ntnu.tdt4250.group07.bg.CellState;
 import no.ntnu.tdt4250.group07.bg.EffectOnCell;
-import no.ntnu.tdt4250.group07.bg.RelativePosition;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,24 +20,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.EffectOnCellImpl#getRelativeposition <em>Relativeposition</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.EffectOnCellImpl#getCellstate <em>Cellstate</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.EffectOnCellImpl#getName <em>Name</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.EffectOnCellImpl#getX <em>X</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.impl.EffectOnCellImpl#getY <em>Y</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements EffectOnCell {
-	/**
-	 * The cached value of the '{@link #getRelativeposition() <em>Relativeposition</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRelativeposition()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RelativePosition> relativeposition;
-
 	/**
 	 * The cached value of the '{@link #getCellstate() <em>Cellstate</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -55,24 +39,44 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	protected CellState cellstate;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getX() <em>X</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getX()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final int X_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getX() <em>X</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getX()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected int x = X_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getY()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int Y_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getY()
+	 * @generated
+	 * @ordered
+	 */
+	protected int y = Y_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,20 +95,6 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	@Override
 	protected EClass eStaticClass() {
 		return BgPackage.Literals.EFFECT_ON_CELL;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<RelativePosition> getRelativeposition() {
-		if (relativeposition == null) {
-			relativeposition = new EObjectResolvingEList<RelativePosition>(RelativePosition.class, this,
-					BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION);
-		}
-		return relativeposition;
 	}
 
 	/**
@@ -155,8 +145,8 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	 * @generated
 	 */
 	@Override
-	public String getName() {
-		return name;
+	public int getX() {
+		return x;
 	}
 
 	/**
@@ -165,11 +155,34 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	 * @generated
 	 */
 	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setX(int newX) {
+		int oldX = x;
+		x = newX;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.EFFECT_ON_CELL__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.EFFECT_ON_CELL__X, oldX, x));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getY() {
+		return y;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setY(int newY) {
+		int oldY = y;
+		y = newY;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.EFFECT_ON_CELL__Y, oldY, y));
 	}
 
 	/**
@@ -180,14 +193,14 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION:
-			return getRelativeposition();
 		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
 			if (resolve)
 				return getCellstate();
 			return basicGetCellstate();
-		case BgPackage.EFFECT_ON_CELL__NAME:
-			return getName();
+		case BgPackage.EFFECT_ON_CELL__X:
+			return getX();
+		case BgPackage.EFFECT_ON_CELL__Y:
+			return getY();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,15 +214,14 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION:
-			getRelativeposition().clear();
-			getRelativeposition().addAll((Collection<? extends RelativePosition>) newValue);
-			return;
 		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
 			setCellstate((CellState) newValue);
 			return;
-		case BgPackage.EFFECT_ON_CELL__NAME:
-			setName((String) newValue);
+		case BgPackage.EFFECT_ON_CELL__X:
+			setX((Integer) newValue);
+			return;
+		case BgPackage.EFFECT_ON_CELL__Y:
+			setY((Integer) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,14 +235,14 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION:
-			getRelativeposition().clear();
-			return;
 		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
 			setCellstate((CellState) null);
 			return;
-		case BgPackage.EFFECT_ON_CELL__NAME:
-			setName(NAME_EDEFAULT);
+		case BgPackage.EFFECT_ON_CELL__X:
+			setX(X_EDEFAULT);
+			return;
+		case BgPackage.EFFECT_ON_CELL__Y:
+			setY(Y_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -244,12 +256,12 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case BgPackage.EFFECT_ON_CELL__RELATIVEPOSITION:
-			return relativeposition != null && !relativeposition.isEmpty();
 		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
 			return cellstate != null;
-		case BgPackage.EFFECT_ON_CELL__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case BgPackage.EFFECT_ON_CELL__X:
+			return x != X_EDEFAULT;
+		case BgPackage.EFFECT_ON_CELL__Y:
+			return y != Y_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -265,8 +277,10 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (Name: ");
-		result.append(name);
+		result.append(" (x: ");
+		result.append(x);
+		result.append(", y: ");
+		result.append(y);
 		result.append(')');
 		return result.toString();
 	}

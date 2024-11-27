@@ -2,7 +2,6 @@
  */
 package no.ntnu.tdt4250.group07.bg;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,9 +13,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.group07.bg.EffectOnCell#getRelativeposition <em>Relativeposition</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.group07.bg.EffectOnCell#getCellstate <em>Cellstate</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.group07.bg.EffectOnCell#getName <em>Name</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.EffectOnCell#getX <em>X</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.group07.bg.EffectOnCell#getY <em>Y</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.group07.bg.BgPackage#getEffectOnCell()
@@ -24,18 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface EffectOnCell extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Relativeposition</b></em>' reference list.
-	 * The list contents are of type {@link no.ntnu.tdt4250.group07.bg.RelativePosition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relativeposition</em>' reference list.
-	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getEffectOnCell_Relativeposition()
-	 * @model required="true"
-	 * @generated
-	 */
-	EList<RelativePosition> getRelativeposition();
-
 	/**
 	 * Returns the value of the '<em><b>Cellstate</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -59,25 +46,47 @@ public interface EffectOnCell extends EObject {
 	void setCellstate(CellState value);
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>X</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getEffectOnCell_Name()
+	 * @return the value of the '<em>X</em>' attribute.
+	 * @see #setX(int)
+	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getEffectOnCell_X()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getName();
+	int getX();
 
 	/**
-	 * Sets the value of the '{@link no.ntnu.tdt4250.group07.bg.EffectOnCell#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link no.ntnu.tdt4250.group07.bg.EffectOnCell#getX <em>X</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>X</em>' attribute.
+	 * @see #getX()
 	 * @generated
 	 */
-	void setName(String value);
+	void setX(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Y</em>' attribute.
+	 * @see #setY(int)
+	 * @see no.ntnu.tdt4250.group07.bg.BgPackage#getEffectOnCell_Y()
+	 * @model required="true"
+	 * @generated
+	 */
+	int getY();
+
+	/**
+	 * Sets the value of the '{@link no.ntnu.tdt4250.group07.bg.EffectOnCell#getY <em>Y</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Y</em>' attribute.
+	 * @see #getY()
+	 * @generated
+	 */
+	void setY(int value);
 
 } // EffectOnCell
