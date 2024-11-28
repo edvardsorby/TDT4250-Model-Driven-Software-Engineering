@@ -1,0 +1,19 @@
+Title "Tic-Tac-Toe"
+BoardSize 5
+
+validMoves [{ValidMove placePiece ( placeAnywhere) } ]
+cellStates [Occupied]
+effectsOnCell[{EffectOnCell makeOccupied(relativePosition(0,0) newCellState(Occupied) )}]
+winConditions [ InARow count 5 horizontal vertical diagonal ]
+
+
+pieceTypes [ { PieceType X(Symbol "X"
+							ValidMoves [placePiece] 
+							EffectsOnCell [makeOccupied]) 
+							},
+			   {PieceType O(Symbol "O"
+			   				ValidMoves [placePiece]
+			   				EffectsOnCell [ makeOccupied ] )
+			   				
+			   				}]
+			  

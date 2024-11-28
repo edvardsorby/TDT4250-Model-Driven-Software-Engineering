@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getWinConditions <em>Win Conditions</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getSize <em>Size</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getName <em>Name</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getValidmoves <em>Validmoves</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getEffectsoncell <em>Effectsoncell</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame()
@@ -106,5 +108,29 @@ public interface BoardGame extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Validmoves</b></em>' containment reference list.
+	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.ValidMove}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Validmoves</em>' containment reference list.
+	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame_Validmoves()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<ValidMove> getValidmoves();
+
+	/**
+	 * Returns the value of the '<em><b>Effectsoncell</b></em>' containment reference list.
+	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.EffectOnCell}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Effectsoncell</em>' containment reference list.
+	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame_Effectsoncell()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<EffectOnCell> getEffectsoncell();
 
 } // BoardGame

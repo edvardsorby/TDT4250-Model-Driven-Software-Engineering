@@ -8,16 +8,25 @@ const boardGame = {
                 {
                     placeAnywhere: true,
                     conditions: [
-                        {
-                            cellstate: "Empty"
-                        }
+                    ]
+                }
+            ]
+        }
+        ,
+        {
+            name: "O",
+            symbol: "O",
+            validmoves: [
+                {
+                    placeAnywhere: true,
+                    conditions: [
                     ]
                 }
             ]
         }
     ],
     cellstates: [
-        no.ntnu.tdt4250.g07.BoardGame.CellState, no.ntnu.tdt4250.g07.BoardGame.CellState
+        no.ntnu.tdt4250.g07.BoardGame.CellState
     ],
     winConditions: [
         {

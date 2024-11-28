@@ -7,7 +7,9 @@ import java.util.Collection;
 import no.ntnu.tdt4250.g07.bg.BgPackage;
 import no.ntnu.tdt4250.g07.bg.BoardGame;
 import no.ntnu.tdt4250.g07.bg.CellState;
+import no.ntnu.tdt4250.g07.bg.EffectOnCell;
 import no.ntnu.tdt4250.g07.bg.PieceType;
+import no.ntnu.tdt4250.g07.bg.ValidMove;
 import no.ntnu.tdt4250.g07.bg.WinCondition;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -37,6 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getWinConditions <em>Win Conditions</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getSize <em>Size</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getName <em>Name</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getValidmoves <em>Validmoves</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getEffectsoncell <em>Effectsoncell</em>}</li>
  * </ul>
  *
  * @generated
@@ -111,6 +115,26 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getValidmoves() <em>Validmoves</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidmoves()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ValidMove> validmoves;
+
+	/**
+	 * The cached value of the '{@link #getEffectsoncell() <em>Effectsoncell</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEffectsoncell()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EffectOnCell> effectsoncell;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,6 +249,34 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 	 * @generated
 	 */
 	@Override
+	public EList<ValidMove> getValidmoves() {
+		if (validmoves == null) {
+			validmoves = new EObjectContainmentEList<ValidMove>(ValidMove.class, this,
+					BgPackage.BOARD_GAME__VALIDMOVES);
+		}
+		return validmoves;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<EffectOnCell> getEffectsoncell() {
+		if (effectsoncell == null) {
+			effectsoncell = new EObjectContainmentEList<EffectOnCell>(EffectOnCell.class, this,
+					BgPackage.BOARD_GAME__EFFECTSONCELL);
+		}
+		return effectsoncell;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case BgPackage.BOARD_GAME__PIECETYPES:
@@ -233,6 +285,10 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 			return ((InternalEList<?>) getCellstates()).basicRemove(otherEnd, msgs);
 		case BgPackage.BOARD_GAME__WIN_CONDITIONS:
 			return ((InternalEList<?>) getWinConditions()).basicRemove(otherEnd, msgs);
+		case BgPackage.BOARD_GAME__VALIDMOVES:
+			return ((InternalEList<?>) getValidmoves()).basicRemove(otherEnd, msgs);
+		case BgPackage.BOARD_GAME__EFFECTSONCELL:
+			return ((InternalEList<?>) getEffectsoncell()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -255,6 +311,10 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 			return getSize();
 		case BgPackage.BOARD_GAME__NAME:
 			return getName();
+		case BgPackage.BOARD_GAME__VALIDMOVES:
+			return getValidmoves();
+		case BgPackage.BOARD_GAME__EFFECTSONCELL:
+			return getEffectsoncell();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -286,6 +346,14 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 		case BgPackage.BOARD_GAME__NAME:
 			setName((String) newValue);
 			return;
+		case BgPackage.BOARD_GAME__VALIDMOVES:
+			getValidmoves().clear();
+			getValidmoves().addAll((Collection<? extends ValidMove>) newValue);
+			return;
+		case BgPackage.BOARD_GAME__EFFECTSONCELL:
+			getEffectsoncell().clear();
+			getEffectsoncell().addAll((Collection<? extends EffectOnCell>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -313,6 +381,12 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 		case BgPackage.BOARD_GAME__NAME:
 			setName(NAME_EDEFAULT);
 			return;
+		case BgPackage.BOARD_GAME__VALIDMOVES:
+			getValidmoves().clear();
+			return;
+		case BgPackage.BOARD_GAME__EFFECTSONCELL:
+			getEffectsoncell().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -335,6 +409,10 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 			return size != SIZE_EDEFAULT;
 		case BgPackage.BOARD_GAME__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case BgPackage.BOARD_GAME__VALIDMOVES:
+			return validmoves != null && !validmoves.isEmpty();
+		case BgPackage.BOARD_GAME__EFFECTSONCELL:
+			return effectsoncell != null && !effectsoncell.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

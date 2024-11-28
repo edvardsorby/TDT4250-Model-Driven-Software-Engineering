@@ -112,13 +112,31 @@ public interface BgPackage extends EPackage {
 	int BOARD_GAME__NAME = 4;
 
 	/**
+	 * The feature id for the '<em><b>Validmoves</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD_GAME__VALIDMOVES = 5;
+
+	/**
+	 * The feature id for the '<em><b>Effectsoncell</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD_GAME__EFFECTSONCELL = 6;
+
+	/**
 	 * The number of structural features of the '<em>Board Game</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_GAME_FEATURE_COUNT = 5;
+	int BOARD_GAME_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Board Game</em>' class.
@@ -149,7 +167,7 @@ public interface BgPackage extends EPackage {
 	int PIECE_TYPE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Validmoves</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Validmoves</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -167,7 +185,7 @@ public interface BgPackage extends EPackage {
 	int PIECE_TYPE__SYMBOL = 2;
 
 	/**
-	 * The feature id for the '<em><b>Effectsoncell</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Effectsoncell</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -222,13 +240,22 @@ public interface BgPackage extends EPackage {
 	int VALID_MOVE__PLACE_ANYWHERE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALID_MOVE__NAME = 2;
+
+	/**
 	 * The number of structural features of the '<em>Valid Move</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALID_MOVE_FEATURE_COUNT = 2;
+	int VALID_MOVE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Valid Move</em>' class.
@@ -259,13 +286,22 @@ public interface BgPackage extends EPackage {
 	int CONDITION__CELLSTATE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__NAME = 1;
+
+	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = 1;
+	int CONDITION_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -351,13 +387,22 @@ public interface BgPackage extends EPackage {
 	int EFFECT_ON_CELL__Y = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFECT_ON_CELL__NAME = 3;
+
+	/**
 	 * The number of structural features of the '<em>Effect On Cell</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECT_ON_CELL_FEATURE_COUNT = 3;
+	int EFFECT_ON_CELL_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Effect On Cell</em>' class.
@@ -535,6 +580,28 @@ public interface BgPackage extends EPackage {
 	EAttribute getBoardGame_Name();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.BoardGame#getValidmoves <em>Validmoves</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Validmoves</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.BoardGame#getValidmoves()
+	 * @see #getBoardGame()
+	 * @generated
+	 */
+	EReference getBoardGame_Validmoves();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.BoardGame#getEffectsoncell <em>Effectsoncell</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Effectsoncell</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.BoardGame#getEffectsoncell()
+	 * @see #getBoardGame()
+	 * @generated
+	 */
+	EReference getBoardGame_Effectsoncell();
+
+	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.PieceType <em>Piece Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -556,10 +623,10 @@ public interface BgPackage extends EPackage {
 	EAttribute getPieceType_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getValidmoves <em>Validmoves</em>}'.
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getValidmoves <em>Validmoves</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Validmoves</em>'.
+	 * @return the meta object for the reference list '<em>Validmoves</em>'.
 	 * @see no.ntnu.tdt4250.g07.bg.PieceType#getValidmoves()
 	 * @see #getPieceType()
 	 * @generated
@@ -578,10 +645,10 @@ public interface BgPackage extends EPackage {
 	EAttribute getPieceType_Symbol();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getEffectsoncell <em>Effectsoncell</em>}'.
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getEffectsoncell <em>Effectsoncell</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Effectsoncell</em>'.
+	 * @return the meta object for the reference list '<em>Effectsoncell</em>'.
 	 * @see no.ntnu.tdt4250.g07.bg.PieceType#getEffectsoncell()
 	 * @see #getPieceType()
 	 * @generated
@@ -621,6 +688,17 @@ public interface BgPackage extends EPackage {
 	EAttribute getValidMove_PlaceAnywhere();
 
 	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.ValidMove#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.ValidMove#getName()
+	 * @see #getValidMove()
+	 * @generated
+	 */
+	EAttribute getValidMove_Name();
+
+	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.Condition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -640,6 +718,17 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCondition_Cellstate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Condition#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.Condition#getName()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EAttribute getCondition_Name();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.CellState <em>Cell State</em>}'.
@@ -704,6 +793,17 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEffectOnCell_Y();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.EffectOnCell#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.EffectOnCell#getName()
+	 * @see #getEffectOnCell()
+	 * @generated
+	 */
+	EAttribute getEffectOnCell_Name();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.WinCondition <em>Win Condition</em>}'.
@@ -854,6 +954,22 @@ public interface BgPackage extends EPackage {
 		EAttribute BOARD_GAME__NAME = eINSTANCE.getBoardGame_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Validmoves</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOARD_GAME__VALIDMOVES = eINSTANCE.getBoardGame_Validmoves();
+
+		/**
+		 * The meta object literal for the '<em><b>Effectsoncell</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOARD_GAME__EFFECTSONCELL = eINSTANCE.getBoardGame_Effectsoncell();
+
+		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl <em>Piece Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -872,7 +988,7 @@ public interface BgPackage extends EPackage {
 		EAttribute PIECE_TYPE__NAME = eINSTANCE.getPieceType_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Validmoves</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Validmoves</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -888,7 +1004,7 @@ public interface BgPackage extends EPackage {
 		EAttribute PIECE_TYPE__SYMBOL = eINSTANCE.getPieceType_Symbol();
 
 		/**
-		 * The meta object literal for the '<em><b>Effectsoncell</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Effectsoncell</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -922,6 +1038,14 @@ public interface BgPackage extends EPackage {
 		EAttribute VALID_MOVE__PLACE_ANYWHERE = eINSTANCE.getValidMove_PlaceAnywhere();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALID_MOVE__NAME = eINSTANCE.getValidMove_Name();
+
+		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.ConditionImpl <em>Condition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -938,6 +1062,14 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONDITION__CELLSTATE = eINSTANCE.getCondition_Cellstate();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONDITION__NAME = eINSTANCE.getCondition_Name();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.CellStateImpl <em>Cell State</em>}' class.
@@ -990,6 +1122,14 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EFFECT_ON_CELL__Y = eINSTANCE.getEffectOnCell_Y();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EFFECT_ON_CELL__NAME = eINSTANCE.getEffectOnCell_Name();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.WinConditionImpl <em>Win Condition</em>}' class.

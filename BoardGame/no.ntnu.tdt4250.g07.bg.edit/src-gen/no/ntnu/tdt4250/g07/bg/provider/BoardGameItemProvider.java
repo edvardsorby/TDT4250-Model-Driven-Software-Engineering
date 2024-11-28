@@ -125,6 +125,8 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 			childrenFeatures.add(BgPackage.Literals.BOARD_GAME__PIECETYPES);
 			childrenFeatures.add(BgPackage.Literals.BOARD_GAME__CELLSTATES);
 			childrenFeatures.add(BgPackage.Literals.BOARD_GAME__WIN_CONDITIONS);
+			childrenFeatures.add(BgPackage.Literals.BOARD_GAME__VALIDMOVES);
+			childrenFeatures.add(BgPackage.Literals.BOARD_GAME__EFFECTSONCELL);
 		}
 		return childrenFeatures;
 	}
@@ -195,6 +197,8 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 		case BgPackage.BOARD_GAME__PIECETYPES:
 		case BgPackage.BOARD_GAME__CELLSTATES:
 		case BgPackage.BOARD_GAME__WIN_CONDITIONS:
+		case BgPackage.BOARD_GAME__VALIDMOVES:
+		case BgPackage.BOARD_GAME__EFFECTSONCELL:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -220,6 +224,12 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 
 		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__WIN_CONDITIONS,
 				BgFactory.eINSTANCE.createWinCondition()));
+
+		newChildDescriptors.add(
+				createChildParameter(BgPackage.Literals.BOARD_GAME__VALIDMOVES, BgFactory.eINSTANCE.createValidMove()));
+
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__EFFECTSONCELL,
+				BgFactory.eINSTANCE.createEffectOnCell()));
 	}
 
 	/**

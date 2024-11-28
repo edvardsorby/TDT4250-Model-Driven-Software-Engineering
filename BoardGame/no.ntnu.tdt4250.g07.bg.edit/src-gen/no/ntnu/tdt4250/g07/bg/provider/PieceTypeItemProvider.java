@@ -4,8 +4,6 @@ package no.ntnu.tdt4250.g07.bg.provider;
 
 import java.util.Collection;
 import java.util.List;
-
-import no.ntnu.tdt4250.g07.bg.BgFactory;
 import no.ntnu.tdt4250.g07.bg.BgPackage;
 import no.ntnu.tdt4250.g07.bg.PieceType;
 
@@ -13,9 +11,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -95,37 +90,6 @@ public class PieceTypeItemProvider extends ItemProviderAdapter implements IEditi
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(BgPackage.Literals.PIECE_TYPE__VALIDMOVES);
-			childrenFeatures.add(BgPackage.Literals.PIECE_TYPE__EFFECTSONCELL);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns PieceType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,10 +139,6 @@ public class PieceTypeItemProvider extends ItemProviderAdapter implements IEditi
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case BgPackage.PIECE_TYPE__VALIDMOVES:
-		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -193,12 +153,6 @@ public class PieceTypeItemProvider extends ItemProviderAdapter implements IEditi
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(
-				createChildParameter(BgPackage.Literals.PIECE_TYPE__VALIDMOVES, BgFactory.eINSTANCE.createValidMove()));
-
-		newChildDescriptors.add(createChildParameter(BgPackage.Literals.PIECE_TYPE__EFFECTSONCELL,
-				BgFactory.eINSTANCE.createEffectOnCell()));
 	}
 
 	/**

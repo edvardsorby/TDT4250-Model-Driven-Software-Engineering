@@ -77,11 +77,14 @@ public class BoardGameDLSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     (
 	 *         name=EString 
 	 *         size=EInt 
-	 *         piecetypes+=PieceType 
-	 *         piecetypes+=PieceType* 
+	 *         validmoves+=ValidMove 
+	 *         validmoves+=ValidMove* 
 	 *         (cellstates+=CellState cellstates+=CellState*)? 
+	 *         (effectsoncell+=EffectOnCell effectsoncell+=EffectOnCell*)? 
 	 *         winConditions+=WinCondition 
-	 *         winConditions+=WinCondition*
+	 *         winConditions+=WinCondition* 
+	 *         piecetypes+=PieceType 
+	 *         piecetypes+=PieceType*
 	 *     )
 	 * </pre>
 	 */
@@ -116,16 +119,19 @@ public class BoardGameDLSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Condition returns Condition
 	 *
 	 * Constraint:
-	 *     cellstate=[CellState|EString]
+	 *     (name=ID cellstate=[CellState|EString])
 	 * </pre>
 	 */
 	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BgPackage.Literals.CONDITION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BgPackage.Literals.CONDITION__NAME));
 			if (transientValues.isValueTransient(semanticObject, BgPackage.Literals.CONDITION__CELLSTATE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BgPackage.Literals.CONDITION__CELLSTATE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConditionAccess().getCellstateCellStateEStringParserRuleCall_2_0_1(), semanticObject.eGet(BgPackage.Literals.CONDITION__CELLSTATE, false));
+		feeder.accept(grammarAccess.getConditionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getConditionAccess().getCellstateCellStateEStringParserRuleCall_4_0_1(), semanticObject.eGet(BgPackage.Literals.CONDITION__CELLSTATE, false));
 		feeder.finish();
 	}
 	
@@ -136,11 +142,13 @@ public class BoardGameDLSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     EffectOnCell returns EffectOnCell
 	 *
 	 * Constraint:
-	 *     (x=EInt y=EInt cellstate=[CellState|EString])
+	 *     (name=ID x=EInt y=EInt cellstate=[CellState|EString])
 	 * </pre>
 	 */
 	protected void sequence_EffectOnCell(ISerializationContext context, EffectOnCell semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BgPackage.Literals.EFFECT_ON_CELL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BgPackage.Literals.EFFECT_ON_CELL__NAME));
 			if (transientValues.isValueTransient(semanticObject, BgPackage.Literals.EFFECT_ON_CELL__X) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BgPackage.Literals.EFFECT_ON_CELL__X));
 			if (transientValues.isValueTransient(semanticObject, BgPackage.Literals.EFFECT_ON_CELL__Y) == ValueTransient.YES)
@@ -149,9 +157,10 @@ public class BoardGameDLSemanticSequencer extends AbstractDelegatingSemanticSequ
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BgPackage.Literals.EFFECT_ON_CELL__CELLSTATE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEffectOnCellAccess().getXEIntParserRuleCall_5_0(), semanticObject.getX());
-		feeder.accept(grammarAccess.getEffectOnCellAccess().getYEIntParserRuleCall_7_0(), semanticObject.getY());
-		feeder.accept(grammarAccess.getEffectOnCellAccess().getCellstateCellStateEStringParserRuleCall_11_0_1(), semanticObject.eGet(BgPackage.Literals.EFFECT_ON_CELL__CELLSTATE, false));
+		feeder.accept(grammarAccess.getEffectOnCellAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getEffectOnCellAccess().getXEIntParserRuleCall_6_0(), semanticObject.getX());
+		feeder.accept(grammarAccess.getEffectOnCellAccess().getYEIntParserRuleCall_8_0(), semanticObject.getY());
+		feeder.accept(grammarAccess.getEffectOnCellAccess().getCellstateCellStateEStringParserRuleCall_12_0_1(), semanticObject.eGet(BgPackage.Literals.EFFECT_ON_CELL__CELLSTATE, false));
 		feeder.finish();
 	}
 	
@@ -162,25 +171,25 @@ public class BoardGameDLSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     InARow returns InARow
 	 *
 	 * Constraint:
-	 *     (horizontal?='horizontal' vertical?='vertical' diagonal?='diagonal' count=EInt)
+	 *     (count=EInt horizontal?='horizontal' vertical?='vertical' diagonal?='diagonal')
 	 * </pre>
 	 */
 	protected void sequence_InARow(ISerializationContext context, InARow semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BgPackage.Literals.IN_AROW__COUNT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BgPackage.Literals.IN_AROW__COUNT));
 			if (transientValues.isValueTransient(semanticObject, BgPackage.Literals.IN_AROW__HORIZONTAL) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BgPackage.Literals.IN_AROW__HORIZONTAL));
 			if (transientValues.isValueTransient(semanticObject, BgPackage.Literals.IN_AROW__VERTICAL) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BgPackage.Literals.IN_AROW__VERTICAL));
 			if (transientValues.isValueTransient(semanticObject, BgPackage.Literals.IN_AROW__DIAGONAL) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BgPackage.Literals.IN_AROW__DIAGONAL));
-			if (transientValues.isValueTransient(semanticObject, BgPackage.Literals.IN_AROW__COUNT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BgPackage.Literals.IN_AROW__COUNT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getInARowAccess().getHorizontalHorizontalKeyword_0_0(), semanticObject.isHorizontal());
-		feeder.accept(grammarAccess.getInARowAccess().getVerticalVerticalKeyword_1_0(), semanticObject.isVertical());
-		feeder.accept(grammarAccess.getInARowAccess().getDiagonalDiagonalKeyword_2_0(), semanticObject.isDiagonal());
-		feeder.accept(grammarAccess.getInARowAccess().getCountEIntParserRuleCall_4_0(), semanticObject.getCount());
+		feeder.accept(grammarAccess.getInARowAccess().getCountEIntParserRuleCall_1_0(), semanticObject.getCount());
+		feeder.accept(grammarAccess.getInARowAccess().getHorizontalHorizontalKeyword_2_0(), semanticObject.isHorizontal());
+		feeder.accept(grammarAccess.getInARowAccess().getVerticalVerticalKeyword_3_0(), semanticObject.isVertical());
+		feeder.accept(grammarAccess.getInARowAccess().getDiagonalDiagonalKeyword_4_0(), semanticObject.isDiagonal());
 		feeder.finish();
 	}
 	
@@ -191,7 +200,13 @@ public class BoardGameDLSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     PieceType returns PieceType
 	 *
 	 * Constraint:
-	 *     (name=EString symbol=EString validmoves+=ValidMove validmoves+=ValidMove* (effectsoncell+=EffectOnCell effectsoncell+=EffectOnCell*)?)
+	 *     (
+	 *         name=EString 
+	 *         symbol=EString 
+	 *         validmoves+=[ValidMove|EString] 
+	 *         validmoves+=[ValidMove|EString]* 
+	 *         (effectsoncell+=[EffectOnCell|EString] effectsoncell+=[EffectOnCell|EString]*)?
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_PieceType(ISerializationContext context, PieceType semanticObject) {
@@ -205,7 +220,7 @@ public class BoardGameDLSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     ValidMove returns ValidMove
 	 *
 	 * Constraint:
-	 *     (placeAnywhere?='placeAnywhere' (conditions+=Condition conditions+=Condition*)?)
+	 *     (name=ID placeAnywhere?='placeAnywhere' (conditions+=Condition conditions+=Condition*)?)
 	 * </pre>
 	 */
 	protected void sequence_ValidMove(ISerializationContext context, ValidMove semanticObject) {

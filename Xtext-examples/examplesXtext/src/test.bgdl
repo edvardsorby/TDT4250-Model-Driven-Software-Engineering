@@ -1,9 +1,0 @@
-Title "TicTacToe"
-BoardSize 5
-pieceTypes [ PieceType X 
-				Symbol X hasValidMovesWhen [ ValidMove { placeAnywhere when cellstate -> Empty } ] 
-												hasEffectOnCell [ effect -> ( relativePosition(0,0) newCellState ( Occupied ) )]
-] cellStates [ Occupied, Empty]
- winConditions  [ InARow horizontal vertical diagonal count 5 ] 
- 
- 

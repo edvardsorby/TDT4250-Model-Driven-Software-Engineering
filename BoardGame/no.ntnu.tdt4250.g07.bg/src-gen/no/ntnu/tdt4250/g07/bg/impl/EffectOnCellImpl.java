@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.EffectOnCellImpl#getCellstate <em>Cellstate</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.EffectOnCellImpl#getX <em>X</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.EffectOnCellImpl#getY <em>Y</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.EffectOnCellImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,6 +80,26 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	 * @ordered
 	 */
 	protected int y = Y_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +214,29 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.EFFECT_ON_CELL__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
@@ -203,6 +247,8 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 			return getX();
 		case BgPackage.EFFECT_ON_CELL__Y:
 			return getY();
+		case BgPackage.EFFECT_ON_CELL__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -223,6 +269,9 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 			return;
 		case BgPackage.EFFECT_ON_CELL__Y:
 			setY((Integer) newValue);
+			return;
+		case BgPackage.EFFECT_ON_CELL__NAME:
+			setName((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -245,6 +294,9 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 		case BgPackage.EFFECT_ON_CELL__Y:
 			setY(Y_EDEFAULT);
 			return;
+		case BgPackage.EFFECT_ON_CELL__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -263,6 +315,8 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 			return x != X_EDEFAULT;
 		case BgPackage.EFFECT_ON_CELL__Y:
 			return y != Y_EDEFAULT;
+		case BgPackage.EFFECT_ON_CELL__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -282,6 +336,8 @@ public class EffectOnCellImpl extends MinimalEObjectImpl.Container implements Ef
 		result.append(x);
 		result.append(", y: ");
 		result.append(y);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}
