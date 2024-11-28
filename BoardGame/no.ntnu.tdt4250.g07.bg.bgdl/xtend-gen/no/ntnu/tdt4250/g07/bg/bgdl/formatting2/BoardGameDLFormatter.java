@@ -6,11 +6,9 @@ package no.ntnu.tdt4250.g07.bg.bgdl.formatting2;
 import com.google.inject.Inject;
 import java.util.Arrays;
 import no.ntnu.tdt4250.g07.bg.BoardGame;
-import no.ntnu.tdt4250.g07.bg.CellState;
 import no.ntnu.tdt4250.g07.bg.EffectOnCell;
 import no.ntnu.tdt4250.g07.bg.PieceType;
 import no.ntnu.tdt4250.g07.bg.ValidMove;
-import no.ntnu.tdt4250.g07.bg.WinCondition;
 import no.ntnu.tdt4250.g07.bg.bgdl.services.BoardGameDLGrammarAccess;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -18,7 +16,6 @@ import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.XbaseGenerated;
 
 @SuppressWarnings("all")
 public class BoardGameDLFormatter extends AbstractFormatter2 {
@@ -27,18 +24,13 @@ public class BoardGameDLFormatter extends AbstractFormatter2 {
   private BoardGameDLGrammarAccess _boardGameDLGrammarAccess;
 
   protected void _format(final BoardGame boardGame, @Extension final IFormattableDocument document) {
-    EList<PieceType> _piecetypes = boardGame.getPiecetypes();
-    for (final PieceType pieceType : _piecetypes) {
-      document.<PieceType>format(pieceType);
-    }
-    EList<CellState> _cellstates = boardGame.getCellstates();
-    for (final CellState cellState : _cellstates) {
-      document.<CellState>format(cellState);
-    }
-    EList<WinCondition> _winConditions = boardGame.getWinConditions();
-    for (final WinCondition winCondition : _winConditions) {
-      document.<WinCondition>format(winCondition);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field piecetypes is undefined for the type BoardGame"
+      + "\nThe method or field cellstates is undefined for the type BoardGame"
+      + "\nThe method or field winConditions is undefined for the type BoardGame"
+      + "\nformat cannot be resolved"
+      + "\nformat cannot be resolved"
+      + "\nformat cannot be resolved");
   }
 
   protected void _format(final PieceType pieceType, @Extension final IFormattableDocument document) {
@@ -52,29 +44,28 @@ public class BoardGameDLFormatter extends AbstractFormatter2 {
     }
   }
 
-  @XbaseGenerated
-  public void format(final Object boardGame, final IFormattableDocument document) {
-    if (boardGame instanceof XtextResource) {
-      _format((XtextResource)boardGame, document);
+  public void format(final Object pieceType, final IFormattableDocument document) {
+    if (pieceType instanceof XtextResource) {
+      _format((XtextResource)pieceType, document);
       return;
-    } else if (boardGame instanceof BoardGame) {
-      _format((BoardGame)boardGame, document);
+    } else if (pieceType instanceof PieceType) {
+      _format((PieceType)pieceType, document);
       return;
-    } else if (boardGame instanceof PieceType) {
-      _format((PieceType)boardGame, document);
+    } else if (pieceType instanceof BoardGame) {
+      _format((BoardGame)pieceType, document);
       return;
-    } else if (boardGame instanceof EObject) {
-      _format((EObject)boardGame, document);
+    } else if (pieceType instanceof EObject) {
+      _format((EObject)pieceType, document);
       return;
-    } else if (boardGame == null) {
+    } else if (pieceType == null) {
       _format((Void)null, document);
       return;
-    } else if (boardGame != null) {
-      _format(boardGame, document);
+    } else if (pieceType != null) {
+      _format(pieceType, document);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(boardGame, document).toString());
+        Arrays.<Object>asList(pieceType, document).toString());
     }
   }
 }

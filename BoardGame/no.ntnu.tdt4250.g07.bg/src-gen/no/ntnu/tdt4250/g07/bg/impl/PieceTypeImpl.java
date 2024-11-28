@@ -10,18 +10,11 @@ import no.ntnu.tdt4250.g07.bg.PieceType;
 import no.ntnu.tdt4250.g07.bg.ValidMove;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class PieceTypeImpl extends MinimalEObjectImpl.Container implements PieceType {
+public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -61,7 +54,7 @@ public class PieceTypeImpl extends MinimalEObjectImpl.Container implements Piece
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getValidmoves() <em>Validmoves</em>}' containment reference list.
+	 * The cached value of the '{@link #getValidmoves() <em>Validmoves</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValidmoves()
@@ -91,7 +84,7 @@ public class PieceTypeImpl extends MinimalEObjectImpl.Container implements Piece
 	protected String symbol = SYMBOL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getEffectsoncell() <em>Effectsoncell</em>}' containment reference list.
+	 * The cached value of the '{@link #getEffectsoncell() <em>Effectsoncell</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEffectsoncell()
@@ -150,8 +143,7 @@ public class PieceTypeImpl extends MinimalEObjectImpl.Container implements Piece
 	@Override
 	public EList<ValidMove> getValidmoves() {
 		if (validmoves == null) {
-			validmoves = new EObjectContainmentEList<ValidMove>(ValidMove.class, this,
-					BgPackage.PIECE_TYPE__VALIDMOVES);
+			validmoves = new EObjectResolvingEList<ValidMove>(ValidMove.class, this, BgPackage.PIECE_TYPE__VALIDMOVES);
 		}
 		return validmoves;
 	}
@@ -187,26 +179,10 @@ public class PieceTypeImpl extends MinimalEObjectImpl.Container implements Piece
 	@Override
 	public EList<EffectOnCell> getEffectsoncell() {
 		if (effectsoncell == null) {
-			effectsoncell = new EObjectContainmentEList<EffectOnCell>(EffectOnCell.class, this,
+			effectsoncell = new EObjectResolvingEList<EffectOnCell>(EffectOnCell.class, this,
 					BgPackage.PIECE_TYPE__EFFECTSONCELL);
 		}
 		return effectsoncell;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case BgPackage.PIECE_TYPE__VALIDMOVES:
-			return ((InternalEList<?>) getValidmoves()).basicRemove(otherEnd, msgs);
-		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
-			return ((InternalEList<?>) getEffectsoncell()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

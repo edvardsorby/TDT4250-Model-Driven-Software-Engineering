@@ -4,8 +4,6 @@ package no.ntnu.tdt4250.g07.bg;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Piece Type</b></em>'.
@@ -25,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface PieceType extends EObject {
+public interface PieceType extends BoardGameElement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -49,13 +47,13 @@ public interface PieceType extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Validmoves</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Validmoves</b></em>' reference list.
 	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.ValidMove}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Validmoves</em>' containment reference list.
+	 * @return the value of the '<em>Validmoves</em>' reference list.
 	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getPieceType_Validmoves()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<ValidMove> getValidmoves();
@@ -83,13 +81,13 @@ public interface PieceType extends EObject {
 	void setSymbol(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Effectsoncell</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Effectsoncell</b></em>' reference list.
 	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.EffectOnCell}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Effectsoncell</em>' containment reference list.
+	 * @return the value of the '<em>Effectsoncell</em>' reference list.
 	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getPieceType_Effectsoncell()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<EffectOnCell> getEffectsoncell();

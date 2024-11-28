@@ -56,26 +56,10 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPiecetypesPropertyDescriptor(object);
 			addSizePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Piecetypes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPiecetypesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_BoardGame_piecetypes_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_BoardGame_piecetypes_feature",
-								"_UI_BoardGame_type"),
-						BgPackage.Literals.BOARD_GAME__PIECETYPES, true, false, true, null, null, null));
 	}
 
 	/**
@@ -122,9 +106,7 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(BgPackage.Literals.BOARD_GAME__PIECETYPES);
-			childrenFeatures.add(BgPackage.Literals.BOARD_GAME__CELLSTATES);
-			childrenFeatures.add(BgPackage.Literals.BOARD_GAME__WIN_CONDITIONS);
+			childrenFeatures.add(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -192,9 +174,7 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 		case BgPackage.BOARD_GAME__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case BgPackage.BOARD_GAME__PIECETYPES:
-		case BgPackage.BOARD_GAME__CELLSTATES:
-		case BgPackage.BOARD_GAME__WIN_CONDITIONS:
+		case BgPackage.BOARD_GAME__BOARDGAMEELEMENTS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -212,13 +192,22 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(
-				createChildParameter(BgPackage.Literals.BOARD_GAME__PIECETYPES, BgFactory.eINSTANCE.createPieceType()));
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS,
+				BgFactory.eINSTANCE.createPieceType()));
 
-		newChildDescriptors.add(
-				createChildParameter(BgPackage.Literals.BOARD_GAME__CELLSTATES, BgFactory.eINSTANCE.createCellState()));
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS,
+				BgFactory.eINSTANCE.createValidMove()));
 
-		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__WIN_CONDITIONS,
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS,
+				BgFactory.eINSTANCE.createCondition()));
+
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS,
+				BgFactory.eINSTANCE.createCellState()));
+
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS,
+				BgFactory.eINSTANCE.createEffectOnCell()));
+
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS,
 				BgFactory.eINSTANCE.createWinCondition()));
 	}
 

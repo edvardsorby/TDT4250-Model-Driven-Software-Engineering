@@ -122,175 +122,96 @@ ruleBoardGame returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_4='pieceTypes'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getBoardGameAccess().getPieceTypesKeyword_4());
-		}
-		otherlv_5='['
-		{
-			newLeafNode(otherlv_5, grammarAccess.getBoardGameAccess().getLeftSquareBracketKeyword_5());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getBoardGameAccess().getPiecetypesPieceTypeParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getBoardGameAccess().getBoardgameelementsBoardGameElementParserRuleCall_4_0());
 				}
-				lv_piecetypes_6_0=rulePieceType
+				lv_boardgameelements_4_0=ruleBoardGameElement
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getBoardGameRule());
 					}
 					add(
 						$current,
-						"piecetypes",
-						lv_piecetypes_6_0,
-						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.PieceType");
+						"boardgameelements",
+						lv_boardgameelements_4_0,
+						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.BoardGameElement");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
-		(
-			otherlv_7=','
-			{
-				newLeafNode(otherlv_7, grammarAccess.getBoardGameAccess().getCommaKeyword_7_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getBoardGameAccess().getPiecetypesPieceTypeParserRuleCall_7_1_0());
-					}
-					lv_piecetypes_8_0=rulePieceType
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getBoardGameRule());
-						}
-						add(
-							$current,
-							"piecetypes",
-							lv_piecetypes_8_0,
-							"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.PieceType");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
 		)*
-		otherlv_9=']'
+	)
+;
+
+// Entry rule entryRuleBoardGameElement
+entryRuleBoardGameElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBoardGameElementRule()); }
+	iv_ruleBoardGameElement=ruleBoardGameElement
+	{ $current=$iv_ruleBoardGameElement.current; }
+	EOF;
+
+// Rule BoardGameElement
+ruleBoardGameElement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
 		{
-			newLeafNode(otherlv_9, grammarAccess.getBoardGameAccess().getRightSquareBracketKeyword_8());
+			newCompositeNode(grammarAccess.getBoardGameElementAccess().getPieceTypeParserRuleCall_0());
 		}
-		(
-			otherlv_10='cellStates'
-			{
-				newLeafNode(otherlv_10, grammarAccess.getBoardGameAccess().getCellStatesKeyword_9_0());
-			}
-			otherlv_11='['
-			{
-				newLeafNode(otherlv_11, grammarAccess.getBoardGameAccess().getLeftSquareBracketKeyword_9_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getBoardGameAccess().getCellstatesCellStateParserRuleCall_9_2_0());
-					}
-					lv_cellstates_12_0=ruleCellState
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getBoardGameRule());
-						}
-						add(
-							$current,
-							"cellstates",
-							lv_cellstates_12_0,
-							"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.CellState");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_13=','
-				{
-					newLeafNode(otherlv_13, grammarAccess.getBoardGameAccess().getCommaKeyword_9_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getBoardGameAccess().getCellstatesCellStateParserRuleCall_9_3_1_0());
-						}
-						lv_cellstates_14_0=ruleCellState
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getBoardGameRule());
-							}
-							add(
-								$current,
-								"cellstates",
-								lv_cellstates_14_0,
-								"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.CellState");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-			otherlv_15=']'
-			{
-				newLeafNode(otherlv_15, grammarAccess.getBoardGameAccess().getRightSquareBracketKeyword_9_4());
-			}
-		)?
-		otherlv_16='winConditions'
+		this_PieceType_0=rulePieceType
 		{
-			newLeafNode(otherlv_16, grammarAccess.getBoardGameAccess().getWinConditionsKeyword_10());
+			$current = $this_PieceType_0.current;
+			afterParserOrEnumRuleCall();
 		}
-		otherlv_17='['
+		    |
 		{
-			newLeafNode(otherlv_17, grammarAccess.getBoardGameAccess().getLeftSquareBracketKeyword_11());
+			newCompositeNode(grammarAccess.getBoardGameElementAccess().getEffectOnCellParserRuleCall_1());
 		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getBoardGameAccess().getWinConditionsWinConditionParserRuleCall_12_0());
-				}
-				lv_winConditions_18_0=ruleWinCondition
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getBoardGameRule());
-					}
-					add(
-						$current,
-						"winConditions",
-						lv_winConditions_18_0,
-						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.WinCondition");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_19=','
-			{
-				newLeafNode(otherlv_19, grammarAccess.getBoardGameAccess().getCommaKeyword_13_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getBoardGameAccess().getWinConditionsWinConditionParserRuleCall_13_1_0());
-					}
-					lv_winConditions_20_0=ruleWinCondition
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getBoardGameRule());
-						}
-						add(
-							$current,
-							"winConditions",
-							lv_winConditions_20_0,
-							"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.WinCondition");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-		otherlv_21=']'
+		this_EffectOnCell_1=ruleEffectOnCell
 		{
-			newLeafNode(otherlv_21, grammarAccess.getBoardGameAccess().getRightSquareBracketKeyword_14());
+			$current = $this_EffectOnCell_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getBoardGameElementAccess().getValidMoveParserRuleCall_2());
+		}
+		this_ValidMove_2=ruleValidMove
+		{
+			$current = $this_ValidMove_2.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getBoardGameElementAccess().getCellStateParserRuleCall_3());
+		}
+		this_CellState_3=ruleCellState
+		{
+			$current = $this_CellState_3.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getBoardGameElementAccess().getWinConditionParserRuleCall_4());
+		}
+		this_WinCondition_4=ruleWinCondition
+		{
+			$current = $this_WinCondition_4.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getBoardGameElementAccess().getConditionParserRuleCall_5());
+		}
+		this_Condition_5=ruleCondition
+		{
+			$current = $this_Condition_5.current;
+			afterParserOrEnumRuleCall();
 		}
 	)
 ;
@@ -334,16 +255,20 @@ rulePieceType returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='Symbol'
+		otherlv_2='{'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getPieceTypeAccess().getSymbolKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getPieceTypeAccess().getLeftCurlyBracketKeyword_2());
+		}
+		otherlv_3='Symbol'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getPieceTypeAccess().getSymbolKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPieceTypeAccess().getSymbolEStringParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getPieceTypeAccess().getSymbolEStringParserRuleCall_4_0());
 				}
-				lv_symbol_3_0=ruleEString
+				lv_symbol_4_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPieceTypeRule());
@@ -351,126 +276,118 @@ rulePieceType returns [EObject current=null]
 					set(
 						$current,
 						"symbol",
-						lv_symbol_3_0,
+						lv_symbol_4_0,
 						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_4='hasValidMovesWhen'
+		otherlv_5='ValidMoves'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getPieceTypeAccess().getHasValidMovesWhenKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getPieceTypeAccess().getValidMovesKeyword_5());
 		}
-		otherlv_5='['
+		otherlv_6='['
 		{
-			newLeafNode(otherlv_5, grammarAccess.getPieceTypeAccess().getLeftSquareBracketKeyword_5());
+			newLeafNode(otherlv_6, grammarAccess.getPieceTypeAccess().getLeftSquareBracketKeyword_6());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPieceTypeAccess().getValidmovesValidMoveParserRuleCall_6_0());
-				}
-				lv_validmoves_6_0=ruleValidMove
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPieceTypeRule());
+						$current = createModelElement(grammarAccess.getPieceTypeRule());
 					}
-					add(
-						$current,
-						"validmoves",
-						lv_validmoves_6_0,
-						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.ValidMove");
+				}
+				{
+					newCompositeNode(grammarAccess.getPieceTypeAccess().getValidmovesValidMoveCrossReference_7_0());
+				}
+				ruleEString
+				{
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_7=','
+			otherlv_8=','
 			{
-				newLeafNode(otherlv_7, grammarAccess.getPieceTypeAccess().getCommaKeyword_7_0());
+				newLeafNode(otherlv_8, grammarAccess.getPieceTypeAccess().getCommaKeyword_8_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPieceTypeAccess().getValidmovesValidMoveParserRuleCall_7_1_0());
-					}
-					lv_validmoves_8_0=ruleValidMove
-					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPieceTypeRule());
+							$current = createModelElement(grammarAccess.getPieceTypeRule());
 						}
-						add(
-							$current,
-							"validmoves",
-							lv_validmoves_8_0,
-							"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.ValidMove");
+					}
+					{
+						newCompositeNode(grammarAccess.getPieceTypeAccess().getValidmovesValidMoveCrossReference_8_1_0());
+					}
+					ruleEString
+					{
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)*
-		otherlv_9=']'
+		otherlv_10=']'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getPieceTypeAccess().getRightSquareBracketKeyword_8());
+			newLeafNode(otherlv_10, grammarAccess.getPieceTypeAccess().getRightSquareBracketKeyword_9());
 		}
 		(
-			otherlv_10='hasEffectOnCell'
+			otherlv_11='EffectsOnCell'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getPieceTypeAccess().getHasEffectOnCellKeyword_9_0());
+				newLeafNode(otherlv_11, grammarAccess.getPieceTypeAccess().getEffectsOnCellKeyword_10_0());
 			}
-			otherlv_11='['
+			otherlv_12='['
 			{
-				newLeafNode(otherlv_11, grammarAccess.getPieceTypeAccess().getLeftSquareBracketKeyword_9_1());
+				newLeafNode(otherlv_12, grammarAccess.getPieceTypeAccess().getLeftSquareBracketKeyword_10_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellParserRuleCall_9_2_0());
-					}
-					lv_effectsoncell_12_0=ruleEffectOnCell
-					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getPieceTypeRule());
+							$current = createModelElement(grammarAccess.getPieceTypeRule());
 						}
-						add(
-							$current,
-							"effectsoncell",
-							lv_effectsoncell_12_0,
-							"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EffectOnCell");
+					}
+					{
+						newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellCrossReference_10_2_0());
+					}
+					ruleEString
+					{
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_13=','
+				otherlv_14=','
 				{
-					newLeafNode(otherlv_13, grammarAccess.getPieceTypeAccess().getCommaKeyword_9_3_0());
+					newLeafNode(otherlv_14, grammarAccess.getPieceTypeAccess().getCommaKeyword_10_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellParserRuleCall_9_3_1_0());
-						}
-						lv_effectsoncell_14_0=ruleEffectOnCell
-						{
 							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getPieceTypeRule());
+								$current = createModelElement(grammarAccess.getPieceTypeRule());
 							}
-							add(
-								$current,
-								"effectsoncell",
-								lv_effectsoncell_14_0,
-								"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EffectOnCell");
+						}
+						{
+							newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellCrossReference_10_3_1_0());
+						}
+						ruleEString
+						{
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_15=']'
+			otherlv_16=']'
 			{
-				newLeafNode(otherlv_15, grammarAccess.getPieceTypeAccess().getRightSquareBracketKeyword_9_4());
+				newLeafNode(otherlv_16, grammarAccess.getPieceTypeAccess().getRightSquareBracketKeyword_10_4());
 			}
 		)?
+		otherlv_17='}'
+		{
+			newLeafNode(otherlv_17, grammarAccess.getPieceTypeAccess().getRightCurlyBracketKeyword_11());
+		}
 	)
 ;
 
@@ -490,21 +407,28 @@ ruleCellState returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		otherlv_0='Cellstate'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getCellStateAccess().getCellstateKeyword_0());
+		}
 		(
-			lv_name_0_0=RULE_ID
-			{
-				newLeafNode(lv_name_0_0, grammarAccess.getCellStateAccess().getNameIDTerminalRuleCall_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getCellStateRule());
+			(
+				{
+					newCompositeNode(grammarAccess.getCellStateAccess().getNameEStringParserRuleCall_1_0());
 				}
-				setWithLastConsumed(
-					$current,
-					"name",
-					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.ID");
-			}
+				lv_name_1_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCellStateRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_1_0,
+						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)
 	)
 ;
@@ -525,9 +449,9 @@ ruleWinCondition returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='InARow'
+		otherlv_0='WinCondition'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getWinConditionAccess().getInARowKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getWinConditionAccess().getWinConditionKeyword_0());
 		}
 		(
 			(
@@ -638,77 +562,93 @@ ruleValidMove returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getValidMoveAccess().getValidMoveKeyword_0());
 		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getValidMoveAccess().getLeftCurlyBracketKeyword_1());
-		}
 		(
 			(
-				lv_placeAnywhere_2_0='placeAnywhere'
+				lv_name_1_0=RULE_ID
 				{
-					newLeafNode(lv_placeAnywhere_2_0, grammarAccess.getValidMoveAccess().getPlaceAnywherePlaceAnywhereKeyword_2_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getValidMoveAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getValidMoveRule());
 					}
-					setWithLastConsumed($current, "placeAnywhere", lv_placeAnywhere_2_0 != null, "placeAnywhere");
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getValidMoveAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				lv_placeAnywhere_3_0='placeAnywhere'
+				{
+					newLeafNode(lv_placeAnywhere_3_0, grammarAccess.getValidMoveAccess().getPlaceAnywherePlaceAnywhereKeyword_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getValidMoveRule());
+					}
+					setWithLastConsumed($current, "placeAnywhere", lv_placeAnywhere_3_0 != null, "placeAnywhere");
 				}
 			)
 		)
 		(
-			otherlv_3='when'
+			otherlv_4='valid'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getValidMoveAccess().getWhenKeyword_3_0());
+				newLeafNode(otherlv_4, grammarAccess.getValidMoveAccess().getValidKeyword_4_0());
+			}
+			otherlv_5='if'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getValidMoveAccess().getIfKeyword_4_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getValidMoveAccess().getConditionsConditionParserRuleCall_3_1_0());
-					}
-					lv_conditions_4_0=ruleCondition
-					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getValidMoveRule());
+							$current = createModelElement(grammarAccess.getValidMoveRule());
 						}
-						add(
-							$current,
-							"conditions",
-							lv_conditions_4_0,
-							"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.Condition");
+					}
+					{
+						newCompositeNode(grammarAccess.getValidMoveAccess().getConditionsConditionCrossReference_4_2_0());
+					}
+					ruleEString
+					{
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_5='and'
+				otherlv_7='and'
 				{
-					newLeafNode(otherlv_5, grammarAccess.getValidMoveAccess().getAndKeyword_3_2_0());
+					newLeafNode(otherlv_7, grammarAccess.getValidMoveAccess().getAndKeyword_4_3_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getValidMoveAccess().getConditionsConditionParserRuleCall_3_2_1_0());
-						}
-						lv_conditions_6_0=ruleCondition
-						{
 							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getValidMoveRule());
+								$current = createModelElement(grammarAccess.getValidMoveRule());
 							}
-							add(
-								$current,
-								"conditions",
-								lv_conditions_6_0,
-								"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.Condition");
+						}
+						{
+							newCompositeNode(grammarAccess.getValidMoveAccess().getConditionsConditionCrossReference_4_3_1_0());
+						}
+						ruleEString
+						{
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
 		)?
-		otherlv_7='}'
+		otherlv_9='}'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getValidMoveAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_9, grammarAccess.getValidMoveAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -729,103 +669,154 @@ ruleEffectOnCell returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='effect'
+		otherlv_0='EffectOnCell'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getEffectOnCellAccess().getEffectKeyword_0());
-		}
-		otherlv_1='->'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getEffectOnCellAccess().getHyphenMinusGreaterThanSignKeyword_1());
-		}
-		otherlv_2='('
-		{
-			newLeafNode(otherlv_2, grammarAccess.getEffectOnCellAccess().getLeftParenthesisKeyword_2());
-		}
-		otherlv_3='relativePosition'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getEffectOnCellAccess().getRelativePositionKeyword_3());
-		}
-		otherlv_4='('
-		{
-			newLeafNode(otherlv_4, grammarAccess.getEffectOnCellAccess().getLeftParenthesisKeyword_4());
+			newLeafNode(otherlv_0, grammarAccess.getEffectOnCellAccess().getEffectOnCellKeyword_0());
 		}
 		(
 			(
+				lv_name_1_0=RULE_ID
 				{
-					newCompositeNode(grammarAccess.getEffectOnCellAccess().getXEIntParserRuleCall_5_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getEffectOnCellAccess().getNameIDTerminalRuleCall_1_0());
 				}
-				lv_x_5_0=ruleEInt
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEffectOnCellRule());
-					}
-					set(
-						$current,
-						"x",
-						lv_x_5_0,
-						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EInt");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_6=','
-		{
-			newLeafNode(otherlv_6, grammarAccess.getEffectOnCellAccess().getCommaKeyword_6());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getEffectOnCellAccess().getYEIntParserRuleCall_7_0());
-				}
-				lv_y_7_0=ruleEInt
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEffectOnCellRule());
-					}
-					set(
-						$current,
-						"y",
-						lv_y_7_0,
-						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EInt");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_8=')'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getEffectOnCellAccess().getRightParenthesisKeyword_8());
-		}
-		otherlv_9='newCellState'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getEffectOnCellAccess().getNewCellStateKeyword_9());
-		}
-		otherlv_10='('
-		{
-			newLeafNode(otherlv_10, grammarAccess.getEffectOnCellAccess().getLeftParenthesisKeyword_10());
-		}
-		(
-			(
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getEffectOnCellRule());
 					}
-				}
-				{
-					newCompositeNode(grammarAccess.getEffectOnCellAccess().getCellstateCellStateCrossReference_11_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
-		otherlv_12=')'
+		otherlv_2='{'
 		{
-			newLeafNode(otherlv_12, grammarAccess.getEffectOnCellAccess().getRightParenthesisKeyword_12());
+			newLeafNode(otherlv_2, grammarAccess.getEffectOnCellAccess().getLeftCurlyBracketKeyword_2());
 		}
-		otherlv_13=')'
+		(
+			(
+				{ 
+				  getUnorderedGroupHelper().enter(grammarAccess.getEffectOnCellAccess().getUnorderedGroup_3());
+				}
+				(
+					(
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getEffectOnCellAccess().getUnorderedGroup_3(), 0)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getEffectOnCellAccess().getUnorderedGroup_3(), 0);
+					}
+								({true}?=>(otherlv_4='relativePosition'
+								{
+									newLeafNode(otherlv_4, grammarAccess.getEffectOnCellAccess().getRelativePositionKeyword_3_0_0());
+								}
+								otherlv_5='('
+								{
+									newLeafNode(otherlv_5, grammarAccess.getEffectOnCellAccess().getLeftParenthesisKeyword_3_0_1());
+								}
+								(
+									(
+										{
+											newCompositeNode(grammarAccess.getEffectOnCellAccess().getXEIntParserRuleCall_3_0_2_0());
+										}
+										lv_x_6_0=ruleEInt
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getEffectOnCellRule());
+											}
+											set(
+												$current,
+												"x",
+												lv_x_6_0,
+												"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EInt");
+											afterParserOrEnumRuleCall();
+										}
+									)
+								)
+								otherlv_7=','
+								{
+									newLeafNode(otherlv_7, grammarAccess.getEffectOnCellAccess().getCommaKeyword_3_0_3());
+								}
+								(
+									(
+										{
+											newCompositeNode(grammarAccess.getEffectOnCellAccess().getYEIntParserRuleCall_3_0_4_0());
+										}
+										lv_y_8_0=ruleEInt
+										{
+											if ($current==null) {
+												$current = createModelElementForParent(grammarAccess.getEffectOnCellRule());
+											}
+											set(
+												$current,
+												"y",
+												lv_y_8_0,
+												"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EInt");
+											afterParserOrEnumRuleCall();
+										}
+									)
+								)
+								otherlv_9=')'
+								{
+									newLeafNode(otherlv_9, grammarAccess.getEffectOnCellAccess().getRightParenthesisKeyword_3_0_5());
+								}
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getEffectOnCellAccess().getUnorderedGroup_3());
+					}
+				)
+			)|
+			(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getEffectOnCellAccess().getUnorderedGroup_3(), 1)}?=>(
+					{
+						getUnorderedGroupHelper().select(grammarAccess.getEffectOnCellAccess().getUnorderedGroup_3(), 1);
+					}
+								({true}?=>(otherlv_10='newCellState'
+								{
+									newLeafNode(otherlv_10, grammarAccess.getEffectOnCellAccess().getNewCellStateKeyword_3_1_0());
+								}
+								otherlv_11='('
+								{
+									newLeafNode(otherlv_11, grammarAccess.getEffectOnCellAccess().getLeftParenthesisKeyword_3_1_1());
+								}
+								(
+									(
+										{
+											if ($current==null) {
+												$current = createModelElement(grammarAccess.getEffectOnCellRule());
+											}
+										}
+										{
+											newCompositeNode(grammarAccess.getEffectOnCellAccess().getCellstateCellStateCrossReference_3_1_2_0());
+										}
+										ruleEString
+										{
+											afterParserOrEnumRuleCall();
+										}
+									)
+								)
+								otherlv_13=')'
+								{
+									newLeafNode(otherlv_13, grammarAccess.getEffectOnCellAccess().getRightParenthesisKeyword_3_1_3());
+								}
+								))
+					{ 
+						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getEffectOnCellAccess().getUnorderedGroup_3());
+					}
+				)
+			)
+					)+
+					{getUnorderedGroupHelper().canLeave(grammarAccess.getEffectOnCellAccess().getUnorderedGroup_3())}?
+				)
+			)
+				{ 
+				  getUnorderedGroupHelper().leave(grammarAccess.getEffectOnCellAccess().getUnorderedGroup_3());
+				}
+		)
+		otherlv_14='}'
 		{
-			newLeafNode(otherlv_13, grammarAccess.getEffectOnCellAccess().getRightParenthesisKeyword_13());
+			newLeafNode(otherlv_14, grammarAccess.getEffectOnCellAccess().getRightCurlyBracketKeyword_4());
 		}
 	)
 ;
@@ -846,14 +837,28 @@ ruleCondition returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='cellstate'
+		otherlv_0='Condition'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getCellstateKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getConditionKeyword_0());
 		}
-		otherlv_1='->'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getConditionAccess().getHyphenMinusGreaterThanSignKeyword_1());
-		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getConditionAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getConditionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
 		(
 			(
 				{
@@ -890,70 +895,121 @@ ruleInARow returns [EObject current=null]
 }:
 	(
 		(
+			{ 
+			  getUnorderedGroupHelper().enter(grammarAccess.getInARowAccess().getUnorderedGroup());
+			}
 			(
-				lv_horizontal_0_0='horizontal'
-				{
-					newLeafNode(lv_horizontal_0_0, grammarAccess.getInARowAccess().getHorizontalHorizontalKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getInARowRule());
-					}
-					setWithLastConsumed($current, "horizontal", lv_horizontal_0_0 != null, "horizontal");
-				}
-			)
-		)
+				(
 		(
-			(
-				lv_vertical_1_0='vertical'
+			{getUnorderedGroupHelper().canSelect(grammarAccess.getInARowAccess().getUnorderedGroup(), 0)}?=>(
 				{
-					newLeafNode(lv_vertical_1_0, grammarAccess.getInARowAccess().getVerticalVerticalKeyword_1_0());
+					getUnorderedGroupHelper().select(grammarAccess.getInARowAccess().getUnorderedGroup(), 0);
 				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getInARowRule());
-					}
-					setWithLastConsumed($current, "vertical", lv_vertical_1_0 != null, "vertical");
+							({true}?=>(otherlv_1='count'
+							{
+								newLeafNode(otherlv_1, grammarAccess.getInARowAccess().getCountKeyword_0_0());
+							}
+							(
+								(
+									{
+										newCompositeNode(grammarAccess.getInARowAccess().getCountEIntParserRuleCall_0_1_0());
+									}
+									lv_count_2_0=ruleEInt
+									{
+										if ($current==null) {
+											$current = createModelElementForParent(grammarAccess.getInARowRule());
+										}
+										set(
+											$current,
+											"count",
+											lv_count_2_0,
+											"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EInt");
+										afterParserOrEnumRuleCall();
+									}
+								)
+							)
+							))
+				{ 
+					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getInARowAccess().getUnorderedGroup());
 				}
 			)
-		)
+		)|
 		(
-			(
-				lv_diagonal_2_0='diagonal'
+			{getUnorderedGroupHelper().canSelect(grammarAccess.getInARowAccess().getUnorderedGroup(), 1)}?=>(
 				{
-					newLeafNode(lv_diagonal_2_0, grammarAccess.getInARowAccess().getDiagonalDiagonalKeyword_2_0());
+					getUnorderedGroupHelper().select(grammarAccess.getInARowAccess().getUnorderedGroup(), 1);
 				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getInARowRule());
-					}
-					setWithLastConsumed($current, "diagonal", lv_diagonal_2_0 != null, "diagonal");
+							({true}?=>((
+								lv_horizontal_3_0='horizontal'
+								{
+									newLeafNode(lv_horizontal_3_0, grammarAccess.getInARowAccess().getHorizontalHorizontalKeyword_1_0());
+								}
+								{
+									if ($current==null) {
+										$current = createModelElement(grammarAccess.getInARowRule());
+									}
+									setWithLastConsumed($current, "horizontal", lv_horizontal_3_0 != null, "horizontal");
+								}
+							)
+							))
+				{ 
+					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getInARowAccess().getUnorderedGroup());
 				}
 			)
-		)
-		otherlv_3='count'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getInARowAccess().getCountKeyword_3());
-		}
+		)|
 		(
-			(
+			{getUnorderedGroupHelper().canSelect(grammarAccess.getInARowAccess().getUnorderedGroup(), 2)}?=>(
 				{
-					newCompositeNode(grammarAccess.getInARowAccess().getCountEIntParserRuleCall_4_0());
+					getUnorderedGroupHelper().select(grammarAccess.getInARowAccess().getUnorderedGroup(), 2);
 				}
-				lv_count_4_0=ruleEInt
+							({true}?=>((
+								lv_vertical_4_0='vertical'
+								{
+									newLeafNode(lv_vertical_4_0, grammarAccess.getInARowAccess().getVerticalVerticalKeyword_2_0());
+								}
+								{
+									if ($current==null) {
+										$current = createModelElement(grammarAccess.getInARowRule());
+									}
+									setWithLastConsumed($current, "vertical", lv_vertical_4_0 != null, "vertical");
+								}
+							)
+							))
+				{ 
+					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getInARowAccess().getUnorderedGroup());
+				}
+			)
+		)|
+		(
+			{getUnorderedGroupHelper().canSelect(grammarAccess.getInARowAccess().getUnorderedGroup(), 3)}?=>(
 				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getInARowRule());
-					}
-					set(
-						$current,
-						"count",
-						lv_count_4_0,
-						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EInt");
-					afterParserOrEnumRuleCall();
+					getUnorderedGroupHelper().select(grammarAccess.getInARowAccess().getUnorderedGroup(), 3);
+				}
+							({true}?=>((
+								lv_diagonal_5_0='diagonal'
+								{
+									newLeafNode(lv_diagonal_5_0, grammarAccess.getInARowAccess().getDiagonalDiagonalKeyword_3_0());
+								}
+								{
+									if ($current==null) {
+										$current = createModelElement(grammarAccess.getInARowRule());
+									}
+									setWithLastConsumed($current, "diagonal", lv_diagonal_5_0 != null, "diagonal");
+								}
+							)
+							))
+				{ 
+					getUnorderedGroupHelper().returnFromSelection(grammarAccess.getInARowAccess().getUnorderedGroup());
 				}
 			)
 		)
+				)+
+				{getUnorderedGroupHelper().canLeave(grammarAccess.getInARowAccess().getUnorderedGroup())}?
+			)
+		)
+			{ 
+			  getUnorderedGroupHelper().leave(grammarAccess.getInARowAccess().getUnorderedGroup());
+			}
 	)
 ;
 

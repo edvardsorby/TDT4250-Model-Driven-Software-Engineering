@@ -2,44 +2,43 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bg" nsURI="http://www.ntnu.no/tdt4250/g07/bg" nsPrefix="bg">
   <eClassifiers xsi:type="ecore:EClass" name="BoardGame">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="piecetypes" lowerBound="1"
-        upperBound="-1" eType="#//PieceType" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cellstates" upperBound="-1"
-        eType="#//CellState" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="winConditions" lowerBound="1"
-        upperBound="-1" eType="#//WinCondition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boardgameelements" upperBound="-1"
+        eType="#//BoardGameElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PieceType">
+  <eClassifiers xsi:type="ecore:EClass" name="PieceType" eSuperTypes="#//BoardGameElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validmoves" lowerBound="1"
-        upperBound="-1" eType="#//ValidMove" containment="true"/>
+        upperBound="-1" eType="#//ValidMove"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="effectsoncell" upperBound="-1"
-        eType="#//EffectOnCell" containment="true"/>
+        eType="#//EffectOnCell"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ValidMove">
+  <eClassifiers xsi:type="ecore:EClass" name="ValidMove" eSuperTypes="#//BoardGameElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" upperBound="-1"
-        eType="#//Condition" containment="true"/>
+        eType="#//Condition"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="placeAnywhere" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cellstate" lowerBound="1"
-        eType="#//CellState"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CellState">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EffectOnCell">
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" eSuperTypes="#//BoardGameElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cellstate" lowerBound="1"
+        eType="#//CellState"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CellState" eSuperTypes="#//BoardGameElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EffectOnCell" eSuperTypes="#//BoardGameElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cellstate" lowerBound="1"
         eType="#//CellState"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WinCondition">
+  <eClassifiers xsi:type="ecore:EClass" name="WinCondition" eSuperTypes="#//BoardGameElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inarow" lowerBound="1"
         eType="#//InARow" containment="true"/>
   </eClassifiers>
@@ -52,4 +51,5 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BoardGameElement" abstract="true"/>
 </ecore:EPackage>

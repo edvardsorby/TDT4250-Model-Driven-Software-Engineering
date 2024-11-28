@@ -67,40 +67,13 @@ public interface BgPackage extends EPackage {
 	int BOARD_GAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Piecetypes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD_GAME__PIECETYPES = 0;
-
-	/**
-	 * The feature id for the '<em><b>Cellstates</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD_GAME__CELLSTATES = 1;
-
-	/**
-	 * The feature id for the '<em><b>Win Conditions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD_GAME__WIN_CONDITIONS = 2;
-
-	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_GAME__SIZE = 3;
+	int BOARD_GAME__SIZE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -109,7 +82,16 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_GAME__NAME = 4;
+	int BOARD_GAME__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Boardgameelements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD_GAME__BOARDGAMEELEMENTS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Board Game</em>' class.
@@ -118,7 +100,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_GAME_FEATURE_COUNT = 5;
+	int BOARD_GAME_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Board Game</em>' class.
@@ -128,6 +110,34 @@ public interface BgPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOARD_GAME_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameElementImpl <em>Board Game Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.ntnu.tdt4250.g07.bg.impl.BoardGameElementImpl
+	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getBoardGameElement()
+	 * @generated
+	 */
+	int BOARD_GAME_ELEMENT = 8;
+
+	/**
+	 * The number of structural features of the '<em>Board Game Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD_GAME_ELEMENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Board Game Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD_GAME_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl <em>Piece Type</em>}' class.
@@ -146,16 +156,16 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIECE_TYPE__NAME = 0;
+	int PIECE_TYPE__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Validmoves</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Validmoves</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIECE_TYPE__VALIDMOVES = 1;
+	int PIECE_TYPE__VALIDMOVES = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Symbol</b></em>' attribute.
@@ -164,16 +174,16 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIECE_TYPE__SYMBOL = 2;
+	int PIECE_TYPE__SYMBOL = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Effectsoncell</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Effectsoncell</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIECE_TYPE__EFFECTSONCELL = 3;
+	int PIECE_TYPE__EFFECTSONCELL = BOARD_GAME_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Piece Type</em>' class.
@@ -182,7 +192,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIECE_TYPE_FEATURE_COUNT = 4;
+	int PIECE_TYPE_FEATURE_COUNT = BOARD_GAME_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Piece Type</em>' class.
@@ -191,7 +201,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PIECE_TYPE_OPERATION_COUNT = 0;
+	int PIECE_TYPE_OPERATION_COUNT = BOARD_GAME_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.ValidMoveImpl <em>Valid Move</em>}' class.
@@ -204,13 +214,13 @@ public interface BgPackage extends EPackage {
 	int VALID_MOVE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Conditions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALID_MOVE__CONDITIONS = 0;
+	int VALID_MOVE__CONDITIONS = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Place Anywhere</b></em>' attribute.
@@ -219,7 +229,16 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALID_MOVE__PLACE_ANYWHERE = 1;
+	int VALID_MOVE__PLACE_ANYWHERE = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALID_MOVE__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Valid Move</em>' class.
@@ -228,7 +247,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALID_MOVE_FEATURE_COUNT = 2;
+	int VALID_MOVE_FEATURE_COUNT = BOARD_GAME_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Valid Move</em>' class.
@@ -237,7 +256,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALID_MOVE_OPERATION_COUNT = 0;
+	int VALID_MOVE_OPERATION_COUNT = BOARD_GAME_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.ConditionImpl <em>Condition</em>}' class.
@@ -256,7 +275,16 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__CELLSTATE = 0;
+	int CONDITION__CELLSTATE = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
@@ -265,7 +293,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = 1;
+	int CONDITION_FEATURE_COUNT = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -274,7 +302,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_OPERATION_COUNT = 0;
+	int CONDITION_OPERATION_COUNT = BOARD_GAME_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.CellStateImpl <em>Cell State</em>}' class.
@@ -293,7 +321,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL_STATE__NAME = 0;
+	int CELL_STATE__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Cell State</em>' class.
@@ -302,7 +330,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL_STATE_FEATURE_COUNT = 1;
+	int CELL_STATE_FEATURE_COUNT = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Cell State</em>' class.
@@ -311,7 +339,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL_STATE_OPERATION_COUNT = 0;
+	int CELL_STATE_OPERATION_COUNT = BOARD_GAME_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.EffectOnCellImpl <em>Effect On Cell</em>}' class.
@@ -330,7 +358,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECT_ON_CELL__CELLSTATE = 0;
+	int EFFECT_ON_CELL__CELLSTATE = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -339,7 +367,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECT_ON_CELL__X = 1;
+	int EFFECT_ON_CELL__X = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Y</b></em>' attribute.
@@ -348,7 +376,16 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECT_ON_CELL__Y = 2;
+	int EFFECT_ON_CELL__Y = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFECT_ON_CELL__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Effect On Cell</em>' class.
@@ -357,7 +394,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECT_ON_CELL_FEATURE_COUNT = 3;
+	int EFFECT_ON_CELL_FEATURE_COUNT = BOARD_GAME_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Effect On Cell</em>' class.
@@ -366,7 +403,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECT_ON_CELL_OPERATION_COUNT = 0;
+	int EFFECT_ON_CELL_OPERATION_COUNT = BOARD_GAME_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.WinConditionImpl <em>Win Condition</em>}' class.
@@ -385,7 +422,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIN_CONDITION__INAROW = 0;
+	int WIN_CONDITION__INAROW = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Win Condition</em>' class.
@@ -394,7 +431,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIN_CONDITION_FEATURE_COUNT = 1;
+	int WIN_CONDITION_FEATURE_COUNT = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Win Condition</em>' class.
@@ -403,7 +440,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WIN_CONDITION_OPERATION_COUNT = 0;
+	int WIN_CONDITION_OPERATION_COUNT = BOARD_GAME_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.InARowImpl <em>In ARow</em>}' class.
@@ -480,39 +517,6 @@ public interface BgPackage extends EPackage {
 	EClass getBoardGame();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.BoardGame#getPiecetypes <em>Piecetypes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Piecetypes</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.BoardGame#getPiecetypes()
-	 * @see #getBoardGame()
-	 * @generated
-	 */
-	EReference getBoardGame_Piecetypes();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.BoardGame#getCellstates <em>Cellstates</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Cellstates</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.BoardGame#getCellstates()
-	 * @see #getBoardGame()
-	 * @generated
-	 */
-	EReference getBoardGame_Cellstates();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.BoardGame#getWinConditions <em>Win Conditions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Win Conditions</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.BoardGame#getWinConditions()
-	 * @see #getBoardGame()
-	 * @generated
-	 */
-	EReference getBoardGame_WinConditions();
-
-	/**
 	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.BoardGame#getSize <em>Size</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -533,6 +537,17 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBoardGame_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.BoardGame#getBoardgameelements <em>Boardgameelements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Boardgameelements</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.BoardGame#getBoardgameelements()
+	 * @see #getBoardGame()
+	 * @generated
+	 */
+	EReference getBoardGame_Boardgameelements();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.PieceType <em>Piece Type</em>}'.
@@ -556,10 +571,10 @@ public interface BgPackage extends EPackage {
 	EAttribute getPieceType_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getValidmoves <em>Validmoves</em>}'.
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getValidmoves <em>Validmoves</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Validmoves</em>'.
+	 * @return the meta object for the reference list '<em>Validmoves</em>'.
 	 * @see no.ntnu.tdt4250.g07.bg.PieceType#getValidmoves()
 	 * @see #getPieceType()
 	 * @generated
@@ -578,10 +593,10 @@ public interface BgPackage extends EPackage {
 	EAttribute getPieceType_Symbol();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getEffectsoncell <em>Effectsoncell</em>}'.
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getEffectsoncell <em>Effectsoncell</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Effectsoncell</em>'.
+	 * @return the meta object for the reference list '<em>Effectsoncell</em>'.
 	 * @see no.ntnu.tdt4250.g07.bg.PieceType#getEffectsoncell()
 	 * @see #getPieceType()
 	 * @generated
@@ -599,10 +614,10 @@ public interface BgPackage extends EPackage {
 	EClass getValidMove();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.ValidMove#getConditions <em>Conditions</em>}'.
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.ValidMove#getConditions <em>Conditions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Conditions</em>'.
+	 * @return the meta object for the reference list '<em>Conditions</em>'.
 	 * @see no.ntnu.tdt4250.g07.bg.ValidMove#getConditions()
 	 * @see #getValidMove()
 	 * @generated
@@ -619,6 +634,17 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getValidMove_PlaceAnywhere();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.ValidMove#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.ValidMove#getName()
+	 * @see #getValidMove()
+	 * @generated
+	 */
+	EAttribute getValidMove_Name();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.Condition <em>Condition</em>}'.
@@ -640,6 +666,17 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCondition_Cellstate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Condition#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.Condition#getName()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EAttribute getCondition_Name();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.CellState <em>Cell State</em>}'.
@@ -704,6 +741,17 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEffectOnCell_Y();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.EffectOnCell#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.EffectOnCell#getName()
+	 * @see #getEffectOnCell()
+	 * @generated
+	 */
+	EAttribute getEffectOnCell_Name();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.WinCondition <em>Win Condition</em>}'.
@@ -781,6 +829,16 @@ public interface BgPackage extends EPackage {
 	EAttribute getInARow_Count();
 
 	/**
+	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.BoardGameElement <em>Board Game Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Board Game Element</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.BoardGameElement
+	 * @generated
+	 */
+	EClass getBoardGameElement();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -814,30 +872,6 @@ public interface BgPackage extends EPackage {
 		EClass BOARD_GAME = eINSTANCE.getBoardGame();
 
 		/**
-		 * The meta object literal for the '<em><b>Piecetypes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BOARD_GAME__PIECETYPES = eINSTANCE.getBoardGame_Piecetypes();
-
-		/**
-		 * The meta object literal for the '<em><b>Cellstates</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BOARD_GAME__CELLSTATES = eINSTANCE.getBoardGame_Cellstates();
-
-		/**
-		 * The meta object literal for the '<em><b>Win Conditions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BOARD_GAME__WIN_CONDITIONS = eINSTANCE.getBoardGame_WinConditions();
-
-		/**
 		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -852,6 +886,14 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BOARD_GAME__NAME = eINSTANCE.getBoardGame_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Boardgameelements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOARD_GAME__BOARDGAMEELEMENTS = eINSTANCE.getBoardGame_Boardgameelements();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl <em>Piece Type</em>}' class.
@@ -872,7 +914,7 @@ public interface BgPackage extends EPackage {
 		EAttribute PIECE_TYPE__NAME = eINSTANCE.getPieceType_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Validmoves</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Validmoves</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -888,7 +930,7 @@ public interface BgPackage extends EPackage {
 		EAttribute PIECE_TYPE__SYMBOL = eINSTANCE.getPieceType_Symbol();
 
 		/**
-		 * The meta object literal for the '<em><b>Effectsoncell</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Effectsoncell</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -906,7 +948,7 @@ public interface BgPackage extends EPackage {
 		EClass VALID_MOVE = eINSTANCE.getValidMove();
 
 		/**
-		 * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Conditions</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -920,6 +962,14 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VALID_MOVE__PLACE_ANYWHERE = eINSTANCE.getValidMove_PlaceAnywhere();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALID_MOVE__NAME = eINSTANCE.getValidMove_Name();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.ConditionImpl <em>Condition</em>}' class.
@@ -938,6 +988,14 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONDITION__CELLSTATE = eINSTANCE.getCondition_Cellstate();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONDITION__NAME = eINSTANCE.getCondition_Name();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.CellStateImpl <em>Cell State</em>}' class.
@@ -990,6 +1048,14 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EFFECT_ON_CELL__Y = eINSTANCE.getEffectOnCell_Y();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EFFECT_ON_CELL__NAME = eINSTANCE.getEffectOnCell_Name();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.WinConditionImpl <em>Win Condition</em>}' class.
@@ -1050,6 +1116,16 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IN_AROW__COUNT = eINSTANCE.getInARow_Count();
+
+		/**
+		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameElementImpl <em>Board Game Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.ntnu.tdt4250.g07.bg.impl.BoardGameElementImpl
+		 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getBoardGameElement()
+		 * @generated
+		 */
+		EClass BOARD_GAME_ELEMENT = eINSTANCE.getBoardGameElement();
 
 	}
 

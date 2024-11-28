@@ -10,18 +10,9 @@ import no.ntnu.tdt4250.g07.bg.EffectOnCell;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -30,8 +21,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EffectOnCellItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class EffectOnCellItemProvider extends BoardGameElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -56,6 +46,7 @@ public class EffectOnCellItemProvider extends ItemProviderAdapter implements IEd
 			addCellstatePropertyDescriptor(object);
 			addXPropertyDescriptor(object);
 			addYPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,6 +99,22 @@ public class EffectOnCellItemProvider extends ItemProviderAdapter implements IEd
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_EffectOnCell_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_EffectOnCell_name_feature",
+								"_UI_EffectOnCell_type"),
+						BgPackage.Literals.EFFECT_ON_CELL__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns EffectOnCell.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,8 +143,9 @@ public class EffectOnCellItemProvider extends ItemProviderAdapter implements IEd
 	 */
 	@Override
 	public String getText(Object object) {
-		EffectOnCell effectOnCell = (EffectOnCell) object;
-		return getString("_UI_EffectOnCell_type") + " " + effectOnCell.getX();
+		String label = ((EffectOnCell) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_EffectOnCell_type")
+				: getString("_UI_EffectOnCell_type") + " " + label;
 	}
 
 	/**
@@ -154,6 +162,7 @@ public class EffectOnCellItemProvider extends ItemProviderAdapter implements IEd
 		switch (notification.getFeatureID(EffectOnCell.class)) {
 		case BgPackage.EFFECT_ON_CELL__X:
 		case BgPackage.EFFECT_ON_CELL__Y:
+		case BgPackage.EFFECT_ON_CELL__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
@@ -170,17 +179,6 @@ public class EffectOnCellItemProvider extends ItemProviderAdapter implements IEd
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return BgEditPlugin.INSTANCE;
 	}
 
 }

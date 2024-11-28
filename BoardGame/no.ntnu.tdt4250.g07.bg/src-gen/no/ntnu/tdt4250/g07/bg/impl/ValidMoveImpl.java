@@ -9,18 +9,11 @@ import no.ntnu.tdt4250.g07.bg.Condition;
 import no.ntnu.tdt4250.g07.bg.ValidMove;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,13 +25,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.ValidMoveImpl#getConditions <em>Conditions</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.ValidMoveImpl#isPlaceAnywhere <em>Place Anywhere</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.ValidMoveImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ValidMoveImpl extends MinimalEObjectImpl.Container implements ValidMove {
+public class ValidMoveImpl extends BoardGameElementImpl implements ValidMove {
 	/**
-	 * The cached value of the '{@link #getConditions() <em>Conditions</em>}' containment reference list.
+	 * The cached value of the '{@link #getConditions() <em>Conditions</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConditions()
@@ -68,6 +62,26 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	protected boolean placeAnywhere = PLACE_ANYWHERE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -94,8 +108,7 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	@Override
 	public EList<Condition> getConditions() {
 		if (conditions == null) {
-			conditions = new EObjectContainmentEList<Condition>(Condition.class, this,
-					BgPackage.VALID_MOVE__CONDITIONS);
+			conditions = new EObjectResolvingEList<Condition>(Condition.class, this, BgPackage.VALID_MOVE__CONDITIONS);
 		}
 		return conditions;
 	}
@@ -130,12 +143,21 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case BgPackage.VALID_MOVE__CONDITIONS:
-			return ((InternalEList<?>) getConditions()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.VALID_MOVE__NAME, oldName, name));
 	}
 
 	/**
@@ -150,6 +172,8 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 			return getConditions();
 		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
 			return isPlaceAnywhere();
+		case BgPackage.VALID_MOVE__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,6 +194,9 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
 			setPlaceAnywhere((Boolean) newValue);
 			return;
+		case BgPackage.VALID_MOVE__NAME:
+			setName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -188,6 +215,9 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
 			setPlaceAnywhere(PLACE_ANYWHERE_EDEFAULT);
 			return;
+		case BgPackage.VALID_MOVE__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -204,6 +234,8 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 			return conditions != null && !conditions.isEmpty();
 		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
 			return placeAnywhere != PLACE_ANYWHERE_EDEFAULT;
+		case BgPackage.VALID_MOVE__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -221,6 +253,8 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (placeAnywhere: ");
 		result.append(placeAnywhere);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

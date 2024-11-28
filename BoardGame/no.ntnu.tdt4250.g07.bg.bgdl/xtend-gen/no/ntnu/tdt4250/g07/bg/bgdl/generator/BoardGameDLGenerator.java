@@ -4,12 +4,17 @@
 package no.ntnu.tdt4250.g07.bg.bgdl.generator;
 
 import com.google.common.collect.Iterators;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 import no.ntnu.tdt4250.g07.bg.BoardGame;
-import no.ntnu.tdt4250.g07.bg.CellState;
+import no.ntnu.tdt4250.g07.bg.BoardGameElement;
 import no.ntnu.tdt4250.g07.bg.Condition;
 import no.ntnu.tdt4250.g07.bg.PieceType;
 import no.ntnu.tdt4250.g07.bg.ValidMove;
 import no.ntnu.tdt4250.g07.bg.WinCondition;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
@@ -46,43 +51,27 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append(",");
     _builder.newLineIfNotEmpty();
     _builder.append("    ");
-    _builder.append("piecetypes: [");
+    _builder.append("elements: {");
     _builder.newLine();
-    _builder.append("        ");
-    final Function1<PieceType, String> _function = (PieceType it) -> {
-      return this.generatePieceType(it);
+    _builder.append("   ");
+    final Function1<BoardGameElement, String> _function = (BoardGameElement it) -> {
+      return it.eClass().getName();
     };
-    String _join = IterableExtensions.join(ListExtensions.<PieceType, String>map(boardGame.getPiecetypes(), _function), ",\n");
-    _builder.append(_join, "        ");
+    final Function1<Map.Entry<String, List<BoardGameElement>>, String> _function_1 = (Map.Entry<String, List<BoardGameElement>> it) -> {
+      String _key = it.getKey();
+      String _plus = (_key + ": [");
+      final Function1<BoardGameElement, String> _function_2 = (BoardGameElement it_1) -> {
+        return this.generateElementJS(it_1);
+      };
+      String _join = IterableExtensions.join(ListExtensions.<BoardGameElement, String>map(it.getValue(), _function_2), ",\n");
+      String _plus_1 = (_plus + _join);
+      return (_plus_1 + "]");
+    };
+    String _join = IterableExtensions.join(IterableExtensions.<Map.Entry<String, List<BoardGameElement>>, String>map(IterableExtensions.<String, BoardGameElement>groupBy(boardGame.getBoardgameelements(), _function).entrySet(), _function_1), ",\n");
+    _builder.append(_join, "   ");
     _builder.newLineIfNotEmpty();
     _builder.append("    ");
-    _builder.append("],");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("cellstates: [");
-    _builder.newLine();
-    _builder.append("        ");
-    final Function1<CellState, String> _function_1 = (CellState it) -> {
-      return no.ntnu.tdt4250.g07.BoardGame.CellState.class.getName();
-    };
-    String _join_1 = IterableExtensions.join(ListExtensions.<CellState, String>map(boardGame.getCellstates(), _function_1), ", ");
-    _builder.append(_join_1, "        ");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("],");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("winConditions: [");
-    _builder.newLine();
-    _builder.append("        ");
-    final Function1<WinCondition, String> _function_2 = (WinCondition it) -> {
-      return this.generateWinCondition(it);
-    };
-    String _join_2 = IterableExtensions.join(ListExtensions.<WinCondition, String>map(boardGame.getWinConditions(), _function_2), ",\n");
-    _builder.append(_join_2, "        ");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("]");
+    _builder.append("}");
     _builder.newLine();
     _builder.append("};");
     _builder.newLine();
@@ -90,6 +79,69 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append("export default boardGame;");
     _builder.newLine();
     return _builder.toString();
+  }
+
+  public String generateElementJS(final BoardGameElement element) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("    ");
+    final Function1<EStructuralFeature, String> _function = (EStructuralFeature it) -> {
+      return this.serializeFeature(it, element);
+    };
+    String _join = IterableExtensions.join(ListExtensions.<EStructuralFeature, String>map(element.eClass().getEAllStructuralFeatures(), _function), ",\n");
+    _builder.append(_join, "    ");
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+
+  public String serializeFeature(final EStructuralFeature feature, final EObject element) {
+    String _xblockexpression = null;
+    {
+      final Object value = element.eGet(feature);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("\"");
+      String _name = feature.getName();
+      _builder.append(_name);
+      _builder.append("\": ");
+      String _serializeValue = this.serializeValue(value);
+      _builder.append(_serializeValue);
+      _builder.newLineIfNotEmpty();
+      _xblockexpression = _builder.toString();
+    }
+    return _xblockexpression;
+  }
+
+  public String serializeValue(final Object value) {
+    if (((value instanceof String) || (value instanceof Enum))) {
+      return (("\"" + value) + "\"");
+    } else {
+      if ((value instanceof Boolean)) {
+        return ((Boolean)value).toString();
+      } else {
+        if ((value instanceof Collection<?>)) {
+          final Function1<Object, String> _function = (Object it) -> {
+            return this.serializeValue(it);
+          };
+          String _join = IterableExtensions.join(IterableExtensions.map(((Iterable<?>)value), _function), ", ");
+          String _plus = ("[" + _join);
+          return (_plus + "]");
+        } else {
+          if ((value instanceof EObject)) {
+            final Function1<EStructuralFeature, String> _function_1 = (EStructuralFeature it) -> {
+              return this.serializeFeature(it, ((EObject)value));
+            };
+            String _join_1 = IterableExtensions.join(ListExtensions.<EStructuralFeature, String>map(((EObject)value).eClass().getEAllStructuralFeatures(), _function_1), ", ");
+            String _plus_1 = ("{ " + _join_1);
+            return (_plus_1 + " }");
+          } else {
+            return value.toString();
+          }
+        }
+      }
+    }
   }
 
   public String generatePieceType(final PieceType pieceType) {

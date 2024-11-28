@@ -77,12 +77,16 @@ public class BgSwitch<T> extends Switch<T> {
 			PieceType pieceType = (PieceType) theEObject;
 			T result = casePieceType(pieceType);
 			if (result == null)
+				result = caseBoardGameElement(pieceType);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case BgPackage.VALID_MOVE: {
 			ValidMove validMove = (ValidMove) theEObject;
 			T result = caseValidMove(validMove);
+			if (result == null)
+				result = caseBoardGameElement(validMove);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -91,12 +95,16 @@ public class BgSwitch<T> extends Switch<T> {
 			Condition condition = (Condition) theEObject;
 			T result = caseCondition(condition);
 			if (result == null)
+				result = caseBoardGameElement(condition);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case BgPackage.CELL_STATE: {
 			CellState cellState = (CellState) theEObject;
 			T result = caseCellState(cellState);
+			if (result == null)
+				result = caseBoardGameElement(cellState);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -105,6 +113,8 @@ public class BgSwitch<T> extends Switch<T> {
 			EffectOnCell effectOnCell = (EffectOnCell) theEObject;
 			T result = caseEffectOnCell(effectOnCell);
 			if (result == null)
+				result = caseBoardGameElement(effectOnCell);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -112,12 +122,21 @@ public class BgSwitch<T> extends Switch<T> {
 			WinCondition winCondition = (WinCondition) theEObject;
 			T result = caseWinCondition(winCondition);
 			if (result == null)
+				result = caseBoardGameElement(winCondition);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case BgPackage.IN_AROW: {
 			InARow inARow = (InARow) theEObject;
 			T result = caseInARow(inARow);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BgPackage.BOARD_GAME_ELEMENT: {
+			BoardGameElement boardGameElement = (BoardGameElement) theEObject;
+			T result = caseBoardGameElement(boardGameElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -244,6 +263,21 @@ public class BgSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseInARow(InARow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Board Game Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Board Game Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBoardGameElement(BoardGameElement object) {
 		return null;
 	}
 
