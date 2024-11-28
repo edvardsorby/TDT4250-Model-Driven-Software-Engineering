@@ -2,8 +2,6 @@
  */
 package no.ntnu.tdt4250.g07.bg;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Effect On Cell</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface EffectOnCell extends EObject {
+public interface EffectOnCell extends BoardGameElement {
 	/**
 	 * Returns the value of the '<em><b>Cellstate</b></em>' reference.
 	 * <!-- begin-user-doc -->

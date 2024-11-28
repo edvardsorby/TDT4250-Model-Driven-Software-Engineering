@@ -9,18 +9,11 @@ import no.ntnu.tdt4250.g07.bg.Condition;
 import no.ntnu.tdt4250.g07.bg.ValidMove;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,9 +30,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ValidMoveImpl extends MinimalEObjectImpl.Container implements ValidMove {
+public class ValidMoveImpl extends BoardGameElementImpl implements ValidMove {
 	/**
-	 * The cached value of the '{@link #getConditions() <em>Conditions</em>}' containment reference list.
+	 * The cached value of the '{@link #getConditions() <em>Conditions</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConditions()
@@ -115,8 +108,7 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 	@Override
 	public EList<Condition> getConditions() {
 		if (conditions == null) {
-			conditions = new EObjectContainmentEList<Condition>(Condition.class, this,
-					BgPackage.VALID_MOVE__CONDITIONS);
+			conditions = new EObjectResolvingEList<Condition>(Condition.class, this, BgPackage.VALID_MOVE__CONDITIONS);
 		}
 		return conditions;
 	}
@@ -166,20 +158,6 @@ public class ValidMoveImpl extends MinimalEObjectImpl.Container implements Valid
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.VALID_MOVE__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case BgPackage.VALID_MOVE__CONDITIONS:
-			return ((InternalEList<?>) getConditions()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

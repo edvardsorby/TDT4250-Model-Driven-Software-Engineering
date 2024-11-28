@@ -5,6 +5,7 @@ package no.ntnu.tdt4250.g07.bg.impl;
 import no.ntnu.tdt4250.g07.bg.BgFactory;
 import no.ntnu.tdt4250.g07.bg.BgPackage;
 import no.ntnu.tdt4250.g07.bg.BoardGame;
+import no.ntnu.tdt4250.g07.bg.BoardGameElement;
 import no.ntnu.tdt4250.g07.bg.CellState;
 import no.ntnu.tdt4250.g07.bg.Condition;
 import no.ntnu.tdt4250.g07.bg.EffectOnCell;
@@ -82,6 +83,13 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	private EClass inARowEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boardGameElementEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -162,38 +170,8 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getBoardGame_Piecetypes() {
-		return (EReference) boardGameEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getBoardGame_Cellstates() {
-		return (EReference) boardGameEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getBoardGame_WinConditions() {
-		return (EReference) boardGameEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getBoardGame_Size() {
-		return (EAttribute) boardGameEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) boardGameEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -203,7 +181,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 */
 	@Override
 	public EAttribute getBoardGame_Name() {
-		return (EAttribute) boardGameEClass.getEStructuralFeatures().get(4);
+		return (EAttribute) boardGameEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -212,18 +190,8 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getBoardGame_Validmoves() {
-		return (EReference) boardGameEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getBoardGame_Effectsoncell() {
-		return (EReference) boardGameEClass.getEStructuralFeatures().get(6);
+	public EReference getBoardGame_Boardgameelements() {
+		return (EReference) boardGameEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -492,6 +460,16 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getBoardGameElement() {
+		return boardGameElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public BgFactory getBgFactory() {
 		return (BgFactory) getEFactoryInstance();
 	}
@@ -517,13 +495,9 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 
 		// Create classes and their features
 		boardGameEClass = createEClass(BOARD_GAME);
-		createEReference(boardGameEClass, BOARD_GAME__PIECETYPES);
-		createEReference(boardGameEClass, BOARD_GAME__CELLSTATES);
-		createEReference(boardGameEClass, BOARD_GAME__WIN_CONDITIONS);
 		createEAttribute(boardGameEClass, BOARD_GAME__SIZE);
 		createEAttribute(boardGameEClass, BOARD_GAME__NAME);
-		createEReference(boardGameEClass, BOARD_GAME__VALIDMOVES);
-		createEReference(boardGameEClass, BOARD_GAME__EFFECTSONCELL);
+		createEReference(boardGameEClass, BOARD_GAME__BOARDGAMEELEMENTS);
 
 		pieceTypeEClass = createEClass(PIECE_TYPE);
 		createEAttribute(pieceTypeEClass, PIECE_TYPE__NAME);
@@ -557,6 +531,8 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		createEAttribute(inARowEClass, IN_AROW__HORIZONTAL);
 		createEAttribute(inARowEClass, IN_AROW__VERTICAL);
 		createEAttribute(inARowEClass, IN_AROW__COUNT);
+
+		boardGameElementEClass = createEClass(BOARD_GAME_ELEMENT);
 	}
 
 	/**
@@ -588,28 +564,22 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		pieceTypeEClass.getESuperTypes().add(this.getBoardGameElement());
+		validMoveEClass.getESuperTypes().add(this.getBoardGameElement());
+		conditionEClass.getESuperTypes().add(this.getBoardGameElement());
+		cellStateEClass.getESuperTypes().add(this.getBoardGameElement());
+		effectOnCellEClass.getESuperTypes().add(this.getBoardGameElement());
+		winConditionEClass.getESuperTypes().add(this.getBoardGameElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(boardGameEClass, BoardGame.class, "BoardGame", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBoardGame_Piecetypes(), this.getPieceType(), null, "piecetypes", null, 1, -1, BoardGame.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBoardGame_Cellstates(), this.getCellState(), null, "cellstates", null, 0, -1, BoardGame.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBoardGame_WinConditions(), this.getWinCondition(), null, "winConditions", null, 1, -1,
-				BoardGame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBoardGame_Size(), ecorePackage.getEInt(), "size", null, 1, 1, BoardGame.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBoardGame_Name(), ecorePackage.getEString(), "name", null, 1, 1, BoardGame.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBoardGame_Validmoves(), this.getValidMove(), null, "validmoves", null, 1, -1, BoardGame.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBoardGame_Effectsoncell(), this.getEffectOnCell(), null, "effectsoncell", null, 0, -1,
-				BoardGame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+		initEReference(getBoardGame_Boardgameelements(), this.getBoardGameElement(), null, "boardgameelements", null, 0,
+				-1, BoardGame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pieceTypeEClass, PieceType.class, "PieceType", !IS_ABSTRACT, !IS_INTERFACE,
@@ -628,7 +598,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		initEClass(validMoveEClass, ValidMove.class, "ValidMove", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValidMove_Conditions(), this.getCondition(), null, "conditions", null, 0, -1, ValidMove.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getValidMove_PlaceAnywhere(), ecorePackage.getEBoolean(), "placeAnywhere", null, 1, 1,
 				ValidMove.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
@@ -676,6 +646,9 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInARow_Count(), ecorePackage.getEInt(), "count", null, 1, 1, InARow.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(boardGameElementEClass, BoardGameElement.class, "BoardGameElement", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

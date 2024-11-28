@@ -4,8 +4,6 @@ package no.ntnu.tdt4250.g07.bg;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Valid Move</b></em>'.
@@ -24,15 +22,15 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ValidMove extends EObject {
+public interface ValidMove extends BoardGameElement {
 	/**
-	 * Returns the value of the '<em><b>Conditions</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Conditions</b></em>' reference list.
 	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.Condition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Conditions</em>' containment reference list.
+	 * @return the value of the '<em>Conditions</em>' reference list.
 	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getValidMove_Conditions()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<Condition> getConditions();

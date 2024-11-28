@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class WinConditionImpl extends MinimalEObjectImpl.Container implements WinCondition {
+public class WinConditionImpl extends BoardGameElementImpl implements WinCondition {
 	/**
 	 * The cached value of the '{@link #getInarow() <em>Inarow</em>}' containment reference.
 	 * <!-- begin-user-doc -->

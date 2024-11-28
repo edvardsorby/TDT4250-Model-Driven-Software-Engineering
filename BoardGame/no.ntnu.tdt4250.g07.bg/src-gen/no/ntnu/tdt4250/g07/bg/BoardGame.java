@@ -15,13 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getPiecetypes <em>Piecetypes</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getCellstates <em>Cellstates</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getWinConditions <em>Win Conditions</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getSize <em>Size</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getName <em>Name</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getValidmoves <em>Validmoves</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getEffectsoncell <em>Effectsoncell</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getBoardgameelements <em>Boardgameelements</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame()
@@ -29,42 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface BoardGame extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Piecetypes</b></em>' containment reference list.
-	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.PieceType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Piecetypes</em>' containment reference list.
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame_Piecetypes()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<PieceType> getPiecetypes();
-
-	/**
-	 * Returns the value of the '<em><b>Cellstates</b></em>' containment reference list.
-	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.CellState}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cellstates</em>' containment reference list.
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame_Cellstates()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<CellState> getCellstates();
-
-	/**
-	 * Returns the value of the '<em><b>Win Conditions</b></em>' containment reference list.
-	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.WinCondition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Win Conditions</em>' containment reference list.
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame_WinConditions()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<WinCondition> getWinConditions();
-
 	/**
 	 * Returns the value of the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -110,27 +70,15 @@ public interface BoardGame extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Validmoves</b></em>' containment reference list.
-	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.ValidMove}.
+	 * Returns the value of the '<em><b>Boardgameelements</b></em>' containment reference list.
+	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.BoardGameElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Validmoves</em>' containment reference list.
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame_Validmoves()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<ValidMove> getValidmoves();
-
-	/**
-	 * Returns the value of the '<em><b>Effectsoncell</b></em>' containment reference list.
-	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.EffectOnCell}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Effectsoncell</em>' containment reference list.
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame_Effectsoncell()
+	 * @return the value of the '<em>Boardgameelements</em>' containment reference list.
+	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame_Boardgameelements()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<EffectOnCell> getEffectsoncell();
+	EList<BoardGameElement> getBoardgameelements();
 
 } // BoardGame

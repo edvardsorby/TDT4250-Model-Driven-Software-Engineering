@@ -16,6 +16,7 @@ import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
+import org.eclipse.xtext.UnorderedGroup;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 import org.eclipse.xtext.service.AbstractElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
@@ -32,72 +33,19 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Keyword cBoardSizeKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cSizeAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cSizeEIntParserRuleCall_3_0 = (RuleCall)cSizeAssignment_3.eContents().get(0);
-		private final Keyword cValidMovesKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cLeftSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cValidmovesAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cValidmovesValidMoveParserRuleCall_6_0 = (RuleCall)cValidmovesAssignment_6.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cCommaKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cValidmovesAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cValidmovesValidMoveParserRuleCall_7_1_0 = (RuleCall)cValidmovesAssignment_7_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cCellStatesKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
-		private final Assignment cCellstatesAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
-		private final RuleCall cCellstatesCellStateParserRuleCall_9_2_0 = (RuleCall)cCellstatesAssignment_9_2.eContents().get(0);
-		private final Group cGroup_9_3 = (Group)cGroup_9.eContents().get(3);
-		private final Keyword cCommaKeyword_9_3_0 = (Keyword)cGroup_9_3.eContents().get(0);
-		private final Assignment cCellstatesAssignment_9_3_1 = (Assignment)cGroup_9_3.eContents().get(1);
-		private final RuleCall cCellstatesCellStateParserRuleCall_9_3_1_0 = (RuleCall)cCellstatesAssignment_9_3_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_9_4 = (Keyword)cGroup_9.eContents().get(4);
-		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cEffectsOnCellKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
-		private final Assignment cEffectsoncellAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
-		private final RuleCall cEffectsoncellEffectOnCellParserRuleCall_10_2_0 = (RuleCall)cEffectsoncellAssignment_10_2.eContents().get(0);
-		private final Group cGroup_10_3 = (Group)cGroup_10.eContents().get(3);
-		private final Keyword cCommaKeyword_10_3_0 = (Keyword)cGroup_10_3.eContents().get(0);
-		private final Assignment cEffectsoncellAssignment_10_3_1 = (Assignment)cGroup_10_3.eContents().get(1);
-		private final RuleCall cEffectsoncellEffectOnCellParserRuleCall_10_3_1_0 = (RuleCall)cEffectsoncellAssignment_10_3_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_10_4 = (Keyword)cGroup_10.eContents().get(4);
-		private final Keyword cWinConditionsKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Keyword cLeftSquareBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Assignment cWinConditionsAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final RuleCall cWinConditionsWinConditionParserRuleCall_13_0 = (RuleCall)cWinConditionsAssignment_13.eContents().get(0);
-		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
-		private final Keyword cCommaKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
-		private final Assignment cWinConditionsAssignment_14_1 = (Assignment)cGroup_14.eContents().get(1);
-		private final RuleCall cWinConditionsWinConditionParserRuleCall_14_1_0 = (RuleCall)cWinConditionsAssignment_14_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_15 = (Keyword)cGroup.eContents().get(15);
-		private final Keyword cPieceTypesKeyword_16 = (Keyword)cGroup.eContents().get(16);
-		private final Keyword cLeftSquareBracketKeyword_17 = (Keyword)cGroup.eContents().get(17);
-		private final Assignment cPiecetypesAssignment_18 = (Assignment)cGroup.eContents().get(18);
-		private final RuleCall cPiecetypesPieceTypeParserRuleCall_18_0 = (RuleCall)cPiecetypesAssignment_18.eContents().get(0);
-		private final Group cGroup_19 = (Group)cGroup.eContents().get(19);
-		private final Keyword cCommaKeyword_19_0 = (Keyword)cGroup_19.eContents().get(0);
-		private final Assignment cPiecetypesAssignment_19_1 = (Assignment)cGroup_19.eContents().get(1);
-		private final RuleCall cPiecetypesPieceTypeParserRuleCall_19_1_0 = (RuleCall)cPiecetypesAssignment_19_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_20 = (Keyword)cGroup.eContents().get(20);
+		private final Assignment cBoardgameelementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cBoardgameelementsBoardGameElementParserRuleCall_4_0 = (RuleCall)cBoardgameelementsAssignment_4.eContents().get(0);
 		
 		//BoardGame returns BoardGame:
 		//    'Title' (name = EString)
 		//    'BoardSize' size=EInt
-		//    'validMoves' '['validmoves+=ValidMove ( "," validmoves+=ValidMove)* ']'
-		//    ('cellStates' '['cellstates+=CellState ( "," cellstates+=CellState)*']' )?
-		//    ('effectsOnCell' '['effectsoncell+=EffectOnCell ( "," effectsoncell+=EffectOnCell)*']' )?
-		//    'winConditions' '[' winConditions+=WinCondition ( "," winConditions+=WinCondition)* ']'
-		//    'pieceTypes' '['piecetypes+=PieceType ( "," piecetypes+=PieceType)* ']'
+		//     (boardgameelements+=BoardGameElement)*
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Title' (name = EString)
 		//'BoardSize' size=EInt
-		//'validMoves' '['validmoves+=ValidMove ( "," validmoves+=ValidMove)* ']'
-		//('cellStates' '['cellstates+=CellState ( "," cellstates+=CellState)*']' )?
-		//('effectsOnCell' '['effectsoncell+=EffectOnCell ( "," effectsoncell+=EffectOnCell)*']' )?
-		//'winConditions' '[' winConditions+=WinCondition ( "," winConditions+=WinCondition)* ']'
-		//'pieceTypes' '['piecetypes+=PieceType ( "," piecetypes+=PieceType)* ']'
+		// (boardgameelements+=BoardGameElement)*
 		public Group getGroup() { return cGroup; }
 		
 		//'Title'
@@ -118,332 +66,233 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		//EInt
 		public RuleCall getSizeEIntParserRuleCall_3_0() { return cSizeEIntParserRuleCall_3_0; }
 		
-		//'validMoves'
-		public Keyword getValidMovesKeyword_4() { return cValidMovesKeyword_4; }
+		//(boardgameelements+=BoardGameElement)*
+		public Assignment getBoardgameelementsAssignment_4() { return cBoardgameelementsAssignment_4; }
 		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_5() { return cLeftSquareBracketKeyword_5; }
+		//BoardGameElement
+		public RuleCall getBoardgameelementsBoardGameElementParserRuleCall_4_0() { return cBoardgameelementsBoardGameElementParserRuleCall_4_0; }
+	}
+	public class BoardGameElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.BoardGameElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPieceTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cEffectOnCellParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cValidMoveParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCellStateParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cWinConditionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cConditionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
-		//validmoves+=ValidMove
-		public Assignment getValidmovesAssignment_6() { return cValidmovesAssignment_6; }
+		//BoardGameElement returns BoardGameElement:
+		//    PieceType | EffectOnCell | ValidMove | CellState | WinCondition | Condition
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//PieceType | EffectOnCell | ValidMove | CellState | WinCondition | Condition
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//PieceType
+		public RuleCall getPieceTypeParserRuleCall_0() { return cPieceTypeParserRuleCall_0; }
+		
+		//EffectOnCell
+		public RuleCall getEffectOnCellParserRuleCall_1() { return cEffectOnCellParserRuleCall_1; }
 		
 		//ValidMove
-		public RuleCall getValidmovesValidMoveParserRuleCall_6_0() { return cValidmovesValidMoveParserRuleCall_6_0; }
+		public RuleCall getValidMoveParserRuleCall_2() { return cValidMoveParserRuleCall_2; }
 		
-		//( "," validmoves+=ValidMove)*
-		public Group getGroup_7() { return cGroup_7; }
+		//CellState
+		public RuleCall getCellStateParserRuleCall_3() { return cCellStateParserRuleCall_3; }
 		
-		//","
-		public Keyword getCommaKeyword_7_0() { return cCommaKeyword_7_0; }
+		//WinCondition
+		public RuleCall getWinConditionParserRuleCall_4() { return cWinConditionParserRuleCall_4; }
 		
-		//validmoves+=ValidMove
-		public Assignment getValidmovesAssignment_7_1() { return cValidmovesAssignment_7_1; }
+		//Condition
+		public RuleCall getConditionParserRuleCall_5() { return cConditionParserRuleCall_5; }
+	}
+	public class PieceTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.PieceType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPieceTypeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cSymbolKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cSymbolAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cSymbolEStringParserRuleCall_4_0 = (RuleCall)cSymbolAssignment_4.eContents().get(0);
+		private final Keyword cValidMovesKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cLeftSquareBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cValidmovesAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final CrossReference cValidmovesValidMoveCrossReference_7_0 = (CrossReference)cValidmovesAssignment_7.eContents().get(0);
+		private final RuleCall cValidmovesValidMoveEStringParserRuleCall_7_0_1 = (RuleCall)cValidmovesValidMoveCrossReference_7_0.eContents().get(1);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cCommaKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cValidmovesAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final CrossReference cValidmovesValidMoveCrossReference_8_1_0 = (CrossReference)cValidmovesAssignment_8_1.eContents().get(0);
+		private final RuleCall cValidmovesValidMoveEStringParserRuleCall_8_1_0_1 = (RuleCall)cValidmovesValidMoveCrossReference_8_1_0.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cEffectsOnCellKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
+		private final Assignment cEffectsoncellAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
+		private final CrossReference cEffectsoncellEffectOnCellCrossReference_10_2_0 = (CrossReference)cEffectsoncellAssignment_10_2.eContents().get(0);
+		private final RuleCall cEffectsoncellEffectOnCellEStringParserRuleCall_10_2_0_1 = (RuleCall)cEffectsoncellEffectOnCellCrossReference_10_2_0.eContents().get(1);
+		private final Group cGroup_10_3 = (Group)cGroup_10.eContents().get(3);
+		private final Keyword cCommaKeyword_10_3_0 = (Keyword)cGroup_10_3.eContents().get(0);
+		private final Assignment cEffectsoncellAssignment_10_3_1 = (Assignment)cGroup_10_3.eContents().get(1);
+		private final CrossReference cEffectsoncellEffectOnCellCrossReference_10_3_1_0 = (CrossReference)cEffectsoncellAssignment_10_3_1.eContents().get(0);
+		private final RuleCall cEffectsoncellEffectOnCellEStringParserRuleCall_10_3_1_0_1 = (RuleCall)cEffectsoncellEffectOnCellCrossReference_10_3_1_0.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_10_4 = (Keyword)cGroup_10.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
-		//ValidMove
-		public RuleCall getValidmovesValidMoveParserRuleCall_7_1_0() { return cValidmovesValidMoveParserRuleCall_7_1_0; }
+		//PieceType returns PieceType:
+		//    'PieceType'
+		//    name=EString '{'
+		//        'Symbol' symbol=EString
+		//        'ValidMoves' '[' validmoves+= [ValidMove|EString] ( "," validmoves+=[ValidMove | EString])*']'
+		//        ('EffectsOnCell' '[' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* ']' )?
+		//    '}';
+		@Override public ParserRule getRule() { return rule; }
 		
-		//']'
-		public Keyword getRightSquareBracketKeyword_8() { return cRightSquareBracketKeyword_8; }
+		//'PieceType'
+		//name=EString '{'
+		//    'Symbol' symbol=EString
+		//    'ValidMoves' '[' validmoves+= [ValidMove|EString] ( "," validmoves+=[ValidMove | EString])*']'
+		//    ('EffectsOnCell' '[' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* ']' )?
+		//'}'
+		public Group getGroup() { return cGroup; }
 		
-		//('cellStates' '['cellstates+=CellState ( "," cellstates+=CellState)*']' )?
-		public Group getGroup_9() { return cGroup_9; }
+		//'PieceType'
+		public Keyword getPieceTypeKeyword_0() { return cPieceTypeKeyword_0; }
 		
-		//'cellStates'
-		public Keyword getCellStatesKeyword_9_0() { return cCellStatesKeyword_9_0; }
+		//name=EString
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'Symbol'
+		public Keyword getSymbolKeyword_3() { return cSymbolKeyword_3; }
+		
+		//symbol=EString
+		public Assignment getSymbolAssignment_4() { return cSymbolAssignment_4; }
+		
+		//EString
+		public RuleCall getSymbolEStringParserRuleCall_4_0() { return cSymbolEStringParserRuleCall_4_0; }
+		
+		//'ValidMoves'
+		public Keyword getValidMovesKeyword_5() { return cValidMovesKeyword_5; }
 		
 		//'['
-		public Keyword getLeftSquareBracketKeyword_9_1() { return cLeftSquareBracketKeyword_9_1; }
+		public Keyword getLeftSquareBracketKeyword_6() { return cLeftSquareBracketKeyword_6; }
 		
-		//cellstates+=CellState
-		public Assignment getCellstatesAssignment_9_2() { return cCellstatesAssignment_9_2; }
+		//validmoves+= [ValidMove|EString]
+		public Assignment getValidmovesAssignment_7() { return cValidmovesAssignment_7; }
 		
-		//CellState
-		public RuleCall getCellstatesCellStateParserRuleCall_9_2_0() { return cCellstatesCellStateParserRuleCall_9_2_0; }
+		//[ValidMove|EString]
+		public CrossReference getValidmovesValidMoveCrossReference_7_0() { return cValidmovesValidMoveCrossReference_7_0; }
 		
-		//( "," cellstates+=CellState)*
-		public Group getGroup_9_3() { return cGroup_9_3; }
+		//EString
+		public RuleCall getValidmovesValidMoveEStringParserRuleCall_7_0_1() { return cValidmovesValidMoveEStringParserRuleCall_7_0_1; }
+		
+		//( "," validmoves+=[ValidMove | EString])*
+		public Group getGroup_8() { return cGroup_8; }
 		
 		//","
-		public Keyword getCommaKeyword_9_3_0() { return cCommaKeyword_9_3_0; }
+		public Keyword getCommaKeyword_8_0() { return cCommaKeyword_8_0; }
 		
-		//cellstates+=CellState
-		public Assignment getCellstatesAssignment_9_3_1() { return cCellstatesAssignment_9_3_1; }
+		//validmoves+=[ValidMove | EString]
+		public Assignment getValidmovesAssignment_8_1() { return cValidmovesAssignment_8_1; }
 		
-		//CellState
-		public RuleCall getCellstatesCellStateParserRuleCall_9_3_1_0() { return cCellstatesCellStateParserRuleCall_9_3_1_0; }
+		//[ValidMove | EString]
+		public CrossReference getValidmovesValidMoveCrossReference_8_1_0() { return cValidmovesValidMoveCrossReference_8_1_0; }
+		
+		//EString
+		public RuleCall getValidmovesValidMoveEStringParserRuleCall_8_1_0_1() { return cValidmovesValidMoveEStringParserRuleCall_8_1_0_1; }
 		
 		//']'
-		public Keyword getRightSquareBracketKeyword_9_4() { return cRightSquareBracketKeyword_9_4; }
+		public Keyword getRightSquareBracketKeyword_9() { return cRightSquareBracketKeyword_9; }
 		
-		//('effectsOnCell' '['effectsoncell+=EffectOnCell ( "," effectsoncell+=EffectOnCell)*']' )?
+		//('EffectsOnCell' '[' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* ']' )?
 		public Group getGroup_10() { return cGroup_10; }
 		
-		//'effectsOnCell'
+		//'EffectsOnCell'
 		public Keyword getEffectsOnCellKeyword_10_0() { return cEffectsOnCellKeyword_10_0; }
 		
 		//'['
 		public Keyword getLeftSquareBracketKeyword_10_1() { return cLeftSquareBracketKeyword_10_1; }
 		
-		//effectsoncell+=EffectOnCell
+		//effectsoncell+=[EffectOnCell|EString]
 		public Assignment getEffectsoncellAssignment_10_2() { return cEffectsoncellAssignment_10_2; }
 		
-		//EffectOnCell
-		public RuleCall getEffectsoncellEffectOnCellParserRuleCall_10_2_0() { return cEffectsoncellEffectOnCellParserRuleCall_10_2_0; }
+		//[EffectOnCell|EString]
+		public CrossReference getEffectsoncellEffectOnCellCrossReference_10_2_0() { return cEffectsoncellEffectOnCellCrossReference_10_2_0; }
 		
-		//( "," effectsoncell+=EffectOnCell)*
+		//EString
+		public RuleCall getEffectsoncellEffectOnCellEStringParserRuleCall_10_2_0_1() { return cEffectsoncellEffectOnCellEStringParserRuleCall_10_2_0_1; }
+		
+		//( "," effectsoncell+=[EffectOnCell|EString])*
 		public Group getGroup_10_3() { return cGroup_10_3; }
 		
 		//","
 		public Keyword getCommaKeyword_10_3_0() { return cCommaKeyword_10_3_0; }
 		
-		//effectsoncell+=EffectOnCell
+		//effectsoncell+=[EffectOnCell|EString]
 		public Assignment getEffectsoncellAssignment_10_3_1() { return cEffectsoncellAssignment_10_3_1; }
 		
-		//EffectOnCell
-		public RuleCall getEffectsoncellEffectOnCellParserRuleCall_10_3_1_0() { return cEffectsoncellEffectOnCellParserRuleCall_10_3_1_0; }
+		//[EffectOnCell|EString]
+		public CrossReference getEffectsoncellEffectOnCellCrossReference_10_3_1_0() { return cEffectsoncellEffectOnCellCrossReference_10_3_1_0; }
+		
+		//EString
+		public RuleCall getEffectsoncellEffectOnCellEStringParserRuleCall_10_3_1_0_1() { return cEffectsoncellEffectOnCellEStringParserRuleCall_10_3_1_0_1; }
 		
 		//']'
 		public Keyword getRightSquareBracketKeyword_10_4() { return cRightSquareBracketKeyword_10_4; }
 		
-		//'winConditions'
-		public Keyword getWinConditionsKeyword_11() { return cWinConditionsKeyword_11; }
-		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_12() { return cLeftSquareBracketKeyword_12; }
-		
-		//winConditions+=WinCondition
-		public Assignment getWinConditionsAssignment_13() { return cWinConditionsAssignment_13; }
-		
-		//WinCondition
-		public RuleCall getWinConditionsWinConditionParserRuleCall_13_0() { return cWinConditionsWinConditionParserRuleCall_13_0; }
-		
-		//( "," winConditions+=WinCondition)*
-		public Group getGroup_14() { return cGroup_14; }
-		
-		//","
-		public Keyword getCommaKeyword_14_0() { return cCommaKeyword_14_0; }
-		
-		//winConditions+=WinCondition
-		public Assignment getWinConditionsAssignment_14_1() { return cWinConditionsAssignment_14_1; }
-		
-		//WinCondition
-		public RuleCall getWinConditionsWinConditionParserRuleCall_14_1_0() { return cWinConditionsWinConditionParserRuleCall_14_1_0; }
-		
-		//']'
-		public Keyword getRightSquareBracketKeyword_15() { return cRightSquareBracketKeyword_15; }
-		
-		//'pieceTypes'
-		public Keyword getPieceTypesKeyword_16() { return cPieceTypesKeyword_16; }
-		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_17() { return cLeftSquareBracketKeyword_17; }
-		
-		//piecetypes+=PieceType
-		public Assignment getPiecetypesAssignment_18() { return cPiecetypesAssignment_18; }
-		
-		//PieceType
-		public RuleCall getPiecetypesPieceTypeParserRuleCall_18_0() { return cPiecetypesPieceTypeParserRuleCall_18_0; }
-		
-		//( "," piecetypes+=PieceType)*
-		public Group getGroup_19() { return cGroup_19; }
-		
-		//","
-		public Keyword getCommaKeyword_19_0() { return cCommaKeyword_19_0; }
-		
-		//piecetypes+=PieceType
-		public Assignment getPiecetypesAssignment_19_1() { return cPiecetypesAssignment_19_1; }
-		
-		//PieceType
-		public RuleCall getPiecetypesPieceTypeParserRuleCall_19_1_0() { return cPiecetypesPieceTypeParserRuleCall_19_1_0; }
-		
-		//']'
-		public Keyword getRightSquareBracketKeyword_20() { return cRightSquareBracketKeyword_20; }
-	}
-	public class PieceTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.PieceType");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cPieceTypeKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cSymbolKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cSymbolAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cSymbolEStringParserRuleCall_5_0 = (RuleCall)cSymbolAssignment_5.eContents().get(0);
-		private final Keyword cValidMovesKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cLeftSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cValidmovesAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final CrossReference cValidmovesValidMoveCrossReference_8_0 = (CrossReference)cValidmovesAssignment_8.eContents().get(0);
-		private final RuleCall cValidmovesValidMoveEStringParserRuleCall_8_0_1 = (RuleCall)cValidmovesValidMoveCrossReference_8_0.eContents().get(1);
-		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cCommaKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cValidmovesAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final CrossReference cValidmovesValidMoveCrossReference_9_1_0 = (CrossReference)cValidmovesAssignment_9_1.eContents().get(0);
-		private final RuleCall cValidmovesValidMoveEStringParserRuleCall_9_1_0_1 = (RuleCall)cValidmovesValidMoveCrossReference_9_1_0.eContents().get(1);
-		private final Keyword cRightSquareBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cEffectsOnCellKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
-		private final Assignment cEffectsoncellAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
-		private final CrossReference cEffectsoncellEffectOnCellCrossReference_11_2_0 = (CrossReference)cEffectsoncellAssignment_11_2.eContents().get(0);
-		private final RuleCall cEffectsoncellEffectOnCellEStringParserRuleCall_11_2_0_1 = (RuleCall)cEffectsoncellEffectOnCellCrossReference_11_2_0.eContents().get(1);
-		private final Group cGroup_11_3 = (Group)cGroup_11.eContents().get(3);
-		private final Keyword cCommaKeyword_11_3_0 = (Keyword)cGroup_11_3.eContents().get(0);
-		private final Assignment cEffectsoncellAssignment_11_3_1 = (Assignment)cGroup_11_3.eContents().get(1);
-		private final CrossReference cEffectsoncellEffectOnCellCrossReference_11_3_1_0 = (CrossReference)cEffectsoncellAssignment_11_3_1.eContents().get(0);
-		private final RuleCall cEffectsoncellEffectOnCellEStringParserRuleCall_11_3_1_0_1 = (RuleCall)cEffectsoncellEffectOnCellCrossReference_11_3_1_0.eContents().get(1);
-		private final Keyword cRightSquareBracketKeyword_11_4 = (Keyword)cGroup_11.eContents().get(4);
-		private final Keyword cRightParenthesisKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		
-		//PieceType returns PieceType:
-		//    '{''PieceType'
-		//    name=EString '('
-		//        'Symbol' symbol=EString
-		//        'ValidMoves' '[' validmoves+= [ValidMove|EString] ( "," validmoves+=[ValidMove | EString])*']'
-		//        ('EffectsOnCell' '[' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* ']' )? ')'
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'{''PieceType'
-		//name=EString '('
-		//    'Symbol' symbol=EString
-		//    'ValidMoves' '[' validmoves+= [ValidMove|EString] ( "," validmoves+=[ValidMove | EString])*']'
-		//    ('EffectsOnCell' '[' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* ']' )? ')'
 		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
-		
-		//'PieceType'
-		public Keyword getPieceTypeKeyword_1() { return cPieceTypeKeyword_1; }
-		
-		//name=EString
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
-		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
-		
-		//'('
-		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
-		
-		//'Symbol'
-		public Keyword getSymbolKeyword_4() { return cSymbolKeyword_4; }
-		
-		//symbol=EString
-		public Assignment getSymbolAssignment_5() { return cSymbolAssignment_5; }
-		
-		//EString
-		public RuleCall getSymbolEStringParserRuleCall_5_0() { return cSymbolEStringParserRuleCall_5_0; }
-		
-		//'ValidMoves'
-		public Keyword getValidMovesKeyword_6() { return cValidMovesKeyword_6; }
-		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_7() { return cLeftSquareBracketKeyword_7; }
-		
-		//validmoves+= [ValidMove|EString]
-		public Assignment getValidmovesAssignment_8() { return cValidmovesAssignment_8; }
-		
-		//[ValidMove|EString]
-		public CrossReference getValidmovesValidMoveCrossReference_8_0() { return cValidmovesValidMoveCrossReference_8_0; }
-		
-		//EString
-		public RuleCall getValidmovesValidMoveEStringParserRuleCall_8_0_1() { return cValidmovesValidMoveEStringParserRuleCall_8_0_1; }
-		
-		//( "," validmoves+=[ValidMove | EString])*
-		public Group getGroup_9() { return cGroup_9; }
-		
-		//","
-		public Keyword getCommaKeyword_9_0() { return cCommaKeyword_9_0; }
-		
-		//validmoves+=[ValidMove | EString]
-		public Assignment getValidmovesAssignment_9_1() { return cValidmovesAssignment_9_1; }
-		
-		//[ValidMove | EString]
-		public CrossReference getValidmovesValidMoveCrossReference_9_1_0() { return cValidmovesValidMoveCrossReference_9_1_0; }
-		
-		//EString
-		public RuleCall getValidmovesValidMoveEStringParserRuleCall_9_1_0_1() { return cValidmovesValidMoveEStringParserRuleCall_9_1_0_1; }
-		
-		//']'
-		public Keyword getRightSquareBracketKeyword_10() { return cRightSquareBracketKeyword_10; }
-		
-		//('EffectsOnCell' '[' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* ']' )?
-		public Group getGroup_11() { return cGroup_11; }
-		
-		//'EffectsOnCell'
-		public Keyword getEffectsOnCellKeyword_11_0() { return cEffectsOnCellKeyword_11_0; }
-		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_11_1() { return cLeftSquareBracketKeyword_11_1; }
-		
-		//effectsoncell+=[EffectOnCell|EString]
-		public Assignment getEffectsoncellAssignment_11_2() { return cEffectsoncellAssignment_11_2; }
-		
-		//[EffectOnCell|EString]
-		public CrossReference getEffectsoncellEffectOnCellCrossReference_11_2_0() { return cEffectsoncellEffectOnCellCrossReference_11_2_0; }
-		
-		//EString
-		public RuleCall getEffectsoncellEffectOnCellEStringParserRuleCall_11_2_0_1() { return cEffectsoncellEffectOnCellEStringParserRuleCall_11_2_0_1; }
-		
-		//( "," effectsoncell+=[EffectOnCell|EString])*
-		public Group getGroup_11_3() { return cGroup_11_3; }
-		
-		//","
-		public Keyword getCommaKeyword_11_3_0() { return cCommaKeyword_11_3_0; }
-		
-		//effectsoncell+=[EffectOnCell|EString]
-		public Assignment getEffectsoncellAssignment_11_3_1() { return cEffectsoncellAssignment_11_3_1; }
-		
-		//[EffectOnCell|EString]
-		public CrossReference getEffectsoncellEffectOnCellCrossReference_11_3_1_0() { return cEffectsoncellEffectOnCellCrossReference_11_3_1_0; }
-		
-		//EString
-		public RuleCall getEffectsoncellEffectOnCellEStringParserRuleCall_11_3_1_0_1() { return cEffectsoncellEffectOnCellEStringParserRuleCall_11_3_1_0_1; }
-		
-		//']'
-		public Keyword getRightSquareBracketKeyword_11_4() { return cRightSquareBracketKeyword_11_4; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_12() { return cRightParenthesisKeyword_12; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
 	}
 	public class CellStateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.CellState");
-		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCellstateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//CellState returns CellState:
-		//    name=ID
+		//    'Cellstate' name=EString
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID
-		public Assignment getNameAssignment() { return cNameAssignment; }
+		//'Cellstate' name=EString
+		public Group getGroup() { return cGroup; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+		//'Cellstate'
+		public Keyword getCellstateKeyword_0() { return cCellstateKeyword_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
 	}
 	public class WinConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.WinCondition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cInARowKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cWinConditionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cInarowAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cInarowInARowParserRuleCall_1_0 = (RuleCall)cInarowAssignment_1.eContents().get(0);
 		
 		//WinCondition returns WinCondition:
-		//        'InARow' inarow=InARow;
+		//        'WinCondition' inarow=InARow;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'InARow' inarow=InARow
+		//'WinCondition' inarow=InARow
 		public Group getGroup() { return cGroup; }
 		
-		//'InARow'
-		public Keyword getInARowKeyword_0() { return cInARowKeyword_0; }
+		//'WinCondition'
+		public Keyword getWinConditionKeyword_0() { return cWinConditionKeyword_0; }
 		
 		//inarow=InARow
 		public Assignment getInarowAssignment_1() { return cInarowAssignment_1; }
@@ -492,192 +341,203 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	public class ValidMoveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.ValidMove");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cValidMoveKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cPlaceAnywhereAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final Keyword cPlaceAnywherePlaceAnywhereKeyword_4_0 = (Keyword)cPlaceAnywhereAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cWhenKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cConditionsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cConditionsConditionParserRuleCall_5_1_0 = (RuleCall)cConditionsAssignment_5_1.eContents().get(0);
-		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
-		private final Keyword cAndKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
-		private final Assignment cConditionsAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
-		private final RuleCall cConditionsConditionParserRuleCall_5_2_1_0 = (RuleCall)cConditionsAssignment_5_2_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cValidMoveKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPlaceAnywhereAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cPlaceAnywherePlaceAnywhereKeyword_3_0 = (Keyword)cPlaceAnywhereAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cValidKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cIfKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cConditionsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final CrossReference cConditionsConditionCrossReference_4_2_0 = (CrossReference)cConditionsAssignment_4_2.eContents().get(0);
+		private final RuleCall cConditionsConditionEStringParserRuleCall_4_2_0_1 = (RuleCall)cConditionsConditionCrossReference_4_2_0.eContents().get(1);
+		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
+		private final Keyword cAndKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
+		private final Assignment cConditionsAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
+		private final CrossReference cConditionsConditionCrossReference_4_3_1_0 = (CrossReference)cConditionsAssignment_4_3_1.eContents().get(0);
+		private final RuleCall cConditionsConditionEStringParserRuleCall_4_3_1_0_1 = (RuleCall)cConditionsConditionCrossReference_4_3_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ValidMove returns ValidMove:
-		//    '{'
-		//    'ValidMove' name=ID '('
+		//    'ValidMove' name=ID '{'
 		//        placeAnywhere?='placeAnywhere'
-		//        ('when' conditions+=Condition ( "and" conditions+=Condition)* )? ')'
+		//        ('valid' 'if' conditions+=[Condition|EString] ( "and" conditions+=[Condition|EString])* )?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'{'
-		//'ValidMove' name=ID '('
+		//'ValidMove' name=ID '{'
 		//    placeAnywhere?='placeAnywhere'
-		//    ('when' conditions+=Condition ( "and" conditions+=Condition)* )? ')'
+		//    ('valid' 'if' conditions+=[Condition|EString] ( "and" conditions+=[Condition|EString])* )?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
-		
 		//'ValidMove'
-		public Keyword getValidMoveKeyword_1() { return cValidMoveKeyword_1; }
+		public Keyword getValidMoveKeyword_0() { return cValidMoveKeyword_0; }
 		
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
 		//placeAnywhere?='placeAnywhere'
-		public Assignment getPlaceAnywhereAssignment_4() { return cPlaceAnywhereAssignment_4; }
+		public Assignment getPlaceAnywhereAssignment_3() { return cPlaceAnywhereAssignment_3; }
 		
 		//'placeAnywhere'
-		public Keyword getPlaceAnywherePlaceAnywhereKeyword_4_0() { return cPlaceAnywherePlaceAnywhereKeyword_4_0; }
+		public Keyword getPlaceAnywherePlaceAnywhereKeyword_3_0() { return cPlaceAnywherePlaceAnywhereKeyword_3_0; }
 		
-		//('when' conditions+=Condition ( "and" conditions+=Condition)* )?
-		public Group getGroup_5() { return cGroup_5; }
+		//('valid' 'if' conditions+=[Condition|EString] ( "and" conditions+=[Condition|EString])* )?
+		public Group getGroup_4() { return cGroup_4; }
 		
-		//'when'
-		public Keyword getWhenKeyword_5_0() { return cWhenKeyword_5_0; }
+		//'valid'
+		public Keyword getValidKeyword_4_0() { return cValidKeyword_4_0; }
 		
-		//conditions+=Condition
-		public Assignment getConditionsAssignment_5_1() { return cConditionsAssignment_5_1; }
+		//'if'
+		public Keyword getIfKeyword_4_1() { return cIfKeyword_4_1; }
 		
-		//Condition
-		public RuleCall getConditionsConditionParserRuleCall_5_1_0() { return cConditionsConditionParserRuleCall_5_1_0; }
+		//conditions+=[Condition|EString]
+		public Assignment getConditionsAssignment_4_2() { return cConditionsAssignment_4_2; }
 		
-		//( "and" conditions+=Condition)*
-		public Group getGroup_5_2() { return cGroup_5_2; }
+		//[Condition|EString]
+		public CrossReference getConditionsConditionCrossReference_4_2_0() { return cConditionsConditionCrossReference_4_2_0; }
+		
+		//EString
+		public RuleCall getConditionsConditionEStringParserRuleCall_4_2_0_1() { return cConditionsConditionEStringParserRuleCall_4_2_0_1; }
+		
+		//( "and" conditions+=[Condition|EString])*
+		public Group getGroup_4_3() { return cGroup_4_3; }
 		
 		//"and"
-		public Keyword getAndKeyword_5_2_0() { return cAndKeyword_5_2_0; }
+		public Keyword getAndKeyword_4_3_0() { return cAndKeyword_4_3_0; }
 		
-		//conditions+=Condition
-		public Assignment getConditionsAssignment_5_2_1() { return cConditionsAssignment_5_2_1; }
+		//conditions+=[Condition|EString]
+		public Assignment getConditionsAssignment_4_3_1() { return cConditionsAssignment_4_3_1; }
 		
-		//Condition
-		public RuleCall getConditionsConditionParserRuleCall_5_2_1_0() { return cConditionsConditionParserRuleCall_5_2_1_0; }
+		//[Condition|EString]
+		public CrossReference getConditionsConditionCrossReference_4_3_1_0() { return cConditionsConditionCrossReference_4_3_1_0; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+		//EString
+		public RuleCall getConditionsConditionEStringParserRuleCall_4_3_1_0_1() { return cConditionsConditionEStringParserRuleCall_4_3_1_0_1; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class EffectOnCellElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EffectOnCell");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cEffectOnCellKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cRelativePositionKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cLeftParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cXAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cXEIntParserRuleCall_6_0 = (RuleCall)cXAssignment_6.eContents().get(0);
-		private final Keyword cCommaKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cYAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cYEIntParserRuleCall_8_0 = (RuleCall)cYAssignment_8.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cNewCellStateKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Keyword cLeftParenthesisKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Assignment cCellstateAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final CrossReference cCellstateCellStateCrossReference_12_0 = (CrossReference)cCellstateAssignment_12.eContents().get(0);
-		private final RuleCall cCellstateCellStateEStringParserRuleCall_12_0_1 = (RuleCall)cCellstateCellStateCrossReference_12_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Keyword cRightParenthesisKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final Keyword cRightCurlyBracketKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Keyword cEffectOnCellKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
+		private final Group cGroup_3_0 = (Group)cUnorderedGroup_3.eContents().get(0);
+		private final Keyword cRelativePositionKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_3_0_1 = (Keyword)cGroup_3_0.eContents().get(1);
+		private final Assignment cXAssignment_3_0_2 = (Assignment)cGroup_3_0.eContents().get(2);
+		private final RuleCall cXEIntParserRuleCall_3_0_2_0 = (RuleCall)cXAssignment_3_0_2.eContents().get(0);
+		private final Keyword cCommaKeyword_3_0_3 = (Keyword)cGroup_3_0.eContents().get(3);
+		private final Assignment cYAssignment_3_0_4 = (Assignment)cGroup_3_0.eContents().get(4);
+		private final RuleCall cYEIntParserRuleCall_3_0_4_0 = (RuleCall)cYAssignment_3_0_4.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_0_5 = (Keyword)cGroup_3_0.eContents().get(5);
+		private final Group cGroup_3_1 = (Group)cUnorderedGroup_3.eContents().get(1);
+		private final Keyword cNewCellStateKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_3_1_1 = (Keyword)cGroup_3_1.eContents().get(1);
+		private final Assignment cCellstateAssignment_3_1_2 = (Assignment)cGroup_3_1.eContents().get(2);
+		private final CrossReference cCellstateCellStateCrossReference_3_1_2_0 = (CrossReference)cCellstateAssignment_3_1_2.eContents().get(0);
+		private final RuleCall cCellstateCellStateEStringParserRuleCall_3_1_2_0_1 = (RuleCall)cCellstateCellStateCrossReference_3_1_2_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_3_1_3 = (Keyword)cGroup_3_1.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//EffectOnCell returns EffectOnCell:
-		//    '{'
-		//    'EffectOnCell' name=ID '('
-		//        'relativePosition' '('x=EInt','y=EInt')'
-		//        'newCellState''('cellstate=[CellState|EString]')' ')'
+		//    'EffectOnCell' name=ID '{'
+		//        (
+		//        'relativePosition' '('x=EInt','y=EInt')' &
+		//        'newCellState''('cellstate=[CellState|EString]')'
+		//        )
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'{'
-		//'EffectOnCell' name=ID '('
-		//    'relativePosition' '('x=EInt','y=EInt')'
-		//    'newCellState''('cellstate=[CellState|EString]')' ')'
+		//'EffectOnCell' name=ID '{'
+		//    (
+		//    'relativePosition' '('x=EInt','y=EInt')' &
+		//    'newCellState''('cellstate=[CellState|EString]')'
+		//    )
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
-		
 		//'EffectOnCell'
-		public Keyword getEffectOnCellKeyword_1() { return cEffectOnCellKeyword_1; }
+		public Keyword getEffectOnCellKeyword_0() { return cEffectOnCellKeyword_0; }
 		
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//(
+		//'relativePosition' '('x=EInt','y=EInt')' &
+		//'newCellState''('cellstate=[CellState|EString]')'
+		//)
+		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
+		
+		//'relativePosition' '('x=EInt','y=EInt')'
+		public Group getGroup_3_0() { return cGroup_3_0; }
 		
 		//'relativePosition'
-		public Keyword getRelativePositionKeyword_4() { return cRelativePositionKeyword_4; }
+		public Keyword getRelativePositionKeyword_3_0_0() { return cRelativePositionKeyword_3_0_0; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_5() { return cLeftParenthesisKeyword_5; }
+		public Keyword getLeftParenthesisKeyword_3_0_1() { return cLeftParenthesisKeyword_3_0_1; }
 		
 		//x=EInt
-		public Assignment getXAssignment_6() { return cXAssignment_6; }
+		public Assignment getXAssignment_3_0_2() { return cXAssignment_3_0_2; }
 		
 		//EInt
-		public RuleCall getXEIntParserRuleCall_6_0() { return cXEIntParserRuleCall_6_0; }
+		public RuleCall getXEIntParserRuleCall_3_0_2_0() { return cXEIntParserRuleCall_3_0_2_0; }
 		
 		//','
-		public Keyword getCommaKeyword_7() { return cCommaKeyword_7; }
+		public Keyword getCommaKeyword_3_0_3() { return cCommaKeyword_3_0_3; }
 		
 		//y=EInt
-		public Assignment getYAssignment_8() { return cYAssignment_8; }
+		public Assignment getYAssignment_3_0_4() { return cYAssignment_3_0_4; }
 		
 		//EInt
-		public RuleCall getYEIntParserRuleCall_8_0() { return cYEIntParserRuleCall_8_0; }
+		public RuleCall getYEIntParserRuleCall_3_0_4_0() { return cYEIntParserRuleCall_3_0_4_0; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_9() { return cRightParenthesisKeyword_9; }
+		public Keyword getRightParenthesisKeyword_3_0_5() { return cRightParenthesisKeyword_3_0_5; }
+		
+		//'newCellState''('cellstate=[CellState|EString]')'
+		public Group getGroup_3_1() { return cGroup_3_1; }
 		
 		//'newCellState'
-		public Keyword getNewCellStateKeyword_10() { return cNewCellStateKeyword_10; }
+		public Keyword getNewCellStateKeyword_3_1_0() { return cNewCellStateKeyword_3_1_0; }
 		
 		//'('
-		public Keyword getLeftParenthesisKeyword_11() { return cLeftParenthesisKeyword_11; }
+		public Keyword getLeftParenthesisKeyword_3_1_1() { return cLeftParenthesisKeyword_3_1_1; }
 		
 		//cellstate=[CellState|EString]
-		public Assignment getCellstateAssignment_12() { return cCellstateAssignment_12; }
+		public Assignment getCellstateAssignment_3_1_2() { return cCellstateAssignment_3_1_2; }
 		
 		//[CellState|EString]
-		public CrossReference getCellstateCellStateCrossReference_12_0() { return cCellstateCellStateCrossReference_12_0; }
+		public CrossReference getCellstateCellStateCrossReference_3_1_2_0() { return cCellstateCellStateCrossReference_3_1_2_0; }
 		
 		//EString
-		public RuleCall getCellstateCellStateEStringParserRuleCall_12_0_1() { return cCellstateCellStateEStringParserRuleCall_12_0_1; }
+		public RuleCall getCellstateCellStateEStringParserRuleCall_3_1_2_0_1() { return cCellstateCellStateEStringParserRuleCall_3_1_2_0_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_13() { return cRightParenthesisKeyword_13; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_14() { return cRightParenthesisKeyword_14; }
+		public Keyword getRightParenthesisKeyword_3_1_3() { return cRightParenthesisKeyword_3_1_3; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_15() { return cRightCurlyBracketKeyword_15; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 	public class ConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.Condition");
@@ -685,17 +545,15 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Keyword cConditionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cAppliesKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cWhenKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cCellstateAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cCellstateCellStateCrossReference_4_0 = (CrossReference)cCellstateAssignment_4.eContents().get(0);
-		private final RuleCall cCellstateCellStateEStringParserRuleCall_4_0_1 = (RuleCall)cCellstateCellStateCrossReference_4_0.eContents().get(1);
+		private final Assignment cCellstateAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cCellstateCellStateCrossReference_2_0 = (CrossReference)cCellstateAssignment_2.eContents().get(0);
+		private final RuleCall cCellstateCellStateEStringParserRuleCall_2_0_1 = (RuleCall)cCellstateCellStateCrossReference_2_0.eContents().get(1);
 		
 		//Condition returns Condition:
-		//        'Condition' name=ID 'applies' 'when' cellstate=[CellState|EString];
+		//    'Condition' name=ID cellstate=[CellState|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Condition' name=ID 'applies' 'when' cellstate=[CellState|EString]
+		//'Condition' name=ID cellstate=[CellState|EString]
 		public Group getGroup() { return cGroup; }
 		
 		//'Condition'
@@ -707,20 +565,14 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//'applies'
-		public Keyword getAppliesKeyword_2() { return cAppliesKeyword_2; }
-		
-		//'when'
-		public Keyword getWhenKeyword_3() { return cWhenKeyword_3; }
-		
 		//cellstate=[CellState|EString]
-		public Assignment getCellstateAssignment_4() { return cCellstateAssignment_4; }
+		public Assignment getCellstateAssignment_2() { return cCellstateAssignment_2; }
 		
 		//[CellState|EString]
-		public CrossReference getCellstateCellStateCrossReference_4_0() { return cCellstateCellStateCrossReference_4_0; }
+		public CrossReference getCellstateCellStateCrossReference_2_0() { return cCellstateCellStateCrossReference_2_0; }
 		
 		//EString
-		public RuleCall getCellstateCellStateEStringParserRuleCall_4_0_1() { return cCellstateCellStateEStringParserRuleCall_4_0_1; }
+		public RuleCall getCellstateCellStateEStringParserRuleCall_2_0_1() { return cCellstateCellStateEStringParserRuleCall_2_0_1; }
 	}
 	public class EBooleanElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EBoolean");
@@ -743,61 +595,70 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	public class InARowElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.InARow");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCountKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cCountAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cCountEIntParserRuleCall_1_0 = (RuleCall)cCountAssignment_1.eContents().get(0);
-		private final Assignment cHorizontalAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final Keyword cHorizontalHorizontalKeyword_2_0 = (Keyword)cHorizontalAssignment_2.eContents().get(0);
-		private final Assignment cVerticalAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final Keyword cVerticalVerticalKeyword_3_0 = (Keyword)cVerticalAssignment_3.eContents().get(0);
-		private final Assignment cDiagonalAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final Keyword cDiagonalDiagonalKeyword_4_0 = (Keyword)cDiagonalAssignment_4.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup = (UnorderedGroup)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cUnorderedGroup.eContents().get(0);
+		private final Keyword cCountKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cCountAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cCountEIntParserRuleCall_0_1_0 = (RuleCall)cCountAssignment_0_1.eContents().get(0);
+		private final Assignment cHorizontalAssignment_1 = (Assignment)cUnorderedGroup.eContents().get(1);
+		private final Keyword cHorizontalHorizontalKeyword_1_0 = (Keyword)cHorizontalAssignment_1.eContents().get(0);
+		private final Assignment cVerticalAssignment_2 = (Assignment)cUnorderedGroup.eContents().get(2);
+		private final Keyword cVerticalVerticalKeyword_2_0 = (Keyword)cVerticalAssignment_2.eContents().get(0);
+		private final Assignment cDiagonalAssignment_3 = (Assignment)cUnorderedGroup.eContents().get(3);
+		private final Keyword cDiagonalDiagonalKeyword_3_0 = (Keyword)cDiagonalAssignment_3.eContents().get(0);
 		
 		//InARow returns InARow:
-		//    'count' count=EInt
-		//    horizontal?='horizontal'
-		//    vertical?='vertical'
+		//    (
+		//    'count' count=EInt &
+		//    horizontal?='horizontal' &
+		//    vertical?='vertical' &
 		//    diagonal?='diagonal'
+		//    )
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'count' count=EInt
-		//horizontal?='horizontal'
-		//vertical?='vertical'
+		//(
+		//'count' count=EInt &
+		//horizontal?='horizontal' &
+		//vertical?='vertical' &
 		//diagonal?='diagonal'
-		public Group getGroup() { return cGroup; }
+		//)
+		public UnorderedGroup getUnorderedGroup() { return cUnorderedGroup; }
+		
+		//'count' count=EInt
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//'count'
-		public Keyword getCountKeyword_0() { return cCountKeyword_0; }
+		public Keyword getCountKeyword_0_0() { return cCountKeyword_0_0; }
 		
 		//count=EInt
-		public Assignment getCountAssignment_1() { return cCountAssignment_1; }
+		public Assignment getCountAssignment_0_1() { return cCountAssignment_0_1; }
 		
 		//EInt
-		public RuleCall getCountEIntParserRuleCall_1_0() { return cCountEIntParserRuleCall_1_0; }
+		public RuleCall getCountEIntParserRuleCall_0_1_0() { return cCountEIntParserRuleCall_0_1_0; }
 		
 		//horizontal?='horizontal'
-		public Assignment getHorizontalAssignment_2() { return cHorizontalAssignment_2; }
+		public Assignment getHorizontalAssignment_1() { return cHorizontalAssignment_1; }
 		
 		//'horizontal'
-		public Keyword getHorizontalHorizontalKeyword_2_0() { return cHorizontalHorizontalKeyword_2_0; }
+		public Keyword getHorizontalHorizontalKeyword_1_0() { return cHorizontalHorizontalKeyword_1_0; }
 		
 		//vertical?='vertical'
-		public Assignment getVerticalAssignment_3() { return cVerticalAssignment_3; }
+		public Assignment getVerticalAssignment_2() { return cVerticalAssignment_2; }
 		
 		//'vertical'
-		public Keyword getVerticalVerticalKeyword_3_0() { return cVerticalVerticalKeyword_3_0; }
+		public Keyword getVerticalVerticalKeyword_2_0() { return cVerticalVerticalKeyword_2_0; }
 		
 		//diagonal?='diagonal'
-		public Assignment getDiagonalAssignment_4() { return cDiagonalAssignment_4; }
+		public Assignment getDiagonalAssignment_3() { return cDiagonalAssignment_3; }
 		
 		//'diagonal'
-		public Keyword getDiagonalDiagonalKeyword_4_0() { return cDiagonalDiagonalKeyword_4_0; }
+		public Keyword getDiagonalDiagonalKeyword_3_0() { return cDiagonalDiagonalKeyword_3_0; }
 	}
 	
 	
 	private final BoardGameElements pBoardGame;
+	private final BoardGameElementElements pBoardGameElement;
 	private final PieceTypeElements pPieceType;
 	private final CellStateElements pCellState;
 	private final WinConditionElements pWinCondition;
@@ -819,6 +680,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pBoardGame = new BoardGameElements();
+		this.pBoardGameElement = new BoardGameElementElements();
 		this.pPieceType = new PieceTypeElements();
 		this.pCellState = new CellStateElements();
 		this.pWinCondition = new WinConditionElements();
@@ -861,11 +723,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	//BoardGame returns BoardGame:
 	//    'Title' (name = EString)
 	//    'BoardSize' size=EInt
-	//    'validMoves' '['validmoves+=ValidMove ( "," validmoves+=ValidMove)* ']'
-	//    ('cellStates' '['cellstates+=CellState ( "," cellstates+=CellState)*']' )?
-	//    ('effectsOnCell' '['effectsoncell+=EffectOnCell ( "," effectsoncell+=EffectOnCell)*']' )?
-	//    'winConditions' '[' winConditions+=WinCondition ( "," winConditions+=WinCondition)* ']'
-	//    'pieceTypes' '['piecetypes+=PieceType ( "," piecetypes+=PieceType)* ']'
+	//     (boardgameelements+=BoardGameElement)*
 	//    ;
 	public BoardGameElements getBoardGameAccess() {
 		return pBoardGame;
@@ -875,12 +733,23 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		return getBoardGameAccess().getRule();
 	}
 	
+	//BoardGameElement returns BoardGameElement:
+	//    PieceType | EffectOnCell | ValidMove | CellState | WinCondition | Condition
+	//;
+	public BoardGameElementElements getBoardGameElementAccess() {
+		return pBoardGameElement;
+	}
+	
+	public ParserRule getBoardGameElementRule() {
+		return getBoardGameElementAccess().getRule();
+	}
+	
 	//PieceType returns PieceType:
-	//    '{''PieceType'
-	//    name=EString '('
+	//    'PieceType'
+	//    name=EString '{'
 	//        'Symbol' symbol=EString
 	//        'ValidMoves' '[' validmoves+= [ValidMove|EString] ( "," validmoves+=[ValidMove | EString])*']'
-	//        ('EffectsOnCell' '[' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* ']' )? ')'
+	//        ('EffectsOnCell' '[' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* ']' )?
 	//    '}';
 	public PieceTypeElements getPieceTypeAccess() {
 		return pPieceType;
@@ -891,7 +760,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//CellState returns CellState:
-	//    name=ID
+	//    'Cellstate' name=EString
 	//    ;
 	public CellStateElements getCellStateAccess() {
 		return pCellState;
@@ -902,7 +771,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//WinCondition returns WinCondition:
-	//        'InARow' inarow=InARow;
+	//        'WinCondition' inarow=InARow;
 	public WinConditionElements getWinConditionAccess() {
 		return pWinCondition;
 	}
@@ -932,10 +801,9 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//ValidMove returns ValidMove:
-	//    '{'
-	//    'ValidMove' name=ID '('
+	//    'ValidMove' name=ID '{'
 	//        placeAnywhere?='placeAnywhere'
-	//        ('when' conditions+=Condition ( "and" conditions+=Condition)* )? ')'
+	//        ('valid' 'if' conditions+=[Condition|EString] ( "and" conditions+=[Condition|EString])* )?
 	//    '}';
 	public ValidMoveElements getValidMoveAccess() {
 		return pValidMove;
@@ -946,10 +814,11 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//EffectOnCell returns EffectOnCell:
-	//    '{'
-	//    'EffectOnCell' name=ID '('
-	//        'relativePosition' '('x=EInt','y=EInt')'
-	//        'newCellState''('cellstate=[CellState|EString]')' ')'
+	//    'EffectOnCell' name=ID '{'
+	//        (
+	//        'relativePosition' '('x=EInt','y=EInt')' &
+	//        'newCellState''('cellstate=[CellState|EString]')'
+	//        )
 	//    '}';
 	public EffectOnCellElements getEffectOnCellAccess() {
 		return pEffectOnCell;
@@ -960,7 +829,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//Condition returns Condition:
-	//        'Condition' name=ID 'applies' 'when' cellstate=[CellState|EString];
+	//    'Condition' name=ID cellstate=[CellState|EString];
 	public ConditionElements getConditionAccess() {
 		return pCondition;
 	}
@@ -980,10 +849,12 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//InARow returns InARow:
-	//    'count' count=EInt
-	//    horizontal?='horizontal'
-	//    vertical?='vertical'
+	//    (
+	//    'count' count=EInt &
+	//    horizontal?='horizontal' &
+	//    vertical?='vertical' &
 	//    diagonal?='diagonal'
+	//    )
 	//    ;
 	public InARowElements getInARowAccess() {
 		return pInARow;

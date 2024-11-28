@@ -14,13 +14,9 @@
   <genPackages prefix="Bg" basePackage="no.ntnu.tdt4250.g07" disposableProviderFactory="true"
       ecorePackage="bg.ecore#/">
     <genClasses ecoreClass="bg.ecore#//BoardGame">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/piecetypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/cellstates"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/winConditions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BoardGame/size"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BoardGame/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/validmoves"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/effectsoncell"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/boardgameelements"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//PieceType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//PieceType/name"/>
@@ -29,7 +25,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bg.ecore#//PieceType/effectsoncell"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//ValidMove">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//ValidMove/conditions"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bg.ecore#//ValidMove/conditions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//ValidMove/placeAnywhere"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//ValidMove/name"/>
     </genClasses>
@@ -55,5 +51,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//InARow/vertical"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//InARow/count"/>
     </genClasses>
+    <genClasses ecoreClass="bg.ecore#//BoardGameElement"/>
   </genPackages>
 </genmodel:GenModel>

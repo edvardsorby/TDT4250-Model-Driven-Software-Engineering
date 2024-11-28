@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ConditionImpl extends MinimalEObjectImpl.Container implements Condition {
+public class ConditionImpl extends BoardGameElementImpl implements Condition {
 	/**
 	 * The cached value of the '{@link #getCellstate() <em>Cellstate</em>}' reference.
 	 * <!-- begin-user-doc -->

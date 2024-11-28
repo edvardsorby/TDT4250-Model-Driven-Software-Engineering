@@ -13,6 +13,10 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import no.ntnu.tdt4250.g07.bg.BoardGameElement
+import java.util.Collection
+import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.emf.ecore.EObject
 
 /**
  * Generates code from your model files on save.
@@ -33,20 +37,56 @@ class BoardGameDLGenerator extends AbstractGenerator {
         '''
         const boardGame = {
             size: «boardGame.size»,
-            piecetypes: [
-                «boardGame.piecetypes.map[generatePieceType(it)].join(",\n")»
-            ],
-            cellstates: [
-                «boardGame.cellstates.map[CellState.name].join(", ")»
-            ],
-            winConditions: [
-                «boardGame.winConditions.map[generateWinCondition(it)].join(",\n")»
-            ]
+            elements: {
+           «boardGame.boardgameelements.groupBy[eClass.name].entrySet.map[
+                       key + ': [' + value.map[generateElementJS(it)].join(",\n") + ']'
+                   ].join(",\n")»
+            }
         };
 
         export default boardGame;
         '''
+        
+        /**
+         *   piecetypes: [
+                «boardGame.piecetypes.map[generatePieceType(it)].join(",\n")»
+            ],
+            cellstates: [
+                «boardGame.cellstates.map[CellState.].join(", ")»
+            ],
+            winConditions: [
+                «boardGame.winConditions.map[generateWinCondition(it)].join(",\n")»
+            ]
+         */
     }
+    
+    def String generateElementJS(BoardGameElement element) {
+    '''
+    {
+        «element.eClass.EAllStructuralFeatures.map[serializeFeature(it, element)].join(",\n")»
+    }
+    '''
+}
+
+def String serializeFeature(EStructuralFeature feature, EObject element) {
+    val value = element.eGet(feature)
+    '''
+    "«feature.name»": «serializeValue(value)»
+    '''
+}
+
+def String serializeValue(Object value) {
+    if (value instanceof String || value instanceof Enum) 
+        return '"' + value + '"'
+    else if (value instanceof Boolean)
+        return value.toString
+    else if (value instanceof Collection<?>)
+        return '[' + value.map[serializeValue(it)].join(", ") + ']'
+    else if (value instanceof EObject)
+        return '{ ' + value.eClass.EAllStructuralFeatures.map[serializeFeature(it, value)].join(", ") + ' }'
+    else
+        return value.toString
+}
 
     def String generatePieceType(PieceType pieceType) {
         '''
