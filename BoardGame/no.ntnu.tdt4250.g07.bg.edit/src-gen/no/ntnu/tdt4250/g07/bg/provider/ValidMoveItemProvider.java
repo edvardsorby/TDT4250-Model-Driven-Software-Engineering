@@ -42,8 +42,8 @@ public class ValidMoveItemProvider extends BoardGameElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPlaceAnywherePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addPlaceAnywherePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -126,8 +126,8 @@ public class ValidMoveItemProvider extends BoardGameElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ValidMove.class)) {
-		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
 		case BgPackage.VALID_MOVE__NAME:
+		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

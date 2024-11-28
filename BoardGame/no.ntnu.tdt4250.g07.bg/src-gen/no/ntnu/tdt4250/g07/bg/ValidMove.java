@@ -13,9 +13,9 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.ValidMove#getName <em>Name</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.ValidMove#getConditions <em>Conditions</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.ValidMove#isPlaceAnywhere <em>Place Anywhere</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.ValidMove#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.g07.bg.BgPackage#getValidMove()

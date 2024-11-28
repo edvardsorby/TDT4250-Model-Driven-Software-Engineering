@@ -16,20 +16,20 @@ class BoardGameDLFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(BoardGame boardGame, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (pieceType : boardGame.piecetypes) {
+		for (pieceType : boardGame.boardGameElements) {
 			pieceType.format
 		}
-		for (cellState : boardGame.cellstates) {
+		for (cellState : boardGame.boardGameElements) {
 			cellState.format
 		}
-		for (winCondition : boardGame.winConditions) {
+		for (winCondition : boardGame.boardGameElements) {
 			winCondition.format
 		}
 	}
 
 	def dispatch void format(PieceType pieceType, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (validMove : pieceType.validmoves) {
+		for (validMove : pieceType.validMoves) {
 			validMove.format
 		}
 		for (effectOnCell : pieceType.effectsoncell) {

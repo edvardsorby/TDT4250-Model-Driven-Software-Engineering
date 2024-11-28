@@ -21,24 +21,44 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.EffectOnCellImpl#getCellstate <em>Cellstate</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.EffectOnCellImpl#getName <em>Name</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.EffectOnCellImpl#getCellState <em>Cell State</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.EffectOnCellImpl#getX <em>X</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.EffectOnCellImpl#getY <em>Y</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.EffectOnCellImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class EffectOnCellImpl extends BoardGameElementImpl implements EffectOnCell {
 	/**
-	 * The cached value of the '{@link #getCellstate() <em>Cellstate</em>}' reference.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCellstate()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected CellState cellstate;
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCellState() <em>Cell State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCellState()
+	 * @generated
+	 * @ordered
+	 */
+	protected CellState cellState;
 
 	/**
 	 * The default value of the '{@link #getX() <em>X</em>}' attribute.
@@ -81,26 +101,6 @@ public class EffectOnCellImpl extends BoardGameElementImpl implements EffectOnCe
 	protected int y = Y_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -125,17 +125,17 @@ public class EffectOnCellImpl extends BoardGameElementImpl implements EffectOnCe
 	 * @generated
 	 */
 	@Override
-	public CellState getCellstate() {
-		if (cellstate != null && cellstate.eIsProxy()) {
-			InternalEObject oldCellstate = (InternalEObject) cellstate;
-			cellstate = (CellState) eResolveProxy(oldCellstate);
-			if (cellstate != oldCellstate) {
+	public CellState getCellState() {
+		if (cellState != null && cellState.eIsProxy()) {
+			InternalEObject oldCellState = (InternalEObject) cellState;
+			cellState = (CellState) eResolveProxy(oldCellState);
+			if (cellState != oldCellState) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BgPackage.EFFECT_ON_CELL__CELLSTATE,
-							oldCellstate, cellstate));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BgPackage.EFFECT_ON_CELL__CELL_STATE,
+							oldCellState, cellState));
 			}
 		}
-		return cellstate;
+		return cellState;
 	}
 
 	/**
@@ -143,8 +143,8 @@ public class EffectOnCellImpl extends BoardGameElementImpl implements EffectOnCe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CellState basicGetCellstate() {
-		return cellstate;
+	public CellState basicGetCellState() {
+		return cellState;
 	}
 
 	/**
@@ -153,12 +153,12 @@ public class EffectOnCellImpl extends BoardGameElementImpl implements EffectOnCe
 	 * @generated
 	 */
 	@Override
-	public void setCellstate(CellState newCellstate) {
-		CellState oldCellstate = cellstate;
-		cellstate = newCellstate;
+	public void setCellState(CellState newCellState) {
+		CellState oldCellState = cellState;
+		cellState = newCellState;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.EFFECT_ON_CELL__CELLSTATE, oldCellstate,
-					cellstate));
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.EFFECT_ON_CELL__CELL_STATE, oldCellState,
+					cellState));
 	}
 
 	/**
@@ -238,16 +238,16 @@ public class EffectOnCellImpl extends BoardGameElementImpl implements EffectOnCe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
+		case BgPackage.EFFECT_ON_CELL__NAME:
+			return getName();
+		case BgPackage.EFFECT_ON_CELL__CELL_STATE:
 			if (resolve)
-				return getCellstate();
-			return basicGetCellstate();
+				return getCellState();
+			return basicGetCellState();
 		case BgPackage.EFFECT_ON_CELL__X:
 			return getX();
 		case BgPackage.EFFECT_ON_CELL__Y:
 			return getY();
-		case BgPackage.EFFECT_ON_CELL__NAME:
-			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -260,17 +260,17 @@ public class EffectOnCellImpl extends BoardGameElementImpl implements EffectOnCe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
-			setCellstate((CellState) newValue);
+		case BgPackage.EFFECT_ON_CELL__NAME:
+			setName((String) newValue);
+			return;
+		case BgPackage.EFFECT_ON_CELL__CELL_STATE:
+			setCellState((CellState) newValue);
 			return;
 		case BgPackage.EFFECT_ON_CELL__X:
 			setX((Integer) newValue);
 			return;
 		case BgPackage.EFFECT_ON_CELL__Y:
 			setY((Integer) newValue);
-			return;
-		case BgPackage.EFFECT_ON_CELL__NAME:
-			setName((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -284,17 +284,17 @@ public class EffectOnCellImpl extends BoardGameElementImpl implements EffectOnCe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
-			setCellstate((CellState) null);
+		case BgPackage.EFFECT_ON_CELL__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case BgPackage.EFFECT_ON_CELL__CELL_STATE:
+			setCellState((CellState) null);
 			return;
 		case BgPackage.EFFECT_ON_CELL__X:
 			setX(X_EDEFAULT);
 			return;
 		case BgPackage.EFFECT_ON_CELL__Y:
 			setY(Y_EDEFAULT);
-			return;
-		case BgPackage.EFFECT_ON_CELL__NAME:
-			setName(NAME_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -308,14 +308,14 @@ public class EffectOnCellImpl extends BoardGameElementImpl implements EffectOnCe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case BgPackage.EFFECT_ON_CELL__CELLSTATE:
-			return cellstate != null;
+		case BgPackage.EFFECT_ON_CELL__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case BgPackage.EFFECT_ON_CELL__CELL_STATE:
+			return cellState != null;
 		case BgPackage.EFFECT_ON_CELL__X:
 			return x != X_EDEFAULT;
 		case BgPackage.EFFECT_ON_CELL__Y:
 			return y != Y_EDEFAULT;
-		case BgPackage.EFFECT_ON_CELL__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -331,12 +331,12 @@ public class EffectOnCellImpl extends BoardGameElementImpl implements EffectOnCe
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (x: ");
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", x: ");
 		result.append(x);
 		result.append(", y: ");
 		result.append(y);
-		result.append(", name: ");
-		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

@@ -67,31 +67,31 @@ public interface BgPackage extends EPackage {
 	int BOARD_GAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Size</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOARD_GAME__SIZE = 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_GAME__NAME = 1;
+	int BOARD_GAME__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Boardgameelements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOARD_GAME__BOARDGAMEELEMENTS = 2;
+	int BOARD_GAME__SIZE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Board Game Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOARD_GAME__BOARD_GAME_ELEMENTS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Board Game</em>' class.
@@ -159,22 +159,22 @@ public interface BgPackage extends EPackage {
 	int PIECE_TYPE__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Validmoves</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIECE_TYPE__VALIDMOVES = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Symbol</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIECE_TYPE__SYMBOL = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
+	int PIECE_TYPE__SYMBOL = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Valid Moves</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIECE_TYPE__VALID_MOVES = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Effectsoncell</b></em>' reference list.
@@ -214,13 +214,22 @@ public interface BgPackage extends EPackage {
 	int VALID_MOVE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALID_MOVE__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Conditions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALID_MOVE__CONDITIONS = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
+	int VALID_MOVE__CONDITIONS = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Place Anywhere</b></em>' attribute.
@@ -229,16 +238,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALID_MOVE__PLACE_ANYWHERE = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALID_MOVE__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
+	int VALID_MOVE__PLACE_ANYWHERE = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Valid Move</em>' class.
@@ -269,22 +269,22 @@ public interface BgPackage extends EPackage {
 	int CONDITION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Cellstate</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION__CELLSTATE = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
+	int CONDITION__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Cell State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__CELL_STATE = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
@@ -352,13 +352,22 @@ public interface BgPackage extends EPackage {
 	int EFFECT_ON_CELL = 5;
 
 	/**
-	 * The feature id for the '<em><b>Cellstate</b></em>' reference.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECT_ON_CELL__CELLSTATE = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
+	int EFFECT_ON_CELL__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Cell State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFECT_ON_CELL__CELL_STATE = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -367,7 +376,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECT_ON_CELL__X = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
+	int EFFECT_ON_CELL__X = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Y</b></em>' attribute.
@@ -376,16 +385,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECT_ON_CELL__Y = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EFFECT_ON_CELL__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 3;
+	int EFFECT_ON_CELL__Y = BOARD_GAME_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Effect On Cell</em>' class.
@@ -416,13 +416,13 @@ public interface BgPackage extends EPackage {
 	int WIN_CONDITION = 6;
 
 	/**
-	 * The feature id for the '<em><b>Inarow</b></em>' containment reference.
+	 * The feature id for the '<em><b>Win Condition Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WIN_CONDITION__INAROW = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
+	int WIN_CONDITION__WIN_CONDITION_ELEMENTS = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Win Condition</em>' class.
@@ -443,41 +443,42 @@ public interface BgPackage extends EPackage {
 	int WIN_CONDITION_OPERATION_COUNT = BOARD_GAME_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.InARowImpl <em>In ARow</em>}' class.
+	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.WinConditionElementImpl <em>Win Condition Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see no.ntnu.tdt4250.g07.bg.impl.InARowImpl
-	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getInARow()
+	 * @see no.ntnu.tdt4250.g07.bg.impl.WinConditionElementImpl
+	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getWinConditionElement()
 	 * @generated
 	 */
-	int IN_AROW = 7;
+	int WIN_CONDITION_ELEMENT = 9;
 
 	/**
-	 * The feature id for the '<em><b>Diagonal</b></em>' attribute.
+	 * The number of structural features of the '<em>Win Condition Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IN_AROW__DIAGONAL = 0;
+	int WIN_CONDITION_ELEMENT_FEATURE_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Horizontal</b></em>' attribute.
+	 * The number of operations of the '<em>Win Condition Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IN_AROW__HORIZONTAL = 1;
+	int WIN_CONDITION_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Vertical</b></em>' attribute.
+	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.LineImpl <em>Line</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see no.ntnu.tdt4250.g07.bg.impl.LineImpl
+	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getLine()
 	 * @generated
-	 * @ordered
 	 */
-	int IN_AROW__VERTICAL = 2;
+	int LINE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Count</b></em>' attribute.
@@ -486,25 +487,61 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IN_AROW__COUNT = 3;
+	int LINE__COUNT = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>In ARow</em>' class.
+	 * The feature id for the '<em><b>Diagonal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IN_AROW_FEATURE_COUNT = 4;
+	int LINE__DIAGONAL = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>In ARow</em>' class.
+	 * The feature id for the '<em><b>Horizontal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IN_AROW_OPERATION_COUNT = 0;
+	int LINE__HORIZONTAL = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Vertical</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE__VERTICAL = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE__UNIQUE = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Line</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_FEATURE_COUNT = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Line</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINE_OPERATION_COUNT = WIN_CONDITION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.BoardGame <em>Board Game</em>}'.
@@ -539,15 +576,15 @@ public interface BgPackage extends EPackage {
 	EAttribute getBoardGame_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.BoardGame#getBoardgameelements <em>Boardgameelements</em>}'.
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.BoardGame#getBoardGameElements <em>Board Game Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Boardgameelements</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.BoardGame#getBoardgameelements()
+	 * @return the meta object for the containment reference list '<em>Board Game Elements</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.BoardGame#getBoardGameElements()
 	 * @see #getBoardGame()
 	 * @generated
 	 */
-	EReference getBoardGame_Boardgameelements();
+	EReference getBoardGame_BoardGameElements();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.PieceType <em>Piece Type</em>}'.
@@ -571,15 +608,15 @@ public interface BgPackage extends EPackage {
 	EAttribute getPieceType_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getValidmoves <em>Validmoves</em>}'.
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getValidMoves <em>Valid Moves</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Validmoves</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.PieceType#getValidmoves()
+	 * @return the meta object for the reference list '<em>Valid Moves</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.PieceType#getValidMoves()
 	 * @see #getPieceType()
 	 * @generated
 	 */
-	EReference getPieceType_Validmoves();
+	EReference getPieceType_ValidMoves();
 
 	/**
 	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.PieceType#getSymbol <em>Symbol</em>}'.
@@ -657,15 +694,15 @@ public interface BgPackage extends EPackage {
 	EClass getCondition();
 
 	/**
-	 * Returns the meta object for the reference '{@link no.ntnu.tdt4250.g07.bg.Condition#getCellstate <em>Cellstate</em>}'.
+	 * Returns the meta object for the reference '{@link no.ntnu.tdt4250.g07.bg.Condition#getCellState <em>Cell State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Cellstate</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.Condition#getCellstate()
+	 * @return the meta object for the reference '<em>Cell State</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.Condition#getCellState()
 	 * @see #getCondition()
 	 * @generated
 	 */
-	EReference getCondition_Cellstate();
+	EReference getCondition_CellState();
 
 	/**
 	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Condition#getName <em>Name</em>}'.
@@ -710,15 +747,15 @@ public interface BgPackage extends EPackage {
 	EClass getEffectOnCell();
 
 	/**
-	 * Returns the meta object for the reference '{@link no.ntnu.tdt4250.g07.bg.EffectOnCell#getCellstate <em>Cellstate</em>}'.
+	 * Returns the meta object for the reference '{@link no.ntnu.tdt4250.g07.bg.EffectOnCell#getCellState <em>Cell State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Cellstate</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.EffectOnCell#getCellstate()
+	 * @return the meta object for the reference '<em>Cell State</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.EffectOnCell#getCellState()
 	 * @see #getEffectOnCell()
 	 * @generated
 	 */
-	EReference getEffectOnCell_Cellstate();
+	EReference getEffectOnCell_CellState();
 
 	/**
 	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.EffectOnCell#getX <em>X</em>}'.
@@ -764,69 +801,80 @@ public interface BgPackage extends EPackage {
 	EClass getWinCondition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link no.ntnu.tdt4250.g07.bg.WinCondition#getInarow <em>Inarow</em>}'.
+	 * Returns the meta object for the containment reference list '{@link no.ntnu.tdt4250.g07.bg.WinCondition#getWinConditionElements <em>Win Condition Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Inarow</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.WinCondition#getInarow()
+	 * @return the meta object for the containment reference list '<em>Win Condition Elements</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.WinCondition#getWinConditionElements()
 	 * @see #getWinCondition()
 	 * @generated
 	 */
-	EReference getWinCondition_Inarow();
+	EReference getWinCondition_WinConditionElements();
 
 	/**
-	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.InARow <em>In ARow</em>}'.
+	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.Line <em>Line</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>In ARow</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.InARow
+	 * @return the meta object for class '<em>Line</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.Line
 	 * @generated
 	 */
-	EClass getInARow();
+	EClass getLine();
 
 	/**
-	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.InARow#isDiagonal <em>Diagonal</em>}'.
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Line#isDiagonal <em>Diagonal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Diagonal</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.InARow#isDiagonal()
-	 * @see #getInARow()
+	 * @see no.ntnu.tdt4250.g07.bg.Line#isDiagonal()
+	 * @see #getLine()
 	 * @generated
 	 */
-	EAttribute getInARow_Diagonal();
+	EAttribute getLine_Diagonal();
 
 	/**
-	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.InARow#isHorizontal <em>Horizontal</em>}'.
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Line#isHorizontal <em>Horizontal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Horizontal</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.InARow#isHorizontal()
-	 * @see #getInARow()
+	 * @see no.ntnu.tdt4250.g07.bg.Line#isHorizontal()
+	 * @see #getLine()
 	 * @generated
 	 */
-	EAttribute getInARow_Horizontal();
+	EAttribute getLine_Horizontal();
 
 	/**
-	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.InARow#isVertical <em>Vertical</em>}'.
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Line#isVertical <em>Vertical</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Vertical</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.InARow#isVertical()
-	 * @see #getInARow()
+	 * @see no.ntnu.tdt4250.g07.bg.Line#isVertical()
+	 * @see #getLine()
 	 * @generated
 	 */
-	EAttribute getInARow_Vertical();
+	EAttribute getLine_Vertical();
 
 	/**
-	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.InARow#getCount <em>Count</em>}'.
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Line#getCount <em>Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Count</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.InARow#getCount()
-	 * @see #getInARow()
+	 * @see no.ntnu.tdt4250.g07.bg.Line#getCount()
+	 * @see #getLine()
 	 * @generated
 	 */
-	EAttribute getInARow_Count();
+	EAttribute getLine_Count();
+
+	/**
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Line#isUnique <em>Unique</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unique</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.Line#isUnique()
+	 * @see #getLine()
+	 * @generated
+	 */
+	EAttribute getLine_Unique();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.BoardGameElement <em>Board Game Element</em>}'.
@@ -837,6 +885,16 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBoardGameElement();
+
+	/**
+	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.WinConditionElement <em>Win Condition Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Win Condition Element</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.WinConditionElement
+	 * @generated
+	 */
+	EClass getWinConditionElement();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -888,12 +946,12 @@ public interface BgPackage extends EPackage {
 		EAttribute BOARD_GAME__NAME = eINSTANCE.getBoardGame_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Boardgameelements</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Board Game Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BOARD_GAME__BOARDGAMEELEMENTS = eINSTANCE.getBoardGame_Boardgameelements();
+		EReference BOARD_GAME__BOARD_GAME_ELEMENTS = eINSTANCE.getBoardGame_BoardGameElements();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl <em>Piece Type</em>}' class.
@@ -914,12 +972,12 @@ public interface BgPackage extends EPackage {
 		EAttribute PIECE_TYPE__NAME = eINSTANCE.getPieceType_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Validmoves</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Valid Moves</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PIECE_TYPE__VALIDMOVES = eINSTANCE.getPieceType_Validmoves();
+		EReference PIECE_TYPE__VALID_MOVES = eINSTANCE.getPieceType_ValidMoves();
 
 		/**
 		 * The meta object literal for the '<em><b>Symbol</b></em>' attribute feature.
@@ -982,12 +1040,12 @@ public interface BgPackage extends EPackage {
 		EClass CONDITION = eINSTANCE.getCondition();
 
 		/**
-		 * The meta object literal for the '<em><b>Cellstate</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Cell State</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONDITION__CELLSTATE = eINSTANCE.getCondition_Cellstate();
+		EReference CONDITION__CELL_STATE = eINSTANCE.getCondition_CellState();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1026,12 +1084,12 @@ public interface BgPackage extends EPackage {
 		EClass EFFECT_ON_CELL = eINSTANCE.getEffectOnCell();
 
 		/**
-		 * The meta object literal for the '<em><b>Cellstate</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Cell State</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EFFECT_ON_CELL__CELLSTATE = eINSTANCE.getEffectOnCell_Cellstate();
+		EReference EFFECT_ON_CELL__CELL_STATE = eINSTANCE.getEffectOnCell_CellState();
 
 		/**
 		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
@@ -1068,22 +1126,22 @@ public interface BgPackage extends EPackage {
 		EClass WIN_CONDITION = eINSTANCE.getWinCondition();
 
 		/**
-		 * The meta object literal for the '<em><b>Inarow</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Win Condition Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference WIN_CONDITION__INAROW = eINSTANCE.getWinCondition_Inarow();
+		EReference WIN_CONDITION__WIN_CONDITION_ELEMENTS = eINSTANCE.getWinCondition_WinConditionElements();
 
 		/**
-		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.InARowImpl <em>In ARow</em>}' class.
+		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.LineImpl <em>Line</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see no.ntnu.tdt4250.g07.bg.impl.InARowImpl
-		 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getInARow()
+		 * @see no.ntnu.tdt4250.g07.bg.impl.LineImpl
+		 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getLine()
 		 * @generated
 		 */
-		EClass IN_AROW = eINSTANCE.getInARow();
+		EClass LINE = eINSTANCE.getLine();
 
 		/**
 		 * The meta object literal for the '<em><b>Diagonal</b></em>' attribute feature.
@@ -1091,7 +1149,7 @@ public interface BgPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IN_AROW__DIAGONAL = eINSTANCE.getInARow_Diagonal();
+		EAttribute LINE__DIAGONAL = eINSTANCE.getLine_Diagonal();
 
 		/**
 		 * The meta object literal for the '<em><b>Horizontal</b></em>' attribute feature.
@@ -1099,7 +1157,7 @@ public interface BgPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IN_AROW__HORIZONTAL = eINSTANCE.getInARow_Horizontal();
+		EAttribute LINE__HORIZONTAL = eINSTANCE.getLine_Horizontal();
 
 		/**
 		 * The meta object literal for the '<em><b>Vertical</b></em>' attribute feature.
@@ -1107,7 +1165,7 @@ public interface BgPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IN_AROW__VERTICAL = eINSTANCE.getInARow_Vertical();
+		EAttribute LINE__VERTICAL = eINSTANCE.getLine_Vertical();
 
 		/**
 		 * The meta object literal for the '<em><b>Count</b></em>' attribute feature.
@@ -1115,7 +1173,15 @@ public interface BgPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IN_AROW__COUNT = eINSTANCE.getInARow_Count();
+		EAttribute LINE__COUNT = eINSTANCE.getLine_Count();
+
+		/**
+		 * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINE__UNIQUE = eINSTANCE.getLine_Unique();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameElementImpl <em>Board Game Element</em>}' class.
@@ -1126,6 +1192,16 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BOARD_GAME_ELEMENT = eINSTANCE.getBoardGameElement();
+
+		/**
+		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.WinConditionElementImpl <em>Win Condition Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.ntnu.tdt4250.g07.bg.impl.WinConditionElementImpl
+		 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getWinConditionElement()
+		 * @generated
+		 */
+		EClass WIN_CONDITION_ELEMENT = eINSTANCE.getWinConditionElement();
 
 	}
 

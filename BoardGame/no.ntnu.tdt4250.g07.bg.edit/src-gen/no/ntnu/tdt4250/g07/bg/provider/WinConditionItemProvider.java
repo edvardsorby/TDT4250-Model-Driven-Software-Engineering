@@ -59,7 +59,7 @@ public class WinConditionItemProvider extends BoardGameElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(BgPackage.Literals.WIN_CONDITION__INAROW);
+			childrenFeatures.add(BgPackage.Literals.WIN_CONDITION__WIN_CONDITION_ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -121,7 +121,7 @@ public class WinConditionItemProvider extends BoardGameElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(WinCondition.class)) {
-		case BgPackage.WIN_CONDITION__INAROW:
+		case BgPackage.WIN_CONDITION__WIN_CONDITION_ELEMENTS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -139,8 +139,8 @@ public class WinConditionItemProvider extends BoardGameElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(
-				createChildParameter(BgPackage.Literals.WIN_CONDITION__INAROW, BgFactory.eINSTANCE.createInARow()));
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.WIN_CONDITION__WIN_CONDITION_ELEMENTS,
+				BgFactory.eINSTANCE.createLine()));
 	}
 
 }

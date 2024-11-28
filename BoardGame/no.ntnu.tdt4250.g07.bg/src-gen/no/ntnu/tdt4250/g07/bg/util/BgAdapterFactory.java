@@ -102,13 +102,18 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseInARow(InARow object) {
-			return createInARowAdapter();
+		public Adapter caseLine(Line object) {
+			return createLineAdapter();
 		}
 
 		@Override
 		public Adapter caseBoardGameElement(BoardGameElement object) {
 			return createBoardGameElementAdapter();
+		}
+
+		@Override
+		public Adapter caseWinConditionElement(WinConditionElement object) {
+			return createWinConditionElementAdapter();
 		}
 
 		@Override
@@ -229,16 +234,16 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.g07.bg.InARow <em>In ARow</em>}'.
+	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.g07.bg.Line <em>Line</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.g07.bg.InARow
+	 * @see no.ntnu.tdt4250.g07.bg.Line
 	 * @generated
 	 */
-	public Adapter createInARowAdapter() {
+	public Adapter createLineAdapter() {
 		return null;
 	}
 
@@ -253,6 +258,20 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBoardGameElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.g07.bg.WinConditionElement <em>Win Condition Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see no.ntnu.tdt4250.g07.bg.WinConditionElement
+	 * @generated
+	 */
+	public Adapter createWinConditionElementAdapter() {
 		return null;
 	}
 

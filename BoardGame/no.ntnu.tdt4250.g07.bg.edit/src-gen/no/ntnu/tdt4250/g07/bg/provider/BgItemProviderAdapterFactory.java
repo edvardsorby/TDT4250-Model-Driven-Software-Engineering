@@ -234,26 +234,26 @@ public class BgItemProviderAdapterFactory extends BgAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.g07.bg.InARow} instances.
+	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.g07.bg.Line} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InARowItemProvider inARowItemProvider;
+	protected LineItemProvider lineItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.g07.bg.InARow}.
+	 * This creates an adapter for a {@link no.ntnu.tdt4250.g07.bg.Line}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createInARowAdapter() {
-		if (inARowItemProvider == null) {
-			inARowItemProvider = new InARowItemProvider(this);
+	public Adapter createLineAdapter() {
+		if (lineItemProvider == null) {
+			lineItemProvider = new LineItemProvider(this);
 		}
 
-		return inARowItemProvider;
+		return lineItemProvider;
 	}
 
 	/**
@@ -375,8 +375,8 @@ public class BgItemProviderAdapterFactory extends BgAdapterFactory
 			effectOnCellItemProvider.dispose();
 		if (winConditionItemProvider != null)
 			winConditionItemProvider.dispose();
-		if (inARowItemProvider != null)
-			inARowItemProvider.dispose();
+		if (lineItemProvider != null)
+			lineItemProvider.dispose();
 	}
 
 }

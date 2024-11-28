@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getSize <em>Size</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getName <em>Name</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getBoardgameelements <em>Boardgameelements</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getSize <em>Size</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.BoardGame#getBoardGameElements <em>Board Game Elements</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame()
@@ -70,15 +70,15 @@ public interface BoardGame extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Boardgameelements</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Board Game Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.BoardGameElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Boardgameelements</em>' containment reference list.
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame_Boardgameelements()
+	 * @return the value of the '<em>Board Game Elements</em>' containment reference list.
+	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame_BoardGameElements()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<BoardGameElement> getBoardgameelements();
+	EList<BoardGameElement> getBoardGameElements();
 
 } // BoardGame

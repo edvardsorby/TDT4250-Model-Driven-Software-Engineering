@@ -7,7 +7,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 BoardGame returns BoardGame:
 	'Title' (name = EString)
 	'BoardSize' size=EInt
-	 (boardgameelements+=BoardGameElement)*
+	 (boardGameElements+=BoardGameElement)*
 	;
 	
 BoardGameElement returns BoardGameElement:
@@ -18,8 +18,8 @@ PieceType returns PieceType:
 	'PieceType'
 	name=EString '{'
 		'Symbol' symbol=EString
-		'ValidMoves' '[' validmoves+= [ValidMove|EString] ( "," validmoves+=[ValidMove | EString])*']' 
-		('EffectsOnCell' '[' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* ']' )?
+		'ValidMoves' validMoves+= [ValidMove|EString] ( "," validMoves+=[ValidMove | EString])* 
+		('EffectsOnCell' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* )?
 	'}';
 
 CellState returns CellState:
@@ -27,7 +27,7 @@ CellState returns CellState:
 	;
 
 WinCondition returns WinCondition:
-		'WinCondition' inarow=InARow;
+		'WinCondition' '{' winConditionElements+=WinConditionElement (winConditionElements+=WinConditionElement)* '}';
 
 EInt returns ecore::EInt:
 	'-'? INT;
@@ -45,21 +45,27 @@ EffectOnCell returns EffectOnCell:
 	'EffectOnCell' name=ID '{'
 		(
 		'relativePosition' '('x=EInt','y=EInt')' &
-		'newCellState''('cellstate=[CellState|EString]')'
+		'newCellState'cellState=[CellState|EString]
 		)
 	'}';
 
 Condition returns Condition:
-	'Condition' name=ID cellstate=[CellState|EString];
+	'Condition' name=ID cellState=[CellState|EString];
 
 EBoolean returns ecore::EBoolean:
 	'true' | 'false';
 
-InARow returns InARow:
+WinConditionElement returns WinConditionElement:
+	Line
+;
+
+Line returns Line:
+	'Line'
+	'count' count=EInt
 	(
-	'count' count=EInt &
-	horizontal?='horizontal' &
-	vertical?='vertical' &
-	diagonal?='diagonal' 
-	)
-	;
+	(horizontal?='horizontal')? &
+    (vertical?='vertical')? &
+    (diagonal?='diagonal')? &
+    (unique?='unique')?
+    )
+;

@@ -36,9 +36,9 @@ public class BoardGameDLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEBooleanAccess().getAlternatives(), "rule__EBoolean__Alternatives");
 			builder.put(grammarAccess.getBoardGameAccess().getGroup(), "rule__BoardGame__Group__0");
 			builder.put(grammarAccess.getPieceTypeAccess().getGroup(), "rule__PieceType__Group__0");
+			builder.put(grammarAccess.getPieceTypeAccess().getGroup_7(), "rule__PieceType__Group_7__0");
 			builder.put(grammarAccess.getPieceTypeAccess().getGroup_8(), "rule__PieceType__Group_8__0");
-			builder.put(grammarAccess.getPieceTypeAccess().getGroup_10(), "rule__PieceType__Group_10__0");
-			builder.put(grammarAccess.getPieceTypeAccess().getGroup_10_3(), "rule__PieceType__Group_10_3__0");
+			builder.put(grammarAccess.getPieceTypeAccess().getGroup_8_2(), "rule__PieceType__Group_8_2__0");
 			builder.put(grammarAccess.getCellStateAccess().getGroup(), "rule__CellState__Group__0");
 			builder.put(grammarAccess.getWinConditionAccess().getGroup(), "rule__WinCondition__Group__0");
 			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
@@ -49,18 +49,19 @@ public class BoardGameDLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEffectOnCellAccess().getGroup_3_0(), "rule__EffectOnCell__Group_3_0__0");
 			builder.put(grammarAccess.getEffectOnCellAccess().getGroup_3_1(), "rule__EffectOnCell__Group_3_1__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
-			builder.put(grammarAccess.getInARowAccess().getGroup_0(), "rule__InARow__Group_0__0");
+			builder.put(grammarAccess.getLineAccess().getGroup(), "rule__Line__Group__0");
 			builder.put(grammarAccess.getBoardGameAccess().getNameAssignment_1(), "rule__BoardGame__NameAssignment_1");
 			builder.put(grammarAccess.getBoardGameAccess().getSizeAssignment_3(), "rule__BoardGame__SizeAssignment_3");
-			builder.put(grammarAccess.getBoardGameAccess().getBoardgameelementsAssignment_4(), "rule__BoardGame__BoardgameelementsAssignment_4");
+			builder.put(grammarAccess.getBoardGameAccess().getBoardGameElementsAssignment_4(), "rule__BoardGame__BoardGameElementsAssignment_4");
 			builder.put(grammarAccess.getPieceTypeAccess().getNameAssignment_1(), "rule__PieceType__NameAssignment_1");
 			builder.put(grammarAccess.getPieceTypeAccess().getSymbolAssignment_4(), "rule__PieceType__SymbolAssignment_4");
-			builder.put(grammarAccess.getPieceTypeAccess().getValidmovesAssignment_7(), "rule__PieceType__ValidmovesAssignment_7");
-			builder.put(grammarAccess.getPieceTypeAccess().getValidmovesAssignment_8_1(), "rule__PieceType__ValidmovesAssignment_8_1");
-			builder.put(grammarAccess.getPieceTypeAccess().getEffectsoncellAssignment_10_2(), "rule__PieceType__EffectsoncellAssignment_10_2");
-			builder.put(grammarAccess.getPieceTypeAccess().getEffectsoncellAssignment_10_3_1(), "rule__PieceType__EffectsoncellAssignment_10_3_1");
+			builder.put(grammarAccess.getPieceTypeAccess().getValidMovesAssignment_6(), "rule__PieceType__ValidMovesAssignment_6");
+			builder.put(grammarAccess.getPieceTypeAccess().getValidMovesAssignment_7_1(), "rule__PieceType__ValidMovesAssignment_7_1");
+			builder.put(grammarAccess.getPieceTypeAccess().getEffectsoncellAssignment_8_1(), "rule__PieceType__EffectsoncellAssignment_8_1");
+			builder.put(grammarAccess.getPieceTypeAccess().getEffectsoncellAssignment_8_2_1(), "rule__PieceType__EffectsoncellAssignment_8_2_1");
 			builder.put(grammarAccess.getCellStateAccess().getNameAssignment_1(), "rule__CellState__NameAssignment_1");
-			builder.put(grammarAccess.getWinConditionAccess().getInarowAssignment_1(), "rule__WinCondition__InarowAssignment_1");
+			builder.put(grammarAccess.getWinConditionAccess().getWinConditionElementsAssignment_2(), "rule__WinCondition__WinConditionElementsAssignment_2");
+			builder.put(grammarAccess.getWinConditionAccess().getWinConditionElementsAssignment_3(), "rule__WinCondition__WinConditionElementsAssignment_3");
 			builder.put(grammarAccess.getValidMoveAccess().getNameAssignment_1(), "rule__ValidMove__NameAssignment_1");
 			builder.put(grammarAccess.getValidMoveAccess().getPlaceAnywhereAssignment_3(), "rule__ValidMove__PlaceAnywhereAssignment_3");
 			builder.put(grammarAccess.getValidMoveAccess().getConditionsAssignment_4_2(), "rule__ValidMove__ConditionsAssignment_4_2");
@@ -68,15 +69,16 @@ public class BoardGameDLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEffectOnCellAccess().getNameAssignment_1(), "rule__EffectOnCell__NameAssignment_1");
 			builder.put(grammarAccess.getEffectOnCellAccess().getXAssignment_3_0_2(), "rule__EffectOnCell__XAssignment_3_0_2");
 			builder.put(grammarAccess.getEffectOnCellAccess().getYAssignment_3_0_4(), "rule__EffectOnCell__YAssignment_3_0_4");
-			builder.put(grammarAccess.getEffectOnCellAccess().getCellstateAssignment_3_1_2(), "rule__EffectOnCell__CellstateAssignment_3_1_2");
+			builder.put(grammarAccess.getEffectOnCellAccess().getCellStateAssignment_3_1_1(), "rule__EffectOnCell__CellStateAssignment_3_1_1");
 			builder.put(grammarAccess.getConditionAccess().getNameAssignment_1(), "rule__Condition__NameAssignment_1");
-			builder.put(grammarAccess.getConditionAccess().getCellstateAssignment_2(), "rule__Condition__CellstateAssignment_2");
-			builder.put(grammarAccess.getInARowAccess().getCountAssignment_0_1(), "rule__InARow__CountAssignment_0_1");
-			builder.put(grammarAccess.getInARowAccess().getHorizontalAssignment_1(), "rule__InARow__HorizontalAssignment_1");
-			builder.put(grammarAccess.getInARowAccess().getVerticalAssignment_2(), "rule__InARow__VerticalAssignment_2");
-			builder.put(grammarAccess.getInARowAccess().getDiagonalAssignment_3(), "rule__InARow__DiagonalAssignment_3");
+			builder.put(grammarAccess.getConditionAccess().getCellStateAssignment_2(), "rule__Condition__CellStateAssignment_2");
+			builder.put(grammarAccess.getLineAccess().getCountAssignment_2(), "rule__Line__CountAssignment_2");
+			builder.put(grammarAccess.getLineAccess().getHorizontalAssignment_3_0(), "rule__Line__HorizontalAssignment_3_0");
+			builder.put(grammarAccess.getLineAccess().getVerticalAssignment_3_1(), "rule__Line__VerticalAssignment_3_1");
+			builder.put(grammarAccess.getLineAccess().getDiagonalAssignment_3_2(), "rule__Line__DiagonalAssignment_3_2");
+			builder.put(grammarAccess.getLineAccess().getUniqueAssignment_3_3(), "rule__Line__UniqueAssignment_3_3");
 			builder.put(grammarAccess.getEffectOnCellAccess().getUnorderedGroup_3(), "rule__EffectOnCell__UnorderedGroup_3");
-			builder.put(grammarAccess.getInARowAccess().getUnorderedGroup(), "rule__InARow__UnorderedGroup");
+			builder.put(grammarAccess.getLineAccess().getUnorderedGroup_3(), "rule__Line__UnorderedGroup_3");
 		}
 	}
 	

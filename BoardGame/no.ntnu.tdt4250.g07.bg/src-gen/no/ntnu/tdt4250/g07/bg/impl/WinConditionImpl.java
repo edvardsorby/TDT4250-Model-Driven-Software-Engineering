@@ -2,17 +2,18 @@
  */
 package no.ntnu.tdt4250.g07.bg.impl;
 
+import java.util.Collection;
 import no.ntnu.tdt4250.g07.bg.BgPackage;
-import no.ntnu.tdt4250.g07.bg.InARow;
 import no.ntnu.tdt4250.g07.bg.WinCondition;
 
-import org.eclipse.emf.common.notify.Notification;
+import no.ntnu.tdt4250.g07.bg.WinConditionElement;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,21 +23,21 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.WinConditionImpl#getInarow <em>Inarow</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.WinConditionImpl#getWinConditionElements <em>Win Condition Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class WinConditionImpl extends BoardGameElementImpl implements WinCondition {
 	/**
-	 * The cached value of the '{@link #getInarow() <em>Inarow</em>}' containment reference.
+	 * The cached value of the '{@link #getWinConditionElements() <em>Win Condition Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInarow()
+	 * @see #getWinConditionElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected InARow inarow;
+	protected EList<WinConditionElement> winConditionElements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,50 +64,12 @@ public class WinConditionImpl extends BoardGameElementImpl implements WinConditi
 	 * @generated
 	 */
 	@Override
-	public InARow getInarow() {
-		return inarow;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetInarow(InARow newInarow, NotificationChain msgs) {
-		InARow oldInarow = inarow;
-		inarow = newInarow;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					BgPackage.WIN_CONDITION__INAROW, oldInarow, newInarow);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+	public EList<WinConditionElement> getWinConditionElements() {
+		if (winConditionElements == null) {
+			winConditionElements = new EObjectContainmentEList<WinConditionElement>(WinConditionElement.class, this,
+					BgPackage.WIN_CONDITION__WIN_CONDITION_ELEMENTS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setInarow(InARow newInarow) {
-		if (newInarow != inarow) {
-			NotificationChain msgs = null;
-			if (inarow != null)
-				msgs = ((InternalEObject) inarow).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - BgPackage.WIN_CONDITION__INAROW, null, msgs);
-			if (newInarow != null)
-				msgs = ((InternalEObject) newInarow).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - BgPackage.WIN_CONDITION__INAROW, null, msgs);
-			msgs = basicSetInarow(newInarow, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.WIN_CONDITION__INAROW, newInarow,
-					newInarow));
+		return winConditionElements;
 	}
 
 	/**
@@ -117,8 +80,8 @@ public class WinConditionImpl extends BoardGameElementImpl implements WinConditi
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case BgPackage.WIN_CONDITION__INAROW:
-			return basicSetInarow(null, msgs);
+		case BgPackage.WIN_CONDITION__WIN_CONDITION_ELEMENTS:
+			return ((InternalEList<?>) getWinConditionElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -131,8 +94,8 @@ public class WinConditionImpl extends BoardGameElementImpl implements WinConditi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case BgPackage.WIN_CONDITION__INAROW:
-			return getInarow();
+		case BgPackage.WIN_CONDITION__WIN_CONDITION_ELEMENTS:
+			return getWinConditionElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -142,11 +105,13 @@ public class WinConditionImpl extends BoardGameElementImpl implements WinConditi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case BgPackage.WIN_CONDITION__INAROW:
-			setInarow((InARow) newValue);
+		case BgPackage.WIN_CONDITION__WIN_CONDITION_ELEMENTS:
+			getWinConditionElements().clear();
+			getWinConditionElements().addAll((Collection<? extends WinConditionElement>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -160,8 +125,8 @@ public class WinConditionImpl extends BoardGameElementImpl implements WinConditi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case BgPackage.WIN_CONDITION__INAROW:
-			setInarow((InARow) null);
+		case BgPackage.WIN_CONDITION__WIN_CONDITION_ELEMENTS:
+			getWinConditionElements().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -175,8 +140,8 @@ public class WinConditionImpl extends BoardGameElementImpl implements WinConditi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case BgPackage.WIN_CONDITION__INAROW:
-			return inarow != null;
+		case BgPackage.WIN_CONDITION__WIN_CONDITION_ELEMENTS:
+			return winConditionElements != null && !winConditionElements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

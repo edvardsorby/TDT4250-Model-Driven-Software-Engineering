@@ -1,0 +1,26 @@
+Title "Sudoku"
+BoardSize 3
+
+ValidMove placePiece{
+	placeAnywhere
+}
+
+PieceType one {
+	Symbol "1"
+	ValidMoves placePiece
+}
+
+PieceType two { 
+	Symbol "2"
+	ValidMoves placePiece
+}
+PieceType three { 
+	Symbol "3"
+	ValidMoves placePiece
+}
+
+WinCondition {
+	Line count 3 horizontal vertical unique
+}
+			  
+			  

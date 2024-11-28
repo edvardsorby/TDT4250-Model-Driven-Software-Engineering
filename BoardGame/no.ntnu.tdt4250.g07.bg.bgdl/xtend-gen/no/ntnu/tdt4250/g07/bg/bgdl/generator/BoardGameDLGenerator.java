@@ -12,7 +12,6 @@ import no.ntnu.tdt4250.g07.bg.BoardGameElement;
 import no.ntnu.tdt4250.g07.bg.Condition;
 import no.ntnu.tdt4250.g07.bg.PieceType;
 import no.ntnu.tdt4250.g07.bg.ValidMove;
-import no.ntnu.tdt4250.g07.bg.WinCondition;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -36,7 +35,9 @@ public class BoardGameDLGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final BoardGame boardGame = IteratorExtensions.<BoardGame>head(Iterators.<BoardGame>filter(resource.getAllContents(), BoardGame.class));
     if ((boardGame != null)) {
-      fsa.generateFile("boardGame.js", this.generateJS(boardGame));
+      String _name = boardGame.getName();
+      String _plus = (_name + ".js");
+      fsa.generateFile(_plus, this.generateJS(boardGame));
     }
   }
 
@@ -53,7 +54,7 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append("    ");
     _builder.append("elements: {");
     _builder.newLine();
-    _builder.append("   ");
+    _builder.append("   \t\t");
     final Function1<BoardGameElement, String> _function = (BoardGameElement it) -> {
       return it.eClass().getName();
     };
@@ -63,12 +64,12 @@ public class BoardGameDLGenerator extends AbstractGenerator {
       final Function1<BoardGameElement, String> _function_2 = (BoardGameElement it_1) -> {
         return this.generateElementJS(it_1);
       };
-      String _join = IterableExtensions.join(ListExtensions.<BoardGameElement, String>map(it.getValue(), _function_2), ",\n");
+      String _join = IterableExtensions.join(ListExtensions.<BoardGameElement, String>map(it.getValue(), _function_2), ",");
       String _plus_1 = (_plus + _join);
       return (_plus_1 + "]");
     };
-    String _join = IterableExtensions.join(IterableExtensions.<Map.Entry<String, List<BoardGameElement>>, String>map(IterableExtensions.<String, BoardGameElement>groupBy(boardGame.getBoardgameelements(), _function).entrySet(), _function_1), ",\n");
-    _builder.append(_join, "   ");
+    String _join = IterableExtensions.join(IterableExtensions.<Map.Entry<String, List<BoardGameElement>>, String>map(IterableExtensions.<String, BoardGameElement>groupBy(boardGame.getBoardGameElements(), _function).entrySet(), _function_1), ",\n");
+    _builder.append(_join, "   \t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("    ");
     _builder.append("}");
@@ -84,16 +85,12 @@ public class BoardGameDLGenerator extends AbstractGenerator {
   public String generateElementJS(final BoardGameElement element) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("{");
-    _builder.newLine();
-    _builder.append("    ");
     final Function1<EStructuralFeature, String> _function = (EStructuralFeature it) -> {
       return this.serializeFeature(it, element);
     };
-    String _join = IterableExtensions.join(ListExtensions.<EStructuralFeature, String>map(element.eClass().getEAllStructuralFeatures(), _function), ",\n");
-    _builder.append(_join, "    ");
-    _builder.newLineIfNotEmpty();
+    String _join = IterableExtensions.join(ListExtensions.<EStructuralFeature, String>map(element.eClass().getEAllStructuralFeatures(), _function), ",");
+    _builder.append(_join);
     _builder.append("}");
-    _builder.newLine();
     return _builder.toString();
   }
 
@@ -108,7 +105,6 @@ public class BoardGameDLGenerator extends AbstractGenerator {
       _builder.append("\": ");
       String _serializeValue = this.serializeValue(value);
       _builder.append(_serializeValue);
-      _builder.newLineIfNotEmpty();
       _xblockexpression = _builder.toString();
     }
     return _xblockexpression;
@@ -125,7 +121,7 @@ public class BoardGameDLGenerator extends AbstractGenerator {
           final Function1<Object, String> _function = (Object it) -> {
             return this.serializeValue(it);
           };
-          String _join = IterableExtensions.join(IterableExtensions.map(((Iterable<?>)value), _function), ", ");
+          String _join = IterableExtensions.join(IterableExtensions.map(((Iterable<?>)value), _function), ", \n");
           String _plus = ("[" + _join);
           return (_plus + "]");
         } else {
@@ -146,116 +142,54 @@ public class BoardGameDLGenerator extends AbstractGenerator {
 
   public String generatePieceType(final PieceType pieceType) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("name: \"");
+    _builder.append("{name: \"");
     String _name = pieceType.getName();
-    _builder.append(_name, "    ");
+    _builder.append(_name);
     _builder.append("\",");
     _builder.newLineIfNotEmpty();
-    _builder.append("    ");
+    _builder.append("            ");
     _builder.append("symbol: \"");
     String _symbol = pieceType.getSymbol();
-    _builder.append(_symbol, "    ");
+    _builder.append(_symbol, "            ");
     _builder.append("\",");
     _builder.newLineIfNotEmpty();
-    _builder.append("    ");
+    _builder.append("            ");
     _builder.append("validmoves: [");
-    _builder.newLine();
-    _builder.append("        ");
     final Function1<ValidMove, String> _function = (ValidMove it) -> {
       return this.generateValidMove(it);
     };
-    String _join = IterableExtensions.join(ListExtensions.<ValidMove, String>map(pieceType.getValidmoves(), _function), ",\n");
-    _builder.append(_join, "        ");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("]");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
+    String _join = IterableExtensions.join(ListExtensions.<ValidMove, String>map(pieceType.getValidMoves(), _function), ",\n");
+    _builder.append(_join, "            ");
+    _builder.append("]}");
     return _builder.toString();
   }
 
   public String generateValidMove(final ValidMove validMove) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("placeAnywhere: ");
+    _builder.append("{placeAnywhere: ");
     boolean _isPlaceAnywhere = validMove.isPlaceAnywhere();
-    _builder.append(_isPlaceAnywhere, "    ");
+    _builder.append(_isPlaceAnywhere);
     _builder.append(",");
     _builder.newLineIfNotEmpty();
-    _builder.append("    ");
+    _builder.append(" ");
     _builder.append("conditions: [");
-    _builder.newLine();
-    _builder.append("        ");
     final Function1<Condition, String> _function = (Condition it) -> {
       return this.generateCondition(it);
     };
     String _join = IterableExtensions.join(ListExtensions.<Condition, String>map(validMove.getConditions(), _function), ",\n");
-    _builder.append(_join, "        ");
+    _builder.append(_join, " ");
+    _builder.append("]}");
     _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("]");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
     return _builder.toString();
   }
 
   public String generateCondition(final Condition condition) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("cellstate: \"");
-    String _name = condition.getCellstate().getName();
-    _builder.append(_name, "    ");
-    _builder.append("\"");
+    _builder.append("{cellstate: \"");
+    String _name = condition.getCellState().getName();
+    _builder.append(_name);
+    _builder.append("\"}");
     _builder.newLineIfNotEmpty();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder.toString();
-  }
-
-  public String generateWinCondition(final WinCondition winCondition) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("inarow: {");
-    _builder.newLine();
-    _builder.append("        ");
-    _builder.append("diagonal: ");
-    boolean _isDiagonal = winCondition.getInarow().isDiagonal();
-    _builder.append(_isDiagonal, "        ");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    _builder.append("        ");
-    _builder.append("horizontal: ");
-    boolean _isHorizontal = winCondition.getInarow().isHorizontal();
-    _builder.append(_isHorizontal, "        ");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    _builder.append("        ");
-    _builder.append("vertical: ");
-    boolean _isVertical = winCondition.getInarow().isVertical();
-    _builder.append(_isVertical, "        ");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    _builder.append("        ");
-    _builder.append("count: ");
-    int _count = winCondition.getInarow().getCount();
-    _builder.append(_count, "        ");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
     return _builder.toString();
   }
 }

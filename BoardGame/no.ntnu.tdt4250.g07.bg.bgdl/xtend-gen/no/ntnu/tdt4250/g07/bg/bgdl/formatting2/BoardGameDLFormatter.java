@@ -6,6 +6,7 @@ package no.ntnu.tdt4250.g07.bg.bgdl.formatting2;
 import com.google.inject.Inject;
 import java.util.Arrays;
 import no.ntnu.tdt4250.g07.bg.BoardGame;
+import no.ntnu.tdt4250.g07.bg.BoardGameElement;
 import no.ntnu.tdt4250.g07.bg.EffectOnCell;
 import no.ntnu.tdt4250.g07.bg.PieceType;
 import no.ntnu.tdt4250.g07.bg.ValidMove;
@@ -24,18 +25,23 @@ public class BoardGameDLFormatter extends AbstractFormatter2 {
   private BoardGameDLGrammarAccess _boardGameDLGrammarAccess;
 
   protected void _format(final BoardGame boardGame, @Extension final IFormattableDocument document) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field piecetypes is undefined for the type BoardGame"
-      + "\nThe method or field cellstates is undefined for the type BoardGame"
-      + "\nThe method or field winConditions is undefined for the type BoardGame"
-      + "\nformat cannot be resolved"
-      + "\nformat cannot be resolved"
-      + "\nformat cannot be resolved");
+    EList<BoardGameElement> _boardGameElements = boardGame.getBoardGameElements();
+    for (final BoardGameElement pieceType : _boardGameElements) {
+      document.<BoardGameElement>format(pieceType);
+    }
+    EList<BoardGameElement> _boardGameElements_1 = boardGame.getBoardGameElements();
+    for (final BoardGameElement cellState : _boardGameElements_1) {
+      document.<BoardGameElement>format(cellState);
+    }
+    EList<BoardGameElement> _boardGameElements_2 = boardGame.getBoardGameElements();
+    for (final BoardGameElement winCondition : _boardGameElements_2) {
+      document.<BoardGameElement>format(winCondition);
+    }
   }
 
   protected void _format(final PieceType pieceType, @Extension final IFormattableDocument document) {
-    EList<ValidMove> _validmoves = pieceType.getValidmoves();
-    for (final ValidMove validMove : _validmoves) {
+    EList<ValidMove> _validMoves = pieceType.getValidMoves();
+    for (final ValidMove validMove : _validMoves) {
       document.<ValidMove>format(validMove);
     }
     EList<EffectOnCell> _effectsoncell = pieceType.getEffectsoncell();

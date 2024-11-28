@@ -69,8 +69,8 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 			return createEffectOnCell();
 		case BgPackage.WIN_CONDITION:
 			return createWinCondition();
-		case BgPackage.IN_AROW:
-			return createInARow();
+		case BgPackage.LINE:
+			return createLine();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -159,9 +159,9 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 	 * @generated
 	 */
 	@Override
-	public InARow createInARow() {
-		InARowImpl inARow = new InARowImpl();
-		return inARow;
+	public Line createLine() {
+		LineImpl line = new LineImpl();
+		return line;
 	}
 
 	/**

@@ -3,20 +3,18 @@
  */
 package no.ntnu.tdt4250.g07.bg.bgdl.generator
 
-import no.ntnu.tdt4250.g07.BoardGame.CellState
+import java.util.Collection
 import no.ntnu.tdt4250.g07.bg.BoardGame
+import no.ntnu.tdt4250.g07.bg.BoardGameElement
 import no.ntnu.tdt4250.g07.bg.Condition
 import no.ntnu.tdt4250.g07.bg.PieceType
 import no.ntnu.tdt4250.g07.bg.ValidMove
-import no.ntnu.tdt4250.g07.bg.WinCondition
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import no.ntnu.tdt4250.g07.bg.BoardGameElement
-import java.util.Collection
-import org.eclipse.emf.ecore.EStructuralFeature
-import org.eclipse.emf.ecore.EObject
 
 /**
  * Generates code from your model files on save.
@@ -29,7 +27,8 @@ class BoardGameDLGenerator extends AbstractGenerator {
     override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
         val boardGame = resource.allContents.filter(BoardGame).head
         if (boardGame !== null) {
-            fsa.generateFile("boardGame.js", generateJS(boardGame))
+            fsa.generateFile(boardGame.name+".js", generateJS(boardGame))
+            
         }
     }
 
@@ -38,8 +37,8 @@ class BoardGameDLGenerator extends AbstractGenerator {
         const boardGame = {
             size: «boardGame.size»,
             elements: {
-           «boardGame.boardgameelements.groupBy[eClass.name].entrySet.map[
-                       key + ': [' + value.map[generateElementJS(it)].join(",\n") + ']'
+           		«boardGame.boardGameElements.groupBy[eClass.name].entrySet.map[
+                       key + ': [' + value.map[generateElementJS(it)].join(",") + ']'
                    ].join(",\n")»
             }
         };
@@ -61,18 +60,12 @@ class BoardGameDLGenerator extends AbstractGenerator {
     }
     
     def String generateElementJS(BoardGameElement element) {
-    '''
-    {
-        «element.eClass.EAllStructuralFeatures.map[serializeFeature(it, element)].join(",\n")»
-    }
-    '''
+    '''{«element.eClass.EAllStructuralFeatures.map[serializeFeature(it, element)].join(",")»}'''
 }
 
 def String serializeFeature(EStructuralFeature feature, EObject element) {
     val value = element.eGet(feature)
-    '''
-    "«feature.name»": «serializeValue(value)»
-    '''
+    '''"«feature.name»": «serializeValue(value)»'''
 }
 
 def String serializeValue(Object value) {
@@ -81,7 +74,7 @@ def String serializeValue(Object value) {
     else if (value instanceof Boolean)
         return value.toString
     else if (value instanceof Collection<?>)
-        return '[' + value.map[serializeValue(it)].join(", ") + ']'
+        return '[' + value.map[serializeValue(it)].join(", \n") + ']'
     else if (value instanceof EObject)
         return '{ ' + value.eClass.EAllStructuralFeatures.map[serializeFeature(it, value)].join(", ") + ' }'
     else
@@ -89,41 +82,29 @@ def String serializeValue(Object value) {
 }
 
     def String generatePieceType(PieceType pieceType) {
-        '''
-        {
-            name: "«pieceType.name»",
+        '''{name: "«pieceType.name»",
             symbol: "«pieceType.symbol»",
-            validmoves: [
-                «pieceType.validmoves.map[generateValidMove(it)].join(",\n")»
-            ]
-        }
-        '''
+            validmoves: [«pieceType.validMoves.map[generateValidMove(it)].join(",\n")»]}'''
     }
 
     def String generateValidMove(ValidMove validMove) {
         '''
-        {
-            placeAnywhere: «validMove.placeAnywhere»,
-            conditions: [
-                «validMove.conditions.map[generateCondition(it)].join(",\n")»
-            ]
-        }
+        {placeAnywhere: «validMove.placeAnywhere»,
+         conditions: [«validMove.conditions.map[generateCondition(it)].join(",\n")»]}
         '''
     }
 
     def String generateCondition(Condition condition) {
         '''
-        {
-            cellstate: "«condition.cellstate.name»"
-        }
+        {cellstate: "«condition.cellState.name»"}
         '''
     }
-
+/**
     def String generateWinCondition(WinCondition winCondition) {
         '''
         {
             inarow: {
-                diagonal: «winCondition.inarow.diagonal»,
+                diagonal: «winCondition.winConditionElements .diagonal»,
                 horizontal: «winCondition.inarow.horizontal»,
                 vertical: «winCondition.inarow.vertical»,
                 count: «winCondition.inarow.count»
@@ -131,5 +112,6 @@ def String serializeValue(Object value) {
         }
         '''
     }
+    *  */
 }
 

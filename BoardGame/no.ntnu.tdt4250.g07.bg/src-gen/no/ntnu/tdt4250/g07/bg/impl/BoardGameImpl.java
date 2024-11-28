@@ -29,34 +29,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getSize <em>Size</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getName <em>Name</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getBoardgameelements <em>Boardgameelements</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getSize <em>Size</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameImpl#getBoardGameElements <em>Board Game Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class BoardGameImpl extends MinimalEObjectImpl.Container implements BoardGame {
-	/**
-	 * The default value of the '{@link #getSize() <em>Size</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSize()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int SIZE_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSize()
-	 * @generated
-	 * @ordered
-	 */
-	protected int size = SIZE_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -78,14 +58,34 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBoardgameelements() <em>Boardgameelements</em>}' containment reference list.
+	 * The default value of the '{@link #getSize() <em>Size</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBoardgameelements()
+	 * @see #getSize()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BoardGameElement> boardgameelements;
+	protected static final int SIZE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSize()
+	 * @generated
+	 * @ordered
+	 */
+	protected int size = SIZE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBoardGameElements() <em>Board Game Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBoardGameElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BoardGameElement> boardGameElements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,12 +158,12 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 	 * @generated
 	 */
 	@Override
-	public EList<BoardGameElement> getBoardgameelements() {
-		if (boardgameelements == null) {
-			boardgameelements = new EObjectContainmentEList<BoardGameElement>(BoardGameElement.class, this,
-					BgPackage.BOARD_GAME__BOARDGAMEELEMENTS);
+	public EList<BoardGameElement> getBoardGameElements() {
+		if (boardGameElements == null) {
+			boardGameElements = new EObjectContainmentEList<BoardGameElement>(BoardGameElement.class, this,
+					BgPackage.BOARD_GAME__BOARD_GAME_ELEMENTS);
 		}
-		return boardgameelements;
+		return boardGameElements;
 	}
 
 	/**
@@ -174,8 +174,8 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case BgPackage.BOARD_GAME__BOARDGAMEELEMENTS:
-			return ((InternalEList<?>) getBoardgameelements()).basicRemove(otherEnd, msgs);
+		case BgPackage.BOARD_GAME__BOARD_GAME_ELEMENTS:
+			return ((InternalEList<?>) getBoardGameElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -188,12 +188,12 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case BgPackage.BOARD_GAME__SIZE:
-			return getSize();
 		case BgPackage.BOARD_GAME__NAME:
 			return getName();
-		case BgPackage.BOARD_GAME__BOARDGAMEELEMENTS:
-			return getBoardgameelements();
+		case BgPackage.BOARD_GAME__SIZE:
+			return getSize();
+		case BgPackage.BOARD_GAME__BOARD_GAME_ELEMENTS:
+			return getBoardGameElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -207,15 +207,15 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case BgPackage.BOARD_GAME__SIZE:
-			setSize((Integer) newValue);
-			return;
 		case BgPackage.BOARD_GAME__NAME:
 			setName((String) newValue);
 			return;
-		case BgPackage.BOARD_GAME__BOARDGAMEELEMENTS:
-			getBoardgameelements().clear();
-			getBoardgameelements().addAll((Collection<? extends BoardGameElement>) newValue);
+		case BgPackage.BOARD_GAME__SIZE:
+			setSize((Integer) newValue);
+			return;
+		case BgPackage.BOARD_GAME__BOARD_GAME_ELEMENTS:
+			getBoardGameElements().clear();
+			getBoardGameElements().addAll((Collection<? extends BoardGameElement>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -229,14 +229,14 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case BgPackage.BOARD_GAME__SIZE:
-			setSize(SIZE_EDEFAULT);
-			return;
 		case BgPackage.BOARD_GAME__NAME:
 			setName(NAME_EDEFAULT);
 			return;
-		case BgPackage.BOARD_GAME__BOARDGAMEELEMENTS:
-			getBoardgameelements().clear();
+		case BgPackage.BOARD_GAME__SIZE:
+			setSize(SIZE_EDEFAULT);
+			return;
+		case BgPackage.BOARD_GAME__BOARD_GAME_ELEMENTS:
+			getBoardGameElements().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -250,12 +250,12 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case BgPackage.BOARD_GAME__SIZE:
-			return size != SIZE_EDEFAULT;
 		case BgPackage.BOARD_GAME__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		case BgPackage.BOARD_GAME__BOARDGAMEELEMENTS:
-			return boardgameelements != null && !boardgameelements.isEmpty();
+		case BgPackage.BOARD_GAME__SIZE:
+			return size != SIZE_EDEFAULT;
+		case BgPackage.BOARD_GAME__BOARD_GAME_ELEMENTS:
+			return boardGameElements != null && !boardGameElements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -271,10 +271,10 @@ public class BoardGameImpl extends MinimalEObjectImpl.Container implements Board
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (size: ");
-		result.append(size);
-		result.append(", name: ");
+		result.append(" (name: ");
 		result.append(name);
+		result.append(", size: ");
+		result.append(size);
 		result.append(')');
 		return result.toString();
 	}
