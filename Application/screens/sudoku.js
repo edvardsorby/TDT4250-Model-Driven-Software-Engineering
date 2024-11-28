@@ -9,7 +9,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 
 import React from 'react'
 
-export default function TicTacToe() {
+export default function Sudoku() {
 
   
   const boardSize = bg.size; // Size of the board
@@ -25,26 +25,51 @@ export default function TicTacToe() {
   const [gameActive, setGameActive] = useState(true);
   const [message, setMessage] = useState(`Player ${players[currentPlayer]}'s turn`);
 
+  const predefinedBoard = [
+    ["🌂",null,null,null,"🎓"],
+    [null,null, null, null,null],
+    [null, null, "🌂", null,null],
+    ["🌞", null, null, null,null],
+    [null, null, null, null,null],
+  ];
+
   const initializeBoard = () => {
-    setBoard(Array(boardSize).fill(Array(boardSize).fill(null)));
-    setCurrentPlayer(0);
-    setGameActive(true);
+    //setBoard(Array(boardSize).fill(Array(boardSize).fill(null))); // IF NOT PREDEFINED BOARD
+    
+    const newBoard = predefinedBoard.map(row => row.slice()); // IF PREDEFINED BOARD
+    setBoard(newBoard);
+
+    setCurrentPlayer(0); 
     setMessage(`Player ${players[currentPlayer]}'s turn`);
+
+    setGameActive(true);
   };
 
-  const onCellClick = (row, col) => {
+  
+  const getValidMoves = (piece,row,col) => {
+    return true;
+  }
 
+  const onCellClick = (row, col) => {
     // ---EFFECT ON CELL---
-    if (!gameActive || board[row][col] !== null) return; //check if occupied   
-    //if(!gameActive) return; //dont check
+    //if (!gameActive || board[row][col] !== null) return; //check if occupied   
+    if(!gameActive) return; //dont check if occupied
+
+    let validMoves = getValidMoves(players[currentPlayer], row,col);
+
+   // let validMoves = getValidMoves(piece, row,col);
 
     const newBoard = board.map((boardRow, rowIndex) =>
       boardRow.map((cell, colIndex) => (rowIndex === row && colIndex === col ? players[currentPlayer] : cell))
     );
 
-    setBoard(newBoard);
 
-    if (checkVictory(players[currentPlayer], newBoard)) {
+    setBoard(newBoard);
+    const nextPlayer = (currentPlayer + 1) % players.length;
+    setCurrentPlayer(nextPlayer);
+
+    // ONLY IN VS.
+    /*if (checkIsFinished(players[currentPlayer], newBoard)) {
       setMessage(`Player ${players[currentPlayer]} wins!`);
       setGameActive(false);
     } else if (checkDraw(newBoard)) {
@@ -54,15 +79,55 @@ export default function TicTacToe() {
       const nextPlayer = (currentPlayer + 1) % players.length;
       setCurrentPlayer(nextPlayer);
       setMessage(`Player ${players[nextPlayer]}'s turn`);
+    }*/
+  };
+
+  const checkIsFinished = () => {
+    const newBoard = board;
+    if(isValidRows(newBoard) && isValidColumns(newBoard)){
+        setGameActive(false);
+        setMessage("Congratulations!");
+    }
+    else {
+        setMessage("The board contains mistakes!");
     }
   };
 
-  const checkVictory = (player, board) => {
+  //const checkIsFinished = (player, board) => { //TIC---TAC---TOE
+   // return checkRow(XInARow, player, board) || 
+    //      checkColumn(XInARow, player, board) || 
+    //      checkDiagonals(XInARow, player, board)||
+      //    
+          //;
+  //};
 
-    return checkRow(XInARow, player, board) || 
-          checkColumn(XInARow, player, board) || 
-          checkDiagonals(XInARow, player, board);
-  };
+  function isValidRows(board) {
+    for (let row = 0; row < boardSize; row++) {
+      if (!isValidGroup(board[row])) return false;
+    }
+    return true;
+  }
+
+  function isValidColumns(board) {
+    for (let col = 0; col < boardSize; col++) {
+      const column = [];
+      for (let row = 0; row < boardSize; row++) {
+        column.push(board[row][col]);
+      }
+      if (!isValidGroup(column)) return false;
+    }
+    return true;
+  }
+
+  function isValidGroup(group) { // valid group = unique elements
+    const seen = new Set();
+    for (const value of group) {
+      if (value === 0) continue; 
+      if (seen.has(value)) return false;
+      seen.add(value);
+    }
+    return true;
+  }
 
   const checkRow = (num, player, board) => {
     for (let row = 0; row < boardSize; row++) {
@@ -144,7 +209,7 @@ export default function TicTacToe() {
   return (
     
 <View style={styles.container}>
-      <Text style={styles.title}>{bg.boardGameName}</Text>
+      <Text style={styles.title}>SUDOKU</Text>
       <Text >Board size: {boardSize}</Text>
       <Text >Win condition: {XInARow} in a row</Text>
       <View style={styles.board}>
@@ -162,6 +227,7 @@ export default function TicTacToe() {
       </View>
       <Text style={styles.message}>{message}</Text>
       <CustomButton title="Reset" onPress={resetGame} />
+      <CustomButton title="Valider" onPress={checkIsFinished} />
     </View>
   )
 }

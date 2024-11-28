@@ -5,7 +5,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTranslation } from "react-i18next";
 import { globalStyles } from "../styles/global";
 
-export default function PlaySudoku( { route } ) {
+export default function PlaySudokuOld( { route } ) {
 
   const { t } = useTranslation();
 

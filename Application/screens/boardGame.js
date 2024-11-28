@@ -4,18 +4,23 @@ import CustomButton from "../components/button";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTranslation } from "react-i18next";
 import { globalStyles } from "../styles/global";
-import bg from "../src-gen/bg.js"
 import { RFValue } from "react-native-responsive-fontsize";
-
 import React from 'react'
 
-export default function TicTacToe() {
+/*---Generated resources---*/
+//pieces and game
+import bg from "../src-gen/bg.js"
+//board
+//import board from "../src-gen/gameBoard.js"
 
-  
+export default function BoardGame2() {
   const boardSize = bg.size; // Size of the board
   const players = []; // Players
+  
   const XInARow = bg.winConditions[0].inarow.count; // Win condition: X in a row
-  //const XInARow = 2;
+
+
+//Add piece symbols to player list
   bg.piecetypes.forEach((piece) => {
     players.push(piece.symbol);
   });
@@ -23,48 +28,115 @@ export default function TicTacToe() {
   const [board, setBoard] = useState(Array(boardSize).fill(Array(boardSize).fill(null)));
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [gameActive, setGameActive] = useState(true);
+
+  // start message
   const [message, setMessage] = useState(`Player ${players[currentPlayer]}'s turn`);
 
+  //Board
+  const predefinedBoard = [
+    ["🌂",null,null,null,"🎓"],
+    [null,null, null, null,null],
+    [null, null, "🌂", null,null],
+    ["🌞", null, null, null,null],
+    [null, null, null, null,null],
+  ];
+
+  
   const initializeBoard = () => {
-    setBoard(Array(boardSize).fill(Array(boardSize).fill(null)));
-    setCurrentPlayer(0);
+    const newBoard = predefinedBoard.map(row => row.slice()); 
+    setBoard(newBoard);
+
+    //TURN BASED GAMES
+    setCurrentPlayer(0); 
+    setMessage(`Next Piece ${players[currentPlayer]}`);
+
     setGameActive(true);
-    setMessage(`Player ${players[currentPlayer]}'s turn`);
   };
 
+  useEffect(() => {   
+    initializeBoard()
+  }, []);
+
   const onCellClick = (row, col) => {
+    // ---EFFECT ON CELL ---
+    //if (!gameActive || board[row][col] !== null) return; //check if occupied   
+    if(!gameActive) return; //dont check if occupied
 
-    // ---EFFECT ON CELL---
-    if (!gameActive || board[row][col] !== null) return; //check if occupied   
-    //if(!gameActive) return; //dont check
-
+    //placing the piece
     const newBoard = board.map((boardRow, rowIndex) =>
       boardRow.map((cell, colIndex) => (rowIndex === row && colIndex === col ? players[currentPlayer] : cell))
     );
-
     setBoard(newBoard);
 
-    if (checkVictory(players[currentPlayer], newBoard)) {
+    const nextPlayer = (currentPlayer + 1) % players.length;
+    setCurrentPlayer(nextPlayer);
+
+    
+
+    if (checkIsFinished(newBoard)) {
       setMessage(`Player ${players[currentPlayer]} wins!`);
       setGameActive(false);
-    } else if (checkDraw(newBoard)) {
-      setMessage("It's a draw!");
-      setGameActive(false);
-    } else {
-      const nextPlayer = (currentPlayer + 1) % players.length;
-      setCurrentPlayer(nextPlayer);
-      setMessage(`Player ${players[nextPlayer]}'s turn`);
+    } 
+  };
+
+
+
+  /// WIN CONDITIONS
+  const checkIsFinished = () => {
+    
+    bg.winConditions
+
+    const newBoard = board;
+
+    //sudoku stuff
+    if(isValidRows(newBoard) && 
+    isValidColumns(newBoard)){
+        setGameActive(false);
+        setMessage("Congratulations!");
+    }
+    else {
+        setMessage("The board contains mistakes!");
     }
   };
 
-  const checkVictory = (player, board) => {
+    //TIC---TAC---TOE
+  /*const checkIsFinished = (player, board) => { 
+    return xInARow(XInARow, player, board) || 
+          xInAColumn(XInARow, player, board) || 
+          xInDiagonal(XInARow, player, board)||
+          
+          ;
+  };*/
 
-    return checkRow(XInARow, player, board) || 
-          checkColumn(XInARow, player, board) || 
-          checkDiagonals(XInARow, player, board);
-  };
+  function isValidRows(board) {
+    for (let row = 0; row < boardSize; row++) {
+      if (!isUniqueGroup(board[row])) return false;
+    }
+    return true;
+  }
 
-  const checkRow = (num, player, board) => {
+  function isValidColumns(board) {
+    for (let col = 0; col < boardSize; col++) {
+      const column = [];
+      for (let row = 0; row < boardSize; row++) {
+        column.push(board[row][col]);
+      }
+      if (!isUniqueGroup(column)) return false;
+    }
+    return true;
+  }
+
+  function isUniqueGroup(group) { // valid group = unique elements
+    const seen = new Set();
+    for (const value of group) {
+      if (value === 0) continue; 
+      if (seen.has(value)) return false;
+      seen.add(value);
+    }
+    return true;
+  }
+
+  const xInARow = (num, player, board) => {
     for (let row = 0; row < boardSize; row++) {
       let count = 0;
       for (let col = 0; col < boardSize; col++) {
@@ -79,7 +151,7 @@ export default function TicTacToe() {
     return false;
   };
 
-  const checkColumn = (num, player, board) => {
+  const xInAColumn = (num, player, board) => {
     for (let col = 0; col < boardSize; col++) {
       let count = 0;
       for (let row = 0; row < boardSize; row++) {
@@ -94,7 +166,7 @@ export default function TicTacToe() {
     return false;
   };
 
-  const checkDiagonals = (num, player, board) => {
+  const xInDiagonal = (num, player, board) => {
     const countDiagonalMatches = (startRow, startCol, deltaRow, deltaCol) => {
       let count = 0;
       let row = startRow;
@@ -133,14 +205,13 @@ export default function TicTacToe() {
     return false;
   };
 
-  const checkDraw = (board) => {
+  const checkIfBoardIsFilled = (board) => {
     return board.flat().every((cell) => cell !== null);
   };
 
   const resetGame = () => {
     initializeBoard();
   };
-  
   return (
     
 <View style={styles.container}>
@@ -162,6 +233,7 @@ export default function TicTacToe() {
       </View>
       <Text style={styles.message}>{message}</Text>
       <CustomButton title="Reset" onPress={resetGame} />
+      <CustomButton title="Valider" onPress={checkIsFinished} />
     </View>
   )
 }

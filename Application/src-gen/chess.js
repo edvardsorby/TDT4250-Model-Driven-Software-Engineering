@@ -1,5 +1,5 @@
 const boardGame = {
-    boardGameName: "Hallo",
+    boardGameName: "Tic-Tac-Toe",
   size: 5,
   piecetypes: [
       {
@@ -16,8 +16,8 @@ const boardGame = {
                   ]
               },
               {
-                placeAnywhere: true,//false
-                  //relativePosition: {x:1, y:}:
+                placeAnywhere: false,
+                relativePosition: {x:2, y:2},
                 conditions: [
                     {
                         cellstate: "Occupied"

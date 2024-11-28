@@ -107,7 +107,7 @@ export default function StartSudoku( { navigation }) {
       
       solution = sudoku.solution;
       
-      navigation.navigate('PlaySudoku', {
+      navigation.navigate('PlaySudokuOld', {
         value: value,
         init: init,
         solution: solution,

@@ -10,6 +10,12 @@ import {useTranslation} from 'react-i18next';
 import './i18n/i18n'; 
 import CustomButton from './components/button.js';
 import LangButton from './components/langButton.js';
+import Sudoku from './screens/sudoku.js';
+import PlaySudokuOld from './screens/playSudoku.js';
+import Chess from './screens/chess.js';
+import BoardGame from './screens/boardGame.js';
+import BoardGame2 from './screens/boardGame.js';
+import ChatGame from './screens/chatgame.js';
 
 
 const Stack = createNativeStackNavigator();
@@ -36,7 +42,15 @@ export default function App() {
         />
         <Stack.Screen name='StartSudoku' component={StartSudoku} />
         <Stack.Screen name='PlayExperimental' component={TicTacToe} />
-        <Stack.Screen name='PlaySudoku' component={PlaySudoku} 
+        <Stack.Screen name='PlaySudoku' component={Sudoku} />
+        <Stack.Screen name='PlayChess' component={Chess} />
+        <Stack.Screen name='PlayChatGame' component={ChatGame} />
+        <Stack.Screen name='PlayBoardGame2' component={BoardGame2} 
+               options={{
+                headerTitle: "hallo",
+              }}
+        />
+        <Stack.Screen name='PlaySudokuOld' component={PlaySudokuOld} 
           options={{
             headerTitle: t("Playing Sudoku"),
           }}
