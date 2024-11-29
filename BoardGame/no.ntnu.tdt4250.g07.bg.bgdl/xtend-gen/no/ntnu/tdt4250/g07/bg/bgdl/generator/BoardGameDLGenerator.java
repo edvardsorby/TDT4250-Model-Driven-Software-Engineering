@@ -6,8 +6,6 @@ package no.ntnu.tdt4250.g07.bg.bgdl.generator;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
 import java.util.Collection;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import no.ntnu.tdt4250.g07.bg.BoardGame;
 import no.ntnu.tdt4250.g07.bg.BoardGameElement;
@@ -40,18 +38,10 @@ public class BoardGameDLGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final BoardGame boardGame = IteratorExtensions.<BoardGame>head(Iterators.<BoardGame>filter(resource.getAllContents(), BoardGame.class));
     if ((boardGame != null)) {
-      String _name = boardGame.getName();
-      String _plus = (_name + "_config.js");
-      fsa.generateFile(_plus, this.generateConfigJS(boardGame));
-      String _name_1 = boardGame.getName();
-      String _plus_1 = (_name_1 + "_winConditions.js");
-      fsa.generateFile(_plus_1, this.generateWinConditions(boardGame));
-      String _name_2 = boardGame.getName();
-      String _plus_2 = (_name_2 + "_testGame.js");
-      fsa.generateFile(_plus_2, this.generateTestGame(boardGame));
-      String _name_3 = boardGame.getName();
-      String _plus_3 = (_name_3 + "boardStyles.js");
-      fsa.generateFile(_plus_3, this.generateStyle(boardGame));
+      fsa.generateFile("config.js", this.generateConfigJS(boardGame));
+      fsa.generateFile("winConditions.js", this.generateWinConditionsJS(boardGame));
+      fsa.generateFile("boardGame.js", this.generateBoardGameJS(boardGame));
+      fsa.generateFile("boardStyles.js", this.generateBoardStyleJS(boardGame));
     }
   }
 
@@ -71,29 +61,21 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append(_size, "    ");
     _builder.append(",");
     _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("config: {");
-    _builder.newLine();
-    _builder.append("   \t\t");
-    final Function1<BoardGameElement, String> _function = (BoardGameElement it) -> {
-      return it.eClass().getName();
-    };
-    final Function1<Map.Entry<String, List<BoardGameElement>>, String> _function_1 = (Map.Entry<String, List<BoardGameElement>> it) -> {
-      String _decapitalize = this.decapitalize(it.getKey());
-      String _plus = (_decapitalize + ": [");
-      final Function1<BoardGameElement, String> _function_2 = (BoardGameElement it_1) -> {
-        return this.generateElementJS(it_1);
-      };
-      String _join = IterableExtensions.join(ListExtensions.<BoardGameElement, String>map(it.getValue(), _function_2), ",");
-      String _plus_1 = (_plus + _join);
-      return (_plus_1 + "]");
-    };
-    String _join = IterableExtensions.join(IterableExtensions.<Map.Entry<String, List<BoardGameElement>>, String>map(IterableExtensions.<String, BoardGameElement>groupBy(boardGame.getBoardGameElements(), _function).entrySet(), _function_1), ",\n");
-    _builder.append(_join, "   \t\t");
+    _builder.append("     ");
+    final Iterable<PieceType> pieceTypes = Iterables.<PieceType>filter(boardGame.getBoardGameElements(), PieceType.class);
     _builder.newLineIfNotEmpty();
     _builder.append("    ");
-    _builder.append("}");
-    _builder.newLine();
+    _builder.append("pieces: [");
+    {
+      for(final PieceType pieceType : pieceTypes) {
+        _builder.append("\"");
+        String _symbol = pieceType.getSymbol();
+        _builder.append(_symbol, "    ");
+        _builder.append("\", ");
+      }
+    }
+    _builder.append("],");
+    _builder.newLineIfNotEmpty();
     _builder.append("};");
     _builder.newLine();
     _builder.newLine();
@@ -160,14 +142,12 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     }
   }
 
-  public CharSequence generateWinConditions(final BoardGame boardGame) {
+  public CharSequence generateWinConditionsJS(final BoardGame boardGame) {
     CharSequence _xblockexpression = null;
     {
       final Iterable<WinCondition> winConditions = Iterables.<WinCondition>filter(boardGame.getBoardGameElements(), WinCondition.class);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("// Auto-generated JavaScript for win conditions");
-      _builder.newLine();
-      _builder.append("import bg from \"../src-gen/bg\"");
       _builder.newLine();
       _builder.append("const boardSize = ");
       int _size = boardGame.getSize();
@@ -199,17 +179,16 @@ public class BoardGameDLGenerator extends AbstractGenerator {
                     Direction _direction = ((Line)winConditionElement).getDirection();
                     boolean _equals = Objects.equals(_direction, Direction.ROW);
                     if (_equals) {
-                      _builder.append("if(inARow(");
+                      _builder.append("    \t\t\t");
+                      _builder.append("const inARowLength = ");
                       int _length = ((Line)winConditionElement).getLength();
-                      _builder.append(_length);
-                      _builder.append(", player, board)) {");
+                      _builder.append(_length, "    \t\t\t");
                       _builder.newLineIfNotEmpty();
+                      _builder.append("if(inARow(inARowLength, player, board)) {");
+                      _builder.newLine();
                       _builder.append("\t");
-                      _builder.append("setMessage(`Player ${players[currentPlayer]} wins because of ");
-                      int _length_1 = ((Line)winConditionElement).getLength();
-                      _builder.append(_length_1, "\t");
-                      _builder.append(" in a row!`);");
-                      _builder.newLineIfNotEmpty();
+                      _builder.append("setMessage(`Player ${players[currentPlayer]} wins because of ${inARowLength} in a row!`);");
+                      _builder.newLine();
                       _builder.append("\t");
                       _builder.append("return true");
                       _builder.newLine();
@@ -219,40 +198,40 @@ public class BoardGameDLGenerator extends AbstractGenerator {
                       Direction _direction_1 = ((Line)winConditionElement).getDirection();
                       boolean _equals_1 = Objects.equals(_direction_1, Direction.COLUMN);
                       if (_equals_1) {
-                        _builder.append("if(inAColumn(");
-                        int _length_2 = ((Line)winConditionElement).getLength();
-                        _builder.append(_length_2);
-                        _builder.append(", player, board)) {");
+                        _builder.append("const inAColumnLength = ");
+                        int _length_1 = ((Line)winConditionElement).getLength();
+                        _builder.append(_length_1);
                         _builder.newLineIfNotEmpty();
-                        _builder.append("\t");
-                        _builder.append("setMessage(`Player ${players[currentPlayer]} wins because of ");
-                        int _length_3 = ((Line)winConditionElement).getLength();
-                        _builder.append(_length_3, "\t");
-                        _builder.append(" in a column!`);");
-                        _builder.newLineIfNotEmpty();
-                        _builder.append("\t");
+                        _builder.append("\t     \t\t");
+                        _builder.append("if(inAColumn(inAColumnLength, player, board)) {");
+                        _builder.newLine();
+                        _builder.append("\t     \t\t\t");
+                        _builder.append("setMessage(`Player ${players[currentPlayer]} wins because of ${inAColumnLength} in a column!`);");
+                        _builder.newLine();
+                        _builder.append("\t     \t\t\t");
                         _builder.append("return true");
                         _builder.newLine();
+                        _builder.append("\t     \t\t");
                         _builder.append("}");
                         _builder.newLine();
                       } else {
                         Direction _direction_2 = ((Line)winConditionElement).getDirection();
                         boolean _equals_2 = Objects.equals(_direction_2, Direction.DIAGONAL);
                         if (_equals_2) {
-                          _builder.append("if(inDiagonal(");
-                          int _length_4 = ((Line)winConditionElement).getLength();
-                          _builder.append(_length_4);
-                          _builder.append(", player, board)) {");
+                          _builder.append("const inADiagonalLength = ");
+                          int _length_2 = ((Line)winConditionElement).getLength();
+                          _builder.append(_length_2);
                           _builder.newLineIfNotEmpty();
-                          _builder.append("\t");
-                          _builder.append("setMessage(`Player ${players[currentPlayer]} wins because of ");
-                          int _length_5 = ((Line)winConditionElement).getLength();
-                          _builder.append(_length_5, "\t");
-                          _builder.append(" in a diagonal!`);");
-                          _builder.newLineIfNotEmpty();
-                          _builder.append("\t");
+                          _builder.append("\t     \t\t");
+                          _builder.append("if(inDiagonal(inADiagonalLength, player, board)) {");
+                          _builder.newLine();
+                          _builder.append("\t     \t\t\t");
+                          _builder.append("setMessage(`Player ${players[currentPlayer]} wins because of ${inADiagonalLength} in a diagonal!`);");
+                          _builder.newLine();
+                          _builder.append("\t     \t\t\t");
                           _builder.append("return true");
                           _builder.newLine();
+                          _builder.append("\t     \t\t");
                           _builder.append("}");
                           _builder.newLine();
                         }
@@ -495,46 +474,31 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     return _xblockexpression;
   }
 
-  public CharSequence generateTestGame(final BoardGame boardGame) {
+  public CharSequence generateBoardGameJS(final BoardGame boardGame) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import { View, StyleSheet, TouchableOpacity, Text, TextInput, Alert, Pressable, Button } from \"react-native\";");
     _builder.newLine();
     _builder.append("import { useState, useEffect } from \"react\";");
     _builder.newLine();
-    _builder.append("import CustomButton from \"../components/button\";");
+    _builder.append("import CustomButton from \"../components/button.js\";");
     _builder.newLine();
     _builder.append("import AsyncStorage from \"@react-native-async-storage/async-storage\";");
     _builder.newLine();
     _builder.append("import { useTranslation } from \"react-i18next\";");
     _builder.newLine();
-    _builder.append("import { globalStyles } from \"../styles/global\";");
+    _builder.append("import { globalStyles } from \"../styles/global.js\";");
     _builder.newLine();
-    _builder.append("import { boardStyles } from \"./imports.js\";");
-    _builder.newLine();
+    _builder.append("import { boardStyles } from \"./boardStyles.js\";");
     _builder.newLine();
     _builder.append("import { RFValue } from \"react-native-responsive-fontsize\";");
     _builder.newLine();
-    _builder.newLine();
     _builder.append("import React from \'react\'");
     _builder.newLine();
-    _builder.append("/*---Generated resources---*/");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("//pieces and game");
-    _builder.newLine();
-    _builder.append("import bg from \"../src-gen/bg.js\"");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("//generated board");
-    _builder.newLine();
-    _builder.append("//import gameBoard from \"../src-gen/gameBoard.js\"");
-    _builder.newLine();
-    _builder.append("import { checkIsFinishedFunction } from \"./isFin.js\";");
+    _builder.append("import { checkIsFinishedFunction } from \"./winConditions.js\";");
     _builder.newLine();
     _builder.newLine();
     _builder.newLine();
-    _builder.newLine();
-    _builder.append("export default function TestGame() {");
+    _builder.append("export default function BoardGame() {");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("const boardSize = ");
@@ -657,6 +621,15 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append("setGameActive(false);");
     _builder.newLine();
     _builder.append("    ");
+    _builder.append("} else if (checkIfBoardIsFilled(newBoard)) {");
+    _builder.newLine();
+    _builder.append("          ");
+    _builder.append("setMessage(\"It\'s a draw!\");");
+    _builder.newLine();
+    _builder.append("          ");
+    _builder.append("setGameActive(false);");
+    _builder.newLine();
+    _builder.append("    ");
     _builder.append("} else {");
     _builder.newLine();
     _builder.append("      ");
@@ -711,13 +684,46 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("<View style={boardStyles.container}>");
     _builder.newLine();
-    _builder.append("      ");
+    _builder.append("     ");
     _builder.append("<Text style={boardStyles.title}>");
     String _name = boardGame.getName();
-    _builder.append(_name, "      ");
+    _builder.append(_name, "     ");
     _builder.append("</Text>");
     _builder.newLineIfNotEmpty();
+    _builder.append("     ");
+    _builder.append("<View style={boardStyles.rules}>");
+    _builder.newLine();
+    _builder.append("\t\t             ");
+    _builder.append("<Text style={boardStyles.rule}>Rules:</Text>");
+    _builder.newLine();
+    _builder.append("\t             ");
+    _builder.newLine();
     _builder.append("      ");
+    final Iterable<WinCondition> winConditions = Iterables.<WinCondition>filter(boardGame.getBoardGameElements(), WinCondition.class);
+    _builder.newLineIfNotEmpty();
+    {
+      for(final WinCondition winCondition : winConditions) {
+        {
+          EList<WinConditionElement> _winConditionElements = winCondition.getWinConditionElements();
+          for(final WinConditionElement winConditionElement : _winConditionElements) {
+            {
+              if ((winConditionElement instanceof Line)) {
+                _builder.append("<Text style={boardStyles.rule}>");
+                int _length = ((Line)winConditionElement).getLength();
+                _builder.append(_length);
+                _builder.append("  in a ");
+                String _lowerCase = ((Line)winConditionElement).getDirection().toString().toLowerCase();
+                _builder.append(_lowerCase);
+                _builder.append("</Text>");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("    ");
+    _builder.append("</View>\t");
     _builder.newLine();
     _builder.append("      ");
     _builder.append("<View style={boardStyles.board}>");
@@ -777,7 +783,7 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     return _builder;
   }
 
-  public CharSequence generateStyle(final BoardGame boardGame) {
+  public CharSequence generateBoardStyleJS(final BoardGame boardGame) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("import { StyleSheet } from \"react-native\";");
     _builder.newLine();
@@ -897,7 +903,35 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append("  ");
     _builder.append("},");
     _builder.newLine();
+    _builder.append("  ");
+    _builder.append("rules: {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("padding: 5,");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("marginBottom: 10,");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("backgroundColor: \"#ffff99\",");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("borderRadius: 5,");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("},");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("rule: {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("margin: 0");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}");
+    _builder.newLine();
     _builder.append("});");
+    _builder.newLine();
     _builder.newLine();
     return _builder;
   }

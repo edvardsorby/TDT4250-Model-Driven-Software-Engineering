@@ -1,28 +1,18 @@
 import { View, StyleSheet, TouchableOpacity, Text, TextInput, Alert, Pressable, Button } from "react-native";
 import { useState, useEffect } from "react";
-import CustomButton from "../components/button";
+import CustomButton from "../components/button.js";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTranslation } from "react-i18next";
-import { globalStyles } from "../styles/global";
-import { boardStyles } from "./imports.js";
-
+import { globalStyles } from "../styles/global.js";
+import { boardStyles } from "./boardStyles.js";
 import { RFValue } from "react-native-responsive-fontsize";
-
 import React from 'react'
-/*---Generated resources---*/
-
-//pieces and game
-import bg from "../src-gen/bg.js"
-
-//generated board
-//import gameBoard from "../src-gen/gameBoard.js"
-import { checkIsFinishedFunction } from "./isFin.js";
+import { checkIsFinishedFunction } from "./winConditions.js";
 
 
-
-export default function TestGame() {
+export default function BoardGame() {
   const boardSize = 5; // Size of the board
-  const players = ["❌", "⭕", ]; // Players
+  const players = ["🧑‍🌾", "🐄", "🐔", ]; // Players
 	
   const [board, setBoard] = useState(Array(boardSize).fill(Array(boardSize).fill(null)));
   const [currentPlayer, setCurrentPlayer] = useState(0);
@@ -63,6 +53,9 @@ export default function TestGame() {
 
     if (checkIsFinished(newBoard)) {
       setGameActive(false);
+    } else if (checkIfBoardIsFilled(newBoard)) {
+          setMessage("It's a draw!");
+          setGameActive(false);
     } else {
       const nextPlayer = (currentPlayer + 1) % players.length;
       setCurrentPlayer(nextPlayer);
@@ -84,8 +77,14 @@ export default function TestGame() {
   return (
     
 <View style={boardStyles.container}>
-      <Text style={boardStyles.title}>{Tic-Tac-Toe}</Text>
-      
+     <Text style={boardStyles.title}>Bondesjakk</Text>
+     <View style={boardStyles.rules}>
+		             <Text style={boardStyles.rule}>Rules:</Text>
+	             
+<Text style={boardStyles.rule}>4  in a row</Text>
+<Text style={boardStyles.rule}>3  in a column</Text>
+<Text style={boardStyles.rule}>4  in a diagonal</Text>
+    </View>	
       <View style={boardStyles.board}>
         {board.map((row, rowIndex) =>
           row.map((cell, colIndex) => (

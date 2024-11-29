@@ -5,7 +5,7 @@
     <semanticResources>bg.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_uXvgUKAXEe-OTJOu8I8qpg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_uY5W4KAXEe-OTJOu8I8qpg" name="bg" repPath="#_uYg8YKAXEe-OTJOu8I8qpg" changeId="1732890276632">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_uY5W4KAXEe-OTJOu8I8qpg" name="bg" repPath="#_uYg8YKAXEe-OTJOu8I8qpg" changeId="1732896863329">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="bg.ecore#/"/>
       </ownedRepresentationDescriptors>

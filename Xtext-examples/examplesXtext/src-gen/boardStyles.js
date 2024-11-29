@@ -37,4 +37,14 @@ export const boardStyles = StyleSheet.create({
     marginVertical: 10,
     color: "#023535",
   },
+  rules: {
+    padding: 5,
+    marginBottom: 10,
+    backgroundColor: "#ffff99",
+    borderRadius: 5,
+  },
+  rule: {
+    margin: 0
+  }
 });
+

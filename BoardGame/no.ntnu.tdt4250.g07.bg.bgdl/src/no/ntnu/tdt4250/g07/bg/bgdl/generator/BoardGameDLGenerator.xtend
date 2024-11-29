@@ -31,10 +31,10 @@ class BoardGameDLGenerator extends AbstractGenerator {
     override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
         val boardGame = resource.allContents.filter(BoardGame).head
         if (boardGame !== null) {
-            fsa.generateFile(boardGame.name+"_config.js", generateConfigJS(boardGame)) 
-            fsa.generateFile(boardGame.name+"_winConditions.js", generateWinConditions(boardGame))
-            fsa.generateFile(boardGame.name+"_testGame.js", generateTestGame(boardGame))
-            fsa.generateFile(boardGame.name+"boardStyles.js", generateStyle(boardGame))  
+            fsa.generateFile("config.js", generateConfigJS(boardGame)) 
+            fsa.generateFile("winConditions.js", generateWinConditionsJS(boardGame))
+            fsa.generateFile("boardGame.js", generateBoardGameJS(boardGame))
+            fsa.generateFile("boardStyles.js", generateBoardStyleJS(boardGame))  
         }
     }
 
@@ -43,15 +43,19 @@ class BoardGameDLGenerator extends AbstractGenerator {
         const boardGame = {
         	title: "«boardGame.name»",
             size: «boardGame.size»,
-            config: {
-           		«boardGame.boardGameElements.groupBy[eClass.name].entrySet.map[
-                       decapitalize(key) + ': [' + value.map[generateElementJS(it)].join(",") + ']'
-                   ].join(",\n")»
-            }
+             «val pieceTypes = boardGame.boardGameElements.filter(PieceType)»
+            pieces: [«FOR pieceType : pieceTypes»"«pieceType.symbol»", «ENDFOR»],
         };
 
         export default boardGame;
         '''
+        /**
+         *        config: {
+           		«boardGame.boardGameElements.groupBy[eClass.name].entrySet.map[
+                       decapitalize(key) + ': [' + value.map[generateElementJS(it)].join(",") + ']'
+                   ].join(",\n")»
+            }
+         */
     }
     
     def String generateElementJS(BoardGameElement element) {
@@ -77,11 +81,10 @@ class BoardGameDLGenerator extends AbstractGenerator {
 	}
 	
 	
-		def generateWinConditions(BoardGame boardGame){
+		def generateWinConditionsJS(BoardGame boardGame){
 		val winConditions = boardGame.boardGameElements.filter(WinCondition)
 		'''
 			// Auto-generated JavaScript for win conditions
-			import bg from "../src-gen/bg"
 			const boardSize = «boardGame.size»;
 			  
 			export function checkIsFinishedFunction(board, players, currentPlayer, setMessage) {
@@ -93,18 +96,21 @@ class BoardGameDLGenerator extends AbstractGenerator {
     				«FOR winConditionElement : winCondition.winConditionElements »
     			     	«IF winConditionElement instanceof Line»
     			     		«IF winConditionElement.direction == Direction.ROW»
-				if(inARow(«winConditionElement.length», player, board)) {
-					setMessage(`Player ${players[currentPlayer]} wins because of «winConditionElement.length» in a row!`);
+    			const inARowLength = «winConditionElement.length»
+				if(inARow(inARowLength, player, board)) {
+					setMessage(`Player ${players[currentPlayer]} wins because of ${inARowLength} in a row!`);
 					return true
 				}
     						«ELSEIF winConditionElement.direction == Direction.COLUMN»
-	     		if(inAColumn(«winConditionElement.length», player, board)) {
-	     			setMessage(`Player ${players[currentPlayer]} wins because of «winConditionElement.length» in a column!`);
+    			const inAColumnLength = «winConditionElement.length»
+	     		if(inAColumn(inAColumnLength, player, board)) {
+	     			setMessage(`Player ${players[currentPlayer]} wins because of ${inAColumnLength} in a column!`);
 	     			return true
 	     		}
     						«ELSEIF winConditionElement.direction == Direction.DIAGONAL»
-	     		if(inDiagonal(«winConditionElement.length», player, board)) {
-	     			setMessage(`Player ${players[currentPlayer]} wins because of «winConditionElement.length» in a diagonal!`);
+    			const inADiagonalLength = «winConditionElement.length»
+	     		if(inDiagonal(inADiagonalLength, player, board)) {
+	     			setMessage(`Player ${players[currentPlayer]} wins because of ${inADiagonalLength} in a diagonal!`);
 	     			return true
 	     		}
     			     		«ENDIF»
@@ -195,31 +201,21 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			'''
 			}
 	
-	def generateTestGame(BoardGame boardGame) {
+	def generateBoardGameJS(BoardGame boardGame) {
 		'''
 			import { View, StyleSheet, TouchableOpacity, Text, TextInput, Alert, Pressable, Button } from "react-native";
 			import { useState, useEffect } from "react";
-			import CustomButton from "../components/button";
+			import CustomButton from "../components/button.js";
 			import AsyncStorage from "@react-native-async-storage/async-storage";
 			import { useTranslation } from "react-i18next";
-			import { globalStyles } from "../styles/global";
-			import { boardStyles } from "./imports.js";
-			
+			import { globalStyles } from "../styles/global.js";
+			import { boardStyles } from "./boardStyles.js";
 			import { RFValue } from "react-native-responsive-fontsize";
-			
 			import React from 'react'
-			/*---Generated resources---*/
-			
-			//pieces and game
-			import bg from "../src-gen/bg.js"
-			
-			//generated board
-			//import gameBoard from "../src-gen/gameBoard.js"
-			import { checkIsFinishedFunction } from "./isFin.js";
+			import { checkIsFinishedFunction } from "./winConditions.js";
 			
 			
-			
-			export default function TestGame() {
+			export default function BoardGame() {
 			  const boardSize = «boardGame.size»; // Size of the board
 			  «val pieceTypes = boardGame.boardGameElements.filter(PieceType)»
 			  const players = [«FOR pieceType : pieceTypes»"«pieceType.symbol»", «ENDFOR»]; // Players
@@ -263,6 +259,9 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			
 			    if (checkIsFinished(newBoard)) {
 			      setGameActive(false);
+			    } else if (checkIfBoardIsFilled(newBoard)) {
+			          setMessage("It's a draw!");
+			          setGameActive(false);
 			    } else {
 			      const nextPlayer = (currentPlayer + 1) % players.length;
 			      setCurrentPlayer(nextPlayer);
@@ -284,8 +283,19 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			  return (
 			    
 			<View style={boardStyles.container}>
-			      <Text style={boardStyles.title}>«boardGame.name»</Text>
-			      
+			     <Text style={boardStyles.title}>«boardGame.name»</Text>
+			     <View style={boardStyles.rules}>
+		             <Text style={boardStyles.rule}>Rules:</Text>
+	             
+			      «val winConditions = boardGame.boardGameElements.filter(WinCondition)»
+			        «FOR winCondition : winConditions»
+         				«FOR winConditionElement : winCondition.winConditionElements »
+         			     	«IF winConditionElement instanceof Line»
+         			     		 		<Text style={boardStyles.rule}>«winConditionElement.length»  in a «winConditionElement.direction.toString.toLowerCase»</Text>
+         			     	«ENDIF»
+        			 	«ENDFOR»
+			    «ENDFOR»
+			    </View>	
 			      <View style={boardStyles.board}>
 			        {board.map((row, rowIndex) =>
 			          row.map((cell, colIndex) => (
@@ -308,7 +318,7 @@ class BoardGameDLGenerator extends AbstractGenerator {
 		'''
 	}
 	
-	def generateStyle(BoardGame boardGame) {
+	def generateBoardStyleJS(BoardGame boardGame) {
 		'''
 			import { StyleSheet } from "react-native";
 			import { RFValue } from "react-native-responsive-fontsize";
@@ -349,7 +359,17 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			    marginVertical: 10,
 			    color: "#023535",
 			  },
+			  rules: {
+			    padding: 5,
+			    marginBottom: 10,
+			    backgroundColor: "#ffff99",
+			    borderRadius: 5,
+			  },
+			  rule: {
+			    margin: 0
+			  }
 			});
+			
 		'''
 	}
 	

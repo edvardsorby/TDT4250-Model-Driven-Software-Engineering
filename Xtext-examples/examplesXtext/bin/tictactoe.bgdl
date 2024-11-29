@@ -1,5 +1,5 @@
 Title "Tic-Tac-Toe"
-BoardSize 5
+BoardSize 3
 
 ValidMove placePiece{
 	placeAnywhere
@@ -16,8 +16,9 @@ PieceType O {
 }
 
 WinCondition {
-	Line length 5 direction ROW
+	Line length 3 direction ROW
 	Line length 3 direction COLUMN
+	Line length 3 direction DIAGONAL
 }
 			  
 			  
