@@ -61,11 +61,10 @@ WinConditionElement returns WinConditionElement:
 
 Line returns Line:
 	'Line'
-	'count' count=EInt
-	(
-	(horizontal?='horizontal')? &
-    (vertical?='vertical')? &
-    (diagonal?='diagonal')? &
-    (unique?='unique')?
-    )
+	'length' length=EInt
+	'direction' direction=Direction
+;
+
+enum Direction:
+	ROW | COLUMN | DIAGONAL
 ;

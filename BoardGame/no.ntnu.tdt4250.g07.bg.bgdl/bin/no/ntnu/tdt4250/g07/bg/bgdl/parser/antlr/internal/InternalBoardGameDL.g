@@ -23,6 +23,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -926,134 +927,86 @@ ruleLine returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getLineAccess().getLineKeyword_0());
 		}
-		otherlv_1='count'
+		otherlv_1='length'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getLineAccess().getCountKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getLineAccess().getLengthKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getLineAccess().getCountEIntParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getLineAccess().getLengthEIntParserRuleCall_2_0());
 				}
-				lv_count_2_0=ruleEInt
+				lv_length_2_0=ruleEInt
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLineRule());
 					}
 					set(
 						$current,
-						"count",
-						lv_count_2_0,
+						"length",
+						lv_length_2_0,
 						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EInt");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		otherlv_3='direction'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getLineAccess().getDirectionKeyword_3());
+		}
 		(
 			(
-				{ 
-				  getUnorderedGroupHelper().enter(grammarAccess.getLineAccess().getUnorderedGroup_3());
+				{
+					newCompositeNode(grammarAccess.getLineAccess().getDirectionDirectionEnumRuleCall_4_0());
 				}
-				(
-					(
-			(
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getLineAccess().getUnorderedGroup_3(), 0)}?=>(
-					{
-						getUnorderedGroupHelper().select(grammarAccess.getLineAccess().getUnorderedGroup_3(), 0);
+				lv_direction_4_0=ruleDirection
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLineRule());
 					}
-								({true}?=>((
-									lv_horizontal_4_0='horizontal'
-									{
-										newLeafNode(lv_horizontal_4_0, grammarAccess.getLineAccess().getHorizontalHorizontalKeyword_3_0_0());
-									}
-									{
-										if ($current==null) {
-											$current = createModelElement(grammarAccess.getLineRule());
-										}
-										setWithLastConsumed($current, "horizontal", lv_horizontal_4_0 != null, "horizontal");
-									}
-								)
-								))
-					{ 
-						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLineAccess().getUnorderedGroup_3());
-					}
-				)
-			)|
-			(
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getLineAccess().getUnorderedGroup_3(), 1)}?=>(
-					{
-						getUnorderedGroupHelper().select(grammarAccess.getLineAccess().getUnorderedGroup_3(), 1);
-					}
-								({true}?=>((
-									lv_vertical_5_0='vertical'
-									{
-										newLeafNode(lv_vertical_5_0, grammarAccess.getLineAccess().getVerticalVerticalKeyword_3_1_0());
-									}
-									{
-										if ($current==null) {
-											$current = createModelElement(grammarAccess.getLineRule());
-										}
-										setWithLastConsumed($current, "vertical", lv_vertical_5_0 != null, "vertical");
-									}
-								)
-								))
-					{ 
-						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLineAccess().getUnorderedGroup_3());
-					}
-				)
-			)|
-			(
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getLineAccess().getUnorderedGroup_3(), 2)}?=>(
-					{
-						getUnorderedGroupHelper().select(grammarAccess.getLineAccess().getUnorderedGroup_3(), 2);
-					}
-								({true}?=>((
-									lv_diagonal_6_0='diagonal'
-									{
-										newLeafNode(lv_diagonal_6_0, grammarAccess.getLineAccess().getDiagonalDiagonalKeyword_3_2_0());
-									}
-									{
-										if ($current==null) {
-											$current = createModelElement(grammarAccess.getLineRule());
-										}
-										setWithLastConsumed($current, "diagonal", lv_diagonal_6_0 != null, "diagonal");
-									}
-								)
-								))
-					{ 
-						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLineAccess().getUnorderedGroup_3());
-					}
-				)
-			)|
-			(
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getLineAccess().getUnorderedGroup_3(), 3)}?=>(
-					{
-						getUnorderedGroupHelper().select(grammarAccess.getLineAccess().getUnorderedGroup_3(), 3);
-					}
-								({true}?=>((
-									lv_unique_7_0='unique'
-									{
-										newLeafNode(lv_unique_7_0, grammarAccess.getLineAccess().getUniqueUniqueKeyword_3_3_0());
-									}
-									{
-										if ($current==null) {
-											$current = createModelElement(grammarAccess.getLineRule());
-										}
-										setWithLastConsumed($current, "unique", lv_unique_7_0 != null, "unique");
-									}
-								)
-								))
-					{ 
-						getUnorderedGroupHelper().returnFromSelection(grammarAccess.getLineAccess().getUnorderedGroup_3());
-					}
-				)
-			)
-					)*
-				)
-			)
-				{ 
-				  getUnorderedGroupHelper().leave(grammarAccess.getLineAccess().getUnorderedGroup_3());
+					set(
+						$current,
+						"direction",
+						lv_direction_4_0,
+						"no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.Direction");
+					afterParserOrEnumRuleCall();
 				}
+			)
+		)
+	)
+;
+
+// Rule Direction
+ruleDirection returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='ROW'
+			{
+				$current = grammarAccess.getDirectionAccess().getROWEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getDirectionAccess().getROWEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='COLUMN'
+			{
+				$current = grammarAccess.getDirectionAccess().getCOLUMNEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getDirectionAccess().getCOLUMNEnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='DIAGONAL'
+			{
+				$current = grammarAccess.getDirectionAccess().getDIAGONALEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getDirectionAccess().getDIAGONALEnumLiteralDeclaration_2());
+			}
 		)
 	)
 ;

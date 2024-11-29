@@ -4,6 +4,7 @@ package no.ntnu.tdt4250.g07.bg;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -481,49 +482,22 @@ public interface BgPackage extends EPackage {
 	int LINE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Count</b></em>' attribute.
+	 * The feature id for the '<em><b>Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINE__COUNT = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 0;
+	int LINE__LENGTH = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Diagonal</b></em>' attribute.
+	 * The feature id for the '<em><b>Direction</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINE__DIAGONAL = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Horizontal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINE__HORIZONTAL = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Vertical</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINE__VERTICAL = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Unique</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINE__UNIQUE = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 4;
+	int LINE__DIRECTION = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Line</em>' class.
@@ -532,7 +506,7 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINE_FEATURE_COUNT = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 5;
+	int LINE_FEATURE_COUNT = WIN_CONDITION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Line</em>' class.
@@ -542,6 +516,16 @@ public interface BgPackage extends EPackage {
 	 * @ordered
 	 */
 	int LINE_OPERATION_COUNT = WIN_CONDITION_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.Direction <em>Direction</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see no.ntnu.tdt4250.g07.bg.Direction
+	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getDirection()
+	 * @generated
+	 */
+	int DIRECTION = 10;
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.BoardGame <em>Board Game</em>}'.
@@ -822,59 +806,26 @@ public interface BgPackage extends EPackage {
 	EClass getLine();
 
 	/**
-	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Line#isDiagonal <em>Diagonal</em>}'.
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Line#getLength <em>Length</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Diagonal</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.Line#isDiagonal()
+	 * @return the meta object for the attribute '<em>Length</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.Line#getLength()
 	 * @see #getLine()
 	 * @generated
 	 */
-	EAttribute getLine_Diagonal();
+	EAttribute getLine_Length();
 
 	/**
-	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Line#isHorizontal <em>Horizontal</em>}'.
+	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Line#getDirection <em>Direction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Horizontal</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.Line#isHorizontal()
+	 * @return the meta object for the attribute '<em>Direction</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.Line#getDirection()
 	 * @see #getLine()
 	 * @generated
 	 */
-	EAttribute getLine_Horizontal();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Line#isVertical <em>Vertical</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Vertical</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.Line#isVertical()
-	 * @see #getLine()
-	 * @generated
-	 */
-	EAttribute getLine_Vertical();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Line#getCount <em>Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Count</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.Line#getCount()
-	 * @see #getLine()
-	 * @generated
-	 */
-	EAttribute getLine_Count();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Line#isUnique <em>Unique</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Unique</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.Line#isUnique()
-	 * @see #getLine()
-	 * @generated
-	 */
-	EAttribute getLine_Unique();
+	EAttribute getLine_Direction();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.BoardGameElement <em>Board Game Element</em>}'.
@@ -895,6 +846,16 @@ public interface BgPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getWinConditionElement();
+
+	/**
+	 * Returns the meta object for enum '{@link no.ntnu.tdt4250.g07.bg.Direction <em>Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Direction</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.Direction
+	 * @generated
+	 */
+	EEnum getDirection();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1144,44 +1105,20 @@ public interface BgPackage extends EPackage {
 		EClass LINE = eINSTANCE.getLine();
 
 		/**
-		 * The meta object literal for the '<em><b>Diagonal</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Length</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LINE__DIAGONAL = eINSTANCE.getLine_Diagonal();
+		EAttribute LINE__LENGTH = eINSTANCE.getLine_Length();
 
 		/**
-		 * The meta object literal for the '<em><b>Horizontal</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LINE__HORIZONTAL = eINSTANCE.getLine_Horizontal();
-
-		/**
-		 * The meta object literal for the '<em><b>Vertical</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LINE__VERTICAL = eINSTANCE.getLine_Vertical();
-
-		/**
-		 * The meta object literal for the '<em><b>Count</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LINE__COUNT = eINSTANCE.getLine_Count();
-
-		/**
-		 * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LINE__UNIQUE = eINSTANCE.getLine_Unique();
+		EAttribute LINE__DIRECTION = eINSTANCE.getLine_Direction();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.BoardGameElementImpl <em>Board Game Element</em>}' class.
@@ -1202,6 +1139,16 @@ public interface BgPackage extends EPackage {
 		 * @generated
 		 */
 		EClass WIN_CONDITION_ELEMENT = eINSTANCE.getWinConditionElement();
+
+		/**
+		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.Direction <em>Direction</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see no.ntnu.tdt4250.g07.bg.Direction
+		 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getDirection()
+		 * @generated
+		 */
+		EEnum DIRECTION = eINSTANCE.getDirection();
 
 	}
 

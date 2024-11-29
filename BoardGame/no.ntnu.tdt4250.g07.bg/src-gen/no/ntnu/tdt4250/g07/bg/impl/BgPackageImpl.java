@@ -8,6 +8,7 @@ import no.ntnu.tdt4250.g07.bg.BoardGame;
 import no.ntnu.tdt4250.g07.bg.BoardGameElement;
 import no.ntnu.tdt4250.g07.bg.CellState;
 import no.ntnu.tdt4250.g07.bg.Condition;
+import no.ntnu.tdt4250.g07.bg.Direction;
 import no.ntnu.tdt4250.g07.bg.EffectOnCell;
 import no.ntnu.tdt4250.g07.bg.Line;
 import no.ntnu.tdt4250.g07.bg.PieceType;
@@ -17,6 +18,7 @@ import no.ntnu.tdt4250.g07.bg.WinCondition;
 import no.ntnu.tdt4250.g07.bg.WinConditionElement;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -98,6 +100,13 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	private EClass winConditionElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum directionEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -428,37 +437,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLine_Diagonal() {
-		return (EAttribute) lineEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getLine_Horizontal() {
-		return (EAttribute) lineEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getLine_Vertical() {
-		return (EAttribute) lineEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getLine_Count() {
+	public EAttribute getLine_Length() {
 		return (EAttribute) lineEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -468,8 +447,8 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLine_Unique() {
-		return (EAttribute) lineEClass.getEStructuralFeatures().get(4);
+	public EAttribute getLine_Direction() {
+		return (EAttribute) lineEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -490,6 +469,16 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	@Override
 	public EClass getWinConditionElement() {
 		return winConditionElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getDirection() {
+		return directionEEnum;
 	}
 
 	/**
@@ -555,15 +544,15 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		createEReference(winConditionEClass, WIN_CONDITION__WIN_CONDITION_ELEMENTS);
 
 		lineEClass = createEClass(LINE);
-		createEAttribute(lineEClass, LINE__COUNT);
-		createEAttribute(lineEClass, LINE__DIAGONAL);
-		createEAttribute(lineEClass, LINE__HORIZONTAL);
-		createEAttribute(lineEClass, LINE__VERTICAL);
-		createEAttribute(lineEClass, LINE__UNIQUE);
+		createEAttribute(lineEClass, LINE__LENGTH);
+		createEAttribute(lineEClass, LINE__DIRECTION);
 
 		boardGameElementEClass = createEClass(BOARD_GAME_ELEMENT);
 
 		winConditionElementEClass = createEClass(WIN_CONDITION_ELEMENT);
+
+		// Create enums
+		directionEEnum = createEEnum(DIRECTION);
 	}
 
 	/**
@@ -670,15 +659,9 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLine_Count(), ecorePackage.getEInt(), "count", null, 1, 1, Line.class, !IS_TRANSIENT,
+		initEAttribute(getLine_Length(), ecorePackage.getEInt(), "length", null, 1, 1, Line.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLine_Diagonal(), ecorePackage.getEBoolean(), "diagonal", null, 1, 1, Line.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLine_Horizontal(), ecorePackage.getEBoolean(), "horizontal", null, 1, 1, Line.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLine_Vertical(), ecorePackage.getEBoolean(), "vertical", null, 1, 1, Line.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLine_Unique(), ecorePackage.getEBoolean(), "unique", null, 1, 1, Line.class, !IS_TRANSIENT,
+		initEAttribute(getLine_Direction(), this.getDirection(), "direction", null, 0, 1, Line.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boardGameElementEClass, BoardGameElement.class, "BoardGameElement", IS_ABSTRACT, !IS_INTERFACE,
@@ -686,6 +669,12 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 
 		initEClass(winConditionElementEClass, WinConditionElement.class, "WinConditionElement", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		// Initialize enums and add enum literals
+		initEEnum(directionEEnum, Direction.class, "Direction");
+		addEEnumLiteral(directionEEnum, Direction.ROW);
+		addEEnumLiteral(directionEEnum, Direction.COLUMN);
+		addEEnumLiteral(directionEEnum, Direction.DIAGONAL);
 
 		// Create resource
 		createResource(eNS_URI);

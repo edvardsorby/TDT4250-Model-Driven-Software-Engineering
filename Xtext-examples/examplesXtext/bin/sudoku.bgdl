@@ -6,21 +6,24 @@ ValidMove placePiece{
 }
 
 PieceType one {
-	Symbol "1"
+	Symbol "👍"
 	ValidMoves placePiece
 }
 
 PieceType two { 
-	Symbol "2"
+	Symbol "✌️"
 	ValidMoves placePiece
 }
 PieceType three { 
-	Symbol "3"
+	Symbol "👌"
 	ValidMoves placePiece
 }
 
 WinCondition {
-	Line count 3 horizontal vertical unique
+	Line count 3 horizontal unique
+	
+	
+
 }
 			  
 			  

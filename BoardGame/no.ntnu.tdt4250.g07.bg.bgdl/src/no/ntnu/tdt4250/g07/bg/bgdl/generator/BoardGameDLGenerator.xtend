@@ -6,15 +6,19 @@ package no.ntnu.tdt4250.g07.bg.bgdl.generator
 import java.util.Collection
 import no.ntnu.tdt4250.g07.bg.BoardGame
 import no.ntnu.tdt4250.g07.bg.BoardGameElement
-import no.ntnu.tdt4250.g07.bg.Condition
-import no.ntnu.tdt4250.g07.bg.PieceType
-import no.ntnu.tdt4250.g07.bg.ValidMove
+import no.ntnu.tdt4250.g07.bg.Line
+import no.ntnu.tdt4250.g07.bg.WinCondition
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EStructuralFeature
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import java.util.HashSet
+import java.util.HashMap
+import no.ntnu.tdt4250.g07.bg.WinConditionElement
+import no.ntnu.tdt4250.g07.bg.Direction
+import no.ntnu.tdt4250.g07.bg.PieceType
 
 /**
  * Generates code from your model files on save.
@@ -27,91 +31,332 @@ class BoardGameDLGenerator extends AbstractGenerator {
     override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
         val boardGame = resource.allContents.filter(BoardGame).head
         if (boardGame !== null) {
-            fsa.generateFile(boardGame.name+".js", generateJS(boardGame))
-            
+            fsa.generateFile(boardGame.name+"_config.js", generateConfigJS(boardGame)) 
+            fsa.generateFile(boardGame.name+"_winConditions.js", generateWinConditions(boardGame))
+            fsa.generateFile(boardGame.name+"_testGame.js", generateTestGame(boardGame))
+            fsa.generateFile(boardGame.name+"boardStyles.js", generateStyle(boardGame))  
         }
     }
 
-    def String generateJS(BoardGame boardGame) {
+    def String generateConfigJS(BoardGame boardGame) {
         '''
         const boardGame = {
+        	title: "«boardGame.name»",
             size: «boardGame.size»,
-            elements: {
+            config: {
            		«boardGame.boardGameElements.groupBy[eClass.name].entrySet.map[
-                       key + ': [' + value.map[generateElementJS(it)].join(",") + ']'
+                       decapitalize(key) + ': [' + value.map[generateElementJS(it)].join(",") + ']'
                    ].join(",\n")»
             }
         };
 
         export default boardGame;
         '''
-        
-        /**
-         *   piecetypes: [
-                «boardGame.piecetypes.map[generatePieceType(it)].join(",\n")»
-            ],
-            cellstates: [
-                «boardGame.cellstates.map[CellState.].join(", ")»
-            ],
-            winConditions: [
-                «boardGame.winConditions.map[generateWinCondition(it)].join(",\n")»
-            ]
-         */
     }
     
     def String generateElementJS(BoardGameElement element) {
     '''{«element.eClass.EAllStructuralFeatures.map[serializeFeature(it, element)].join(",")»}'''
-}
+	}
 
-def String serializeFeature(EStructuralFeature feature, EObject element) {
-    val value = element.eGet(feature)
-    '''"«feature.name»": «serializeValue(value)»'''
-}
-
-def String serializeValue(Object value) {
-    if (value instanceof String || value instanceof Enum) 
-        return '"' + value + '"'
-    else if (value instanceof Boolean)
-        return value.toString
-    else if (value instanceof Collection<?>)
-        return '[' + value.map[serializeValue(it)].join(", \n") + ']'
-    else if (value instanceof EObject)
-        return '{ ' + value.eClass.EAllStructuralFeatures.map[serializeFeature(it, value)].join(", ") + ' }'
-    else
-        return value.toString
-}
-
-    def String generatePieceType(PieceType pieceType) {
-        '''{name: "«pieceType.name»",
-            symbol: "«pieceType.symbol»",
-            validmoves: [«pieceType.validMoves.map[generateValidMove(it)].join(",\n")»]}'''
-    }
-
-    def String generateValidMove(ValidMove validMove) {
-        '''
-        {placeAnywhere: «validMove.placeAnywhere»,
-         conditions: [«validMove.conditions.map[generateCondition(it)].join(",\n")»]}
-        '''
-    }
-
-    def String generateCondition(Condition condition) {
-        '''
-        {cellstate: "«condition.cellState.name»"}
-        '''
-    }
-/**
-    def String generateWinCondition(WinCondition winCondition) {
-        '''
-        {
-            inarow: {
-                diagonal: «winCondition.winConditionElements .diagonal»,
-                horizontal: «winCondition.inarow.horizontal»,
-                vertical: «winCondition.inarow.vertical»,
-                count: «winCondition.inarow.count»
-            }
-        }
-        '''
-    }
-    *  */
+	def String serializeFeature(EStructuralFeature feature, EObject element) {
+	    val value = element.eGet(feature)
+	    '''"«feature.name»": «serializeValue(value)»'''
+	}
+	
+	def String serializeValue(Object value) {
+	    if (value instanceof String || value instanceof Enum) 
+	        return '"' + value + '"'
+	    else if (value instanceof Boolean)
+	        return value.toString
+	    else if (value instanceof Collection<?>)
+	        return '[' + value.map[serializeValue(it)].join(", \n") + ']'
+	    else if (value instanceof EObject)
+	        return '{ ' + value.eClass.EAllStructuralFeatures.map[serializeFeature(it, value)].join(", ") + ' }'
+	    else
+	        return value.toString
+	}
+	
+	
+		def generateWinConditions(BoardGame boardGame){
+		val winConditions = boardGame.boardGameElements.filter(WinCondition)
+		'''
+			// Auto-generated JavaScript for win conditions
+			import bg from "../src-gen/bg"
+			const boardSize = «boardGame.size»;
+			  
+			export function checkIsFinishedFunction(board, players, currentPlayer, setMessage) {
+				const newBoard = board;
+				let isFinished = false;
+			
+				const player = players[currentPlayer]
+			    «FOR winCondition : winConditions»
+    				«FOR winConditionElement : winCondition.winConditionElements »
+    			     	«IF winConditionElement instanceof Line»
+    			     		«IF winConditionElement.direction == Direction.ROW»
+				if(inARow(«winConditionElement.length», player, board)) {
+					setMessage(`Player ${players[currentPlayer]} wins because of «winConditionElement.length» in a row!`);
+					return true
+				}
+    						«ELSEIF winConditionElement.direction == Direction.COLUMN»
+	     		if(inAColumn(«winConditionElement.length», player, board)) {
+	     			setMessage(`Player ${players[currentPlayer]} wins because of «winConditionElement.length» in a column!`);
+	     			return true
+	     		}
+    						«ELSEIF winConditionElement.direction == Direction.DIAGONAL»
+	     		if(inDiagonal(«winConditionElement.length», player, board)) {
+	     			setMessage(`Player ${players[currentPlayer]} wins because of «winConditionElement.length» in a diagonal!`);
+	     			return true
+	     		}
+    			     		«ENDIF»
+    			     	«ENDIF»
+    			 	«ENDFOR»
+			    «ENDFOR»		   
+			  	return false; //not finished
+			};
+			
+			      «FOR winCondition : winConditions»
+			         				«FOR winConditionElement : winCondition.winConditionElements »
+			         			     	«IF winConditionElement instanceof Line»
+			         			     		«IF winConditionElement.direction == Direction.ROW»
+			  const inARow = (num, player, board) => {
+			    for (let row = 0; row < boardSize; row++) {
+			      let count = 0;   
+			      for (let col = 0; col < boardSize; col++) {
+			        if (board[row][col] === player) {
+			          count++;
+			          if (count === num) return true;
+			        } else {
+			          count = 0;
+			        }
+			      }
+			    }
+			    return false;
+			  };
+			  
+			«ELSEIF winConditionElement.direction == Direction.COLUMN»
+			  const inAColumn = (num, player, board) => {
+			    for (let col = 0; col < boardSize; col++) {
+			      let count = 0;
+			      for (let row = 0; row < boardSize; row++) {
+			        if (board[row][col] === player) {
+			          count++;
+			          if (count === num) return true;
+			        } else {
+			          count = 0;
+			        }
+			      }
+			    }
+			    return false;
+			  };
+			  
+			«ELSEIF winConditionElement.direction == Direction.DIAGONAL»
+			  const inDiagonal = (num, player, board) => {
+			    const countDiagonalMatches = (startRow, startCol, deltaRow, deltaCol) => {
+			      let count = 0;
+			      let row = startRow;
+			      let col = startCol;
+			
+			      while (row >= 0 && row < boardSize && col >= 0 && col < boardSize) {
+			        if (board[row][col] === player) {
+			          count++;
+			          if (count === num) return true;
+			        } else {
+			          count = 0;
+			        }
+			        row += deltaRow;
+			        col += deltaCol;
+			      }
+			      return false;
+			    };
+			    
+			    			    // Check top-left to bottom-right
+			    			    for (let row = 0; row < boardSize; row++) {
+			    			      if (countDiagonalMatches(row, 0, 1, 1)) return true;
+			    			    }
+			    			    for (let col = 1; col < boardSize; col++) {
+			    			      if (countDiagonalMatches(0, col, 1, 1)) return true;
+			    			    }
+			    			
+			    			    // Check top-right to bottom-left
+			    			    for (let row = 0; row < boardSize; row++) {
+			    			      if (countDiagonalMatches(row, boardSize - 1, 1, -1)) return true;
+			    			    }
+			    			    for (let col = boardSize - 2; col >= 0; col--) {
+			    			      if (countDiagonalMatches(0, col, 1, -1)) return true;
+			    			    }
+			    			
+			    			    return false;
+			    			  };
+			    
+			     		«ENDIF»
+			       «ENDIF»
+			        			 	«ENDFOR»
+			    			    «ENDFOR»
+			'''
+			}
+	
+	def generateTestGame(BoardGame boardGame) {
+		'''
+			import { View, StyleSheet, TouchableOpacity, Text, TextInput, Alert, Pressable, Button } from "react-native";
+			import { useState, useEffect } from "react";
+			import CustomButton from "../components/button";
+			import AsyncStorage from "@react-native-async-storage/async-storage";
+			import { useTranslation } from "react-i18next";
+			import { globalStyles } from "../styles/global";
+			import { boardStyles } from "./imports.js";
+			
+			import { RFValue } from "react-native-responsive-fontsize";
+			
+			import React from 'react'
+			/*---Generated resources---*/
+			
+			//pieces and game
+			import bg from "../src-gen/bg.js"
+			
+			//generated board
+			//import gameBoard from "../src-gen/gameBoard.js"
+			import { checkIsFinishedFunction } from "./isFin.js";
+			
+			
+			
+			export default function TestGame() {
+			  const boardSize = «boardGame.size»; // Size of the board
+			  «val pieceTypes = boardGame.boardGameElements.filter(PieceType)»
+			  const players = [«FOR pieceType : pieceTypes»"«pieceType.symbol»", «ENDFOR»]; // Players
+	
+			  const [board, setBoard] = useState(Array(boardSize).fill(Array(boardSize).fill(null)));
+			  const [currentPlayer, setCurrentPlayer] = useState(0);
+			  const [gameActive, setGameActive] = useState(true);
+			
+			  // start message
+			  const [message, setMessage] = useState(``);
+			
+			  //Board
+			  const predefinedBoard = Array(boardSize).fill(Array(boardSize).fill(null));
+			 
+			  
+			  const initializeBoard = () => {
+			    //const newBoard = predefinedBoard.map(row => row.slice()); 
+			    setBoard(predefinedBoard);
+			
+			    setCurrentPlayer(0); 
+			    setMessage(`Next Piece ${players[currentPlayer]}`);
+			
+			    setGameActive(true);
+			  };
+			
+			  useEffect(() => {   
+			    initializeBoard()
+			  }, []);
+			
+			  const onCellClick = (row, col) => {
+			    if (!gameActive || board[row][col] !== null) return; //check if occupied  
+			    
+			    //if(!gameActive) return;
+			   
+			    //placing the piece
+			    const newBoard = board.map((boardRow, rowIndex) =>
+			      boardRow.map((cell, colIndex) => (rowIndex === row && colIndex === col ? players[currentPlayer] : cell))
+			    );
+			
+			    setBoard(newBoard);
+			
+			    if (checkIsFinished(newBoard)) {
+			      setGameActive(false);
+			    } else {
+			      const nextPlayer = (currentPlayer + 1) % players.length;
+			      setCurrentPlayer(nextPlayer);
+			      setMessage(`Next piece: ${players[nextPlayer]}`);
+			    }
+			  };
+			
+			  const checkIsFinished = (board) => {
+			    return checkIsFinishedFunction(board, players, currentPlayer, setMessage)
+			  }
+			
+			  const checkIfBoardIsFilled = (board) => {
+			    return board.flat().every((cell) => cell !== null);
+			  };
+			
+			  const resetGame = () => {
+			    initializeBoard();
+			  };
+			  return (
+			    
+			<View style={boardStyles.container}>
+			      <Text style={boardStyles.title}>«boardGame.name»</Text>
+			      
+			      <View style={boardStyles.board}>
+			        {board.map((row, rowIndex) =>
+			          row.map((cell, colIndex) => (
+			            <TouchableOpacity
+			              key={`${rowIndex}-${colIndex}`}
+			              style={boardStyles.cell}
+			              onPress={() => onCellClick(rowIndex, colIndex)}
+			            >
+			              <Text style={boardStyles.cellText}>{cell}</Text>
+			            </TouchableOpacity>
+			          ))
+			        )}
+			      </View>
+			      <Text style={boardStyles.message}>{message}</Text>
+			      <CustomButton title="Reset" onPress={resetGame} />
+			      
+			    </View>
+			  )
+			}
+		'''
+	}
+	
+	def generateStyle(BoardGame boardGame) {
+		'''
+			import { StyleSheet } from "react-native";
+			import { RFValue } from "react-native-responsive-fontsize";
+			
+			export const boardStyles = StyleSheet.create({
+			  container: {
+			    flex: 1,
+			    justifyContent: "center",
+			    alignItems: "center",
+			    backgroundColor: "azure",//VARIABEL
+			  },
+			  title: {
+			    fontSize: 24,
+			    marginBottom: 20,
+			    color: "#023535",//VARIABEL
+			  },
+			  board: {
+			    flexDirection: "row",
+			    flexWrap: "wrap",
+			    width: 300, 
+			    height: 300, 
+			  },
+			  cell: {
+			    width:  300 / «boardGame.size»,
+			    height:  300 / «boardGame.size»,
+			    borderWidth: 2,
+			    borderColor: "black",//VARIABEL
+			    justifyContent: "center",
+			    alignItems: "center",
+			    backgroundColor: "#fff", //VARIABEL
+			  },
+			  cellText: {
+			    fontSize: RFValue(32, 812),
+			    fontWeight: "bold",
+			  },
+			  message: {
+			    fontSize: 18,
+			    marginVertical: 10,
+			    color: "#023535",
+			  },
+			});
+		'''
+	}
+	
+		
+	def decapitalize(String input) {
+    	if (input.isEmpty) input
+    	else input.substring(0, 1).toLowerCase + input.substring(1)
+	}
 }
 

@@ -149,11 +149,20 @@ public class BoardGameDLSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *     Line returns Line
 	 *
 	 * Constraint:
-	 *     (count=EInt (horizontal?='horizontal' | vertical?='vertical' | diagonal?='diagonal' | unique?='unique')*)
+	 *     (length=EInt direction=Direction)
 	 * </pre>
 	 */
 	protected void sequence_Line(ISerializationContext context, Line semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, BgPackage.Literals.LINE__LENGTH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BgPackage.Literals.LINE__LENGTH));
+			if (transientValues.isValueTransient(semanticObject, BgPackage.Literals.LINE__DIRECTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BgPackage.Literals.LINE__DIRECTION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getLineAccess().getLengthEIntParserRuleCall_2_0(), semanticObject.getLength());
+		feeder.accept(grammarAccess.getLineAccess().getDirectionDirectionEnumRuleCall_4_0(), semanticObject.getDirection());
+		feeder.finish();
 	}
 	
 	

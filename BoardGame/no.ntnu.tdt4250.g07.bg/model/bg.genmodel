@@ -13,6 +13,11 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Bg" basePackage="no.ntnu.tdt4250.g07" disposableProviderFactory="true"
       ecorePackage="bg.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="bg.ecore#//Direction">
+      <genEnumLiterals ecoreEnumLiteral="bg.ecore#//Direction/ROW"/>
+      <genEnumLiterals ecoreEnumLiteral="bg.ecore#//Direction/COLUMN"/>
+      <genEnumLiterals ecoreEnumLiteral="bg.ecore#//Direction/DIAGONAL"/>
+    </genEnums>
     <genClasses ecoreClass="bg.ecore#//BoardGame">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BoardGame/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BoardGame/size"/>
@@ -46,11 +51,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//WinCondition/winConditionElements"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//Line">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Line/count"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Line/diagonal"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Line/horizontal"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Line/vertical"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Line/unique"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Line/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Line/direction"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//BoardGameElement"/>
     <genClasses ecoreClass="bg.ecore#//WinConditionElement"/>

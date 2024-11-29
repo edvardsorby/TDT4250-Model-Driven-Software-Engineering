@@ -3,6 +3,7 @@
 package no.ntnu.tdt4250.g07.bg.impl;
 
 import no.ntnu.tdt4250.g07.bg.BgPackage;
+import no.ntnu.tdt4250.g07.bg.Direction;
 import no.ntnu.tdt4250.g07.bg.Line;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,115 +20,52 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.LineImpl#getCount <em>Count</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.LineImpl#isDiagonal <em>Diagonal</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.LineImpl#isHorizontal <em>Horizontal</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.LineImpl#isVertical <em>Vertical</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.LineImpl#isUnique <em>Unique</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.LineImpl#getLength <em>Length</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.LineImpl#getDirection <em>Direction</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class LineImpl extends WinConditionElementImpl implements Line {
 	/**
-	 * The default value of the '{@link #getCount() <em>Count</em>}' attribute.
+	 * The default value of the '{@link #getLength() <em>Length</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCount()
+	 * @see #getLength()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int COUNT_EDEFAULT = 0;
+	protected static final int LENGTH_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getCount() <em>Count</em>}' attribute.
+	 * The cached value of the '{@link #getLength() <em>Length</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCount()
+	 * @see #getLength()
 	 * @generated
 	 * @ordered
 	 */
-	protected int count = COUNT_EDEFAULT;
+	protected int length = LENGTH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isDiagonal() <em>Diagonal</em>}' attribute.
+	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDiagonal()
+	 * @see #getDirection()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean DIAGONAL_EDEFAULT = false;
+	protected static final Direction DIRECTION_EDEFAULT = Direction.ROW;
 
 	/**
-	 * The cached value of the '{@link #isDiagonal() <em>Diagonal</em>}' attribute.
+	 * The cached value of the '{@link #getDirection() <em>Direction</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDiagonal()
+	 * @see #getDirection()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean diagonal = DIAGONAL_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isHorizontal() <em>Horizontal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isHorizontal()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean HORIZONTAL_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isHorizontal() <em>Horizontal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isHorizontal()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean horizontal = HORIZONTAL_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isVertical() <em>Vertical</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isVertical()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean VERTICAL_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isVertical() <em>Vertical</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isVertical()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean vertical = VERTICAL_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isUnique() <em>Unique</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUnique()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean UNIQUE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isUnique() <em>Unique</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUnique()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean unique = UNIQUE_EDEFAULT;
+	protected Direction direction = DIRECTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,8 +92,8 @@ public class LineImpl extends WinConditionElementImpl implements Line {
 	 * @generated
 	 */
 	@Override
-	public boolean isDiagonal() {
-		return diagonal;
+	public int getLength() {
+		return length;
 	}
 
 	/**
@@ -164,11 +102,11 @@ public class LineImpl extends WinConditionElementImpl implements Line {
 	 * @generated
 	 */
 	@Override
-	public void setDiagonal(boolean newDiagonal) {
-		boolean oldDiagonal = diagonal;
-		diagonal = newDiagonal;
+	public void setLength(int newLength) {
+		int oldLength = length;
+		length = newLength;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.LINE__DIAGONAL, oldDiagonal, diagonal));
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.LINE__LENGTH, oldLength, length));
 	}
 
 	/**
@@ -177,8 +115,8 @@ public class LineImpl extends WinConditionElementImpl implements Line {
 	 * @generated
 	 */
 	@Override
-	public boolean isHorizontal() {
-		return horizontal;
+	public Direction getDirection() {
+		return direction;
 	}
 
 	/**
@@ -187,81 +125,11 @@ public class LineImpl extends WinConditionElementImpl implements Line {
 	 * @generated
 	 */
 	@Override
-	public void setHorizontal(boolean newHorizontal) {
-		boolean oldHorizontal = horizontal;
-		horizontal = newHorizontal;
+	public void setDirection(Direction newDirection) {
+		Direction oldDirection = direction;
+		direction = newDirection == null ? DIRECTION_EDEFAULT : newDirection;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.LINE__HORIZONTAL, oldHorizontal,
-					horizontal));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isVertical() {
-		return vertical;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setVertical(boolean newVertical) {
-		boolean oldVertical = vertical;
-		vertical = newVertical;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.LINE__VERTICAL, oldVertical, vertical));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int getCount() {
-		return count;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCount(int newCount) {
-		int oldCount = count;
-		count = newCount;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.LINE__COUNT, oldCount, count));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isUnique() {
-		return unique;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setUnique(boolean newUnique) {
-		boolean oldUnique = unique;
-		unique = newUnique;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.LINE__UNIQUE, oldUnique, unique));
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.LINE__DIRECTION, oldDirection, direction));
 	}
 
 	/**
@@ -272,16 +140,10 @@ public class LineImpl extends WinConditionElementImpl implements Line {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case BgPackage.LINE__COUNT:
-			return getCount();
-		case BgPackage.LINE__DIAGONAL:
-			return isDiagonal();
-		case BgPackage.LINE__HORIZONTAL:
-			return isHorizontal();
-		case BgPackage.LINE__VERTICAL:
-			return isVertical();
-		case BgPackage.LINE__UNIQUE:
-			return isUnique();
+		case BgPackage.LINE__LENGTH:
+			return getLength();
+		case BgPackage.LINE__DIRECTION:
+			return getDirection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,20 +156,11 @@ public class LineImpl extends WinConditionElementImpl implements Line {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case BgPackage.LINE__COUNT:
-			setCount((Integer) newValue);
+		case BgPackage.LINE__LENGTH:
+			setLength((Integer) newValue);
 			return;
-		case BgPackage.LINE__DIAGONAL:
-			setDiagonal((Boolean) newValue);
-			return;
-		case BgPackage.LINE__HORIZONTAL:
-			setHorizontal((Boolean) newValue);
-			return;
-		case BgPackage.LINE__VERTICAL:
-			setVertical((Boolean) newValue);
-			return;
-		case BgPackage.LINE__UNIQUE:
-			setUnique((Boolean) newValue);
+		case BgPackage.LINE__DIRECTION:
+			setDirection((Direction) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -321,20 +174,11 @@ public class LineImpl extends WinConditionElementImpl implements Line {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case BgPackage.LINE__COUNT:
-			setCount(COUNT_EDEFAULT);
+		case BgPackage.LINE__LENGTH:
+			setLength(LENGTH_EDEFAULT);
 			return;
-		case BgPackage.LINE__DIAGONAL:
-			setDiagonal(DIAGONAL_EDEFAULT);
-			return;
-		case BgPackage.LINE__HORIZONTAL:
-			setHorizontal(HORIZONTAL_EDEFAULT);
-			return;
-		case BgPackage.LINE__VERTICAL:
-			setVertical(VERTICAL_EDEFAULT);
-			return;
-		case BgPackage.LINE__UNIQUE:
-			setUnique(UNIQUE_EDEFAULT);
+		case BgPackage.LINE__DIRECTION:
+			setDirection(DIRECTION_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -348,16 +192,10 @@ public class LineImpl extends WinConditionElementImpl implements Line {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case BgPackage.LINE__COUNT:
-			return count != COUNT_EDEFAULT;
-		case BgPackage.LINE__DIAGONAL:
-			return diagonal != DIAGONAL_EDEFAULT;
-		case BgPackage.LINE__HORIZONTAL:
-			return horizontal != HORIZONTAL_EDEFAULT;
-		case BgPackage.LINE__VERTICAL:
-			return vertical != VERTICAL_EDEFAULT;
-		case BgPackage.LINE__UNIQUE:
-			return unique != UNIQUE_EDEFAULT;
+		case BgPackage.LINE__LENGTH:
+			return length != LENGTH_EDEFAULT;
+		case BgPackage.LINE__DIRECTION:
+			return direction != DIRECTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -373,18 +211,14 @@ public class LineImpl extends WinConditionElementImpl implements Line {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (count: ");
-		result.append(count);
-		result.append(", diagonal: ");
-		result.append(diagonal);
-		result.append(", horizontal: ");
-		result.append(horizontal);
-		result.append(", vertical: ");
-		result.append(vertical);
-		result.append(", unique: ");
-		result.append(unique);
+		result.append(" (length: ");
+		result.append(length);
+		result.append(", direction: ");
+		result.append(direction);
 		result.append(')');
 		return result.toString();
 	}
+
+	
 
 } //LineImpl

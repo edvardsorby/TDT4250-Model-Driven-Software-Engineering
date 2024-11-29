@@ -34,6 +34,7 @@ public class BoardGameDLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBoardGameElementAccess().getAlternatives(), "rule__BoardGameElement__Alternatives");
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getEBooleanAccess().getAlternatives(), "rule__EBoolean__Alternatives");
+			builder.put(grammarAccess.getDirectionAccess().getAlternatives(), "rule__Direction__Alternatives");
 			builder.put(grammarAccess.getBoardGameAccess().getGroup(), "rule__BoardGame__Group__0");
 			builder.put(grammarAccess.getPieceTypeAccess().getGroup(), "rule__PieceType__Group__0");
 			builder.put(grammarAccess.getPieceTypeAccess().getGroup_7(), "rule__PieceType__Group_7__0");
@@ -72,13 +73,9 @@ public class BoardGameDLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEffectOnCellAccess().getCellStateAssignment_3_1_1(), "rule__EffectOnCell__CellStateAssignment_3_1_1");
 			builder.put(grammarAccess.getConditionAccess().getNameAssignment_1(), "rule__Condition__NameAssignment_1");
 			builder.put(grammarAccess.getConditionAccess().getCellStateAssignment_2(), "rule__Condition__CellStateAssignment_2");
-			builder.put(grammarAccess.getLineAccess().getCountAssignment_2(), "rule__Line__CountAssignment_2");
-			builder.put(grammarAccess.getLineAccess().getHorizontalAssignment_3_0(), "rule__Line__HorizontalAssignment_3_0");
-			builder.put(grammarAccess.getLineAccess().getVerticalAssignment_3_1(), "rule__Line__VerticalAssignment_3_1");
-			builder.put(grammarAccess.getLineAccess().getDiagonalAssignment_3_2(), "rule__Line__DiagonalAssignment_3_2");
-			builder.put(grammarAccess.getLineAccess().getUniqueAssignment_3_3(), "rule__Line__UniqueAssignment_3_3");
+			builder.put(grammarAccess.getLineAccess().getLengthAssignment_2(), "rule__Line__LengthAssignment_2");
+			builder.put(grammarAccess.getLineAccess().getDirectionAssignment_4(), "rule__Line__DirectionAssignment_4");
 			builder.put(grammarAccess.getEffectOnCellAccess().getUnorderedGroup_3(), "rule__EffectOnCell__UnorderedGroup_3");
-			builder.put(grammarAccess.getLineAccess().getUnorderedGroup_3(), "rule__Line__UnorderedGroup_3");
 		}
 	}
 	

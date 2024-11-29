@@ -1,26 +1,23 @@
 Title "Tic-Tac-Toe"
-BoardSize 3
+BoardSize 5
 
 ValidMove placePiece{
 	placeAnywhere
 }
 
 PieceType X {
-	Symbol "1"
+	Symbol "❌"
 	ValidMoves placePiece
 }
 
-PieceType Y { 
-	Symbol "2"
-	ValidMoves placePiece
-}
-PieceType three { 
-	Symbol "3"
+PieceType O { 
+	Symbol "⭕"
 	ValidMoves placePiece
 }
 
 WinCondition {
-	Line count 3 horizontal vertical diagonal
+	Line length 5 direction ROW
+	Line length 3 direction COLUMN
 }
 			  
 			  

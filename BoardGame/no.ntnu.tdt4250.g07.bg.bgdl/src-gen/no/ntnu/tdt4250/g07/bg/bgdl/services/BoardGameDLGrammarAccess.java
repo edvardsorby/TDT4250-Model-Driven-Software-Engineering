@@ -9,6 +9,8 @@ import java.util.List;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -601,86 +603,80 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.Line");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLineKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cCountKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cCountAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cCountEIntParserRuleCall_2_0 = (RuleCall)cCountAssignment_2.eContents().get(0);
-		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
-		private final Assignment cHorizontalAssignment_3_0 = (Assignment)cUnorderedGroup_3.eContents().get(0);
-		private final Keyword cHorizontalHorizontalKeyword_3_0_0 = (Keyword)cHorizontalAssignment_3_0.eContents().get(0);
-		private final Assignment cVerticalAssignment_3_1 = (Assignment)cUnorderedGroup_3.eContents().get(1);
-		private final Keyword cVerticalVerticalKeyword_3_1_0 = (Keyword)cVerticalAssignment_3_1.eContents().get(0);
-		private final Assignment cDiagonalAssignment_3_2 = (Assignment)cUnorderedGroup_3.eContents().get(2);
-		private final Keyword cDiagonalDiagonalKeyword_3_2_0 = (Keyword)cDiagonalAssignment_3_2.eContents().get(0);
-		private final Assignment cUniqueAssignment_3_3 = (Assignment)cUnorderedGroup_3.eContents().get(3);
-		private final Keyword cUniqueUniqueKeyword_3_3_0 = (Keyword)cUniqueAssignment_3_3.eContents().get(0);
+		private final Keyword cLengthKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cLengthAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLengthEIntParserRuleCall_2_0 = (RuleCall)cLengthAssignment_2.eContents().get(0);
+		private final Keyword cDirectionKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cDirectionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDirectionDirectionEnumRuleCall_4_0 = (RuleCall)cDirectionAssignment_4.eContents().get(0);
 		
 		//Line returns Line:
 		//    'Line'
-		//    'count' count=EInt
-		//    (
-		//    (horizontal?='horizontal')? &
-		//    (vertical?='vertical')? &
-		//    (diagonal?='diagonal')? &
-		//    (unique?='unique')?
-		//    )
+		//    'length' length=EInt
+		//    'direction' direction=Direction
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Line'
-		//'count' count=EInt
-		//(
-		//(horizontal?='horizontal')? &
-		//(vertical?='vertical')? &
-		//(diagonal?='diagonal')? &
-		//(unique?='unique')?
-		//)
+		//'length' length=EInt
+		//'direction' direction=Direction
 		public Group getGroup() { return cGroup; }
 		
 		//'Line'
 		public Keyword getLineKeyword_0() { return cLineKeyword_0; }
 		
-		//'count'
-		public Keyword getCountKeyword_1() { return cCountKeyword_1; }
+		//'length'
+		public Keyword getLengthKeyword_1() { return cLengthKeyword_1; }
 		
-		//count=EInt
-		public Assignment getCountAssignment_2() { return cCountAssignment_2; }
+		//length=EInt
+		public Assignment getLengthAssignment_2() { return cLengthAssignment_2; }
 		
 		//EInt
-		public RuleCall getCountEIntParserRuleCall_2_0() { return cCountEIntParserRuleCall_2_0; }
+		public RuleCall getLengthEIntParserRuleCall_2_0() { return cLengthEIntParserRuleCall_2_0; }
 		
-		//(
-		//(horizontal?='horizontal')? &
-		//(vertical?='vertical')? &
-		//(diagonal?='diagonal')? &
-		//(unique?='unique')?
-		//)
-		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
+		//'direction'
+		public Keyword getDirectionKeyword_3() { return cDirectionKeyword_3; }
 		
-		//(horizontal?='horizontal')?
-		public Assignment getHorizontalAssignment_3_0() { return cHorizontalAssignment_3_0; }
+		//direction=Direction
+		public Assignment getDirectionAssignment_4() { return cDirectionAssignment_4; }
 		
-		//'horizontal'
-		public Keyword getHorizontalHorizontalKeyword_3_0_0() { return cHorizontalHorizontalKeyword_3_0_0; }
-		
-		//(vertical?='vertical')?
-		public Assignment getVerticalAssignment_3_1() { return cVerticalAssignment_3_1; }
-		
-		//'vertical'
-		public Keyword getVerticalVerticalKeyword_3_1_0() { return cVerticalVerticalKeyword_3_1_0; }
-		
-		//(diagonal?='diagonal')?
-		public Assignment getDiagonalAssignment_3_2() { return cDiagonalAssignment_3_2; }
-		
-		//'diagonal'
-		public Keyword getDiagonalDiagonalKeyword_3_2_0() { return cDiagonalDiagonalKeyword_3_2_0; }
-		
-		//(unique?='unique')?
-		public Assignment getUniqueAssignment_3_3() { return cUniqueAssignment_3_3; }
-		
-		//'unique'
-		public Keyword getUniqueUniqueKeyword_3_3_0() { return cUniqueUniqueKeyword_3_3_0; }
+		//Direction
+		public RuleCall getDirectionDirectionEnumRuleCall_4_0() { return cDirectionDirectionEnumRuleCall_4_0; }
 	}
 	
+	public class DirectionElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.Direction");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cROWEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cROWROWKeyword_0_0 = (Keyword)cROWEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cCOLUMNEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cCOLUMNCOLUMNKeyword_1_0 = (Keyword)cCOLUMNEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cDIAGONALEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cDIAGONALDIAGONALKeyword_2_0 = (Keyword)cDIAGONALEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum Direction:
+		//    ROW | COLUMN | DIAGONAL
+		//;
+		public EnumRule getRule() { return rule; }
+		
+		//ROW | COLUMN | DIAGONAL
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ROW
+		public EnumLiteralDeclaration getROWEnumLiteralDeclaration_0() { return cROWEnumLiteralDeclaration_0; }
+		
+		public Keyword getROWROWKeyword_0_0() { return cROWROWKeyword_0_0; }
+		
+		//COLUMN
+		public EnumLiteralDeclaration getCOLUMNEnumLiteralDeclaration_1() { return cCOLUMNEnumLiteralDeclaration_1; }
+		
+		public Keyword getCOLUMNCOLUMNKeyword_1_0() { return cCOLUMNCOLUMNKeyword_1_0; }
+		
+		//DIAGONAL
+		public EnumLiteralDeclaration getDIAGONALEnumLiteralDeclaration_2() { return cDIAGONALEnumLiteralDeclaration_2; }
+		
+		public Keyword getDIAGONALDIAGONALKeyword_2_0() { return cDIAGONALDIAGONALKeyword_2_0; }
+	}
 	
 	private final BoardGameElements pBoardGame;
 	private final BoardGameElementElements pBoardGameElement;
@@ -695,6 +691,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	private final EBooleanElements pEBoolean;
 	private final WinConditionElementElements pWinConditionElement;
 	private final LineElements pLine;
+	private final DirectionElements eDirection;
 	
 	private final Grammar grammar;
 	
@@ -718,6 +715,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		this.pEBoolean = new EBooleanElements();
 		this.pWinConditionElement = new WinConditionElementElements();
 		this.pLine = new LineElements();
+		this.eDirection = new DirectionElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -888,13 +886,8 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	
 	//Line returns Line:
 	//    'Line'
-	//    'count' count=EInt
-	//    (
-	//    (horizontal?='horizontal')? &
-	//    (vertical?='vertical')? &
-	//    (diagonal?='diagonal')? &
-	//    (unique?='unique')?
-	//    )
+	//    'length' length=EInt
+	//    'direction' direction=Direction
 	//;
 	public LineElements getLineAccess() {
 		return pLine;
@@ -902,6 +895,17 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	
 	public ParserRule getLineRule() {
 		return getLineAccess().getRule();
+	}
+	
+	//enum Direction:
+	//    ROW | COLUMN | DIAGONAL
+	//;
+	public DirectionElements getDirectionAccess() {
+		return eDirection;
+	}
+	
+	public EnumRule getDirectionRule() {
+		return getDirectionAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

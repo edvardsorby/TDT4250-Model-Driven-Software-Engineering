@@ -11,11 +11,8 @@ package no.ntnu.tdt4250.g07.bg;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.Line#getCount <em>Count</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.Line#isDiagonal <em>Diagonal</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.Line#isHorizontal <em>Horizontal</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.Line#isVertical <em>Vertical</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.Line#isUnique <em>Unique</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.Line#getLength <em>Length</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.Line#getDirection <em>Direction</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.g07.bg.BgPackage#getLine()
@@ -24,113 +21,50 @@ package no.ntnu.tdt4250.g07.bg;
  */
 public interface Line extends WinConditionElement {
 	/**
-	 * Returns the value of the '<em><b>Diagonal</b></em>' attribute.
+	 * Returns the value of the '<em><b>Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Diagonal</em>' attribute.
-	 * @see #setDiagonal(boolean)
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getLine_Diagonal()
+	 * @return the value of the '<em>Length</em>' attribute.
+	 * @see #setLength(int)
+	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getLine_Length()
 	 * @model required="true"
 	 * @generated
 	 */
-	boolean isDiagonal();
+	int getLength();
 
 	/**
-	 * Sets the value of the '{@link no.ntnu.tdt4250.g07.bg.Line#isDiagonal <em>Diagonal</em>}' attribute.
+	 * Sets the value of the '{@link no.ntnu.tdt4250.g07.bg.Line#getLength <em>Length</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Diagonal</em>' attribute.
-	 * @see #isDiagonal()
+	 * @param value the new value of the '<em>Length</em>' attribute.
+	 * @see #getLength()
 	 * @generated
 	 */
-	void setDiagonal(boolean value);
+	void setLength(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Horizontal</b></em>' attribute.
+	 * Returns the value of the '<em><b>Direction</b></em>' attribute.
+	 * The literals are from the enumeration {@link no.ntnu.tdt4250.g07.bg.Direction}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Horizontal</em>' attribute.
-	 * @see #setHorizontal(boolean)
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getLine_Horizontal()
-	 * @model required="true"
+	 * @return the value of the '<em>Direction</em>' attribute.
+	 * @see no.ntnu.tdt4250.g07.bg.Direction
+	 * @see #setDirection(Direction)
+	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getLine_Direction()
+	 * @model
 	 * @generated
 	 */
-	boolean isHorizontal();
+	Direction getDirection();
 
 	/**
-	 * Sets the value of the '{@link no.ntnu.tdt4250.g07.bg.Line#isHorizontal <em>Horizontal</em>}' attribute.
+	 * Sets the value of the '{@link no.ntnu.tdt4250.g07.bg.Line#getDirection <em>Direction</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Horizontal</em>' attribute.
-	 * @see #isHorizontal()
+	 * @param value the new value of the '<em>Direction</em>' attribute.
+	 * @see no.ntnu.tdt4250.g07.bg.Direction
+	 * @see #getDirection()
 	 * @generated
 	 */
-	void setHorizontal(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Vertical</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Vertical</em>' attribute.
-	 * @see #setVertical(boolean)
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getLine_Vertical()
-	 * @model required="true"
-	 * @generated
-	 */
-	boolean isVertical();
-
-	/**
-	 * Sets the value of the '{@link no.ntnu.tdt4250.g07.bg.Line#isVertical <em>Vertical</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Vertical</em>' attribute.
-	 * @see #isVertical()
-	 * @generated
-	 */
-	void setVertical(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Count</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count</em>' attribute.
-	 * @see #setCount(int)
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getLine_Count()
-	 * @model required="true"
-	 * @generated
-	 */
-	int getCount();
-
-	/**
-	 * Sets the value of the '{@link no.ntnu.tdt4250.g07.bg.Line#getCount <em>Count</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count</em>' attribute.
-	 * @see #getCount()
-	 * @generated
-	 */
-	void setCount(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Unique</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Unique</em>' attribute.
-	 * @see #setUnique(boolean)
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getLine_Unique()
-	 * @model required="true"
-	 * @generated
-	 */
-	boolean isUnique();
-
-	/**
-	 * Sets the value of the '{@link no.ntnu.tdt4250.g07.bg.Line#isUnique <em>Unique</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Unique</em>' attribute.
-	 * @see #isUnique()
-	 * @generated
-	 */
-	void setUnique(boolean value);
+	void setDirection(Direction value);
 
 } // Line

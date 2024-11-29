@@ -44,88 +44,40 @@ public class LineItemProvider extends WinConditionElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCountPropertyDescriptor(object);
-			addDiagonalPropertyDescriptor(object);
-			addHorizontalPropertyDescriptor(object);
-			addVerticalPropertyDescriptor(object);
-			addUniquePropertyDescriptor(object);
+			addLengthPropertyDescriptor(object);
+			addDirectionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Diagonal feature.
+	 * This adds a property descriptor for the Length feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDiagonalPropertyDescriptor(Object object) {
+	protected void addLengthPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Line_diagonal_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Line_diagonal_feature", "_UI_Line_type"),
-						BgPackage.Literals.LINE__DIAGONAL, true, false, false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+						getResourceLocator(), getString("_UI_Line_length_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Line_length_feature", "_UI_Line_type"),
+						BgPackage.Literals.LINE__LENGTH, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Horizontal feature.
+	 * This adds a property descriptor for the Direction feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHorizontalPropertyDescriptor(Object object) {
+	protected void addDirectionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Line_horizontal_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Line_horizontal_feature", "_UI_Line_type"),
-						BgPackage.Literals.LINE__HORIZONTAL, true, false, false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Vertical feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVerticalPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Line_vertical_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Line_vertical_feature", "_UI_Line_type"),
-						BgPackage.Literals.LINE__VERTICAL, true, false, false,
-						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Count feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCountPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Line_count_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Line_count_feature", "_UI_Line_type"),
-						BgPackage.Literals.LINE__COUNT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-						null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Unique feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUniquePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Line_unique_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Line_unique_feature", "_UI_Line_type"),
-						BgPackage.Literals.LINE__UNIQUE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-						null, null));
+						getResourceLocator(), getString("_UI_Line_direction_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Line_direction_feature", "_UI_Line_type"),
+						BgPackage.Literals.LINE__DIRECTION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -158,7 +110,7 @@ public class LineItemProvider extends WinConditionElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Line line = (Line) object;
-		return getString("_UI_Line_type") + " " + line.getCount();
+		return getString("_UI_Line_type") + " " + line.getLength();
 	}
 
 	/**
@@ -173,11 +125,8 @@ public class LineItemProvider extends WinConditionElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Line.class)) {
-		case BgPackage.LINE__COUNT:
-		case BgPackage.LINE__DIAGONAL:
-		case BgPackage.LINE__HORIZONTAL:
-		case BgPackage.LINE__VERTICAL:
-		case BgPackage.LINE__UNIQUE:
+		case BgPackage.LINE__LENGTH:
+		case BgPackage.LINE__DIRECTION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
