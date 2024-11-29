@@ -23,14 +23,34 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.ValidMoveImpl#getName <em>Name</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.ValidMoveImpl#getConditions <em>Conditions</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.ValidMoveImpl#isPlaceAnywhere <em>Place Anywhere</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.ValidMoveImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ValidMoveImpl extends BoardGameElementImpl implements ValidMove {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getConditions() <em>Conditions</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -60,26 +80,6 @@ public class ValidMoveImpl extends BoardGameElementImpl implements ValidMove {
 	 * @ordered
 	 */
 	protected boolean placeAnywhere = PLACE_ANYWHERE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,12 +168,12 @@ public class ValidMoveImpl extends BoardGameElementImpl implements ValidMove {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case BgPackage.VALID_MOVE__NAME:
+			return getName();
 		case BgPackage.VALID_MOVE__CONDITIONS:
 			return getConditions();
 		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
 			return isPlaceAnywhere();
-		case BgPackage.VALID_MOVE__NAME:
-			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -187,15 +187,15 @@ public class ValidMoveImpl extends BoardGameElementImpl implements ValidMove {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case BgPackage.VALID_MOVE__NAME:
+			setName((String) newValue);
+			return;
 		case BgPackage.VALID_MOVE__CONDITIONS:
 			getConditions().clear();
 			getConditions().addAll((Collection<? extends Condition>) newValue);
 			return;
 		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
 			setPlaceAnywhere((Boolean) newValue);
-			return;
-		case BgPackage.VALID_MOVE__NAME:
-			setName((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -209,14 +209,14 @@ public class ValidMoveImpl extends BoardGameElementImpl implements ValidMove {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case BgPackage.VALID_MOVE__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		case BgPackage.VALID_MOVE__CONDITIONS:
 			getConditions().clear();
 			return;
 		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
 			setPlaceAnywhere(PLACE_ANYWHERE_EDEFAULT);
-			return;
-		case BgPackage.VALID_MOVE__NAME:
-			setName(NAME_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -230,12 +230,12 @@ public class ValidMoveImpl extends BoardGameElementImpl implements ValidMove {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case BgPackage.VALID_MOVE__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case BgPackage.VALID_MOVE__CONDITIONS:
 			return conditions != null && !conditions.isEmpty();
 		case BgPackage.VALID_MOVE__PLACE_ANYWHERE:
 			return placeAnywhere != PLACE_ANYWHERE_EDEFAULT;
-		case BgPackage.VALID_MOVE__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -251,10 +251,10 @@ public class ValidMoveImpl extends BoardGameElementImpl implements ValidMove {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (placeAnywhere: ");
-		result.append(placeAnywhere);
-		result.append(", name: ");
+		result.append(" (name: ");
 		result.append(name);
+		result.append(", placeAnywhere: ");
+		result.append(placeAnywhere);
 		result.append(')');
 		return result.toString();
 	}

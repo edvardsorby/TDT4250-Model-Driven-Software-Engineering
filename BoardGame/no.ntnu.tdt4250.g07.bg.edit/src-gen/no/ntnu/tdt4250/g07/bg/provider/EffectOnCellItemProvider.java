@@ -43,27 +43,27 @@ public class EffectOnCellItemProvider extends BoardGameElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCellstatePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addCellStatePropertyDescriptor(object);
 			addXPropertyDescriptor(object);
 			addYPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Cellstate feature.
+	 * This adds a property descriptor for the Cell State feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCellstatePropertyDescriptor(Object object) {
+	protected void addCellStatePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_EffectOnCell_cellstate_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_EffectOnCell_cellstate_feature",
+						getResourceLocator(), getString("_UI_EffectOnCell_cellState_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_EffectOnCell_cellState_feature",
 								"_UI_EffectOnCell_type"),
-						BgPackage.Literals.EFFECT_ON_CELL__CELLSTATE, true, false, true, null, null, null));
+						BgPackage.Literals.EFFECT_ON_CELL__CELL_STATE, true, false, true, null, null, null));
 	}
 
 	/**
@@ -160,9 +160,9 @@ public class EffectOnCellItemProvider extends BoardGameElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EffectOnCell.class)) {
+		case BgPackage.EFFECT_ON_CELL__NAME:
 		case BgPackage.EFFECT_ON_CELL__X:
 		case BgPackage.EFFECT_ON_CELL__Y:
-		case BgPackage.EFFECT_ON_CELL__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

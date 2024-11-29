@@ -21,23 +21,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.ConditionImpl#getCellstate <em>Cellstate</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.ConditionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.ConditionImpl#getCellState <em>Cell State</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ConditionImpl extends BoardGameElementImpl implements Condition {
-	/**
-	 * The cached value of the '{@link #getCellstate() <em>Cellstate</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCellstate()
-	 * @generated
-	 * @ordered
-	 */
-	protected CellState cellstate;
-
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,6 +46,16 @@ public class ConditionImpl extends BoardGameElementImpl implements Condition {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCellState() <em>Cell State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCellState()
+	 * @generated
+	 * @ordered
+	 */
+	protected CellState cellState;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,17 +82,17 @@ public class ConditionImpl extends BoardGameElementImpl implements Condition {
 	 * @generated
 	 */
 	@Override
-	public CellState getCellstate() {
-		if (cellstate != null && cellstate.eIsProxy()) {
-			InternalEObject oldCellstate = (InternalEObject) cellstate;
-			cellstate = (CellState) eResolveProxy(oldCellstate);
-			if (cellstate != oldCellstate) {
+	public CellState getCellState() {
+		if (cellState != null && cellState.eIsProxy()) {
+			InternalEObject oldCellState = (InternalEObject) cellState;
+			cellState = (CellState) eResolveProxy(oldCellState);
+			if (cellState != oldCellState) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BgPackage.CONDITION__CELLSTATE,
-							oldCellstate, cellstate));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BgPackage.CONDITION__CELL_STATE,
+							oldCellState, cellState));
 			}
 		}
-		return cellstate;
+		return cellState;
 	}
 
 	/**
@@ -100,8 +100,8 @@ public class ConditionImpl extends BoardGameElementImpl implements Condition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CellState basicGetCellstate() {
-		return cellstate;
+	public CellState basicGetCellState() {
+		return cellState;
 	}
 
 	/**
@@ -110,12 +110,12 @@ public class ConditionImpl extends BoardGameElementImpl implements Condition {
 	 * @generated
 	 */
 	@Override
-	public void setCellstate(CellState newCellstate) {
-		CellState oldCellstate = cellstate;
-		cellstate = newCellstate;
+	public void setCellState(CellState newCellState) {
+		CellState oldCellState = cellState;
+		cellState = newCellState;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.CONDITION__CELLSTATE, oldCellstate,
-					cellstate));
+			eNotify(new ENotificationImpl(this, Notification.SET, BgPackage.CONDITION__CELL_STATE, oldCellState,
+					cellState));
 	}
 
 	/**
@@ -149,12 +149,12 @@ public class ConditionImpl extends BoardGameElementImpl implements Condition {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case BgPackage.CONDITION__CELLSTATE:
-			if (resolve)
-				return getCellstate();
-			return basicGetCellstate();
 		case BgPackage.CONDITION__NAME:
 			return getName();
+		case BgPackage.CONDITION__CELL_STATE:
+			if (resolve)
+				return getCellState();
+			return basicGetCellState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -167,11 +167,11 @@ public class ConditionImpl extends BoardGameElementImpl implements Condition {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case BgPackage.CONDITION__CELLSTATE:
-			setCellstate((CellState) newValue);
-			return;
 		case BgPackage.CONDITION__NAME:
 			setName((String) newValue);
+			return;
+		case BgPackage.CONDITION__CELL_STATE:
+			setCellState((CellState) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -185,11 +185,11 @@ public class ConditionImpl extends BoardGameElementImpl implements Condition {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case BgPackage.CONDITION__CELLSTATE:
-			setCellstate((CellState) null);
-			return;
 		case BgPackage.CONDITION__NAME:
 			setName(NAME_EDEFAULT);
+			return;
+		case BgPackage.CONDITION__CELL_STATE:
+			setCellState((CellState) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -203,10 +203,10 @@ public class ConditionImpl extends BoardGameElementImpl implements Condition {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case BgPackage.CONDITION__CELLSTATE:
-			return cellstate != null;
 		case BgPackage.CONDITION__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case BgPackage.CONDITION__CELL_STATE:
+			return cellState != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -13,44 +13,48 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Bg" basePackage="no.ntnu.tdt4250.g07" disposableProviderFactory="true"
       ecorePackage="bg.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="bg.ecore#//Direction">
+      <genEnumLiterals ecoreEnumLiteral="bg.ecore#//Direction/ROW"/>
+      <genEnumLiterals ecoreEnumLiteral="bg.ecore#//Direction/COLUMN"/>
+      <genEnumLiterals ecoreEnumLiteral="bg.ecore#//Direction/DIAGONAL"/>
+    </genEnums>
     <genClasses ecoreClass="bg.ecore#//BoardGame">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BoardGame/size"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BoardGame/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/boardgameelements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//BoardGame/size"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//BoardGame/boardGameElements"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//PieceType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//PieceType/name"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bg.ecore#//PieceType/validmoves"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//PieceType/symbol"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bg.ecore#//PieceType/validMoves"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bg.ecore#//PieceType/effectsoncell"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//ValidMove">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//ValidMove/name"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bg.ecore#//ValidMove/conditions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//ValidMove/placeAnywhere"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//ValidMove/name"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//Condition">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bg.ecore#//Condition/cellstate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Condition/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bg.ecore#//Condition/cellState"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//CellState">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//CellState/name"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//EffectOnCell">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//EffectOnCell/cellstate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//EffectOnCell/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//EffectOnCell/cellState"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//EffectOnCell/x"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//EffectOnCell/y"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//EffectOnCell/name"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//WinCondition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//WinCondition/inarow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bg.ecore#//WinCondition/winConditionElements"/>
     </genClasses>
-    <genClasses ecoreClass="bg.ecore#//InARow">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//InARow/diagonal"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//InARow/horizontal"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//InARow/vertical"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//InARow/count"/>
+    <genClasses ecoreClass="bg.ecore#//Line">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Line/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Line/direction"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//BoardGameElement"/>
+    <genClasses ecoreClass="bg.ecore#//WinConditionElement"/>
   </genPackages>
 </genmodel:GenModel>

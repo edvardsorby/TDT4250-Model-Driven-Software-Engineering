@@ -5,6 +5,7 @@ package no.ntnu.tdt4250.g07.bg.impl;
 import no.ntnu.tdt4250.g07.bg.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -69,10 +70,40 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 			return createEffectOnCell();
 		case BgPackage.WIN_CONDITION:
 			return createWinCondition();
-		case BgPackage.IN_AROW:
-			return createInARow();
+		case BgPackage.LINE:
+			return createLine();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+		case BgPackage.DIRECTION:
+			return createDirectionFromString(eDataType, initialValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+		case BgPackage.DIRECTION:
+			return convertDirectionToString(eDataType, instanceValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -159,9 +190,31 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 	 * @generated
 	 */
 	@Override
-	public InARow createInARow() {
-		InARowImpl inARow = new InARowImpl();
-		return inARow;
+	public Line createLine() {
+		LineImpl line = new LineImpl();
+		return line;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Direction createDirectionFromString(EDataType eDataType, String initialValue) {
+		Direction result = Direction.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDirectionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

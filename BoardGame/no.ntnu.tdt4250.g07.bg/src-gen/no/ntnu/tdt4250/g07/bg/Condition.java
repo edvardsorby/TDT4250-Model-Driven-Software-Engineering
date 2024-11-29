@@ -11,8 +11,8 @@ package no.ntnu.tdt4250.g07.bg;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.Condition#getCellstate <em>Cellstate</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.Condition#getName <em>Name</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.Condition#getCellState <em>Cell State</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.g07.bg.BgPackage#getCondition()
@@ -21,26 +21,26 @@ package no.ntnu.tdt4250.g07.bg;
  */
 public interface Condition extends BoardGameElement {
 	/**
-	 * Returns the value of the '<em><b>Cellstate</b></em>' reference.
+	 * Returns the value of the '<em><b>Cell State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cellstate</em>' reference.
-	 * @see #setCellstate(CellState)
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getCondition_Cellstate()
+	 * @return the value of the '<em>Cell State</em>' reference.
+	 * @see #setCellState(CellState)
+	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getCondition_CellState()
 	 * @model required="true"
 	 * @generated
 	 */
-	CellState getCellstate();
+	CellState getCellState();
 
 	/**
-	 * Sets the value of the '{@link no.ntnu.tdt4250.g07.bg.Condition#getCellstate <em>Cellstate</em>}' reference.
+	 * Sets the value of the '{@link no.ntnu.tdt4250.g07.bg.Condition#getCellState <em>Cell State</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cellstate</em>' reference.
-	 * @see #getCellstate()
+	 * @param value the new value of the '<em>Cell State</em>' reference.
+	 * @see #getCellState()
 	 * @generated
 	 */
-	void setCellstate(CellState value);
+	void setCellState(CellState value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

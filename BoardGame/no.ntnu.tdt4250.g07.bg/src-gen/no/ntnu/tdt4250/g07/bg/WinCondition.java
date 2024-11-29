@@ -2,6 +2,8 @@
  */
 package no.ntnu.tdt4250.g07.bg;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Win Condition</b></em>'.
@@ -11,7 +13,7 @@ package no.ntnu.tdt4250.g07.bg;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.WinCondition#getInarow <em>Inarow</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.WinCondition#getWinConditionElements <em>Win Condition Elements</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.g07.bg.BgPackage#getWinCondition()
@@ -20,25 +22,15 @@ package no.ntnu.tdt4250.g07.bg;
  */
 public interface WinCondition extends BoardGameElement {
 	/**
-	 * Returns the value of the '<em><b>Inarow</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Win Condition Elements</b></em>' containment reference list.
+	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.WinConditionElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inarow</em>' containment reference.
-	 * @see #setInarow(InARow)
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getWinCondition_Inarow()
+	 * @return the value of the '<em>Win Condition Elements</em>' containment reference list.
+	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getWinCondition_WinConditionElements()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	InARow getInarow();
-
-	/**
-	 * Sets the value of the '{@link no.ntnu.tdt4250.g07.bg.WinCondition#getInarow <em>Inarow</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Inarow</em>' containment reference.
-	 * @see #getInarow()
-	 * @generated
-	 */
-	void setInarow(InARow value);
+	EList<WinConditionElement> getWinConditionElements();
 
 } // WinCondition

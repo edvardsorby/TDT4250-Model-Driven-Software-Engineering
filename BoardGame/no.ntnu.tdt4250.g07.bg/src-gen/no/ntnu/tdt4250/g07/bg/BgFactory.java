@@ -85,13 +85,13 @@ public interface BgFactory extends EFactory {
 	WinCondition createWinCondition();
 
 	/**
-	 * Returns a new object of class '<em>In ARow</em>'.
+	 * Returns a new object of class '<em>Line</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>In ARow</em>'.
+	 * @return a new object of class '<em>Line</em>'.
 	 * @generated
 	 */
-	InARow createInARow();
+	Line createLine();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -3,16 +3,18 @@
  */
 package no.ntnu.tdt4250.g07.bg.bgdl.generator;
 
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
 import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 import no.ntnu.tdt4250.g07.bg.BoardGame;
 import no.ntnu.tdt4250.g07.bg.BoardGameElement;
-import no.ntnu.tdt4250.g07.bg.Condition;
+import no.ntnu.tdt4250.g07.bg.Direction;
+import no.ntnu.tdt4250.g07.bg.Line;
 import no.ntnu.tdt4250.g07.bg.PieceType;
-import no.ntnu.tdt4250.g07.bg.ValidMove;
 import no.ntnu.tdt4250.g07.bg.WinCondition;
+import no.ntnu.tdt4250.g07.bg.WinConditionElement;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -36,43 +38,44 @@ public class BoardGameDLGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final BoardGame boardGame = IteratorExtensions.<BoardGame>head(Iterators.<BoardGame>filter(resource.getAllContents(), BoardGame.class));
     if ((boardGame != null)) {
-      fsa.generateFile("boardGame.js", this.generateJS(boardGame));
+      fsa.generateFile("config.js", this.generateConfigJS(boardGame));
+      fsa.generateFile("winConditions.js", this.generateWinConditionsJS(boardGame));
+      fsa.generateFile("boardGame.js", this.generateBoardGameJS(boardGame));
+      fsa.generateFile("boardStyles.js", this.generateBoardStyleJS(boardGame));
     }
   }
 
-  public String generateJS(final BoardGame boardGame) {
+  public String generateConfigJS(final BoardGame boardGame) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("const boardGame = {");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("title: \"");
+    String _name = boardGame.getName();
+    _builder.append(_name, "\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
     _builder.append("    ");
     _builder.append("size: ");
     int _size = boardGame.getSize();
     _builder.append(_size, "    ");
     _builder.append(",");
     _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("elements: {");
-    _builder.newLine();
-    _builder.append("   ");
-    final Function1<BoardGameElement, String> _function = (BoardGameElement it) -> {
-      return it.eClass().getName();
-    };
-    final Function1<Map.Entry<String, List<BoardGameElement>>, String> _function_1 = (Map.Entry<String, List<BoardGameElement>> it) -> {
-      String _key = it.getKey();
-      String _plus = (_key + ": [");
-      final Function1<BoardGameElement, String> _function_2 = (BoardGameElement it_1) -> {
-        return this.generateElementJS(it_1);
-      };
-      String _join = IterableExtensions.join(ListExtensions.<BoardGameElement, String>map(it.getValue(), _function_2), ",\n");
-      String _plus_1 = (_plus + _join);
-      return (_plus_1 + "]");
-    };
-    String _join = IterableExtensions.join(IterableExtensions.<Map.Entry<String, List<BoardGameElement>>, String>map(IterableExtensions.<String, BoardGameElement>groupBy(boardGame.getBoardgameelements(), _function).entrySet(), _function_1), ",\n");
-    _builder.append(_join, "   ");
+    _builder.append("     ");
+    final Iterable<PieceType> pieceTypes = Iterables.<PieceType>filter(boardGame.getBoardGameElements(), PieceType.class);
     _builder.newLineIfNotEmpty();
     _builder.append("    ");
-    _builder.append("}");
-    _builder.newLine();
+    _builder.append("pieces: [");
+    {
+      for(final PieceType pieceType : pieceTypes) {
+        _builder.append("\"");
+        String _symbol = pieceType.getSymbol();
+        _builder.append(_symbol, "    ");
+        _builder.append("\", ");
+      }
+    }
+    _builder.append("],");
+    _builder.newLineIfNotEmpty();
     _builder.append("};");
     _builder.newLine();
     _builder.newLine();
@@ -84,16 +87,12 @@ public class BoardGameDLGenerator extends AbstractGenerator {
   public String generateElementJS(final BoardGameElement element) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("{");
-    _builder.newLine();
-    _builder.append("    ");
     final Function1<EStructuralFeature, String> _function = (EStructuralFeature it) -> {
       return this.serializeFeature(it, element);
     };
-    String _join = IterableExtensions.join(ListExtensions.<EStructuralFeature, String>map(element.eClass().getEAllStructuralFeatures(), _function), ",\n");
-    _builder.append(_join, "    ");
-    _builder.newLineIfNotEmpty();
+    String _join = IterableExtensions.join(ListExtensions.<EStructuralFeature, String>map(element.eClass().getEAllStructuralFeatures(), _function), ",");
+    _builder.append(_join);
     _builder.append("}");
-    _builder.newLine();
     return _builder.toString();
   }
 
@@ -108,7 +107,6 @@ public class BoardGameDLGenerator extends AbstractGenerator {
       _builder.append("\": ");
       String _serializeValue = this.serializeValue(value);
       _builder.append(_serializeValue);
-      _builder.newLineIfNotEmpty();
       _xblockexpression = _builder.toString();
     }
     return _xblockexpression;
@@ -125,7 +123,7 @@ public class BoardGameDLGenerator extends AbstractGenerator {
           final Function1<Object, String> _function = (Object it) -> {
             return this.serializeValue(it);
           };
-          String _join = IterableExtensions.join(IterableExtensions.map(((Iterable<?>)value), _function), ", ");
+          String _join = IterableExtensions.join(IterableExtensions.map(((Iterable<?>)value), _function), ", \n");
           String _plus = ("[" + _join);
           return (_plus + "]");
         } else {
@@ -144,118 +142,810 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     }
   }
 
-  public String generatePieceType(final PieceType pieceType) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("name: \"");
-    String _name = pieceType.getName();
-    _builder.append(_name, "    ");
-    _builder.append("\",");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("symbol: \"");
-    String _symbol = pieceType.getSymbol();
-    _builder.append(_symbol, "    ");
-    _builder.append("\",");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("validmoves: [");
-    _builder.newLine();
-    _builder.append("        ");
-    final Function1<ValidMove, String> _function = (ValidMove it) -> {
-      return this.generateValidMove(it);
-    };
-    String _join = IterableExtensions.join(ListExtensions.<ValidMove, String>map(pieceType.getValidmoves(), _function), ",\n");
-    _builder.append(_join, "        ");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("]");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder.toString();
+  public CharSequence generateWinConditionsJS(final BoardGame boardGame) {
+    CharSequence _xblockexpression = null;
+    {
+      final Iterable<WinCondition> winConditions = Iterables.<WinCondition>filter(boardGame.getBoardGameElements(), WinCondition.class);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("// Auto-generated JavaScript for win conditions");
+      _builder.newLine();
+      _builder.append("const boardSize = ");
+      int _size = boardGame.getSize();
+      _builder.append(_size);
+      _builder.append(";");
+      _builder.newLineIfNotEmpty();
+      _builder.append("  ");
+      _builder.newLine();
+      _builder.append("export function checkIsFinishedFunction(board, players, currentPlayer, setMessage) {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("const newBoard = board;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("let isFinished = false;");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("const player = players[currentPlayer]");
+      _builder.newLine();
+      {
+        for(final WinCondition winCondition : winConditions) {
+          {
+            EList<WinConditionElement> _winConditionElements = winCondition.getWinConditionElements();
+            for(final WinConditionElement winConditionElement : _winConditionElements) {
+              {
+                if ((winConditionElement instanceof Line)) {
+                  {
+                    Direction _direction = ((Line)winConditionElement).getDirection();
+                    boolean _equals = Objects.equals(_direction, Direction.ROW);
+                    if (_equals) {
+                      _builder.append("    \t\t\t");
+                      _builder.append("const inARowLength = ");
+                      int _length = ((Line)winConditionElement).getLength();
+                      _builder.append(_length, "    \t\t\t");
+                      _builder.newLineIfNotEmpty();
+                      _builder.append("if(inARow(inARowLength, player, board)) {");
+                      _builder.newLine();
+                      _builder.append("\t");
+                      _builder.append("setMessage(`Player ${players[currentPlayer]} wins because of ${inARowLength} in a row!`);");
+                      _builder.newLine();
+                      _builder.append("\t");
+                      _builder.append("return true");
+                      _builder.newLine();
+                      _builder.append("}");
+                      _builder.newLine();
+                    } else {
+                      Direction _direction_1 = ((Line)winConditionElement).getDirection();
+                      boolean _equals_1 = Objects.equals(_direction_1, Direction.COLUMN);
+                      if (_equals_1) {
+                        _builder.append("const inAColumnLength = ");
+                        int _length_1 = ((Line)winConditionElement).getLength();
+                        _builder.append(_length_1);
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("\t     \t\t");
+                        _builder.append("if(inAColumn(inAColumnLength, player, board)) {");
+                        _builder.newLine();
+                        _builder.append("\t     \t\t\t");
+                        _builder.append("setMessage(`Player ${players[currentPlayer]} wins because of ${inAColumnLength} in a column!`);");
+                        _builder.newLine();
+                        _builder.append("\t     \t\t\t");
+                        _builder.append("return true");
+                        _builder.newLine();
+                        _builder.append("\t     \t\t");
+                        _builder.append("}");
+                        _builder.newLine();
+                      } else {
+                        Direction _direction_2 = ((Line)winConditionElement).getDirection();
+                        boolean _equals_2 = Objects.equals(_direction_2, Direction.DIAGONAL);
+                        if (_equals_2) {
+                          _builder.append("const inADiagonalLength = ");
+                          int _length_2 = ((Line)winConditionElement).getLength();
+                          _builder.append(_length_2);
+                          _builder.newLineIfNotEmpty();
+                          _builder.append("\t     \t\t");
+                          _builder.append("if(inDiagonal(inADiagonalLength, player, board)) {");
+                          _builder.newLine();
+                          _builder.append("\t     \t\t\t");
+                          _builder.append("setMessage(`Player ${players[currentPlayer]} wins because of ${inADiagonalLength} in a diagonal!`);");
+                          _builder.newLine();
+                          _builder.append("\t     \t\t\t");
+                          _builder.append("return true");
+                          _builder.newLine();
+                          _builder.append("\t     \t\t");
+                          _builder.append("}");
+                          _builder.newLine();
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      _builder.append("  \t");
+      _builder.append("return false; //not finished");
+      _builder.newLine();
+      _builder.append("};");
+      _builder.newLine();
+      _builder.newLine();
+      {
+        for(final WinCondition winCondition_1 : winConditions) {
+          {
+            EList<WinConditionElement> _winConditionElements_1 = winCondition_1.getWinConditionElements();
+            for(final WinConditionElement winConditionElement_1 : _winConditionElements_1) {
+              {
+                if ((winConditionElement_1 instanceof Line)) {
+                  {
+                    Direction _direction_3 = ((Line)winConditionElement_1).getDirection();
+                    boolean _equals_3 = Objects.equals(_direction_3, Direction.ROW);
+                    if (_equals_3) {
+                      _builder.append("const inARow = (num, player, board) => {");
+                      _builder.newLine();
+                      _builder.append("  ");
+                      _builder.append("for (let row = 0; row < boardSize; row++) {");
+                      _builder.newLine();
+                      _builder.append("    ");
+                      _builder.append("let count = 0;   ");
+                      _builder.newLine();
+                      _builder.append("    ");
+                      _builder.append("for (let col = 0; col < boardSize; col++) {");
+                      _builder.newLine();
+                      _builder.append("      ");
+                      _builder.append("if (board[row][col] === player) {");
+                      _builder.newLine();
+                      _builder.append("        ");
+                      _builder.append("count++;");
+                      _builder.newLine();
+                      _builder.append("        ");
+                      _builder.append("if (count === num) return true;");
+                      _builder.newLine();
+                      _builder.append("      ");
+                      _builder.append("} else {");
+                      _builder.newLine();
+                      _builder.append("        ");
+                      _builder.append("count = 0;");
+                      _builder.newLine();
+                      _builder.append("      ");
+                      _builder.append("}");
+                      _builder.newLine();
+                      _builder.append("    ");
+                      _builder.append("}");
+                      _builder.newLine();
+                      _builder.append("  ");
+                      _builder.append("}");
+                      _builder.newLine();
+                      _builder.append("  ");
+                      _builder.append("return false;");
+                      _builder.newLine();
+                      _builder.append("};");
+                      _builder.newLine();
+                      _builder.newLine();
+                    } else {
+                      Direction _direction_4 = ((Line)winConditionElement_1).getDirection();
+                      boolean _equals_4 = Objects.equals(_direction_4, Direction.COLUMN);
+                      if (_equals_4) {
+                        _builder.append("const inAColumn = (num, player, board) => {");
+                        _builder.newLine();
+                        _builder.append("  ");
+                        _builder.append("for (let col = 0; col < boardSize; col++) {");
+                        _builder.newLine();
+                        _builder.append("    ");
+                        _builder.append("let count = 0;");
+                        _builder.newLine();
+                        _builder.append("    ");
+                        _builder.append("for (let row = 0; row < boardSize; row++) {");
+                        _builder.newLine();
+                        _builder.append("      ");
+                        _builder.append("if (board[row][col] === player) {");
+                        _builder.newLine();
+                        _builder.append("        ");
+                        _builder.append("count++;");
+                        _builder.newLine();
+                        _builder.append("        ");
+                        _builder.append("if (count === num) return true;");
+                        _builder.newLine();
+                        _builder.append("      ");
+                        _builder.append("} else {");
+                        _builder.newLine();
+                        _builder.append("        ");
+                        _builder.append("count = 0;");
+                        _builder.newLine();
+                        _builder.append("      ");
+                        _builder.append("}");
+                        _builder.newLine();
+                        _builder.append("    ");
+                        _builder.append("}");
+                        _builder.newLine();
+                        _builder.append("  ");
+                        _builder.append("}");
+                        _builder.newLine();
+                        _builder.append("  ");
+                        _builder.append("return false;");
+                        _builder.newLine();
+                        _builder.append("};");
+                        _builder.newLine();
+                        _builder.newLine();
+                      } else {
+                        Direction _direction_5 = ((Line)winConditionElement_1).getDirection();
+                        boolean _equals_5 = Objects.equals(_direction_5, Direction.DIAGONAL);
+                        if (_equals_5) {
+                          _builder.append("const inDiagonal = (num, player, board) => {");
+                          _builder.newLine();
+                          _builder.append("  ");
+                          _builder.append("const countDiagonalMatches = (startRow, startCol, deltaRow, deltaCol) => {");
+                          _builder.newLine();
+                          _builder.append("    ");
+                          _builder.append("let count = 0;");
+                          _builder.newLine();
+                          _builder.append("    ");
+                          _builder.append("let row = startRow;");
+                          _builder.newLine();
+                          _builder.append("    ");
+                          _builder.append("let col = startCol;");
+                          _builder.newLine();
+                          _builder.append("\t\t\t");
+                          _builder.newLine();
+                          _builder.append("    ");
+                          _builder.append("while (row >= 0 && row < boardSize && col >= 0 && col < boardSize) {");
+                          _builder.newLine();
+                          _builder.append("      ");
+                          _builder.append("if (board[row][col] === player) {");
+                          _builder.newLine();
+                          _builder.append("        ");
+                          _builder.append("count++;");
+                          _builder.newLine();
+                          _builder.append("        ");
+                          _builder.append("if (count === num) return true;");
+                          _builder.newLine();
+                          _builder.append("      ");
+                          _builder.append("} else {");
+                          _builder.newLine();
+                          _builder.append("        ");
+                          _builder.append("count = 0;");
+                          _builder.newLine();
+                          _builder.append("      ");
+                          _builder.append("}");
+                          _builder.newLine();
+                          _builder.append("      ");
+                          _builder.append("row += deltaRow;");
+                          _builder.newLine();
+                          _builder.append("      ");
+                          _builder.append("col += deltaCol;");
+                          _builder.newLine();
+                          _builder.append("    ");
+                          _builder.append("}");
+                          _builder.newLine();
+                          _builder.append("    ");
+                          _builder.append("return false;");
+                          _builder.newLine();
+                          _builder.append("  ");
+                          _builder.append("};");
+                          _builder.newLine();
+                          _builder.append("  ");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t    ");
+                          _builder.append("// Check top-left to bottom-right");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t    ");
+                          _builder.append("for (let row = 0; row < boardSize; row++) {");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t      ");
+                          _builder.append("if (countDiagonalMatches(row, 0, 1, 1)) return true;");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t    ");
+                          _builder.append("}");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t    ");
+                          _builder.append("for (let col = 1; col < boardSize; col++) {");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t      ");
+                          _builder.append("if (countDiagonalMatches(0, col, 1, 1)) return true;");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t    ");
+                          _builder.append("}");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t    ");
+                          _builder.append("// Check top-right to bottom-left");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t    ");
+                          _builder.append("for (let row = 0; row < boardSize; row++) {");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t      ");
+                          _builder.append("if (countDiagonalMatches(row, boardSize - 1, 1, -1)) return true;");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t    ");
+                          _builder.append("}");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t    ");
+                          _builder.append("for (let col = boardSize - 2; col >= 0; col--) {");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t      ");
+                          _builder.append("if (countDiagonalMatches(0, col, 1, -1)) return true;");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t    ");
+                          _builder.append("}");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t    ");
+                          _builder.append("return false;");
+                          _builder.newLine();
+                          _builder.append("  \t\t\t  ");
+                          _builder.append("};");
+                          _builder.newLine();
+                          _builder.append("  ");
+                          _builder.newLine();
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
   }
 
-  public String generateValidMove(final ValidMove validMove) {
+  public CharSequence generateBoardGameJS(final BoardGame boardGame) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
+    _builder.append("import { View, StyleSheet, TouchableOpacity, Text, TextInput, Alert, Pressable, Button } from \"react-native\";");
+    _builder.newLine();
+    _builder.append("import { useState, useEffect } from \"react\";");
+    _builder.newLine();
+    _builder.append("import CustomButton from \"../components/button.js\";");
+    _builder.newLine();
+    _builder.append("import AsyncStorage from \"@react-native-async-storage/async-storage\";");
+    _builder.newLine();
+    _builder.append("import { useTranslation } from \"react-i18next\";");
+    _builder.newLine();
+    _builder.append("import { globalStyles } from \"../styles/global.js\";");
+    _builder.newLine();
+    _builder.append("import { boardStyles } from \"./boardStyles.js\";");
+    _builder.newLine();
+    _builder.append("import { RFValue } from \"react-native-responsive-fontsize\";");
+    _builder.newLine();
+    _builder.append("import React from \'react\'");
+    _builder.newLine();
+    _builder.append("import { checkIsFinishedFunction } from \"./winConditions.js\";");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("export default function BoardGame() {");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("const boardSize = ");
+    int _size = boardGame.getSize();
+    _builder.append(_size, "  ");
+    _builder.append("; // Size of the board");
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    final Iterable<PieceType> pieceTypes = Iterables.<PieceType>filter(boardGame.getBoardGameElements(), PieceType.class);
+    _builder.newLineIfNotEmpty();
+    _builder.append("  ");
+    _builder.append("const players = [");
+    {
+      for(final PieceType pieceType : pieceTypes) {
+        _builder.append("\"");
+        String _symbol = pieceType.getSymbol();
+        _builder.append(_symbol, "  ");
+        _builder.append("\", ");
+      }
+    }
+    _builder.append("]; // Players");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("const [board, setBoard] = useState(Array(boardSize).fill(Array(boardSize).fill(null)));");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("const [currentPlayer, setCurrentPlayer] = useState(0);");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("const [gameActive, setGameActive] = useState(true);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("// start message");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("const [message, setMessage] = useState(``);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("//Board");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("const predefinedBoard = Array(boardSize).fill(Array(boardSize).fill(null));");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("const initializeBoard = () => {");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("placeAnywhere: ");
-    boolean _isPlaceAnywhere = validMove.isPlaceAnywhere();
-    _builder.append(_isPlaceAnywhere, "    ");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
+    _builder.append("//const newBoard = predefinedBoard.map(row => row.slice()); ");
+    _builder.newLine();
     _builder.append("    ");
-    _builder.append("conditions: [");
+    _builder.append("setBoard(predefinedBoard);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("setCurrentPlayer(0); ");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("setMessage(`Next Piece ${players[currentPlayer]}`);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("setGameActive(true);");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("};");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("useEffect(() => {   ");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("initializeBoard()");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}, []);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("const onCellClick = (row, col) => {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("if (!gameActive || board[row][col] !== null) return; //check if occupied  ");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("//if(!gameActive) return;");
+    _builder.newLine();
+    _builder.append("   ");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("//placing the piece");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("const newBoard = board.map((boardRow, rowIndex) =>");
+    _builder.newLine();
+    _builder.append("      ");
+    _builder.append("boardRow.map((cell, colIndex) => (rowIndex === row && colIndex === col ? players[currentPlayer] : cell))");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append(");");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("setBoard(newBoard);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("if (checkIsFinished(newBoard)) {");
+    _builder.newLine();
+    _builder.append("      ");
+    _builder.append("setGameActive(false);");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("} else if (checkIfBoardIsFilled(newBoard)) {");
+    _builder.newLine();
+    _builder.append("          ");
+    _builder.append("setMessage(\"It\'s a draw!\");");
+    _builder.newLine();
+    _builder.append("          ");
+    _builder.append("setGameActive(false);");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("} else {");
+    _builder.newLine();
+    _builder.append("      ");
+    _builder.append("const nextPlayer = (currentPlayer + 1) % players.length;");
+    _builder.newLine();
+    _builder.append("      ");
+    _builder.append("setCurrentPlayer(nextPlayer);");
+    _builder.newLine();
+    _builder.append("      ");
+    _builder.append("setMessage(`Next piece: ${players[nextPlayer]}`);");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("};");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("const checkIsFinished = (board) => {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("return checkIsFinishedFunction(board, players, currentPlayer, setMessage)");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("const checkIfBoardIsFilled = (board) => {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("return board.flat().every((cell) => cell !== null);");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("};");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("const resetGame = () => {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("initializeBoard();");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("};");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("return (");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.newLine();
+    _builder.append("<View style={boardStyles.container}>");
+    _builder.newLine();
+    _builder.append("     ");
+    _builder.append("<Text style={boardStyles.title}>");
+    String _name = boardGame.getName();
+    _builder.append(_name, "     ");
+    _builder.append("</Text>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("     ");
+    _builder.append("<View style={boardStyles.rules}>");
+    _builder.newLine();
+    _builder.append("\t\t             ");
+    _builder.append("<Text style={boardStyles.rule}>Rules:</Text>");
+    _builder.newLine();
+    _builder.append("\t             ");
+    _builder.newLine();
+    _builder.append("      ");
+    final Iterable<WinCondition> winConditions = Iterables.<WinCondition>filter(boardGame.getBoardGameElements(), WinCondition.class);
+    _builder.newLineIfNotEmpty();
+    {
+      for(final WinCondition winCondition : winConditions) {
+        {
+          EList<WinConditionElement> _winConditionElements = winCondition.getWinConditionElements();
+          for(final WinConditionElement winConditionElement : _winConditionElements) {
+            {
+              if ((winConditionElement instanceof Line)) {
+                _builder.append("<Text style={boardStyles.rule}>");
+                int _length = ((Line)winConditionElement).getLength();
+                _builder.append(_length);
+                _builder.append("  in a ");
+                String _lowerCase = ((Line)winConditionElement).getDirection().toString().toLowerCase();
+                _builder.append(_lowerCase);
+                _builder.append("</Text>");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("    ");
+    _builder.append("</View>\t");
+    _builder.newLine();
+    _builder.append("      ");
+    _builder.append("<View style={boardStyles.board}>");
     _builder.newLine();
     _builder.append("        ");
-    final Function1<Condition, String> _function = (Condition it) -> {
-      return this.generateCondition(it);
-    };
-    String _join = IterableExtensions.join(ListExtensions.<Condition, String>map(validMove.getConditions(), _function), ",\n");
-    _builder.append(_join, "        ");
-    _builder.newLineIfNotEmpty();
+    _builder.append("{board.map((row, rowIndex) =>");
+    _builder.newLine();
+    _builder.append("          ");
+    _builder.append("row.map((cell, colIndex) => (");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<TouchableOpacity");
+    _builder.newLine();
+    _builder.append("              ");
+    _builder.append("key={`${rowIndex}-${colIndex}`}");
+    _builder.newLine();
+    _builder.append("              ");
+    _builder.append("style={boardStyles.cell}");
+    _builder.newLine();
+    _builder.append("              ");
+    _builder.append("onPress={() => onCellClick(rowIndex, colIndex)}");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append(">");
+    _builder.newLine();
+    _builder.append("              ");
+    _builder.append("<Text style={boardStyles.cellText}>{cell}</Text>");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("</TouchableOpacity>");
+    _builder.newLine();
+    _builder.append("          ");
+    _builder.append("))");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append(")}");
+    _builder.newLine();
+    _builder.append("      ");
+    _builder.append("</View>");
+    _builder.newLine();
+    _builder.append("      ");
+    _builder.append("<Text style={boardStyles.message}>{message}</Text>");
+    _builder.newLine();
+    _builder.append("      ");
+    _builder.append("<CustomButton title=\"Reset\" onPress={resetGame} />");
+    _builder.newLine();
+    _builder.append("      ");
+    _builder.newLine();
     _builder.append("    ");
-    _builder.append("]");
+    _builder.append("</View>");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append(")");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    return _builder;
   }
 
-  public String generateCondition(final Condition condition) {
+  public CharSequence generateBoardStyleJS(final BoardGame boardGame) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
+    _builder.append("import { StyleSheet } from \"react-native\";");
+    _builder.newLine();
+    _builder.append("import { RFValue } from \"react-native-responsive-fontsize\";");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("export const boardStyles = StyleSheet.create({");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("container: {");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("cellstate: \"");
-    String _name = condition.getCellstate().getName();
-    _builder.append(_name, "    ");
-    _builder.append("\"");
+    _builder.append("flex: 1,");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("justifyContent: \"center\",");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("alignItems: \"center\",");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("backgroundColor: \"azure\",//VARIABEL");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("},");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("title: {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("fontSize: 24,");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("marginBottom: 20,");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("color: \"#023535\",//VARIABEL");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("},");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("board: {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("flexDirection: \"row\",");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("flexWrap: \"wrap\",");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("width: 300, ");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("height: 300, ");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("},");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("cell: {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("width:  300 / ");
+    int _size = boardGame.getSize();
+    _builder.append(_size, "    ");
+    _builder.append(",");
     _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    _builder.append("height:  300 / ");
+    int _size_1 = boardGame.getSize();
+    _builder.append(_size_1, "    ");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    _builder.append("borderWidth: 2,");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("borderColor: \"black\",//VARIABEL");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("justifyContent: \"center\",");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("alignItems: \"center\",");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("backgroundColor: \"#fff\", //VARIABEL");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("},");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("cellText: {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("fontSize: RFValue(32, 812),");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("fontWeight: \"bold\",");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("},");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("message: {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("fontSize: 18,");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("marginVertical: 10,");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("color: \"#023535\",");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("},");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("rules: {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("padding: 5,");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("marginBottom: 10,");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("backgroundColor: \"#ffff99\",");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("borderRadius: 5,");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("},");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("rule: {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("margin: 0");
+    _builder.newLine();
+    _builder.append("  ");
     _builder.append("}");
     _builder.newLine();
-    return _builder.toString();
+    _builder.append("});");
+    _builder.newLine();
+    _builder.newLine();
+    return _builder;
   }
 
-  public String generateWinCondition(final WinCondition winCondition) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("inarow: {");
-    _builder.newLine();
-    _builder.append("        ");
-    _builder.append("diagonal: ");
-    boolean _isDiagonal = winCondition.getInarow().isDiagonal();
-    _builder.append(_isDiagonal, "        ");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    _builder.append("        ");
-    _builder.append("horizontal: ");
-    boolean _isHorizontal = winCondition.getInarow().isHorizontal();
-    _builder.append(_isHorizontal, "        ");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    _builder.append("        ");
-    _builder.append("vertical: ");
-    boolean _isVertical = winCondition.getInarow().isVertical();
-    _builder.append(_isVertical, "        ");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    _builder.append("        ");
-    _builder.append("count: ");
-    int _count = winCondition.getInarow().getCount();
-    _builder.append(_count, "        ");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    return _builder.toString();
+  public String decapitalize(final String input) {
+    String _xifexpression = null;
+    boolean _isEmpty = input.isEmpty();
+    if (_isEmpty) {
+      _xifexpression = input;
+    } else {
+      String _lowerCase = input.substring(0, 1).toLowerCase();
+      String _substring = input.substring(1);
+      _xifexpression = (_lowerCase + _substring);
+    }
+    return _xifexpression;
   }
 }

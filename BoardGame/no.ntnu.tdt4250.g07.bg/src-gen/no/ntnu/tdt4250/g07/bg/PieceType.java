@@ -14,8 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getName <em>Name</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getValidmoves <em>Validmoves</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getSymbol <em>Symbol</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getValidMoves <em>Valid Moves</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getEffectsoncell <em>Effectsoncell</em>}</li>
  * </ul>
  *
@@ -47,16 +47,16 @@ public interface PieceType extends BoardGameElement {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Validmoves</b></em>' reference list.
+	 * Returns the value of the '<em><b>Valid Moves</b></em>' reference list.
 	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.ValidMove}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Validmoves</em>' reference list.
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getPieceType_Validmoves()
+	 * @return the value of the '<em>Valid Moves</em>' reference list.
+	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getPieceType_ValidMoves()
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<ValidMove> getValidmoves();
+	EList<ValidMove> getValidMoves();
 
 	/**
 	 * Returns the value of the '<em><b>Symbol</b></em>' attribute.

@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getName <em>Name</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getValidmoves <em>Validmoves</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getSymbol <em>Symbol</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getValidMoves <em>Valid Moves</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getEffectsoncell <em>Effectsoncell</em>}</li>
  * </ul>
  *
@@ -54,16 +54,6 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getValidmoves() <em>Validmoves</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValidmoves()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ValidMove> validmoves;
-
-	/**
 	 * The default value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,6 +72,16 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 	 * @ordered
 	 */
 	protected String symbol = SYMBOL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getValidMoves() <em>Valid Moves</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValidMoves()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ValidMove> validMoves;
 
 	/**
 	 * The cached value of the '{@link #getEffectsoncell() <em>Effectsoncell</em>}' reference list.
@@ -141,11 +141,11 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 	 * @generated
 	 */
 	@Override
-	public EList<ValidMove> getValidmoves() {
-		if (validmoves == null) {
-			validmoves = new EObjectResolvingEList<ValidMove>(ValidMove.class, this, BgPackage.PIECE_TYPE__VALIDMOVES);
+	public EList<ValidMove> getValidMoves() {
+		if (validMoves == null) {
+			validMoves = new EObjectResolvingEList<ValidMove>(ValidMove.class, this, BgPackage.PIECE_TYPE__VALID_MOVES);
 		}
-		return validmoves;
+		return validMoves;
 	}
 
 	/**
@@ -195,10 +195,10 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 		switch (featureID) {
 		case BgPackage.PIECE_TYPE__NAME:
 			return getName();
-		case BgPackage.PIECE_TYPE__VALIDMOVES:
-			return getValidmoves();
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			return getSymbol();
+		case BgPackage.PIECE_TYPE__VALID_MOVES:
+			return getValidMoves();
 		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
 			return getEffectsoncell();
 		}
@@ -217,12 +217,12 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 		case BgPackage.PIECE_TYPE__NAME:
 			setName((String) newValue);
 			return;
-		case BgPackage.PIECE_TYPE__VALIDMOVES:
-			getValidmoves().clear();
-			getValidmoves().addAll((Collection<? extends ValidMove>) newValue);
-			return;
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			setSymbol((String) newValue);
+			return;
+		case BgPackage.PIECE_TYPE__VALID_MOVES:
+			getValidMoves().clear();
+			getValidMoves().addAll((Collection<? extends ValidMove>) newValue);
 			return;
 		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
 			getEffectsoncell().clear();
@@ -243,11 +243,11 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 		case BgPackage.PIECE_TYPE__NAME:
 			setName(NAME_EDEFAULT);
 			return;
-		case BgPackage.PIECE_TYPE__VALIDMOVES:
-			getValidmoves().clear();
-			return;
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			setSymbol(SYMBOL_EDEFAULT);
+			return;
+		case BgPackage.PIECE_TYPE__VALID_MOVES:
+			getValidMoves().clear();
 			return;
 		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
 			getEffectsoncell().clear();
@@ -266,10 +266,10 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 		switch (featureID) {
 		case BgPackage.PIECE_TYPE__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		case BgPackage.PIECE_TYPE__VALIDMOVES:
-			return validmoves != null && !validmoves.isEmpty();
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			return SYMBOL_EDEFAULT == null ? symbol != null : !SYMBOL_EDEFAULT.equals(symbol);
+		case BgPackage.PIECE_TYPE__VALID_MOVES:
+			return validMoves != null && !validMoves.isEmpty();
 		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
 			return effectsoncell != null && !effectsoncell.isEmpty();
 		}

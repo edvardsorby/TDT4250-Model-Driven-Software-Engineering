@@ -56,8 +56,8 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSizePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addSizePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -106,7 +106,7 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS);
+			childrenFeatures.add(BgPackage.Literals.BOARD_GAME__BOARD_GAME_ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -170,11 +170,11 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BoardGame.class)) {
-		case BgPackage.BOARD_GAME__SIZE:
 		case BgPackage.BOARD_GAME__NAME:
+		case BgPackage.BOARD_GAME__SIZE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case BgPackage.BOARD_GAME__BOARDGAMEELEMENTS:
+		case BgPackage.BOARD_GAME__BOARD_GAME_ELEMENTS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -192,22 +192,22 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS,
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARD_GAME_ELEMENTS,
 				BgFactory.eINSTANCE.createPieceType()));
 
-		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS,
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARD_GAME_ELEMENTS,
 				BgFactory.eINSTANCE.createValidMove()));
 
-		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS,
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARD_GAME_ELEMENTS,
 				BgFactory.eINSTANCE.createCondition()));
 
-		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS,
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARD_GAME_ELEMENTS,
 				BgFactory.eINSTANCE.createCellState()));
 
-		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS,
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARD_GAME_ELEMENTS,
 				BgFactory.eINSTANCE.createEffectOnCell()));
 
-		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARDGAMEELEMENTS,
+		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARD_GAME_ELEMENTS,
 				BgFactory.eINSTANCE.createWinCondition()));
 	}
 
