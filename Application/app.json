@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "SudokuProject",
+    "slug": "SudokuProject",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/sudoku-logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-screen.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/sudoku-logo.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.edvarso.SudokuProject"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2804dbd0-c2e8-4639-8d89-7745474c2056"
+      }
+    },
+    "newArchEnabled": true
+  }
+}
