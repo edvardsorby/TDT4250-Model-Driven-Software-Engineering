@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import CustomButton from "../components/button";
 import { initializeData } from "../data/sampleData";
 import { globalStyles } from "../styles/global";
-import boardGame from "../src-gen/bg.js";
+import config from "../src-gen/config.js"
 
 export default function Home({ navigation }) {
 
@@ -23,14 +23,10 @@ export default function Home({ navigation }) {
   return (
     <View style={globalStyles.container}>
       {/* <Image source={require('../assets/sudoku-logo.png')} style={styles.logo}/> */}
-      <Text style={styles.header}>{boardGame.boardGameName}</Text>
-      <CustomButton title={langLoaded ? t("Play") : ""} onPress={() => navigation.navigate('PlayBoardGame2')}/>
-      <CustomButton title={"Play Chat Game"} onPress={() => navigation.navigate('PlayChatGame')}/>
-      <CustomButton title={"Play Tic-Tac-Toe"} onPress={() => navigation.navigate('PlayExperimental')}/>
-      <CustomButton title={"Play Sudoku"} onPress={() => navigation.navigate('PlaySudoku')}/>
-      <CustomButton title={"Play Chess"} onPress={() => navigation.navigate('PlayChess')}/>
-      <CustomButton title={"Play Sudoku (old)"} onPress={() => navigation.navigate('StartSudoku')}/>
-      {/* <CustomButton title={langLoaded ? t("Add/remove sudoku grids") : ""} onPress={() => navigation.navigate('SudokuList')}/> */}
+      <Text style={styles.header}>{config.title}</Text>
+      <Text>{config.pieces.join('')}</Text>
+      {/* <CustomButton title={langLoaded ? t("Play") : ""} onPress={() => navigation.navigate('PlayBoardGame')}/> */}
+      <CustomButton title={"Play"} onPress={() => navigation.navigate('BoardGame')}/>
     </View>
   )
 }

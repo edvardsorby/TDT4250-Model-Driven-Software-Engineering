@@ -1,6 +1,6 @@
 const boardGame = {
-    boardGameName: "Hallo",
-  size: 5,
+    boardGameName: "Bondesjakk",
+  size: 7,
   piecetypes: [
       {
           name: "😺",
@@ -17,7 +17,7 @@ const boardGame = {
               },
               {
                 placeAnywhere: true,//false
-                  //relativePosition: {x:1, y:}:
+              
                 conditions: [
                     {
                         cellstate: "Occupied"

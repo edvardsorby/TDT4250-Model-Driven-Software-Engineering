@@ -1,10 +1,10 @@
 import { View, StyleSheet, TouchableOpacity, Text, TextInput, Alert, Pressable, Button } from "react-native";
 import { useState, useEffect } from "react";
-import CustomButton from "../components/button";
+import CustomButton from "../../components/button.js";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTranslation } from "react-i18next";
-import { globalStyles } from "../styles/global";
-import bg from "../src-gen/bg.js"
+import { globalStyles } from "../../styles/global.js";
+import bg from "./bg.js";
 import { RFValue } from "react-native-responsive-fontsize";
 
 import React from 'react'
@@ -38,9 +38,13 @@ export default function TicTacToe() {
     if (!gameActive || board[row][col] !== null) return; //check if occupied   
     //if(!gameActive) return; //dont check
 
+    console.log("Hei")
+    console.log(board)
     const newBoard = board.map((boardRow, rowIndex) =>
       boardRow.map((cell, colIndex) => (rowIndex === row && colIndex === col ? players[currentPlayer] : cell))
-    );
+  );
+    console.log("Hei 2")
+    console.log(newBoard)
 
     setBoard(newBoard);
 

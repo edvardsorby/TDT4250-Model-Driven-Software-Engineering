@@ -1,18 +1,17 @@
 import { View, StyleSheet, TouchableOpacity, Text, TextInput, Alert, Pressable, Button } from "react-native";
 import { useState, useEffect } from "react";
-import CustomButton from "../components/button";
+import CustomButton from "../../components/button.js";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTranslation } from "react-i18next";
-import { globalStyles } from "../styles/global";
-//import bg from "../src-gen/bg.js"
-import bg from "../src-gen/chess.js"
-import board from "../src-gen/gameBoard.js"
-
+import { globalStyles } from "../../styles/global.js";
+import bg from "./bg.js"
 import { RFValue } from "react-native-responsive-fontsize";
 
 import React from 'react'
 
-export default function Chess() {
+export default function Sudoku() {
+
+  
   const boardSize = bg.size; // Size of the board
   const players = []; // Players
   const XInARow = bg.winConditions[0].inarow.count; // Win condition: X in a row
@@ -26,14 +25,12 @@ export default function Chess() {
   const [gameActive, setGameActive] = useState(true);
   const [message, setMessage] = useState(`Player ${players[currentPlayer]}'s turn`);
 
-  // const predefinedBoard = 
-
   const predefinedBoard = [
-    [null,"👒","☀",null,null],
+    ["🌂",null,null,null,"🎓"],
     [null,null, null, null,null],
+    [null, null, "🌂", null,null],
+    ["🌞", null, null, null,null],
     [null, null, null, null,null],
-    [null, null, null, null,null],
-    [null, "🌞", "🎓", null,null],
   ];
 
   const initializeBoard = () => {
@@ -48,40 +45,9 @@ export default function Chess() {
     setGameActive(true);
   };
 
-  /**
-   * VALID MOVES
-   * Used for games with moveable pieces
-   * 
-   */
+  
   const getValidMoves = (piece,row,col) => {
-    if (board[row][col] == null) return //empty cell has no valid moves
-    
-    const numConditions = piece.validmoves.length;
-    let validCells = [];
-
-    for (let i = 0; i < numConditions; i++) { // => list of valid coodinates for this piece
-        let x = col + piece.validmoves[i].relativePosition.x
-        let y = row + piece.validmoves[i].relativePosition.y
-
-        const invalidCell = (x > boardSize || y>boardSize || y<0 || x<0) //pieces cannot go beyond the board
-
-        if(!invalidCell){
-            validCells.add(x,y)
-        }
-    }
-    
-    return validCells;
-  }
-
-  const highlightCells = (listOfCells) => {
-    listOfCells.forEach(([x, y]) => {
-      console.log(`x: ${x}, y: ${y}`);
-    });
-
-  }
-
-  const removeHighlights = () => {
-
+    return true;
   }
 
   const onCellClick = (row, col) => {
@@ -89,19 +55,18 @@ export default function Chess() {
     //if (!gameActive || board[row][col] !== null) return; //check if occupied   
     if(!gameActive) return; //dont check if occupied
 
-    //CHESS Games with changable piece positions
-    removeHighlights();
-    let validMoves = getValidMoves(row,col);
-    highlightCells(validMoves);
+    let validMoves = getValidMoves(players[currentPlayer], row,col);
 
-    //const newBoard = board.map((boardRow, rowIndex) =>
-    //  boardRow.map((cell, colIndex) => (rowIndex === row && colIndex === col ? players[currentPlayer] : cell))
-    //);
+   // let validMoves = getValidMoves(piece, row,col);
+
+    const newBoard = board.map((boardRow, rowIndex) =>
+      boardRow.map((cell, colIndex) => (rowIndex === row && colIndex === col ? players[currentPlayer] : cell))
+    );
 
 
-    //setBoard(newBoard);
-    //const nextPlayer = (currentPlayer + 1) % players.length;
-    //setCurrentPlayer(nextPlayer);
+    setBoard(newBoard);
+    const nextPlayer = (currentPlayer + 1) % players.length;
+    setCurrentPlayer(nextPlayer);
 
     // ONLY IN VS.
     /*if (checkIsFinished(players[currentPlayer], newBoard)) {
@@ -244,7 +209,7 @@ export default function Chess() {
   return (
     
 <View style={styles.container}>
-      <Text style={styles.title}>♜ Tillitsbasert sjakk ♜</Text>
+      <Text style={styles.title}>SUDOKU</Text>
       <Text >Board size: {boardSize}</Text>
       <Text >Win condition: {XInARow} in a row</Text>
       <View style={styles.board}>
