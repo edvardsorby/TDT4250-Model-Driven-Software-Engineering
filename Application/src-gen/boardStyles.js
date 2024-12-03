@@ -21,8 +21,8 @@ export const boardStyles = StyleSheet.create({
     marginBottom: 20
   },
   cell: {
-    width:  300 / 8,
-    height:  300 / 8,
+    width:  300 / 5,
+    height:  300 / 5,
     borderWidth: 2,
     borderColor: "black",
     justifyContent: "center",
@@ -30,7 +30,7 @@ export const boardStyles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   cellText: {
-    fontSize: 35 - 8,
+    fontSize: 35 - 5,
     fontWeight: "bold",
   },
   message: {
