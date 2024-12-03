@@ -196,8 +196,8 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			    
 			     		«ENDIF»
 			       «ENDIF»
-			        			 	«ENDFOR»
-			    			    «ENDFOR»
+			 	«ENDFOR»
+		    «ENDFOR»
 			'''
 			}
 	
@@ -236,7 +236,7 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			    setBoard(predefinedBoard);
 			
 			    setCurrentPlayer(0); 
-			    setMessage(`Next Piece ${players[currentPlayer]}`);
+			    setMessage(`Next Piece ${players[0]}`);
 			
 			    setGameActive(true);
 			  };
@@ -284,18 +284,7 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			    
 			<View style={boardStyles.container}>
 			     <Text style={boardStyles.title}>«boardGame.name»</Text>
-			     <View style={boardStyles.rules}>
-		             <Text style={boardStyles.rule}>Rules:</Text>
-	             
-			      «val winConditions = boardGame.boardGameElements.filter(WinCondition)»
-			        «FOR winCondition : winConditions»
-         				«FOR winConditionElement : winCondition.winConditionElements »
-         			     	«IF winConditionElement instanceof Line»
-         			     		 		<Text style={boardStyles.rule}>«winConditionElement.length»  in a «winConditionElement.direction.toString.toLowerCase»</Text>
-         			     	«ENDIF»
-        			 	«ENDFOR»
-			    «ENDFOR»
-			    </View>	
+			      <Text style={boardStyles.message}>{message}</Text>
 			      <View style={boardStyles.board}>
 			        {board.map((row, rowIndex) =>
 			          row.map((cell, colIndex) => (
@@ -309,7 +298,18 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			          ))
 			        )}
 			      </View>
-			      <Text style={boardStyles.message}>{message}</Text>
+			     <View style={boardStyles.rules}>
+		             <Text style={boardStyles.rule}>Rules:</Text>
+	             
+			      «val winConditions = boardGame.boardGameElements.filter(WinCondition)»
+			        «FOR winCondition : winConditions»
+         				«FOR winConditionElement : winCondition.winConditionElements »
+         			     	«IF winConditionElement instanceof Line»
+         			     		 		<Text style={boardStyles.rule}>«winConditionElement.length»  in a «winConditionElement.direction.toString.toLowerCase»</Text>
+         			     	«ENDIF»
+        			 	«ENDFOR»
+			    «ENDFOR»
+			    </View>	
 			      <CustomButton title="Reset" onPress={resetGame} />
 			      
 			    </View>
@@ -331,7 +331,7 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			    backgroundColor: "azure",//VARIABEL
 			  },
 			  title: {
-			    fontSize: 24,
+			    fontSize: 36,
 			    marginBottom: 20,
 			    color: "#023535",//VARIABEL
 			  },
@@ -340,6 +340,7 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			    flexWrap: "wrap",
 			    width: 300, 
 			    height: 300, 
+			    marginBottom: 20
 			  },
 			  cell: {
 			    width:  300 / «boardGame.size»,
@@ -351,22 +352,24 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			    backgroundColor: "#fff", //VARIABEL
 			  },
 			  cellText: {
-			    fontSize: RFValue(32, 812),
+			    fontSize: 35 - «boardGame.size»,
 			    fontWeight: "bold",
 			  },
 			  message: {
-			    fontSize: 18,
+			    fontSize: 24,
 			    marginVertical: 10,
 			    color: "#023535",
 			  },
 			  rules: {
 			    padding: 5,
+			    paddingHorizontal: 20,
 			    marginBottom: 10,
 			    backgroundColor: "#ffff99",
 			    borderRadius: 5,
 			  },
 			  rule: {
-			    margin: 0
+			    margin: 0,
+			    fontSize: 16,
 			  }
 			});
 			
