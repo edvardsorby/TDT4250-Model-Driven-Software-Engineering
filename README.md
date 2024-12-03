@@ -8,49 +8,44 @@ The resulting code is compiled to JavaScript files, that can be copied into the 
 
 **System requirements:**
 - Eclipse (to view and edit the project, as well as using DSL)
-- Version: Eclipse IDE version 2024-06 for Java and DSL Developers
-- Using additional plugins: EMF Forms SDK, Ecore Diagram Editor
+   - Version: Eclipse IDE version 2024-06 for Java and DSL Developers
+   - Using additional plugins: EMF Forms SDK, Ecore Diagram Editor
 - Android studio (To run and emulate finished application)
 
 ### Project structure 
-- **MODEL CODE** :  final-project-group07/BoardGame 
+- **Model code** :  final-project-group07/BoardGame 
 - **Core package** : no.ntnu.tdt4250.g07.bg 
 - **Boardgame plugin extension** : .bg 
 - **Boardgame DSL extension** : .bgdl 
 
+**Metamodel (Ecore):**
+- Path: *BoardGame/no.ntnu.tdt4250.g07.bg/model/bg.ecore*
+- Example models: *BoardGame/no.ntnu.tdt4250.g07.bg/model/bg.ecore*
 
-**Metamodel (Ecore):** *BoardGame/no.ntnu.tdt4250.g07.bg/model/bg.ecore*
-
-**Example models:**  
-
-**Grammar definition (Xtext):** *.BoardGame/no.ntnu.tdt4250.g07.bg.bgdl/bin/no/ntnu/tdt4250/g07/bg/bgdl/BoardgameDL.xtext*
+**Grammar definition (Xtext):**
+- Path: *BoardGame/no.ntnu.tdt4250.g07.bg.bgdl/bin/no/ntnu/tdt4250/g07/bg/bgdl/BoardgameDL.xtext*
 
 **Code generation rules (Xtend):**
 
-**Example project (.bgdl):**  
+**Example project (.bgdl):**
+- Path: *Xtext-examples/examplesXtext/bin/test.bgdl*
 
-*Xtext-examples/examplesXtext/bin/test.bgdl* 
 
-**Generated code (JavaScript/React):**  
-
-When saving the Xtext files, the model automatically builds the code and places them in the folder: *Xtext-examples/examplesXtext/src-gen*
-
+**Generated code (JavaScript/React):**
+- The model automatically generates code when saving the Xtext files and places it in the folder:
+Path: *Xtext-examples/examplesXtext/src-gen*
 
 ## How to open project: 
-
-Open the following folders in an Eclipse workspace:
-
-final-project-group07/BoardGame
+Open the following folders in an Eclipse workspace: *final-project-group07/BoardGame*
 
 **To create or open board game, Open this folder in another workspace:** 
 
-*final-project-group07/ Xtext-examples/examplesXtext*
+Path: *final-project-group07/ Xtext-examples/examplesXtext*
 
  
 **An example implementation of Tic-tac-toe is found in the file:**
 
 The project automatically compiles to react code when saving the file. 
-
 Create a file with the file ending “.bgdl” to use the language. 
 
  
@@ -59,9 +54,10 @@ Create a file with the file ending “.bgdl” to use the language.
 
 To test out the code, you need to place it inside the React application. 
 
-Generated files location:  
+Generated files location: *Xtext-examples/examplesXtext/src-gen*
 
-**Where to place files:**
+
+**Where to place generated files:**
 
 - boardGame.js : Application/src-gen 
 
