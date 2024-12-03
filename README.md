@@ -29,6 +29,7 @@ The resulting code is compiled to JavaScript files, that can be copied into the 
 - Path: *BoardGame/no.ntnu.tdt4250.g07.bg.bgdl/bin/no/ntnu/tdt4250/g07/bg/bgdl/BoardgameDL.xtext*
 
 **Code generation rules (Xtend):**
+- Path: *BoardGame/no.ntnu.tdt4250.g07.bg.bgdl/src/no/ntnu/tdt4250/g07/bg/bgdl/generator/BoardGameDLGenerator.xtend*
 
 **Example project (.bgdl):**
 - Path: *Xtext-examples/examplesXtext/bin/test.bgdl*
