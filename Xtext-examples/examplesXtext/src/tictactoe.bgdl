@@ -1,5 +1,5 @@
 Title "Tic-Tac-Toe"
-BoardSize 5
+BoardSize 3
 
 Cellstate Occupied
 
@@ -14,16 +14,16 @@ PieceType X{
 	EffectsOnCell MakeOccupied
 }
 
-PieceType Y{
-	Symbol "Y"
+PieceType O{
+	Symbol "O"
 	DisallowedStates Occupied
 	EffectsOnCell MakeOccupied
 }
 
 WinCondition{
-	Line length 5 direction ROW
-	Line length 5 direction COLUMN
-	Line length 5 direction DIAGONAL
+	Line length 3 direction ROW
+	Line length 3 direction COLUMN
+	Line length 3 direction DIAGONAL
 }
 
 
