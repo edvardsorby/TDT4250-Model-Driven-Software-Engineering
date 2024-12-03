@@ -6,7 +6,9 @@ package no.ntnu.tdt4250.g07.bg.bgdl.generator
 import java.util.Collection
 import no.ntnu.tdt4250.g07.bg.BoardGame
 import no.ntnu.tdt4250.g07.bg.BoardGameElement
+import no.ntnu.tdt4250.g07.bg.Direction
 import no.ntnu.tdt4250.g07.bg.Line
+import no.ntnu.tdt4250.g07.bg.PieceType
 import no.ntnu.tdt4250.g07.bg.WinCondition
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EStructuralFeature
@@ -14,11 +16,6 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import java.util.HashSet
-import java.util.HashMap
-import no.ntnu.tdt4250.g07.bg.WinConditionElement
-import no.ntnu.tdt4250.g07.bg.Direction
-import no.ntnu.tdt4250.g07.bg.PieceType
 
 /**
  * Generates code from your model files on save.
@@ -284,6 +281,16 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			    
 			<View style={boardStyles.container}>
 			     <Text style={boardStyles.title}>«boardGame.name»</Text>
+			     <Text style={boardStyles.message}>
+			             Players: {players.map((player, index) => (
+			               <Text
+			                 key={index}
+			                 style={player === players[currentPlayer] ? { fontSize: 32 } : null}
+			               >
+			                 {player}{' '}
+			               </Text>
+			             ))}
+	           	  </Text>
 			      <Text style={boardStyles.message}>{message}</Text>
 			      <View style={boardStyles.board}>
 			        {board.map((row, rowIndex) =>
@@ -328,28 +335,28 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			    flex: 1,
 			    justifyContent: "center",
 			    alignItems: "center",
-			    backgroundColor: "azure",//VARIABEL
+			    backgroundColor: "azure",
 			  },
 			  title: {
 			    fontSize: 36,
-			    marginBottom: 20,
-			    color: "#023535",//VARIABEL
+			    marginBottom: 10,
+			    color: "#023535",
 			  },
 			  board: {
 			    flexDirection: "row",
 			    flexWrap: "wrap",
-			    width: 300, 
-			    height: 300, 
+			    width: 300,
+			    height: 300,
 			    marginBottom: 20
 			  },
 			  cell: {
 			    width:  300 / «boardGame.size»,
 			    height:  300 / «boardGame.size»,
 			    borderWidth: 2,
-			    borderColor: "black",//VARIABEL
+			    borderColor: "black",
 			    justifyContent: "center",
 			    alignItems: "center",
-			    backgroundColor: "#fff", //VARIABEL
+			    backgroundColor: "#fff",
 			  },
 			  cellText: {
 			    fontSize: 35 - «boardGame.size»,
@@ -357,7 +364,7 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			  },
 			  message: {
 			    fontSize: 24,
-			    marginVertical: 10,
+			    marginVertical: 5,
 			    color: "#023535",
 			  },
 			  rules: {

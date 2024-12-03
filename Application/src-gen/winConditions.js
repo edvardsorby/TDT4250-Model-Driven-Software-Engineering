@@ -1,22 +1,22 @@
 // Auto-generated JavaScript for win conditions
-const boardSize = 5;
+const boardSize = 8;
   
 export function checkIsFinishedFunction(board, players, currentPlayer, setMessage) {
 	const newBoard = board;
 	let isFinished = false;
 
 	const player = players[currentPlayer]
-    			const inARowLength = 4
+    			const inARowLength = 6
 if(inARow(inARowLength, player, board)) {
 	setMessage(`Player ${players[currentPlayer]} wins because of ${inARowLength} in a row!`);
 	return true
 }
-const inAColumnLength = 3
+const inAColumnLength = 4
 	     		if(inAColumn(inAColumnLength, player, board)) {
 	     			setMessage(`Player ${players[currentPlayer]} wins because of ${inAColumnLength} in a column!`);
 	     			return true
 	     		}
-const inADiagonalLength = 4
+const inADiagonalLength = 3
 	     		if(inDiagonal(inADiagonalLength, player, board)) {
 	     			setMessage(`Player ${players[currentPlayer]} wins because of ${inADiagonalLength} in a diagonal!`);
 	     			return true
@@ -91,3 +91,4 @@ const inDiagonal = (num, player, board) => {
   			
   			    return false;
   			  };
+  
