@@ -2,7 +2,6 @@
  */
 package no.ntnu.tdt4250.g07.bg.util;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -152,6 +151,8 @@ public class BgValidator extends EObjectValidator {
 			result &= validateBoardGame_LengthValuesMustBeGreaterThanOne(boardGame, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateBoardGame_PieceTypesMustBeUnique(boardGame, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateBoardGame_BoardSizeMustBeMaximum10(boardGame, diagnostics, context);
 		return result;
 	}
 
@@ -231,10 +232,6 @@ public class BgValidator extends EObjectValidator {
 	 */
 	public boolean validateBoardGame_BoardSizeMustBeAtLeast2(BoardGame boardGame, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
 
 		boolean valid = true;
 
@@ -296,29 +293,26 @@ public class BgValidator extends EObjectValidator {
 	 */
 	public boolean validateBoardGame_PieceTypesMustBeUnique(BoardGame boardGame, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		
+
 		boolean valid = true;
-		
+
 		ArrayList<String> pieceNameList = new ArrayList<>();
 		ArrayList<String> pieceSymbolList = new ArrayList<>();
-		
+
 		for (BoardGameElement element : boardGame.getBoardGameElements()) {
 			if (element instanceof PieceType) {
-				pieceNameList.add(((PieceType)element).getName());
-				pieceSymbolList.add(((PieceType)element).getSymbol());
+				pieceNameList.add(((PieceType) element).getName());
+				pieceSymbolList.add(((PieceType) element).getSymbol());
 			}
 		}
-		
-		if(!hasUniqueElements(pieceNameList)) {
+
+		if (!hasUniqueElements(pieceNameList)) {
 			valid = false;
 		}
-		if(!hasUniqueElements(pieceSymbolList)) {
+		if (!hasUniqueElements(pieceSymbolList)) {
 			valid = false;
 		}
-		
-		
-		
-		
+
 		if (!valid) {
 			if (diagnostics != null) {
 				diagnostics.add(
@@ -330,11 +324,38 @@ public class BgValidator extends EObjectValidator {
 		}
 		return true;
 	}
-	
-	
+
+	/**
+	 * Validates the BoardSizeMustBeMaximum10 constraint of '<em>Board Game</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateBoardGame_BoardSizeMustBeMaximum10(BoardGame boardGame, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		
+		
+		boolean valid = true;
+
+		if (boardGame.getSize() > 10) {
+			valid = false;
+		}
+		
+		if (!valid) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "BoardSizeMustBeMaximum10", getObjectLabel(boardGame, context) },
+								new Object[] { boardGame }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
 	public boolean hasUniqueElements(List<?> list) {
-	    Set<?> set = new HashSet<>(list);
-	    return set.size() == list.size();
+		Set<?> set = new HashSet<>(list);
+		return set.size() == list.size();
 	}
 
 	/**

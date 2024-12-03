@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see no.ntnu.tdt4250.g07.bg.BgPackage#getBoardGame()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='MustHaveAPieceType LinesCantBeLongerThanBoard BoardSizeMustBeAtLeast2 LengthValuesMustBeGreaterThanOne PieceTypesMustBeUnique'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='MustHaveAPieceType LinesCantBeLongerThanBoard BoardSizeMustBeAtLeast2 LengthValuesMustBeGreaterThanOne PieceTypesMustBeUnique BoardSizeMustBeMaximum10'"
  * @generated
  */
 public interface BoardGame extends EObject {
