@@ -6,6 +6,9 @@ The resulting code is compiled to JavaScript files, that can be copied into the 
 
 *final-project-group07/Application*
 
+<img src="bg1.gif" alt="Tic-Tac-Toe-Demo" width="200">
+
+
 **System requirements:**
 - Eclipse (to view and edit the project, as well as using DSL)
    - Version: Eclipse IDE version 2024-06 for Java and DSL Developers
