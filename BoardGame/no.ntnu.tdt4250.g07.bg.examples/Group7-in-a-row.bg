@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bg:BoardGame xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bg="http://www.ntnu.no/tdt4250/g07/bg" name="Group7-In-A-Row" size="6">
+  <boardGameElements xsi:type="bg:PieceType" name="Jakub" symbol="J"/>
+  <boardGameElements xsi:type="bg:PieceType" name="Edvard" symbol="Ed"/>
+  <boardGameElements xsi:type="bg:PieceType" name="Emil" symbol="Em"/>
+  <boardGameElements xsi:type="bg:PieceType" name="Ingrid" symbol="I"/>
+  <boardGameElements xsi:type="bg:WinCondition">
+    <winConditionElements xsi:type="bg:Line" length="5"/>
+    <winConditionElements xsi:type="bg:Line" length="5" direction="COLUMN"/>
+    <winConditionElements xsi:type="bg:Line" length="4" direction="DIAGONAL"/>
+  </boardGameElements>
+</bg:BoardGame>

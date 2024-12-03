@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bg:BoardGame xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bg="http://www.ntnu.no/tdt4250/g07/bg" name="Tic-Tac-Toe" size="3">
+  <boardGameElements xsi:type="bg:PieceType" name="X" symbol="X"/>
+  <boardGameElements xsi:type="bg:PieceType" name="O" symbol="O"/>
+  <boardGameElements xsi:type="bg:WinCondition">
+    <winConditionElements xsi:type="bg:Line" length="3"/>
+    <winConditionElements xsi:type="bg:Line" length="3" direction="COLUMN"/>
+    <winConditionElements xsi:type="bg:Line" length="3" direction="DIAGONAL"/>
+  </boardGameElements>
+</bg:BoardGame>
