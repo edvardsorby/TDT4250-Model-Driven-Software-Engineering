@@ -703,7 +703,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation(boardGameEClass, source, new String[] { "constraints",
-				"MustHaveAPieceType LinesCantBeLongerThanBoard SizeValuesMustBePositive BoardSizeMustBeAtLeast2" });
+				"MustHaveAPieceType LinesCantBeLongerThanBoard BoardSizeMustBeAtLeast2 LengthValuesMustBeGreaterThanOne PieceTypesMustBeUnique" });
 	}
 
 } //BgPackageImpl

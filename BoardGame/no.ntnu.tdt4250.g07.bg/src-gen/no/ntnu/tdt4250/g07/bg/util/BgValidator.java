@@ -2,7 +2,12 @@
  */
 package no.ntnu.tdt4250.g07.bg.util;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import no.ntnu.tdt4250.g07.bg.*;
 
@@ -142,9 +147,11 @@ public class BgValidator extends EObjectValidator {
 		if (result || diagnostics != null)
 			result &= validateBoardGame_LinesCantBeLongerThanBoard(boardGame, diagnostics, context);
 		if (result || diagnostics != null)
-			result &= validateBoardGame_SizeValuesMustBePositive(boardGame, diagnostics, context);
-		if (result || diagnostics != null)
 			result &= validateBoardGame_BoardSizeMustBeAtLeast2(boardGame, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateBoardGame_LengthValuesMustBeGreaterThanOne(boardGame, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateBoardGame_PieceTypesMustBeUnique(boardGame, diagnostics, context);
 		return result;
 	}
 
@@ -189,18 +196,17 @@ public class BgValidator extends EObjectValidator {
 	 */
 	public boolean validateBoardGame_LinesCantBeLongerThanBoard(BoardGame boardGame, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
 
-		boolean valid = false;
+		boolean valid = true;
 
 		for (BoardGameElement element : boardGame.getBoardGameElements()) {
-			if (element instanceof Line) {
-				if (((Line) element).getLength() > boardGame.getSize()) {
-					valid = false;
-					break;
+			if (element instanceof WinCondition) {
+				for (WinConditionElement winCondition : ((WinCondition) element).getWinConditionElements()) {
+					if (winCondition instanceof Line) {
+						if (((Line) winCondition).getLength() > boardGame.getSize()) {
+							valid = false;
+						}
+					}
 				}
 			}
 		}
@@ -210,41 +216,6 @@ public class BgValidator extends EObjectValidator {
 				diagnostics.add(
 						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
 								new Object[] { "LinesCantBeLongerThanBoard", getObjectLabel(boardGame, context) },
-								new Object[] { boardGame }, context));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * Validates the SizeValuesMustBePositive constraint of '<em>Board Game</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean validateBoardGame_SizeValuesMustBePositive(BoardGame boardGame, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		// TODO implement the constraint
-		// -> specify the condition that violates the constraint
-		// -> verify the diagnostic details, including severity, code, and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		boolean valid = true;
-
-		for (BoardGameElement element : boardGame.getBoardGameElements()) {
-			if (element instanceof Line) {
-				if (((Line) element).getLength() < 1) {
-					valid = false;
-					break;
-				}
-			}
-		}
-
-		if (!valid) {
-			if (diagnostics != null) {
-				diagnostics.add(
-						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "SizeValuesMustBePositive", getObjectLabel(boardGame, context) },
 								new Object[] { boardGame }, context));
 			}
 			return false;
@@ -264,15 +235,13 @@ public class BgValidator extends EObjectValidator {
 		// -> specify the condition that violates the constraint
 		// -> verify the diagnostic details, including severity, code, and message
 		// Ensure that you remove @generated or mark it @generated NOT
-		
+
 		boolean valid = true;
-		
-		if(boardGame.getSize() < 2) {
+
+		if (boardGame.getSize() < 2) {
 			valid = false;
 		}
-		
-		
-		
+
 		if (!valid) {
 			if (diagnostics != null) {
 				diagnostics.add(
@@ -283,6 +252,89 @@ public class BgValidator extends EObjectValidator {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * Validates the LengthValuesMustBeGreaterThanOne constraint of '<em>Board Game</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateBoardGame_LengthValuesMustBeGreaterThanOne(BoardGame boardGame, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+
+		boolean valid = true;
+		for (BoardGameElement element : boardGame.getBoardGameElements()) {
+			if (element instanceof WinCondition) {
+				for (WinConditionElement winCondition : ((WinCondition) element).getWinConditionElements()) {
+					if (winCondition instanceof Line) {
+						if (((Line) winCondition).getLength() < 2) {
+							valid = false;
+						}
+					}
+				}
+			}
+		}
+
+		if (!valid) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "LengthValuesMustBeGreaterThanOne", getObjectLabel(boardGame, context) },
+								new Object[] { boardGame }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the PieceTypesMustBeUnique constraint of '<em>Board Game</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateBoardGame_PieceTypesMustBeUnique(BoardGame boardGame, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		
+		boolean valid = true;
+		
+		ArrayList<String> pieceNameList = new ArrayList<>();
+		ArrayList<String> pieceSymbolList = new ArrayList<>();
+		
+		for (BoardGameElement element : boardGame.getBoardGameElements()) {
+			if (element instanceof PieceType) {
+				pieceNameList.add(((PieceType)element).getName());
+				pieceSymbolList.add(((PieceType)element).getSymbol());
+			}
+		}
+		
+		if(!hasUniqueElements(pieceNameList)) {
+			valid = false;
+		}
+		if(!hasUniqueElements(pieceSymbolList)) {
+			valid = false;
+		}
+		
+		
+		
+		
+		if (!valid) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "PieceTypesMustBeUnique", getObjectLabel(boardGame, context) },
+								new Object[] { boardGame }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+	
+	
+	public boolean hasUniqueElements(List<?> list) {
+	    Set<?> set = new HashSet<>(list);
+	    return set.size() == list.size();
 	}
 
 	/**

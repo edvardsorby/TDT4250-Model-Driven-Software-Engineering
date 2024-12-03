@@ -6,17 +6,17 @@ export function checkIsFinishedFunction(board, players, currentPlayer, setMessag
 	let isFinished = false;
 
 	const player = players[currentPlayer]
-    			const inARowLength = 4
+    			const inARowLength = 2
 if(inARow(inARowLength, player, board)) {
 	setMessage(`Player ${players[currentPlayer]} wins because of ${inARowLength} in a row!`);
 	return true
 }
-const inAColumnLength = 3
+const inAColumnLength = 4
 	     		if(inAColumn(inAColumnLength, player, board)) {
 	     			setMessage(`Player ${players[currentPlayer]} wins because of ${inAColumnLength} in a column!`);
 	     			return true
 	     		}
-const inADiagonalLength = 4
+const inADiagonalLength = 3
 	     		if(inDiagonal(inADiagonalLength, player, board)) {
 	     			setMessage(`Player ${players[currentPlayer]} wins because of ${inADiagonalLength} in a diagonal!`);
 	     			return true

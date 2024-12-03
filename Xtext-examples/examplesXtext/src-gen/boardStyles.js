@@ -9,7 +9,7 @@ export const boardStyles = StyleSheet.create({
     backgroundColor: "azure",//VARIABEL
   },
   title: {
-    fontSize: 24,
+    fontSize: 36,
     marginBottom: 20,
     color: "#023535",//VARIABEL
   },
@@ -18,6 +18,7 @@ export const boardStyles = StyleSheet.create({
     flexWrap: "wrap",
     width: 300, 
     height: 300, 
+    marginBottom: 20
   },
   cell: {
     width:  300 / 5,
@@ -29,22 +30,24 @@ export const boardStyles = StyleSheet.create({
     backgroundColor: "#fff", //VARIABEL
   },
   cellText: {
-    fontSize: RFValue(32, 812),
+    fontSize: 35 - 5,
     fontWeight: "bold",
   },
   message: {
-    fontSize: 18,
+    fontSize: 24,
     marginVertical: 10,
     color: "#023535",
   },
   rules: {
     padding: 5,
+    paddingHorizontal: 20,
     marginBottom: 10,
     backgroundColor: "#ffff99",
     borderRadius: 5,
   },
   rule: {
-    margin: 0
+    margin: 0,
+    fontSize: 16,
   }
 });
 

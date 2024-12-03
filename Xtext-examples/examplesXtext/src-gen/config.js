@@ -1,7 +1,7 @@
 const boardGame = {
-	title: "Bondesjakk",
+	title: "Tic-Tac-Toe",
     size: 5,
-    pieces: ["🧑‍🌾", "🐄", "🐔", ],
+    pieces: ["X", "Y", ],
 };
 
 export default boardGame;
