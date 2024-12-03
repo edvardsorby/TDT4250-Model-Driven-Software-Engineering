@@ -6,7 +6,9 @@ The resulting code is compiled to JavaScript files, that can be copied into the 
 
 *final-project-group07/Application*
 
-<img src="bg1.gif" alt="Tic-Tac-Toe-Demo" width="200">
+<img src="Images/bg1.gif" alt="Tic-Tac-Toe-Demo" width="200">
+<img src="Images/bg2.gif" alt="Tic-Tac-Toe-Demo" width="200">
+<img src="Images/bg3.gif" alt="Tic-Tac-Toe-Demo" width="200">
 
 
 **System requirements:**
