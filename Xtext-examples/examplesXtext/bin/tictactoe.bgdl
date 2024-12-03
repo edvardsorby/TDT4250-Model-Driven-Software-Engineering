@@ -9,13 +9,13 @@ EffectOnCell MakeOccupied{
 }
 
 PieceType X{
-	Symbol "X"
+	Symbol "✖️"
 	DisallowedStates Occupied
 	EffectsOnCell MakeOccupied
 }
 
 PieceType O{
-	Symbol "O"
+	Symbol "⭕"
 	DisallowedStates Occupied
 	EffectsOnCell MakeOccupied
 }

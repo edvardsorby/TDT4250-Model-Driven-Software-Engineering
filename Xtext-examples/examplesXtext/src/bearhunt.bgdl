@@ -1,6 +1,6 @@
 Title "BearHunt"
 
-BoardSize 6
+BoardSize 5
 Cellstate Occupied
 Cellstate BearEat
 Cellstate HunterHunt
@@ -18,9 +18,8 @@ PieceType Hunter {
 }
 
 WinCondition{
-	Line length 3 direction DIAGONAL
-	Line length 5 direction ROW
-	Line length 5 direction COLUMN
+	Line length 4 direction ROW
+	Line length 4 direction COLUMN
 }
 
 EffectOnCell MakeOccupied{
