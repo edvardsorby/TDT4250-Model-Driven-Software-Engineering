@@ -1,7 +1,10 @@
 const boardGame = {
-	title: "Farmer's Chess",
+	title: "Rock-Paper-Scissors",
     size: 8,
-    pieces: ["♔", "♚", "♙", "♟", "🐖", ],
+    pieces: [
+    "🪨",
+    "✂️",
+    "📄",
+    ]
 };
-
 export default boardGame;

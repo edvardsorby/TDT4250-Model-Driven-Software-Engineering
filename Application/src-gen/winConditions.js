@@ -6,21 +6,23 @@ export function checkIsFinishedFunction(board, players, currentPlayer, setMessag
 	let isFinished = false;
 
 	const player = players[currentPlayer]
-    			const inARowLength = 6
+    			   
+    			const inARowLength = 4
 if(inARow(inARowLength, player, board)) {
-	setMessage(`Player ${players[currentPlayer]} wins because of ${inARowLength} in a row!`);
+	setMessage(`Player ${players[currentPlayer].symbol} wins because of ${inARowLength} in a row!`);
 	return true
 }
 const inAColumnLength = 4
 	     		if(inAColumn(inAColumnLength, player, board)) {
-	     			setMessage(`Player ${players[currentPlayer]} wins because of ${inAColumnLength} in a column!`);
+	     			setMessage(`Player ${players[currentPlayer].symbol} wins because of ${inAColumnLength} in a column!`);
 	     			return true
 	     		}
-const inADiagonalLength = 3
+const inADiagonalLength = 4
 	     		if(inDiagonal(inADiagonalLength, player, board)) {
-	     			setMessage(`Player ${players[currentPlayer]} wins because of ${inADiagonalLength} in a diagonal!`);
+	     			setMessage(`Player ${players[currentPlayer].symbol} wins because of ${inADiagonalLength} in a diagonal!`);
 	     			return true
 	     		}
+    	   
   	return false; //not finished
 };
 
@@ -28,7 +30,11 @@ const inARow = (num, player, board) => {
   for (let row = 0; row < boardSize; row++) {
     let count = 0;   
     for (let col = 0; col < boardSize; col++) {
-      if (board[row][col] === player) {
+      if (
+     		board[row][col] != null && 
+          board[row][col].piece != null && 
+          board[row][col].piece.symbol === player.symbol
+          ){
         count++;
         if (count === num) return true;
       } else {
@@ -43,7 +49,11 @@ const inAColumn = (num, player, board) => {
   for (let col = 0; col < boardSize; col++) {
     let count = 0;
     for (let row = 0; row < boardSize; row++) {
-      if (board[row][col] === player) {
+      if(
+     		board[row][col] != null && 
+          board[row][col].piece != null && 
+          board[row][col].piece.symbol === player.symbol
+          ){
         count++;
         if (count === num) return true;
       } else {
@@ -61,7 +71,11 @@ const inDiagonal = (num, player, board) => {
     let col = startCol;
 			
     while (row >= 0 && row < boardSize && col >= 0 && col < boardSize) {
-      if (board[row][col] === player) {
+      if(
+     		board[row][col] != null && 
+          board[row][col].piece != null && 
+          board[row][col].piece.symbol === player.symbol
+          ){
         count++;
         if (count === num) return true;
       } else {
