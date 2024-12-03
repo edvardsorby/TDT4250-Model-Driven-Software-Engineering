@@ -16,12 +16,14 @@ import no.ntnu.tdt4250.g07.bg.ValidMove;
 import no.ntnu.tdt4250.g07.bg.WinCondition;
 
 import no.ntnu.tdt4250.g07.bg.WinConditionElement;
+import no.ntnu.tdt4250.g07.bg.util.BgValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -162,6 +164,14 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 
 		// Initialize created meta-data
 		theBgPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put(theBgPackage, new EValidator.Descriptor() {
+			@Override
+			public EValidator getEValidator() {
+				return BgValidator.INSTANCE;
+			}
+		});
 
 		// Mark meta-data to indicate it can't be changed
 		theBgPackage.freeze();
@@ -678,6 +688,22 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation(boardGameEClass, source, new String[] { "constraints",
+				"MustHaveAPieceType LinesCantBeLongerThanBoard SizeValuesMustBePositive BoardSizeMustBeAtLeast2" });
 	}
 
 } //BgPackageImpl

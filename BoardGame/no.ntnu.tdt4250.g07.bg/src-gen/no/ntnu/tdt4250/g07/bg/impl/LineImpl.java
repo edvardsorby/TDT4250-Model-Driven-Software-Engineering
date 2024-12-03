@@ -219,6 +219,4 @@ public class LineImpl extends WinConditionElementImpl implements Line {
 		return result.toString();
 	}
 
-	
-
 } //LineImpl
