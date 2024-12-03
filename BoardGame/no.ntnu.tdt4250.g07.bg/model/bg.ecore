@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bg" nsURI="http://www.ntnu.no/tdt4250/g07/bg" nsPrefix="bg">
   <eClassifiers xsi:type="ecore:EClass" name="BoardGame">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="MustHaveAPieceType LinesCantBeLongerThanBoard BoardSizeMustBeAtLeast2 LengthValuesMustBeGreaterThanOne PieceTypesMustBeUnique BoardSizeMustBeMaximum10"/>
+      <details key="constraints" value="MustHaveAPieceType LinesCantBeLongerThanBoard BoardSizeMustBeAtLeast2 LengthValuesMustBeGreaterThanOne PieceTypesMustBeUnique BoardSizeMustBeMaximum10 MustHaveAWinCondition"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -11,6 +11,9 @@
         eType="#//BoardGameElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PieceType" eSuperTypes="#//BoardGameElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="SymbolCannotBeEmpty"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

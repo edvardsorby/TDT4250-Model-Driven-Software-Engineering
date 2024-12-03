@@ -95,9 +95,7 @@ export default function BoardGame() {
      <View style={boardStyles.rules}>
 		             <Text style={boardStyles.rule}>Rules:</Text>
 	             
-<Text style={boardStyles.rule}>2  in a row</Text>
-<Text style={boardStyles.rule}>4  in a column</Text>
-<Text style={boardStyles.rule}>3  in a diagonal</Text>
+<Text style={boardStyles.rule}>5  in a row</Text>
     </View>	
       <CustomButton title="Reset" onPress={resetGame} />
       

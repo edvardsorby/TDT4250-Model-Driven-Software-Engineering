@@ -16,11 +16,8 @@ PieceType Y{
 }
 
 
-
-WinCondition {
-	Line length 2 direction ROW
-	Line length 4 direction COLUMN
-	Line length 3 direction DIAGONAL
+WinCondition{
+	Line length 5 direction ROW
 }
 			  
 			  

@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see no.ntnu.tdt4250.g07.bg.BgPackage#getPieceType()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SymbolCannotBeEmpty'"
  * @generated
  */
 public interface PieceType extends BoardGameElement {

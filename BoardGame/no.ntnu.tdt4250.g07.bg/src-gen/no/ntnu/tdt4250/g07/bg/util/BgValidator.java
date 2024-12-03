@@ -153,6 +153,8 @@ public class BgValidator extends EObjectValidator {
 			result &= validateBoardGame_PieceTypesMustBeUnique(boardGame, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateBoardGame_BoardSizeMustBeMaximum10(boardGame, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateBoardGame_MustHaveAWinCondition(boardGame, diagnostics, context);
 		return result;
 	}
 
@@ -333,19 +335,46 @@ public class BgValidator extends EObjectValidator {
 	 */
 	public boolean validateBoardGame_BoardSizeMustBeMaximum10(BoardGame boardGame, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		
-		
+
 		boolean valid = true;
 
 		if (boardGame.getSize() > 10) {
 			valid = false;
+		}
+
+		if (!valid) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "BoardSizeMustBeMaximum10", getObjectLabel(boardGame, context) },
+								new Object[] { boardGame }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the MustHaveAWinCondition constraint of '<em>Board Game</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateBoardGame_MustHaveAWinCondition(BoardGame boardGame, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		
+		boolean valid = false;
+		
+		for (BoardGameElement element : boardGame.getBoardGameElements())
+			if(element instanceof WinCondition) {
+				valid = true;
 		}
 		
 		if (!valid) {
 			if (diagnostics != null) {
 				diagnostics.add(
 						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
-								new Object[] { "BoardSizeMustBeMaximum10", getObjectLabel(boardGame, context) },
+								new Object[] { "MustHaveAWinCondition", getObjectLabel(boardGame, context) },
 								new Object[] { boardGame }, context));
 			}
 			return false;
@@ -364,7 +393,51 @@ public class BgValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validatePieceType(PieceType pieceType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(pieceType, diagnostics, context);
+		if (!validate_NoCircularContainment(pieceType, diagnostics, context))
+			return false;
+		boolean result = validate_EveryMultiplicityConforms(pieceType, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(pieceType, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(pieceType, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(pieceType, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(pieceType, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(pieceType, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(pieceType, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(pieceType, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validatePieceType_SymbolCannotBeEmpty(pieceType, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the SymbolCannotBeEmpty constraint of '<em>Piece Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validatePieceType_SymbolCannotBeEmpty(PieceType pieceType, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+
+		boolean valid = true;
+
+		valid = !pieceType.getSymbol().isEmpty();
+
+		if (!valid) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "SymbolCannotBeEmpty", getObjectLabel(pieceType, context) },
+								new Object[] { pieceType }, context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
