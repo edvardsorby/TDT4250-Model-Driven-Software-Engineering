@@ -119,52 +119,6 @@ public class BgItemProviderAdapterFactory extends BgAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.g07.bg.ValidMove} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ValidMoveItemProvider validMoveItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.g07.bg.ValidMove}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createValidMoveAdapter() {
-		if (validMoveItemProvider == null) {
-			validMoveItemProvider = new ValidMoveItemProvider(this);
-		}
-
-		return validMoveItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.g07.bg.Condition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ConditionItemProvider conditionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link no.ntnu.tdt4250.g07.bg.Condition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createConditionAdapter() {
-		if (conditionItemProvider == null) {
-			conditionItemProvider = new ConditionItemProvider(this);
-		}
-
-		return conditionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link no.ntnu.tdt4250.g07.bg.CellState} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -365,10 +319,6 @@ public class BgItemProviderAdapterFactory extends BgAdapterFactory
 			boardGameItemProvider.dispose();
 		if (pieceTypeItemProvider != null)
 			pieceTypeItemProvider.dispose();
-		if (validMoveItemProvider != null)
-			validMoveItemProvider.dispose();
-		if (conditionItemProvider != null)
-			conditionItemProvider.dispose();
 		if (cellStateItemProvider != null)
 			cellStateItemProvider.dispose();
 		if (effectOnCellItemProvider != null)

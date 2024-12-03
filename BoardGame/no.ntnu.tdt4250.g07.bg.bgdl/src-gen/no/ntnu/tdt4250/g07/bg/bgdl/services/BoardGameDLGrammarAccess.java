@@ -79,17 +79,15 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cPieceTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cEffectOnCellParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cValidMoveParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cCellStateParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cWinConditionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cConditionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cCellStateParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cWinConditionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//BoardGameElement returns BoardGameElement:
-		//    PieceType | EffectOnCell | ValidMove | CellState | WinCondition | Condition
+		//    PieceType | EffectOnCell | CellState | WinCondition
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//PieceType | EffectOnCell | ValidMove | CellState | WinCondition | Condition
+		//PieceType | EffectOnCell | CellState | WinCondition
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//PieceType
@@ -98,17 +96,11 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		//EffectOnCell
 		public RuleCall getEffectOnCellParserRuleCall_1() { return cEffectOnCellParserRuleCall_1; }
 		
-		//ValidMove
-		public RuleCall getValidMoveParserRuleCall_2() { return cValidMoveParserRuleCall_2; }
-		
 		//CellState
-		public RuleCall getCellStateParserRuleCall_3() { return cCellStateParserRuleCall_3; }
+		public RuleCall getCellStateParserRuleCall_2() { return cCellStateParserRuleCall_2; }
 		
 		//WinCondition
-		public RuleCall getWinConditionParserRuleCall_4() { return cWinConditionParserRuleCall_4; }
-		
-		//Condition
-		public RuleCall getConditionParserRuleCall_5() { return cConditionParserRuleCall_5; }
+		public RuleCall getWinConditionParserRuleCall_3() { return cWinConditionParserRuleCall_3; }
 	}
 	public class PieceTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.PieceType");
@@ -120,15 +112,15 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final Keyword cSymbolKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cSymbolAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cSymbolEStringParserRuleCall_4_0 = (RuleCall)cSymbolAssignment_4.eContents().get(0);
-		private final Keyword cValidMovesKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cValidMovesAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final CrossReference cValidMovesValidMoveCrossReference_6_0 = (CrossReference)cValidMovesAssignment_6.eContents().get(0);
-		private final RuleCall cValidMovesValidMoveEStringParserRuleCall_6_0_1 = (RuleCall)cValidMovesValidMoveCrossReference_6_0.eContents().get(1);
+		private final Keyword cDisallowedStatesKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cDisallowedStatesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cDisallowedStatesCellStateCrossReference_6_0 = (CrossReference)cDisallowedStatesAssignment_6.eContents().get(0);
+		private final RuleCall cDisallowedStatesCellStateEStringParserRuleCall_6_0_1 = (RuleCall)cDisallowedStatesCellStateCrossReference_6_0.eContents().get(1);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cCommaKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cValidMovesAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final CrossReference cValidMovesValidMoveCrossReference_7_1_0 = (CrossReference)cValidMovesAssignment_7_1.eContents().get(0);
-		private final RuleCall cValidMovesValidMoveEStringParserRuleCall_7_1_0_1 = (RuleCall)cValidMovesValidMoveCrossReference_7_1_0.eContents().get(1);
+		private final Assignment cDisallowedStatesAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final CrossReference cDisallowedStatesCellStateCrossReference_7_1_0 = (CrossReference)cDisallowedStatesAssignment_7_1.eContents().get(0);
+		private final RuleCall cDisallowedStatesCellStateEStringParserRuleCall_7_1_0_1 = (RuleCall)cDisallowedStatesCellStateCrossReference_7_1_0.eContents().get(1);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cEffectsOnCellKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cEffectsoncellAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
@@ -145,7 +137,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		//    'PieceType'
 		//    name=EString '{'
 		//        'Symbol' symbol=EString
-		//        'ValidMoves' validMoves+= [ValidMove|EString] ( "," validMoves+=[ValidMove | EString])*
+		//        'DisallowedStates' disallowedStates+= [CellState|EString] ( "," disallowedStates+=[CellState | EString])*
 		//        ('EffectsOnCell' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* )?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
@@ -153,7 +145,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		//'PieceType'
 		//name=EString '{'
 		//    'Symbol' symbol=EString
-		//    'ValidMoves' validMoves+= [ValidMove|EString] ( "," validMoves+=[ValidMove | EString])*
+		//    'DisallowedStates' disallowedStates+= [CellState|EString] ( "," disallowedStates+=[CellState | EString])*
 		//    ('EffectsOnCell' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* )?
 		//'}'
 		public Group getGroup() { return cGroup; }
@@ -179,32 +171,32 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		//EString
 		public RuleCall getSymbolEStringParserRuleCall_4_0() { return cSymbolEStringParserRuleCall_4_0; }
 		
-		//'ValidMoves'
-		public Keyword getValidMovesKeyword_5() { return cValidMovesKeyword_5; }
+		//'DisallowedStates'
+		public Keyword getDisallowedStatesKeyword_5() { return cDisallowedStatesKeyword_5; }
 		
-		//validMoves+= [ValidMove|EString]
-		public Assignment getValidMovesAssignment_6() { return cValidMovesAssignment_6; }
+		//disallowedStates+= [CellState|EString]
+		public Assignment getDisallowedStatesAssignment_6() { return cDisallowedStatesAssignment_6; }
 		
-		//[ValidMove|EString]
-		public CrossReference getValidMovesValidMoveCrossReference_6_0() { return cValidMovesValidMoveCrossReference_6_0; }
+		//[CellState|EString]
+		public CrossReference getDisallowedStatesCellStateCrossReference_6_0() { return cDisallowedStatesCellStateCrossReference_6_0; }
 		
 		//EString
-		public RuleCall getValidMovesValidMoveEStringParserRuleCall_6_0_1() { return cValidMovesValidMoveEStringParserRuleCall_6_0_1; }
+		public RuleCall getDisallowedStatesCellStateEStringParserRuleCall_6_0_1() { return cDisallowedStatesCellStateEStringParserRuleCall_6_0_1; }
 		
-		//( "," validMoves+=[ValidMove | EString])*
+		//( "," disallowedStates+=[CellState | EString])*
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//","
 		public Keyword getCommaKeyword_7_0() { return cCommaKeyword_7_0; }
 		
-		//validMoves+=[ValidMove | EString]
-		public Assignment getValidMovesAssignment_7_1() { return cValidMovesAssignment_7_1; }
+		//disallowedStates+=[CellState | EString]
+		public Assignment getDisallowedStatesAssignment_7_1() { return cDisallowedStatesAssignment_7_1; }
 		
-		//[ValidMove | EString]
-		public CrossReference getValidMovesValidMoveCrossReference_7_1_0() { return cValidMovesValidMoveCrossReference_7_1_0; }
+		//[CellState | EString]
+		public CrossReference getDisallowedStatesCellStateCrossReference_7_1_0() { return cDisallowedStatesCellStateCrossReference_7_1_0; }
 		
 		//EString
-		public RuleCall getValidMovesValidMoveEStringParserRuleCall_7_1_0_1() { return cValidMovesValidMoveEStringParserRuleCall_7_1_0_1; }
+		public RuleCall getDisallowedStatesCellStateEStringParserRuleCall_7_1_0_1() { return cDisallowedStatesCellStateEStringParserRuleCall_7_1_0_1; }
 		
 		//('EffectsOnCell' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* )?
 		public Group getGroup_8() { return cGroup_8; }
@@ -340,95 +332,6 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		//ID
 		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
 	}
-	public class ValidMoveElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.ValidMove");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cValidMoveKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cPlaceAnywhereAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final Keyword cPlaceAnywherePlaceAnywhereKeyword_3_0 = (Keyword)cPlaceAnywhereAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cValidKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cIfKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cConditionsAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final CrossReference cConditionsConditionCrossReference_4_2_0 = (CrossReference)cConditionsAssignment_4_2.eContents().get(0);
-		private final RuleCall cConditionsConditionEStringParserRuleCall_4_2_0_1 = (RuleCall)cConditionsConditionCrossReference_4_2_0.eContents().get(1);
-		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
-		private final Keyword cAndKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
-		private final Assignment cConditionsAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
-		private final CrossReference cConditionsConditionCrossReference_4_3_1_0 = (CrossReference)cConditionsAssignment_4_3_1.eContents().get(0);
-		private final RuleCall cConditionsConditionEStringParserRuleCall_4_3_1_0_1 = (RuleCall)cConditionsConditionCrossReference_4_3_1_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		//ValidMove returns ValidMove:
-		//    'ValidMove' name=ID '{'
-		//        placeAnywhere?='placeAnywhere'
-		//        ('valid' 'if' conditions+=[Condition|EString] ( "and" conditions+=[Condition|EString])* )?
-		//    '}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'ValidMove' name=ID '{'
-		//    placeAnywhere?='placeAnywhere'
-		//    ('valid' 'if' conditions+=[Condition|EString] ( "and" conditions+=[Condition|EString])* )?
-		//'}'
-		public Group getGroup() { return cGroup; }
-		
-		//'ValidMove'
-		public Keyword getValidMoveKeyword_0() { return cValidMoveKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//placeAnywhere?='placeAnywhere'
-		public Assignment getPlaceAnywhereAssignment_3() { return cPlaceAnywhereAssignment_3; }
-		
-		//'placeAnywhere'
-		public Keyword getPlaceAnywherePlaceAnywhereKeyword_3_0() { return cPlaceAnywherePlaceAnywhereKeyword_3_0; }
-		
-		//('valid' 'if' conditions+=[Condition|EString] ( "and" conditions+=[Condition|EString])* )?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'valid'
-		public Keyword getValidKeyword_4_0() { return cValidKeyword_4_0; }
-		
-		//'if'
-		public Keyword getIfKeyword_4_1() { return cIfKeyword_4_1; }
-		
-		//conditions+=[Condition|EString]
-		public Assignment getConditionsAssignment_4_2() { return cConditionsAssignment_4_2; }
-		
-		//[Condition|EString]
-		public CrossReference getConditionsConditionCrossReference_4_2_0() { return cConditionsConditionCrossReference_4_2_0; }
-		
-		//EString
-		public RuleCall getConditionsConditionEStringParserRuleCall_4_2_0_1() { return cConditionsConditionEStringParserRuleCall_4_2_0_1; }
-		
-		//( "and" conditions+=[Condition|EString])*
-		public Group getGroup_4_3() { return cGroup_4_3; }
-		
-		//"and"
-		public Keyword getAndKeyword_4_3_0() { return cAndKeyword_4_3_0; }
-		
-		//conditions+=[Condition|EString]
-		public Assignment getConditionsAssignment_4_3_1() { return cConditionsAssignment_4_3_1; }
-		
-		//[Condition|EString]
-		public CrossReference getConditionsConditionCrossReference_4_3_1_0() { return cConditionsConditionCrossReference_4_3_1_0; }
-		
-		//EString
-		public RuleCall getConditionsConditionEStringParserRuleCall_4_3_1_0_1() { return cConditionsConditionEStringParserRuleCall_4_3_1_0_1; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
 	public class EffectOnCellElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EffectOnCell");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -532,41 +435,6 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
-	}
-	public class ConditionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.Condition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cConditionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cCellStateAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cCellStateCellStateCrossReference_2_0 = (CrossReference)cCellStateAssignment_2.eContents().get(0);
-		private final RuleCall cCellStateCellStateEStringParserRuleCall_2_0_1 = (RuleCall)cCellStateCellStateCrossReference_2_0.eContents().get(1);
-		
-		//Condition returns Condition:
-		//    'Condition' name=ID cellState=[CellState|EString];
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Condition' name=ID cellState=[CellState|EString]
-		public Group getGroup() { return cGroup; }
-		
-		//'Condition'
-		public Keyword getConditionKeyword_0() { return cConditionKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//cellState=[CellState|EString]
-		public Assignment getCellStateAssignment_2() { return cCellStateAssignment_2; }
-		
-		//[CellState|EString]
-		public CrossReference getCellStateCellStateCrossReference_2_0() { return cCellStateCellStateCrossReference_2_0; }
-		
-		//EString
-		public RuleCall getCellStateCellStateEStringParserRuleCall_2_0_1() { return cCellStateCellStateEStringParserRuleCall_2_0_1; }
 	}
 	public class EBooleanElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "no.ntnu.tdt4250.g07.bg.bgdl.BoardGameDL.EBoolean");
@@ -685,9 +553,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	private final WinConditionElements pWinCondition;
 	private final EIntElements pEInt;
 	private final EStringElements pEString;
-	private final ValidMoveElements pValidMove;
 	private final EffectOnCellElements pEffectOnCell;
-	private final ConditionElements pCondition;
 	private final EBooleanElements pEBoolean;
 	private final WinConditionElementElements pWinConditionElement;
 	private final LineElements pLine;
@@ -709,9 +575,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		this.pWinCondition = new WinConditionElements();
 		this.pEInt = new EIntElements();
 		this.pEString = new EStringElements();
-		this.pValidMove = new ValidMoveElements();
 		this.pEffectOnCell = new EffectOnCellElements();
-		this.pCondition = new ConditionElements();
 		this.pEBoolean = new EBooleanElements();
 		this.pWinConditionElement = new WinConditionElementElements();
 		this.pLine = new LineElements();
@@ -759,7 +623,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	}
 	
 	//BoardGameElement returns BoardGameElement:
-	//    PieceType | EffectOnCell | ValidMove | CellState | WinCondition | Condition
+	//    PieceType | EffectOnCell | CellState | WinCondition
 	//;
 	public BoardGameElementElements getBoardGameElementAccess() {
 		return pBoardGameElement;
@@ -773,7 +637,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	//    'PieceType'
 	//    name=EString '{'
 	//        'Symbol' symbol=EString
-	//        'ValidMoves' validMoves+= [ValidMove|EString] ( "," validMoves+=[ValidMove | EString])*
+	//        'DisallowedStates' disallowedStates+= [CellState|EString] ( "," disallowedStates+=[CellState | EString])*
 	//        ('EffectsOnCell' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* )?
 	//    '}';
 	public PieceTypeElements getPieceTypeAccess() {
@@ -825,19 +689,6 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		return getEStringAccess().getRule();
 	}
 	
-	//ValidMove returns ValidMove:
-	//    'ValidMove' name=ID '{'
-	//        placeAnywhere?='placeAnywhere'
-	//        ('valid' 'if' conditions+=[Condition|EString] ( "and" conditions+=[Condition|EString])* )?
-	//    '}';
-	public ValidMoveElements getValidMoveAccess() {
-		return pValidMove;
-	}
-	
-	public ParserRule getValidMoveRule() {
-		return getValidMoveAccess().getRule();
-	}
-	
 	//EffectOnCell returns EffectOnCell:
 	//    'EffectOnCell' name=ID '{'
 	//        (
@@ -851,16 +702,6 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	
 	public ParserRule getEffectOnCellRule() {
 		return getEffectOnCellAccess().getRule();
-	}
-	
-	//Condition returns Condition:
-	//    'Condition' name=ID cellState=[CellState|EString];
-	public ConditionElements getConditionAccess() {
-		return pCondition;
-	}
-	
-	public ParserRule getConditionRule() {
-		return getConditionAccess().getRule();
 	}
 	
 	//EBoolean returns ecore::EBoolean:

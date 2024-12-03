@@ -196,12 +196,6 @@ public class BoardGameItemProvider extends ItemProviderAdapter implements IEditi
 				BgFactory.eINSTANCE.createPieceType()));
 
 		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARD_GAME_ELEMENTS,
-				BgFactory.eINSTANCE.createValidMove()));
-
-		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARD_GAME_ELEMENTS,
-				BgFactory.eINSTANCE.createCondition()));
-
-		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARD_GAME_ELEMENTS,
 				BgFactory.eINSTANCE.createCellState()));
 
 		newChildDescriptors.add(createChildParameter(BgPackage.Literals.BOARD_GAME__BOARD_GAME_ELEMENTS,

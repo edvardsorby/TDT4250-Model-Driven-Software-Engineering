@@ -15,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getName <em>Name</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getSymbol <em>Symbol</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getValidMoves <em>Valid Moves</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getEffectsoncell <em>Effectsoncell</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getDisallowedStates <em>Disallowed States</em>}</li>
  * </ul>
  *
  * @see no.ntnu.tdt4250.g07.bg.BgPackage#getPieceType()
@@ -45,18 +45,6 @@ public interface PieceType extends BoardGameElement {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Valid Moves</b></em>' reference list.
-	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.ValidMove}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Valid Moves</em>' reference list.
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getPieceType_ValidMoves()
-	 * @model required="true"
-	 * @generated
-	 */
-	EList<ValidMove> getValidMoves();
 
 	/**
 	 * Returns the value of the '<em><b>Symbol</b></em>' attribute.
@@ -91,5 +79,17 @@ public interface PieceType extends BoardGameElement {
 	 * @generated
 	 */
 	EList<EffectOnCell> getEffectsoncell();
+
+	/**
+	 * Returns the value of the '<em><b>Disallowed States</b></em>' reference list.
+	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.CellState}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Disallowed States</em>' reference list.
+	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getPieceType_DisallowedStates()
+	 * @model required="true"
+	 * @generated
+	 */
+	EList<CellState> getDisallowedStates();
 
 } // PieceType

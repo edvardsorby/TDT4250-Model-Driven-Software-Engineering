@@ -95,10 +95,6 @@ public class BgValidator extends EObjectValidator {
 			return validateBoardGame((BoardGame) value, diagnostics, context);
 		case BgPackage.PIECE_TYPE:
 			return validatePieceType((PieceType) value, diagnostics, context);
-		case BgPackage.VALID_MOVE:
-			return validateValidMove((ValidMove) value, diagnostics, context);
-		case BgPackage.CONDITION:
-			return validateCondition((Condition) value, diagnostics, context);
 		case BgPackage.CELL_STATE:
 			return validateCellState((CellState) value, diagnostics, context);
 		case BgPackage.EFFECT_ON_CELL:
@@ -155,6 +151,8 @@ public class BgValidator extends EObjectValidator {
 			result &= validateBoardGame_BoardSizeMustBeMaximum10(boardGame, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateBoardGame_MustHaveAWinCondition(boardGame, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateBoardGame_DirectionCanOnlyBeUsedOnce(boardGame, diagnostics, context);
 		return result;
 	}
 
@@ -362,19 +360,59 @@ public class BgValidator extends EObjectValidator {
 	 */
 	public boolean validateBoardGame_MustHaveAWinCondition(BoardGame boardGame, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		
+
 		boolean valid = false;
-		
+
 		for (BoardGameElement element : boardGame.getBoardGameElements())
-			if(element instanceof WinCondition) {
+			if (element instanceof WinCondition) {
 				valid = true;
-		}
-		
+			}
+
 		if (!valid) {
 			if (diagnostics != null) {
 				diagnostics.add(
 						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
 								new Object[] { "MustHaveAWinCondition", getObjectLabel(boardGame, context) },
+								new Object[] { boardGame }, context));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Validates the DirectionCanOnlyBeUsedOnce constraint of '<em>Board Game</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateBoardGame_DirectionCanOnlyBeUsedOnce(BoardGame boardGame, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		
+		boolean valid = true;
+		
+		ArrayList<Direction> directions = new ArrayList<>();
+		
+		for (BoardGameElement element : boardGame.getBoardGameElements()) {
+			if (element instanceof WinCondition) {
+				for (WinConditionElement winCondition : ((WinCondition) element).getWinConditionElements()) {
+					if (winCondition instanceof Line) {
+						directions.add(((Line)winCondition).getDirection());
+					}
+				}
+			}
+		}
+			
+		if(!hasUniqueElements(directions)) {
+			valid=false;
+		}
+		
+
+		if (!valid) {
+			if (diagnostics != null) {
+				diagnostics.add(
+						createDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic",
+								new Object[] { "DirectionCanOnlyBeUsedOnce", getObjectLabel(boardGame, context) },
 								new Object[] { boardGame }, context));
 			}
 			return false;
@@ -438,24 +476,6 @@ public class BgValidator extends EObjectValidator {
 			return false;
 		}
 		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateValidMove(ValidMove validMove, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(validMove, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCondition(Condition condition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(condition, diagnostics, context);
 	}
 
 	/**

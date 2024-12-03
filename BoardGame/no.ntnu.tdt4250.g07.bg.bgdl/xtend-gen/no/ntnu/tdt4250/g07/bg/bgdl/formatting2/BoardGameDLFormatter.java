@@ -5,9 +5,10 @@ package no.ntnu.tdt4250.g07.bg.bgdl.formatting2;
 
 import com.google.inject.Inject;
 import java.util.Arrays;
+import no.ntnu.tdt4250.g07.bg.BoardGame;
+import no.ntnu.tdt4250.g07.bg.BoardGameElement;
 import no.ntnu.tdt4250.g07.bg.EffectOnCell;
 import no.ntnu.tdt4250.g07.bg.PieceType;
-import no.ntnu.tdt4250.g07.bg.ValidMove;
 import no.ntnu.tdt4250.g07.bg.bgdl.services.BoardGameDLGrammarAccess;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -22,21 +23,22 @@ public class BoardGameDLFormatter extends AbstractFormatter2 {
   @Extension
   private BoardGameDLGrammarAccess _boardGameDLGrammarAccess;
 
-  protected void _format(final /* BoardGame */Object boardGame, @Extension final IFormattableDocument document) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nboardGameElements cannot be resolved"
-      + "\nformat cannot be resolved"
-      + "\nboardGameElements cannot be resolved"
-      + "\nformat cannot be resolved"
-      + "\nboardGameElements cannot be resolved"
-      + "\nformat cannot be resolved");
+  protected void _format(final BoardGame boardGame, @Extension final IFormattableDocument document) {
+    EList<BoardGameElement> _boardGameElements = boardGame.getBoardGameElements();
+    for (final BoardGameElement pieceType : _boardGameElements) {
+      document.<BoardGameElement>format(pieceType);
+    }
+    EList<BoardGameElement> _boardGameElements_1 = boardGame.getBoardGameElements();
+    for (final BoardGameElement cellState : _boardGameElements_1) {
+      document.<BoardGameElement>format(cellState);
+    }
+    EList<BoardGameElement> _boardGameElements_2 = boardGame.getBoardGameElements();
+    for (final BoardGameElement winCondition : _boardGameElements_2) {
+      document.<BoardGameElement>format(winCondition);
+    }
   }
 
   protected void _format(final PieceType pieceType, @Extension final IFormattableDocument document) {
-    EList<ValidMove> _validMoves = pieceType.getValidMoves();
-    for (final ValidMove validMove : _validMoves) {
-      document.<ValidMove>format(validMove);
-    }
     EList<EffectOnCell> _effectsoncell = pieceType.getEffectsoncell();
     for (final EffectOnCell effectOnCell : _effectsoncell) {
       document.<EffectOnCell>format(effectOnCell);
@@ -50,14 +52,14 @@ public class BoardGameDLFormatter extends AbstractFormatter2 {
     } else if (pieceType instanceof PieceType) {
       _format((PieceType)pieceType, document);
       return;
+    } else if (pieceType instanceof BoardGame) {
+      _format((BoardGame)pieceType, document);
+      return;
     } else if (pieceType instanceof EObject) {
       _format((EObject)pieceType, document);
       return;
     } else if (pieceType == null) {
       _format((Void)null, document);
-      return;
-    } else if (pieceType != null) {
-      _format(pieceType, document);
       return;
     } else if (pieceType != null) {
       _format(pieceType, document);

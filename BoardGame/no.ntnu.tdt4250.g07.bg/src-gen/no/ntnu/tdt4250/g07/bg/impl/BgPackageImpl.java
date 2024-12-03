@@ -7,12 +7,10 @@ import no.ntnu.tdt4250.g07.bg.BgPackage;
 import no.ntnu.tdt4250.g07.bg.BoardGame;
 import no.ntnu.tdt4250.g07.bg.BoardGameElement;
 import no.ntnu.tdt4250.g07.bg.CellState;
-import no.ntnu.tdt4250.g07.bg.Condition;
 import no.ntnu.tdt4250.g07.bg.Direction;
 import no.ntnu.tdt4250.g07.bg.EffectOnCell;
 import no.ntnu.tdt4250.g07.bg.Line;
 import no.ntnu.tdt4250.g07.bg.PieceType;
-import no.ntnu.tdt4250.g07.bg.ValidMove;
 import no.ntnu.tdt4250.g07.bg.WinCondition;
 
 import no.ntnu.tdt4250.g07.bg.WinConditionElement;
@@ -46,20 +44,6 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	private EClass pieceTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass validMoveEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass conditionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,16 +231,6 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPieceType_ValidMoves() {
-		return (EReference) pieceTypeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getPieceType_Symbol() {
 		return (EAttribute) pieceTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -268,77 +242,17 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 */
 	@Override
 	public EReference getPieceType_Effectsoncell() {
+		return (EReference) pieceTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPieceType_DisallowedStates() {
 		return (EReference) pieceTypeEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getValidMove() {
-		return validMoveEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getValidMove_Conditions() {
-		return (EReference) validMoveEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getValidMove_PlaceAnywhere() {
-		return (EAttribute) validMoveEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getValidMove_Name() {
-		return (EAttribute) validMoveEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getCondition() {
-		return conditionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getCondition_CellState() {
-		return (EReference) conditionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCondition_Name() {
-		return (EAttribute) conditionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -529,17 +443,8 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		pieceTypeEClass = createEClass(PIECE_TYPE);
 		createEAttribute(pieceTypeEClass, PIECE_TYPE__NAME);
 		createEAttribute(pieceTypeEClass, PIECE_TYPE__SYMBOL);
-		createEReference(pieceTypeEClass, PIECE_TYPE__VALID_MOVES);
 		createEReference(pieceTypeEClass, PIECE_TYPE__EFFECTSONCELL);
-
-		validMoveEClass = createEClass(VALID_MOVE);
-		createEAttribute(validMoveEClass, VALID_MOVE__NAME);
-		createEReference(validMoveEClass, VALID_MOVE__CONDITIONS);
-		createEAttribute(validMoveEClass, VALID_MOVE__PLACE_ANYWHERE);
-
-		conditionEClass = createEClass(CONDITION);
-		createEAttribute(conditionEClass, CONDITION__NAME);
-		createEReference(conditionEClass, CONDITION__CELL_STATE);
+		createEReference(pieceTypeEClass, PIECE_TYPE__DISALLOWED_STATES);
 
 		cellStateEClass = createEClass(CELL_STATE);
 		createEAttribute(cellStateEClass, CELL_STATE__NAME);
@@ -595,8 +500,6 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 
 		// Add supertypes to classes
 		pieceTypeEClass.getESuperTypes().add(this.getBoardGameElement());
-		validMoveEClass.getESuperTypes().add(this.getBoardGameElement());
-		conditionEClass.getESuperTypes().add(this.getBoardGameElement());
 		cellStateEClass.getESuperTypes().add(this.getBoardGameElement());
 		effectOnCellEClass.getESuperTypes().add(this.getBoardGameElement());
 		winConditionEClass.getESuperTypes().add(this.getBoardGameElement());
@@ -619,31 +522,12 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPieceType_Symbol(), ecorePackage.getEString(), "symbol", null, 1, 1, PieceType.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPieceType_ValidMoves(), this.getValidMove(), null, "validMoves", null, 1, -1, PieceType.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPieceType_Effectsoncell(), this.getEffectOnCell(), null, "effectsoncell", null, 0, -1,
 				PieceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(validMoveEClass, ValidMove.class, "ValidMove", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getValidMove_Name(), ecorePackage.getEString(), "name", null, 1, 1, ValidMove.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getValidMove_Conditions(), this.getCondition(), null, "conditions", null, 0, -1, ValidMove.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getValidMove_PlaceAnywhere(), ecorePackage.getEBoolean(), "placeAnywhere", null, 1, 1,
-				ValidMove.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-
-		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCondition_Name(), ecorePackage.getEString(), "name", null, 1, 1, Condition.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCondition_CellState(), this.getCellState(), null, "cellState", null, 1, 1, Condition.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPieceType_DisallowedStates(), this.getCellState(), null, "disallowedStates", null, 1, -1,
+				PieceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cellStateEClass, CellState.class, "CellState", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -703,7 +587,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	protected void createEcoreAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore";
 		addAnnotation(boardGameEClass, source, new String[] { "constraints",
-				"MustHaveAPieceType LinesCantBeLongerThanBoard BoardSizeMustBeAtLeast2 LengthValuesMustBeGreaterThanOne PieceTypesMustBeUnique BoardSizeMustBeMaximum10 MustHaveAWinCondition" });
+				"MustHaveAPieceType LinesCantBeLongerThanBoard BoardSizeMustBeAtLeast2 LengthValuesMustBeGreaterThanOne PieceTypesMustBeUnique BoardSizeMustBeMaximum10 MustHaveAWinCondition DirectionCanOnlyBeUsedOnce" });
 		addAnnotation(pieceTypeEClass, source, new String[] { "constraints", "SymbolCannotBeEmpty" });
 	}
 

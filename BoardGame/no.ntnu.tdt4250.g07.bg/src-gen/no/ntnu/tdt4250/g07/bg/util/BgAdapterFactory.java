@@ -77,16 +77,6 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseValidMove(ValidMove object) {
-			return createValidMoveAdapter();
-		}
-
-		@Override
-		public Adapter caseCondition(Condition object) {
-			return createConditionAdapter();
-		}
-
-		@Override
 		public Adapter caseCellState(CellState object) {
 			return createCellStateAdapter();
 		}
@@ -160,34 +150,6 @@ public class BgAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPieceTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.g07.bg.ValidMove <em>Valid Move</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.g07.bg.ValidMove
-	 * @generated
-	 */
-	public Adapter createValidMoveAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link no.ntnu.tdt4250.g07.bg.Condition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see no.ntnu.tdt4250.g07.bg.Condition
-	 * @generated
-	 */
-	public Adapter createConditionAdapter() {
 		return null;
 	}
 

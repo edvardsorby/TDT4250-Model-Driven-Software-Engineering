@@ -5,10 +5,9 @@ package no.ntnu.tdt4250.g07.bg.impl;
 import java.util.Collection;
 
 import no.ntnu.tdt4250.g07.bg.BgPackage;
+import no.ntnu.tdt4250.g07.bg.CellState;
 import no.ntnu.tdt4250.g07.bg.EffectOnCell;
 import no.ntnu.tdt4250.g07.bg.PieceType;
-import no.ntnu.tdt4250.g07.bg.ValidMove;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
@@ -26,8 +25,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getSymbol <em>Symbol</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getValidMoves <em>Valid Moves</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getEffectsoncell <em>Effectsoncell</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getDisallowedStates <em>Disallowed States</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,16 +73,6 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 	protected String symbol = SYMBOL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getValidMoves() <em>Valid Moves</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValidMoves()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ValidMove> validMoves;
-
-	/**
 	 * The cached value of the '{@link #getEffectsoncell() <em>Effectsoncell</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +81,16 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 	 * @ordered
 	 */
 	protected EList<EffectOnCell> effectsoncell;
+
+	/**
+	 * The cached value of the '{@link #getDisallowedStates() <em>Disallowed States</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDisallowedStates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CellState> disallowedStates;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,19 +140,6 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 	 * @generated
 	 */
 	@Override
-	public EList<ValidMove> getValidMoves() {
-		if (validMoves == null) {
-			validMoves = new EObjectResolvingEList<ValidMove>(ValidMove.class, this, BgPackage.PIECE_TYPE__VALID_MOVES);
-		}
-		return validMoves;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getSymbol() {
 		return symbol;
 	}
@@ -191,16 +177,30 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 	 * @generated
 	 */
 	@Override
+	public EList<CellState> getDisallowedStates() {
+		if (disallowedStates == null) {
+			disallowedStates = new EObjectResolvingEList<CellState>(CellState.class, this,
+					BgPackage.PIECE_TYPE__DISALLOWED_STATES);
+		}
+		return disallowedStates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case BgPackage.PIECE_TYPE__NAME:
 			return getName();
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			return getSymbol();
-		case BgPackage.PIECE_TYPE__VALID_MOVES:
-			return getValidMoves();
 		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
 			return getEffectsoncell();
+		case BgPackage.PIECE_TYPE__DISALLOWED_STATES:
+			return getDisallowedStates();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -220,13 +220,13 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			setSymbol((String) newValue);
 			return;
-		case BgPackage.PIECE_TYPE__VALID_MOVES:
-			getValidMoves().clear();
-			getValidMoves().addAll((Collection<? extends ValidMove>) newValue);
-			return;
 		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
 			getEffectsoncell().clear();
 			getEffectsoncell().addAll((Collection<? extends EffectOnCell>) newValue);
+			return;
+		case BgPackage.PIECE_TYPE__DISALLOWED_STATES:
+			getDisallowedStates().clear();
+			getDisallowedStates().addAll((Collection<? extends CellState>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -246,11 +246,11 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			setSymbol(SYMBOL_EDEFAULT);
 			return;
-		case BgPackage.PIECE_TYPE__VALID_MOVES:
-			getValidMoves().clear();
-			return;
 		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
 			getEffectsoncell().clear();
+			return;
+		case BgPackage.PIECE_TYPE__DISALLOWED_STATES:
+			getDisallowedStates().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -268,10 +268,10 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			return SYMBOL_EDEFAULT == null ? symbol != null : !SYMBOL_EDEFAULT.equals(symbol);
-		case BgPackage.PIECE_TYPE__VALID_MOVES:
-			return validMoves != null && !validMoves.isEmpty();
 		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
 			return effectsoncell != null && !effectsoncell.isEmpty();
+		case BgPackage.PIECE_TYPE__DISALLOWED_STATES:
+			return disallowedStates != null && !disallowedStates.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

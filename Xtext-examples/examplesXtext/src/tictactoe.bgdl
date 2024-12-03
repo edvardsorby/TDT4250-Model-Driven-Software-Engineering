@@ -1,23 +1,31 @@
 Title "Tic-Tac-Toe"
 BoardSize 5
 
-ValidMove placePiece{
-	placeAnywhere
+Cellstate Occupied
+
+EffectOnCell MakeOccupied{
+	newCellState Occupied
+	relativePosition(0,0)
 }
 
 PieceType X{
 	Symbol "X"
-	ValidMoves placePiece
+	DisallowedStates Occupied
+	EffectsOnCell MakeOccupied
 }
 
 PieceType Y{
 	Symbol "Y"
-	ValidMoves placePiece
+	DisallowedStates Occupied
+	EffectsOnCell MakeOccupied
 }
-
 
 WinCondition{
 	Line length 5 direction ROW
+	Line length 5 direction COLUMN
+	Line length 5 direction DIAGONAL
 }
+
+
 			  
 			  
