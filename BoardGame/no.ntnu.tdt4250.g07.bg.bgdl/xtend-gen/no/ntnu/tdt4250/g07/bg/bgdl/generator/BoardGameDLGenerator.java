@@ -564,7 +564,7 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append("setCurrentPlayer(0); ");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("setMessage(`Next Piece ${players[currentPlayer]}`);");
+    _builder.append("setMessage(`Next Piece ${players[0]}`);");
     _builder.newLine();
     _builder.newLine();
     _builder.append("    ");
@@ -690,40 +690,8 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append(_name, "     ");
     _builder.append("</Text>");
     _builder.newLineIfNotEmpty();
-    _builder.append("     ");
-    _builder.append("<View style={boardStyles.rules}>");
-    _builder.newLine();
-    _builder.append("\t\t             ");
-    _builder.append("<Text style={boardStyles.rule}>Rules:</Text>");
-    _builder.newLine();
-    _builder.append("\t             ");
-    _builder.newLine();
     _builder.append("      ");
-    final Iterable<WinCondition> winConditions = Iterables.<WinCondition>filter(boardGame.getBoardGameElements(), WinCondition.class);
-    _builder.newLineIfNotEmpty();
-    {
-      for(final WinCondition winCondition : winConditions) {
-        {
-          EList<WinConditionElement> _winConditionElements = winCondition.getWinConditionElements();
-          for(final WinConditionElement winConditionElement : _winConditionElements) {
-            {
-              if ((winConditionElement instanceof Line)) {
-                _builder.append("<Text style={boardStyles.rule}>");
-                int _length = ((Line)winConditionElement).getLength();
-                _builder.append(_length);
-                _builder.append("  in a ");
-                String _lowerCase = ((Line)winConditionElement).getDirection().toString().toLowerCase();
-                _builder.append(_lowerCase);
-                _builder.append("</Text>");
-                _builder.newLineIfNotEmpty();
-              }
-            }
-          }
-        }
-      }
-    }
-    _builder.append("    ");
-    _builder.append("</View>\t");
+    _builder.append("<Text style={boardStyles.message}>{message}</Text>");
     _builder.newLine();
     _builder.append("      ");
     _builder.append("<View style={boardStyles.board}>");
@@ -764,8 +732,40 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append("      ");
     _builder.append("</View>");
     _builder.newLine();
+    _builder.append("     ");
+    _builder.append("<View style={boardStyles.rules}>");
+    _builder.newLine();
+    _builder.append("\t\t             ");
+    _builder.append("<Text style={boardStyles.rule}>Rules:</Text>");
+    _builder.newLine();
+    _builder.append("\t             ");
+    _builder.newLine();
     _builder.append("      ");
-    _builder.append("<Text style={boardStyles.message}>{message}</Text>");
+    final Iterable<WinCondition> winConditions = Iterables.<WinCondition>filter(boardGame.getBoardGameElements(), WinCondition.class);
+    _builder.newLineIfNotEmpty();
+    {
+      for(final WinCondition winCondition : winConditions) {
+        {
+          EList<WinConditionElement> _winConditionElements = winCondition.getWinConditionElements();
+          for(final WinConditionElement winConditionElement : _winConditionElements) {
+            {
+              if ((winConditionElement instanceof Line)) {
+                _builder.append("<Text style={boardStyles.rule}>");
+                int _length = ((Line)winConditionElement).getLength();
+                _builder.append(_length);
+                _builder.append("  in a ");
+                String _lowerCase = ((Line)winConditionElement).getDirection().toString().toLowerCase();
+                _builder.append(_lowerCase);
+                _builder.append("</Text>");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("    ");
+    _builder.append("</View>\t");
     _builder.newLine();
     _builder.append("      ");
     _builder.append("<CustomButton title=\"Reset\" onPress={resetGame} />");
@@ -814,7 +814,7 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append("title: {");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("fontSize: 24,");
+    _builder.append("fontSize: 36,");
     _builder.newLine();
     _builder.append("    ");
     _builder.append("marginBottom: 20,");
@@ -839,6 +839,9 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("    ");
     _builder.append("height: 300, ");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("marginBottom: 20");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("},");
@@ -880,8 +883,11 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append("cellText: {");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("fontSize: RFValue(32, 812),");
-    _builder.newLine();
+    _builder.append("fontSize: 35 - ");
+    int _size_2 = boardGame.getSize();
+    _builder.append(_size_2, "    ");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
     _builder.append("    ");
     _builder.append("fontWeight: \"bold\",");
     _builder.newLine();
@@ -892,7 +898,7 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append("message: {");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("fontSize: 18,");
+    _builder.append("fontSize: 24,");
     _builder.newLine();
     _builder.append("    ");
     _builder.append("marginVertical: 10,");
@@ -910,6 +916,9 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append("padding: 5,");
     _builder.newLine();
     _builder.append("    ");
+    _builder.append("paddingHorizontal: 20,");
+    _builder.newLine();
+    _builder.append("    ");
     _builder.append("marginBottom: 10,");
     _builder.newLine();
     _builder.append("    ");
@@ -925,7 +934,10 @@ public class BoardGameDLGenerator extends AbstractGenerator {
     _builder.append("rule: {");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("margin: 0");
+    _builder.append("margin: 0,");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("fontSize: 16,");
     _builder.newLine();
     _builder.append("  ");
     _builder.append("}");
