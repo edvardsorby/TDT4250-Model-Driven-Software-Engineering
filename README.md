@@ -23,7 +23,7 @@ The resulting code is compiled to JavaScript files, that can be copied into the 
 
 **Metamodel (Ecore):**
 - Path: *BoardGame/no.ntnu.tdt4250.g07.bg/model/bg.ecore*
-- Example models: *BoardGame/no.ntnu.tdt4250.g07.bg/model/bg.ecore*
+- Example model instances: *BoardGame/no.ntnu.tdt4250.g07.bg.examples/*
 
 **Grammar definition (Xtext):**
 - Path: *BoardGame/no.ntnu.tdt4250.g07.bg.bgdl/bin/no/ntnu/tdt4250/g07/bg/bgdl/BoardgameDL.xtext*
