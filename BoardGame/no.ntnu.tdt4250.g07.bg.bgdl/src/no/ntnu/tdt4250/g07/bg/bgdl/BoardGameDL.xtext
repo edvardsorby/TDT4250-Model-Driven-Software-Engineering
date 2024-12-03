@@ -11,14 +11,14 @@ BoardGame returns BoardGame:
 	;
 	
 BoardGameElement returns BoardGameElement:
-    PieceType | EffectOnCell | ValidMove | CellState | WinCondition | Condition
+    PieceType | EffectOnCell | CellState | WinCondition
 ;
 
 PieceType returns PieceType:
 	'PieceType'
 	name=EString '{'
 		'Symbol' symbol=EString
-		'ValidMoves' validMoves+= [ValidMove|EString] ( "," validMoves+=[ValidMove | EString])* 
+		'DisallowedStates' disallowedStates+= [CellState|EString] ( "," disallowedStates+=[CellState | EString])* 
 		('EffectsOnCell' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* )?
 	'}';
 
@@ -35,12 +35,6 @@ EInt returns ecore::EInt:
 EString returns ecore::EString:
 	STRING | ID;
 
-ValidMove returns ValidMove:
-	'ValidMove' name=ID '{'
-		placeAnywhere?='placeAnywhere'
-		('valid' 'if' conditions+=[Condition|EString] ( "and" conditions+=[Condition|EString])* )?
-	'}';
-
 EffectOnCell returns EffectOnCell:
 	'EffectOnCell' name=ID '{'
 		(
@@ -48,9 +42,6 @@ EffectOnCell returns EffectOnCell:
 		'newCellState'cellState=[CellState|EString]
 		)
 	'}';
-
-Condition returns Condition:
-	'Condition' name=ID cellState=[CellState|EString];
 
 EBoolean returns ecore::EBoolean:
 	'true' | 'false';

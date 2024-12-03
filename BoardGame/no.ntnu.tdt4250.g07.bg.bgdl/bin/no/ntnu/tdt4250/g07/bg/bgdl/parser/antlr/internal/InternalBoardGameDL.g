@@ -180,38 +180,20 @@ ruleBoardGameElement returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getBoardGameElementAccess().getValidMoveParserRuleCall_2());
+			newCompositeNode(grammarAccess.getBoardGameElementAccess().getCellStateParserRuleCall_2());
 		}
-		this_ValidMove_2=ruleValidMove
+		this_CellState_2=ruleCellState
 		{
-			$current = $this_ValidMove_2.current;
+			$current = $this_CellState_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getBoardGameElementAccess().getCellStateParserRuleCall_3());
+			newCompositeNode(grammarAccess.getBoardGameElementAccess().getWinConditionParserRuleCall_3());
 		}
-		this_CellState_3=ruleCellState
+		this_WinCondition_3=ruleWinCondition
 		{
-			$current = $this_CellState_3.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getBoardGameElementAccess().getWinConditionParserRuleCall_4());
-		}
-		this_WinCondition_4=ruleWinCondition
-		{
-			$current = $this_WinCondition_4.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getBoardGameElementAccess().getConditionParserRuleCall_5());
-		}
-		this_Condition_5=ruleCondition
-		{
-			$current = $this_Condition_5.current;
+			$current = $this_WinCondition_3.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -283,9 +265,9 @@ rulePieceType returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_5='ValidMoves'
+		otherlv_5='DisallowedStates'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getPieceTypeAccess().getValidMovesKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getPieceTypeAccess().getDisallowedStatesKeyword_5());
 		}
 		(
 			(
@@ -295,7 +277,7 @@ rulePieceType returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getPieceTypeAccess().getValidMovesValidMoveCrossReference_6_0());
+					newCompositeNode(grammarAccess.getPieceTypeAccess().getDisallowedStatesCellStateCrossReference_6_0());
 				}
 				ruleEString
 				{
@@ -316,7 +298,7 @@ rulePieceType returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getPieceTypeAccess().getValidMovesValidMoveCrossReference_7_1_0());
+						newCompositeNode(grammarAccess.getPieceTypeAccess().getDisallowedStatesCellStateCrossReference_7_1_0());
 					}
 					ruleEString
 					{
@@ -554,117 +536,6 @@ ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 	)
 ;
 
-// Entry rule entryRuleValidMove
-entryRuleValidMove returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getValidMoveRule()); }
-	iv_ruleValidMove=ruleValidMove
-	{ $current=$iv_ruleValidMove.current; }
-	EOF;
-
-// Rule ValidMove
-ruleValidMove returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='ValidMove'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getValidMoveAccess().getValidMoveKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getValidMoveAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getValidMoveRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		otherlv_2='{'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getValidMoveAccess().getLeftCurlyBracketKeyword_2());
-		}
-		(
-			(
-				lv_placeAnywhere_3_0='placeAnywhere'
-				{
-					newLeafNode(lv_placeAnywhere_3_0, grammarAccess.getValidMoveAccess().getPlaceAnywherePlaceAnywhereKeyword_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getValidMoveRule());
-					}
-					setWithLastConsumed($current, "placeAnywhere", lv_placeAnywhere_3_0 != null, "placeAnywhere");
-				}
-			)
-		)
-		(
-			otherlv_4='valid'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getValidMoveAccess().getValidKeyword_4_0());
-			}
-			otherlv_5='if'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getValidMoveAccess().getIfKeyword_4_1());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getValidMoveRule());
-						}
-					}
-					{
-						newCompositeNode(grammarAccess.getValidMoveAccess().getConditionsConditionCrossReference_4_2_0());
-					}
-					ruleEString
-					{
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			(
-				otherlv_7='and'
-				{
-					newLeafNode(otherlv_7, grammarAccess.getValidMoveAccess().getAndKeyword_4_3_0());
-				}
-				(
-					(
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getValidMoveRule());
-							}
-						}
-						{
-							newCompositeNode(grammarAccess.getValidMoveAccess().getConditionsConditionCrossReference_4_3_1_0());
-						}
-						ruleEString
-						{
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-		)?
-		otherlv_9='}'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getValidMoveAccess().getRightCurlyBracketKeyword_5());
-		}
-	)
-;
-
 // Entry rule entryRuleEffectOnCell
 entryRuleEffectOnCell returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getEffectOnCellRule()); }
@@ -822,63 +693,6 @@ ruleEffectOnCell returns [EObject current=null]
 		{
 			newLeafNode(otherlv_12, grammarAccess.getEffectOnCellAccess().getRightCurlyBracketKeyword_4());
 		}
-	)
-;
-
-// Entry rule entryRuleCondition
-entryRuleCondition returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getConditionRule()); }
-	iv_ruleCondition=ruleCondition
-	{ $current=$iv_ruleCondition.current; }
-	EOF;
-
-// Rule Condition
-ruleCondition returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		otherlv_0='Condition'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getConditionKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getConditionAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getConditionRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getConditionRule());
-					}
-				}
-				{
-					newCompositeNode(grammarAccess.getConditionAccess().getCellStateCellStateCrossReference_2_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
 	)
 ;
 

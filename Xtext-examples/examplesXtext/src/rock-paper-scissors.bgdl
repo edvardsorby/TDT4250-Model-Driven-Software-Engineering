@@ -1,0 +1,99 @@
+Title "Rock-Paper-Scissors"
+BoardSize 8
+
+Cellstate Occupied
+Cellstate PaperEffect
+Cellstate RockEffect
+Cellstate ScissorEffect
+
+PieceType Rock{
+	Symbol "🪨"
+	DisallowedStates Occupied, PaperEffect
+	EffectsOnCell MakeOccupied, MakeRockEffectAbove, MakeRockEffectBelow, MakeRockEffectLeft, MakeRockEffectRight
+}
+
+PieceType Scissor{
+	Symbol "✂️"
+	DisallowedStates Occupied, RockEffect
+	EffectsOnCell MakeOccupied, MakeScissorEffectAbove, MakeScissorEffectBelow, MakeScissorEffectLeft, MakeScissorEffectRight
+	
+}
+
+PieceType Paper{
+	Symbol "📄"
+	DisallowedStates Occupied, ScissorEffect
+	EffectsOnCell MakeOccupied, MakePaperEffectAbove, MakePaperEffectBelow, MakePaperEffectLeft, MakePaperEffectRight	
+}
+
+EffectOnCell MakeOccupied{
+	newCellState Occupied
+	relativePosition (0,0)
+}
+
+EffectOnCell MakeRockEffectAbove{
+	newCellState RockEffect
+	relativePosition (0, 1)
+}
+
+EffectOnCell MakeRockEffectBelow{
+	newCellState RockEffect
+	relativePosition (0, -1)
+}
+
+EffectOnCell MakeRockEffectLeft{
+	newCellState RockEffect
+	relativePosition (-1, 0)
+}
+
+EffectOnCell MakeRockEffectRight{
+	newCellState RockEffect
+	relativePosition (1, 0)
+}
+
+EffectOnCell MakePaperEffectAbove{
+	newCellState PaperEffect
+	relativePosition (0, 1)
+}
+
+EffectOnCell MakePaperEffectBelow{
+	newCellState PaperEffect
+	relativePosition (0, -1)
+}
+
+EffectOnCell MakePaperEffectLeft{
+	newCellState PaperEffect
+	relativePosition (-1, 0)
+}
+
+EffectOnCell MakePaperEffectRight{
+	newCellState PaperEffect
+	relativePosition (1, 0)
+}
+
+EffectOnCell MakeScissorEffectAbove{
+	newCellState ScissorEffect
+	relativePosition (0, 1)
+}
+
+EffectOnCell MakeScissorEffectBelow{
+	newCellState ScissorEffect
+	relativePosition (0, -1)
+}
+
+EffectOnCell MakeScissorEffectLeft{
+	newCellState ScissorEffect
+	relativePosition (-1, 0)
+}
+
+EffectOnCell MakeScissorEffectRight{
+	newCellState ScissorEffect
+	relativePosition (1, 0)
+}
+
+WinCondition{
+	Line length 4 direction ROW
+	Line length 4 direction COLUMN
+	Line length 4 direction DIAGONAL
+}
+
+

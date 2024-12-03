@@ -60,10 +60,6 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 			return createBoardGame();
 		case BgPackage.PIECE_TYPE:
 			return createPieceType();
-		case BgPackage.VALID_MOVE:
-			return createValidMove();
-		case BgPackage.CONDITION:
-			return createCondition();
 		case BgPackage.CELL_STATE:
 			return createCellState();
 		case BgPackage.EFFECT_ON_CELL:
@@ -127,28 +123,6 @@ public class BgFactoryImpl extends EFactoryImpl implements BgFactory {
 	public PieceType createPieceType() {
 		PieceTypeImpl pieceType = new PieceTypeImpl();
 		return pieceType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ValidMove createValidMove() {
-		ValidMoveImpl validMove = new ValidMoveImpl();
-		return validMove;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Condition createCondition() {
-		ConditionImpl condition = new ConditionImpl();
-		return condition;
 	}
 
 	/**

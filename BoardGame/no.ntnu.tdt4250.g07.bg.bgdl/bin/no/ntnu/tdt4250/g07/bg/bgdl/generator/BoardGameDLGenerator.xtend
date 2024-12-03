@@ -37,22 +37,24 @@ class BoardGameDLGenerator extends AbstractGenerator {
 
     def String generateConfigJS(BoardGame boardGame) {
         '''
-        const boardGame = {
-        	title: "«boardGame.name»",
-            size: «boardGame.size»,
-             «val pieceTypes = boardGame.boardGameElements.filter(PieceType)»
-            pieces: [«FOR pieceType : pieceTypes»"«pieceType.symbol»", «ENDFOR»],
-        };
-
-        export default boardGame;
-        '''
-        /**
-         *        config: {
+const boardGame = {
+	title: "«boardGame.name»",
+    size: «boardGame.size»,
+    «val pieceTypes = boardGame.boardGameElements.filter(PieceType)»
+    pieces: [«FOR pieceType : pieceTypes»
+    "«pieceType.symbol»",
+    «ENDFOR»]
+};
+export default boardGame;
+       '''
+       
+       /**
+        *       config: {
            		«boardGame.boardGameElements.groupBy[eClass.name].entrySet.map[
                        decapitalize(key) + ': [' + value.map[generateElementJS(it)].join(",") + ']'
                    ].join(",\n")»
             }
-         */
+        */
     }
     
     def String generateElementJS(BoardGameElement element) {
@@ -61,7 +63,7 @@ class BoardGameDLGenerator extends AbstractGenerator {
 
 	def String serializeFeature(EStructuralFeature feature, EObject element) {
 	    val value = element.eGet(feature)
-	    '''"«feature.name»": «serializeValue(value)»'''
+	    '''«feature.name»: «serializeValue(value)»'''
 	}
 	
 	def String serializeValue(Object value) {
@@ -93,27 +95,29 @@ class BoardGameDLGenerator extends AbstractGenerator {
     				«FOR winConditionElement : winCondition.winConditionElements »
     			     	«IF winConditionElement instanceof Line»
     			     		«IF winConditionElement.direction == Direction.ROW»
+    			   
     			const inARowLength = «winConditionElement.length»
 				if(inARow(inARowLength, player, board)) {
-					setMessage(`Player ${players[currentPlayer]} wins because of ${inARowLength} in a row!`);
+					setMessage(`Player ${players[currentPlayer].symbol} wins because of ${inARowLength} in a row!`);
 					return true
 				}
     						«ELSEIF winConditionElement.direction == Direction.COLUMN»
     			const inAColumnLength = «winConditionElement.length»
 	     		if(inAColumn(inAColumnLength, player, board)) {
-	     			setMessage(`Player ${players[currentPlayer]} wins because of ${inAColumnLength} in a column!`);
+	     			setMessage(`Player ${players[currentPlayer].symbol} wins because of ${inAColumnLength} in a column!`);
 	     			return true
 	     		}
     						«ELSEIF winConditionElement.direction == Direction.DIAGONAL»
     			const inADiagonalLength = «winConditionElement.length»
 	     		if(inDiagonal(inADiagonalLength, player, board)) {
-	     			setMessage(`Player ${players[currentPlayer]} wins because of ${inADiagonalLength} in a diagonal!`);
+	     			setMessage(`Player ${players[currentPlayer].symbol} wins because of ${inADiagonalLength} in a diagonal!`);
 	     			return true
 	     		}
     			     		«ENDIF»
     			     	«ENDIF»
     			 	«ENDFOR»
-			    «ENDFOR»		   
+			    «ENDFOR»	
+			    	   
 			  	return false; //not finished
 			};
 			
@@ -125,7 +129,11 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			    for (let row = 0; row < boardSize; row++) {
 			      let count = 0;   
 			      for (let col = 0; col < boardSize; col++) {
-			        if (board[row][col] === player) {
+			        if (
+			       		board[row][col] != null && 
+			            board[row][col].piece != null && 
+			            board[row][col].piece.symbol === player.symbol
+			            ){
 			          count++;
 			          if (count === num) return true;
 			        } else {
@@ -141,7 +149,11 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			    for (let col = 0; col < boardSize; col++) {
 			      let count = 0;
 			      for (let row = 0; row < boardSize; row++) {
-			        if (board[row][col] === player) {
+			        if(
+			       		board[row][col] != null && 
+			            board[row][col].piece != null && 
+			            board[row][col].piece.symbol === player.symbol
+			            ){
 			          count++;
 			          if (count === num) return true;
 			        } else {
@@ -160,7 +172,11 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			      let col = startCol;
 			
 			      while (row >= 0 && row < boardSize && col >= 0 && col < boardSize) {
-			        if (board[row][col] === player) {
+			        if(
+			       		board[row][col] != null && 
+			            board[row][col].piece != null && 
+			            board[row][col].piece.symbol === player.symbol
+			            ){
 			          count++;
 			          if (count === num) return true;
 			        } else {
@@ -200,22 +216,20 @@ class BoardGameDLGenerator extends AbstractGenerator {
 	
 	def generateBoardGameJS(BoardGame boardGame) {
 		'''
-			import { View, StyleSheet, TouchableOpacity, Text, TextInput, Alert, Pressable, Button } from "react-native";
+			import { View, TouchableOpacity, Text } from "react-native";
 			import { useState, useEffect } from "react";
 			import CustomButton from "../components/button.js";
-			import AsyncStorage from "@react-native-async-storage/async-storage";
-			import { useTranslation } from "react-i18next";
-			import { globalStyles } from "../styles/global.js";
 			import { boardStyles } from "./boardStyles.js";
-			import { RFValue } from "react-native-responsive-fontsize";
 			import React from 'react'
 			import { checkIsFinishedFunction } from "./winConditions.js";
-			
 			
 			export default function BoardGame() {
 			  const boardSize = «boardGame.size»; // Size of the board
 			  «val pieceTypes = boardGame.boardGameElements.filter(PieceType)»
-			  const players = [«FOR pieceType : pieceTypes»"«pieceType.symbol»", «ENDFOR»]; // Players
+			  let players = [«FOR pieceType : pieceTypes»
+		      {symbol:"«pieceType.symbol»",
+		      disallowedStates: [«FOR state : pieceType.disallowedStates»"«state.name»",«ENDFOR»],
+		      effectsOnCell: [«FOR effect : pieceType.effectsoncell»{state: "«effect.cellState.name»", x:«effect.x», y:«effect.y»},«ENDFOR»]},«ENDFOR»]
 	
 			  const [board, setBoard] = useState(Array(boardSize).fill(Array(boardSize).fill(null)));
 			  const [currentPlayer, setCurrentPlayer] = useState(0);
@@ -233,7 +247,7 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			    setBoard(predefinedBoard);
 			
 			    setCurrentPlayer(0); 
-			    setMessage(`Next Piece ${players[0]}`);
+			    setMessage(`Next Piece ${players[0].symbol}`);
 			
 			    setGameActive(true);
 			  };
@@ -241,30 +255,97 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			  useEffect(() => {   
 			    initializeBoard()
 			  }, []);
-			
-			  const onCellClick = (row, col) => {
-			    if (!gameActive || board[row][col] !== null) return; //check if occupied  
-			    
-			    //if(!gameActive) return;
-			   
-			    //placing the piece
-			    const newBoard = board.map((boardRow, rowIndex) =>
-			      boardRow.map((cell, colIndex) => (rowIndex === row && colIndex === col ? players[currentPlayer] : cell))
-			    );
-			
-			    setBoard(newBoard);
-			
-			    if (checkIsFinished(newBoard)) {
-			      setGameActive(false);
-			    } else if (checkIfBoardIsFilled(newBoard)) {
-			          setMessage("It's a draw!");
-			          setGameActive(false);
-			    } else {
-			      const nextPlayer = (currentPlayer + 1) % players.length;
-			      setCurrentPlayer(nextPlayer);
-			      setMessage(`Next piece: ${players[nextPlayer]}`);
+			  
+			    const checkIfMoveIsAllowed = (disallowedStates, row, col) => {
+			      const cell = board[row][col]
+			  
+			      if (cell === null) {
+			        return true
+			      } else {
+			        const cellStates = cell.states
+			  
+			        for (let i = 0; i < cellStates.length; i++) {
+			          const state = cellStates[i];
+			  
+			          for (let j = 0; j < disallowedStates.length; j++) {
+			            const disallowedState = disallowedStates[j];
+			            if (state === disallowedState) return false
+			          }
+			          
+			        }
+			        return true
+			      }
 			    }
-			  };
+			    
+			    const updateBoard = (piece, row, col) => {
+			    
+			        
+			        const effectsOnCell = piece.effectsOnCell
+			        
+			        let newBoard = board.map(row => [...row]);
+			        
+			        for (let i = 0; i < effectsOnCell.length; i++) {
+
+			          const effect = effectsOnCell[i];
+			          
+			          const affectedRow = row + effect.y
+			          const affectedCol = col + effect.x
+			    
+			          if (
+			            !((affectedRow >= boardSize || affectedRow < 0)
+			            ||(affectedCol >= boardSize || affectedCol < 0))
+			          ) {
+			            let newCell
+			            
+			            if (board[affectedRow][affectedCol] === null) {
+			              newCell = {}
+			              
+			          
+			              newCell.states = [effect.state]
+			            } else {
+			              newCell = board[affectedRow][affectedCol]
+			              
+			              newCell.states.push(effect.state)
+			      
+			            }
+			            
+				        if (affectedRow === row && affectedCol === col) {
+					        newCell.piece = piece
+					    }
+			            
+			            newBoard[affectedRow][affectedCol] = newCell
+			          }
+			          
+			        }
+		         setBoard(newBoard)
+		            return newBoard
+		         }
+			        
+			
+			   const onCellClick = (row, col) => {
+			  
+			      const currentPlayerPiece = players[currentPlayer]
+			  
+			      let newBoard
+			  
+			      if (checkIfMoveIsAllowed(currentPlayerPiece.disallowedStates, row, col) && gameActive) {
+			        newBoard = updateBoard(currentPlayerPiece, row, col)
+			      } else {
+			        setMessage("Disallowed move")
+			        return
+			      }
+			  
+			      if (checkIsFinished(newBoard)) {
+			        setGameActive(false);
+			      } else if (checkIfBoardIsFilled(newBoard)) {
+			        setMessage("It's a draw!");
+			        setGameActive(false);
+			      } else {
+			        const nextPlayer = (currentPlayer + 1) % players.length;
+			        setCurrentPlayer(nextPlayer);
+			        setMessage(`Next piece: ${players[nextPlayer].symbol}`);
+			      }
+			    };
 			
 			  const checkIsFinished = (board) => {
 			    return checkIsFinishedFunction(board, players, currentPlayer, setMessage)
@@ -287,7 +368,7 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			                 key={index}
 			                 style={player === players[currentPlayer] ? { fontSize: 32 } : null}
 			               >
-			                 {player}{' '}
+			                 {player.symbol}{' '}
 			               </Text>
 			             ))}
 	           	  </Text>
@@ -300,7 +381,7 @@ class BoardGameDLGenerator extends AbstractGenerator {
 			              style={boardStyles.cell}
 			              onPress={() => onCellClick(rowIndex, colIndex)}
 			            >
-			              <Text style={boardStyles.cellText}>{cell}</Text>
+			              <Text style={boardStyles.cellText}>{cell != null && cell.piece != null && cell.piece.symbol}</Text>
 			            </TouchableOpacity>
 			          ))
 			        )}

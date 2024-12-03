@@ -6,36 +6,36 @@ export const boardStyles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "azure",//VARIABEL
+    backgroundColor: "azure",
   },
   title: {
     fontSize: 36,
-    marginBottom: 20,
-    color: "#023535",//VARIABEL
+    marginBottom: 10,
+    color: "#023535",
   },
   board: {
     flexDirection: "row",
     flexWrap: "wrap",
-    width: 300, 
-    height: 300, 
+    width: 300,
+    height: 300,
     marginBottom: 20
   },
   cell: {
-    width:  300 / 5,
-    height:  300 / 5,
+    width:  300 / 8,
+    height:  300 / 8,
     borderWidth: 2,
-    borderColor: "black",//VARIABEL
+    borderColor: "black",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff", //VARIABEL
+    backgroundColor: "#fff",
   },
   cellText: {
-    fontSize: 35 - 5,
+    fontSize: 35 - 8,
     fontWeight: "bold",
   },
   message: {
     fontSize: 24,
-    marginVertical: 10,
+    marginVertical: 5,
     color: "#023535",
   },
   rules: {

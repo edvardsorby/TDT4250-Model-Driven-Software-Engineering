@@ -120,7 +120,7 @@ public interface BgPackage extends EPackage {
 	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getBoardGameElement()
 	 * @generated
 	 */
-	int BOARD_GAME_ELEMENT = 8;
+	int BOARD_GAME_ELEMENT = 6;
 
 	/**
 	 * The number of structural features of the '<em>Board Game Element</em>' class.
@@ -169,22 +169,22 @@ public interface BgPackage extends EPackage {
 	int PIECE_TYPE__SYMBOL = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Valid Moves</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PIECE_TYPE__VALID_MOVES = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Effectsoncell</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIECE_TYPE__EFFECTSONCELL = BOARD_GAME_ELEMENT_FEATURE_COUNT + 3;
+	int PIECE_TYPE__EFFECTSONCELL = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Disallowed States</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIECE_TYPE__DISALLOWED_STATES = BOARD_GAME_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Piece Type</em>' class.
@@ -205,107 +205,6 @@ public interface BgPackage extends EPackage {
 	int PIECE_TYPE_OPERATION_COUNT = BOARD_GAME_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.ValidMoveImpl <em>Valid Move</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.ntnu.tdt4250.g07.bg.impl.ValidMoveImpl
-	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getValidMove()
-	 * @generated
-	 */
-	int VALID_MOVE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALID_MOVE__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Conditions</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALID_MOVE__CONDITIONS = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Place Anywhere</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALID_MOVE__PLACE_ANYWHERE = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Valid Move</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALID_MOVE_FEATURE_COUNT = BOARD_GAME_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Valid Move</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALID_MOVE_OPERATION_COUNT = BOARD_GAME_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.ConditionImpl <em>Condition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see no.ntnu.tdt4250.g07.bg.impl.ConditionImpl
-	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getCondition()
-	 * @generated
-	 */
-	int CONDITION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION__NAME = BOARD_GAME_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Cell State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION__CELL_STATE = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Condition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION_FEATURE_COUNT = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Condition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION_OPERATION_COUNT = BOARD_GAME_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link no.ntnu.tdt4250.g07.bg.impl.CellStateImpl <em>Cell State</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -313,7 +212,7 @@ public interface BgPackage extends EPackage {
 	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getCellState()
 	 * @generated
 	 */
-	int CELL_STATE = 4;
+	int CELL_STATE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -350,7 +249,7 @@ public interface BgPackage extends EPackage {
 	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getEffectOnCell()
 	 * @generated
 	 */
-	int EFFECT_ON_CELL = 5;
+	int EFFECT_ON_CELL = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -414,7 +313,7 @@ public interface BgPackage extends EPackage {
 	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getWinCondition()
 	 * @generated
 	 */
-	int WIN_CONDITION = 6;
+	int WIN_CONDITION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Win Condition Elements</b></em>' containment reference list.
@@ -451,7 +350,7 @@ public interface BgPackage extends EPackage {
 	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getWinConditionElement()
 	 * @generated
 	 */
-	int WIN_CONDITION_ELEMENT = 9;
+	int WIN_CONDITION_ELEMENT = 7;
 
 	/**
 	 * The number of structural features of the '<em>Win Condition Element</em>' class.
@@ -479,7 +378,7 @@ public interface BgPackage extends EPackage {
 	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getLine()
 	 * @generated
 	 */
-	int LINE = 7;
+	int LINE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Length</b></em>' attribute.
@@ -525,7 +424,7 @@ public interface BgPackage extends EPackage {
 	 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getDirection()
 	 * @generated
 	 */
-	int DIRECTION = 10;
+	int DIRECTION = 8;
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.BoardGame <em>Board Game</em>}'.
@@ -592,17 +491,6 @@ public interface BgPackage extends EPackage {
 	EAttribute getPieceType_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getValidMoves <em>Valid Moves</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Valid Moves</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.PieceType#getValidMoves()
-	 * @see #getPieceType()
-	 * @generated
-	 */
-	EReference getPieceType_ValidMoves();
-
-	/**
 	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.PieceType#getSymbol <em>Symbol</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -625,79 +513,15 @@ public interface BgPackage extends EPackage {
 	EReference getPieceType_Effectsoncell();
 
 	/**
-	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.ValidMove <em>Valid Move</em>}'.
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getDisallowedStates <em>Disallowed States</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Valid Move</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.ValidMove
+	 * @return the meta object for the reference list '<em>Disallowed States</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.PieceType#getDisallowedStates()
+	 * @see #getPieceType()
 	 * @generated
 	 */
-	EClass getValidMove();
-
-	/**
-	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.ValidMove#getConditions <em>Conditions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Conditions</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.ValidMove#getConditions()
-	 * @see #getValidMove()
-	 * @generated
-	 */
-	EReference getValidMove_Conditions();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.ValidMove#isPlaceAnywhere <em>Place Anywhere</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Place Anywhere</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.ValidMove#isPlaceAnywhere()
-	 * @see #getValidMove()
-	 * @generated
-	 */
-	EAttribute getValidMove_PlaceAnywhere();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.ValidMove#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.ValidMove#getName()
-	 * @see #getValidMove()
-	 * @generated
-	 */
-	EAttribute getValidMove_Name();
-
-	/**
-	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.Condition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Condition</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.Condition
-	 * @generated
-	 */
-	EClass getCondition();
-
-	/**
-	 * Returns the meta object for the reference '{@link no.ntnu.tdt4250.g07.bg.Condition#getCellState <em>Cell State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Cell State</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.Condition#getCellState()
-	 * @see #getCondition()
-	 * @generated
-	 */
-	EReference getCondition_CellState();
-
-	/**
-	 * Returns the meta object for the attribute '{@link no.ntnu.tdt4250.g07.bg.Condition#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.Condition#getName()
-	 * @see #getCondition()
-	 * @generated
-	 */
-	EAttribute getCondition_Name();
+	EReference getPieceType_DisallowedStates();
 
 	/**
 	 * Returns the meta object for class '{@link no.ntnu.tdt4250.g07.bg.CellState <em>Cell State</em>}'.
@@ -933,14 +757,6 @@ public interface BgPackage extends EPackage {
 		EAttribute PIECE_TYPE__NAME = eINSTANCE.getPieceType_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Valid Moves</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PIECE_TYPE__VALID_MOVES = eINSTANCE.getPieceType_ValidMoves();
-
-		/**
 		 * The meta object literal for the '<em><b>Symbol</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -957,64 +773,12 @@ public interface BgPackage extends EPackage {
 		EReference PIECE_TYPE__EFFECTSONCELL = eINSTANCE.getPieceType_Effectsoncell();
 
 		/**
-		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.ValidMoveImpl <em>Valid Move</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.ntnu.tdt4250.g07.bg.impl.ValidMoveImpl
-		 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getValidMove()
-		 * @generated
-		 */
-		EClass VALID_MOVE = eINSTANCE.getValidMove();
-
-		/**
-		 * The meta object literal for the '<em><b>Conditions</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Disallowed States</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VALID_MOVE__CONDITIONS = eINSTANCE.getValidMove_Conditions();
-
-		/**
-		 * The meta object literal for the '<em><b>Place Anywhere</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALID_MOVE__PLACE_ANYWHERE = eINSTANCE.getValidMove_PlaceAnywhere();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALID_MOVE__NAME = eINSTANCE.getValidMove_Name();
-
-		/**
-		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.ConditionImpl <em>Condition</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see no.ntnu.tdt4250.g07.bg.impl.ConditionImpl
-		 * @see no.ntnu.tdt4250.g07.bg.impl.BgPackageImpl#getCondition()
-		 * @generated
-		 */
-		EClass CONDITION = eINSTANCE.getCondition();
-
-		/**
-		 * The meta object literal for the '<em><b>Cell State</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONDITION__CELL_STATE = eINSTANCE.getCondition_CellState();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONDITION__NAME = eINSTANCE.getCondition_Name();
+		EReference PIECE_TYPE__DISALLOWED_STATES = eINSTANCE.getPieceType_DisallowedStates();
 
 		/**
 		 * The meta object literal for the '{@link no.ntnu.tdt4250.g07.bg.impl.CellStateImpl <em>Cell State</em>}' class.

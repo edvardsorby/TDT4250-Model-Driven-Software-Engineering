@@ -26,17 +26,8 @@
     <genClasses ecoreClass="bg.ecore#//PieceType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//PieceType/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//PieceType/symbol"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bg.ecore#//PieceType/validMoves"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bg.ecore#//PieceType/effectsoncell"/>
-    </genClasses>
-    <genClasses ecoreClass="bg.ecore#//ValidMove">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//ValidMove/name"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bg.ecore#//ValidMove/conditions"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//ValidMove/placeAnywhere"/>
-    </genClasses>
-    <genClasses ecoreClass="bg.ecore#//Condition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//Condition/name"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference bg.ecore#//Condition/cellState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bg.ecore#//PieceType/disallowedStates"/>
     </genClasses>
     <genClasses ecoreClass="bg.ecore#//CellState">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bg.ecore#//CellState/name"/>

@@ -28,14 +28,9 @@ class BoardGameDLFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(PieceType pieceType, extension IFormattableDocument document) {
-		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (validMove : pieceType.validMoves) {
-			validMove.format
-		}
 		for (effectOnCell : pieceType.effectsoncell) {
 			effectOnCell.format
 		}
 	}
 	
-	// TODO: implement for WinCondition, ValidMove
 }

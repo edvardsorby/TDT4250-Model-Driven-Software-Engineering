@@ -40,24 +40,6 @@ public interface BgFactory extends EFactory {
 	PieceType createPieceType();
 
 	/**
-	 * Returns a new object of class '<em>Valid Move</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Valid Move</em>'.
-	 * @generated
-	 */
-	ValidMove createValidMove();
-
-	/**
-	 * Returns a new object of class '<em>Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition</em>'.
-	 * @generated
-	 */
-	Condition createCondition();
-
-	/**
 	 * Returns a new object of class '<em>Cell State</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
