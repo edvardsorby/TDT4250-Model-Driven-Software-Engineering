@@ -11,8 +11,8 @@ import { checkIsFinishedFunction } from "./winConditions.js";
 
 
 export default function BoardGame() {
-  const boardSize = 3; // Size of the board
-  const players = ["X", "O", "🐔",] // Players
+  const boardSize = 8; // Size of the board
+  const players = ["♔", "♚", "♙", "♟", "🐖", ]; // Players
 	
   const [board, setBoard] = useState(Array(boardSize).fill(Array(boardSize).fill(null)));
   const [currentPlayer, setCurrentPlayer] = useState(0);
@@ -76,9 +76,19 @@ export default function BoardGame() {
   };
   return (
     
-    <View style={boardStyles.container}>
-     <Text style={boardStyles.title}>Bondesjakk</Text>
-  <Text style={boardStyles.message}>{message}</Text>
+<View style={boardStyles.container}>
+     <Text style={boardStyles.title}>Farmer's Chess</Text>
+     <Text style={boardStyles.message}>
+             Players: {players.map((player, index) => (
+               <Text
+                 key={index}
+                 style={player === players[currentPlayer] ? { fontSize: 32 } : null}
+               >
+                 {player}{' '}
+               </Text>
+             ))}
+	           	  </Text>
+      <Text style={boardStyles.message}>{message}</Text>
       <View style={boardStyles.board}>
         {board.map((row, rowIndex) =>
           row.map((cell, colIndex) => (
@@ -95,9 +105,9 @@ export default function BoardGame() {
      <View style={boardStyles.rules}>
 		             <Text style={boardStyles.rule}>Rules:</Text>
 	             
-<Text style={boardStyles.rule}>4  in a row</Text>
-<Text style={boardStyles.rule}>3  in a column</Text>
-<Text style={boardStyles.rule}>4  in a diagonal</Text>
+<Text style={boardStyles.rule}>6  in a row</Text>
+<Text style={boardStyles.rule}>4  in a column</Text>
+<Text style={boardStyles.rule}>3  in a diagonal</Text>
     </View>	
       <CustomButton title="Reset" onPress={resetGame} />
       
