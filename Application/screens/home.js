@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
     <View style={globalStyles.container}>
       {/* <Image source={require('../assets/sudoku-logo.png')} style={styles.logo}/> */}
       <Text style={styles.header}>{config.title}</Text>
-      <Text>{config.pieces.join('')}</Text>
+      <Text style={styles.header}>{config.pieces.join('')}</Text>
       {/* <CustomButton title={langLoaded ? t("Play") : ""} onPress={() => navigation.navigate('PlayBoardGame')}/> */}
       <CustomButton title={"Play"} onPress={() => navigation.navigate('BoardGame')}/>
     </View>
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 48,
     textAlign: 'center',
-    marginBottom: 150,
+    marginBottom: 70,
     marginTop: 0,
     marginHorizontal: 50
   },
@@ -58,6 +58,5 @@ const styles = StyleSheet.create({
     width: '90%',
     color: "#000000"
   },
-
 
 })

@@ -1,7 +1,7 @@
 const boardGame = {
 	title: "Bondesjakk",
     size: 5,
-    pieces: ["🧑‍🌾", "🐄", "🐔", ],
+    pieces: ["🧑‍🌾", "🐄", "🐔", "🤡", "🐽",],
     config: {
    		validMove: [{"name": "placePiece","conditions": [],"placeAnywhere": true}],
    		pieceType: [{"name": "X","symbol": "🧑‍🌾","validMoves": [{ "name": "placePiece", "conditions": [], "placeAnywhere": true }],"effectsoncell": []},{"name": "O","symbol": "🐄","validMoves": [{ "name": "placePiece", "conditions": [], "placeAnywhere": true }],"effectsoncell": []},{"name": "O","symbol": "🐔","validMoves": [{ "name": "placePiece", "conditions": [], "placeAnywhere": true }],"effectsoncell": []}],

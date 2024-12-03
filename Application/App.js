@@ -24,9 +24,6 @@ export default function App() {
         <Stack.Screen name={t('Home')} component={Home} 
           options={{
             animation: 'none',
-            headerRight: () => (
-            <LangButton />
-            )
           }}
         />
         <Stack.Screen name='BoardGame' component={BoardGame} />

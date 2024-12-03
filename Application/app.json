@@ -1,13 +1,11 @@
 {
   "expo": {
-    "name": "SudokuProject",
-    "slug": "SudokuProject",
+    "name": "BoardGame",
+    "slug": "BoardGame",
     "version": "2.0.0",
     "orientation": "portrait",
-    "icon": "./assets/sudoku-logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash-screen.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -22,7 +20,7 @@
         "foregroundImage": "./assets/sudoku-logo.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.edvarso.SudokuProject"
+      "package": "no.ntnu.tdt4250.g07.bg.application"
     },
     "web": {
       "favicon": "./assets/favicon.png"
