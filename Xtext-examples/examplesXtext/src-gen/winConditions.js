@@ -1,5 +1,5 @@
 // Auto-generated JavaScript for win conditions
-const boardSize = 8;
+const boardSize = 3;
   
 export function checkIsFinishedFunction(board, players, currentPlayer, setMessage) {
 	const newBoard = board;
@@ -7,17 +7,17 @@ export function checkIsFinishedFunction(board, players, currentPlayer, setMessag
 
 	const player = players[currentPlayer]
     			   
-    			const inARowLength = 4
+    			const inARowLength = 3
 if(inARow(inARowLength, player, board)) {
 	setMessage(`Player ${players[currentPlayer].symbol} wins because of ${inARowLength} in a row!`);
 	return true
 }
-const inAColumnLength = 4
+const inAColumnLength = 3
 	     		if(inAColumn(inAColumnLength, player, board)) {
 	     			setMessage(`Player ${players[currentPlayer].symbol} wins because of ${inAColumnLength} in a column!`);
 	     			return true
 	     		}
-const inADiagonalLength = 4
+const inADiagonalLength = 3
 	     		if(inDiagonal(inADiagonalLength, player, board)) {
 	     			setMessage(`Player ${players[currentPlayer].symbol} wins because of ${inADiagonalLength} in a diagonal!`);
 	     			return true

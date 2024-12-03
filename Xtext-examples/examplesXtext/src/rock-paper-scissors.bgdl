@@ -25,6 +25,12 @@ PieceType Paper{
 	EffectsOnCell MakeOccupied, MakePaperEffectAbove, MakePaperEffectBelow, MakePaperEffectLeft, MakePaperEffectRight	
 }
 
+WinCondition{
+	Line length 4 direction ROW
+	Line length 4 direction COLUMN
+	Line length 4 direction DIAGONAL
+}
+
 EffectOnCell MakeOccupied{
 	newCellState Occupied
 	relativePosition (0,0)
@@ -90,10 +96,5 @@ EffectOnCell MakeScissorEffectRight{
 	relativePosition (1, 0)
 }
 
-WinCondition{
-	Line length 4 direction ROW
-	Line length 4 direction COLUMN
-	Line length 4 direction DIAGONAL
-}
 
 

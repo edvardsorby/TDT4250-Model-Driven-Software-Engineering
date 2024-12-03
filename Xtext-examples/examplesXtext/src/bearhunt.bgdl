@@ -1,4 +1,4 @@
-Title "Bjørnefangst"
+Title "BearHunt"
 
 BoardSize 6
 Cellstate Occupied
@@ -12,9 +12,9 @@ PieceType Bear {
 }
 
 PieceType Hunter {
-	Symbol "‍🗡️🧑‍🌾"
+	Symbol "‍🧑‍🌾"
 	DisallowedStates Occupied, BearEat
-	EffectsOnCell MakeOccupied, MakeFarmerHuntAbove, MakeFarmerHuntBellow
+	EffectsOnCell MakeOccupied, MakeFarmerHuntAbove, MakeFarmerHuntBelow
 }
 
 WinCondition{
@@ -28,22 +28,22 @@ EffectOnCell MakeOccupied{
 	relativePosition(0,0)
 }
 
-EffectOnCell MakeBearEatLeft{
+EffectOnCell MakeBearEatRight{
 	newCellState BearEat
 	relativePosition(1,0)
 }
 
-EffectOnCell MakeBearEatRight{
+EffectOnCell MakeBearEatLeft{
 	newCellState BearEat
 	relativePosition(-1,0)
 }
 
-EffectOnCell MakeFarmerHuntAbove{
+EffectOnCell MakeFarmerHuntBelow{
 	newCellState HunterHunt
 	relativePosition(0,1)
 }
 
-EffectOnCell MakeFarmerHuntBellow{
+EffectOnCell MakeFarmerHuntAbove{
 	newCellState HunterHunt
 	relativePosition(0,-1)
 }
