@@ -1,8 +1,10 @@
 const boardGame = {
-	title: "Kugalskap",
-    size: 5,
-    pieces: ["🐄", "🧑‍🌾", ],
+	title: "Rock-Paper-Scissors",
+    size: 8,
+    pieces: [
+    "🪨",
+    "✂️",
+    "📄",
+    ]
 };
-
 export default boardGame;
-
