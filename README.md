@@ -7,9 +7,9 @@ The resulting code is compiled to JavaScript files, that can be copied into the 
 *final-project-group07/Application*
 
 <div style="display: flex; justify-content: space-around;">
-<img src="Images/bg1.gif" alt="Tic-Tac-Toe-Demo" width="33%">
-<img src="Images/bg2.gif" alt="Tic-Tac-Toe-Demo" width="33%">
-<img src="Images/bg3.gif" alt="Tic-Tac-Toe-Demo" width="33%">
+<img src="Images/bg1.gif" alt="Tic-Tac-Toe-Demo" width="25%">
+<img src="Images/bg2.gif" alt="Tic-Tac-Toe-Demo" width="25%">
+<img src="Images/bg3.gif" alt="Tic-Tac-Toe-Demo" width="25%">
 </div>
 
 **System requirements:**
