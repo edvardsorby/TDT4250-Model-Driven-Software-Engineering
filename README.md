@@ -101,7 +101,7 @@ The metamodel consists of the following classes:
 - Line, represents a set of pieces of a given length, which could be either horizontal, vertical or diagonal. Within a given win condition, all the lines must be in place the win condition to evaluate to a win. 
 - EffectOnCell, represents how a given piece types affects the cells it is on or around it. A piece can have multiple effects, such that it can affect for example all the cells around it. 
 
-### Constainst
+### Constraints
 - To ensure that the user only creates valid instances of the board game, a number of constraints have been enforced in the metamodel: 
 - Because the game needs to fit on a phone screen, the board size is limited to a max board size of 10. 
 - The board size needs to be at least 2. 
@@ -110,12 +110,11 @@ The metamodel consists of the following classes:
 - There must be at least one win-condition.
 
 ### Concrete syntax
-Location: *final-project-group07/ BoardGame/no.ntnu.tdt4250.g07.bg.bgdl/no/ntnu/tdt4250/* 
+Location: *final-project-group07/BoardGame/no.ntnu.tdt4250.g07.bg.bgdl/no/ntnu/tdt4250/* 
 The grammar of the DSL has been defined using Xtext by importing the Ecore model. It has been customized to make it quick and easy to create new instances of a board game, by defining the board size, available pieces and rules of the game expressed as win conditions and possible moves. See example instances, and the xtext file itself. 
 
 ### Code generation
 Location: *BoardGame/no.ntnu.tdt4250.g07.bg.bgdl/src/no/ntnu/tdt4250/g07/bg/bgdl/generator/BoardGameDLGenerator.xtend* 
-
 Xtend has been used to generate the code for the application. The generator analyzes the boardgame instance defined by the user, and alters some files that are used by the application. This ensures that the size of the board is dynamically updated to correspond with the specified instance, as well as which pieces are available in the game and what moves are legal for them. When the application checks if any of the players has won, it checks a number of conditions. The generator is however ensuring that only the necessary win condition checking functions are generated, to avoid having redundant code present in the app. If the user specifies all possible win conditions, more code is being generated. 
 
 There are four files that are generated with Xtend, and need to be copied to the Application/src-gen folder in the source code for the application to work: 
