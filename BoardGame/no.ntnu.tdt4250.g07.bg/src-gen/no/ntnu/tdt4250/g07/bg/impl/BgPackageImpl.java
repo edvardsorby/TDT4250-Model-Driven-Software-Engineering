@@ -241,7 +241,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPieceType_Effectsoncell() {
+	public EReference getPieceType_EffectsOnCell() {
 		return (EReference) pieceTypeEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -443,7 +443,7 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 		pieceTypeEClass = createEClass(PIECE_TYPE);
 		createEAttribute(pieceTypeEClass, PIECE_TYPE__NAME);
 		createEAttribute(pieceTypeEClass, PIECE_TYPE__SYMBOL);
-		createEReference(pieceTypeEClass, PIECE_TYPE__EFFECTSONCELL);
+		createEReference(pieceTypeEClass, PIECE_TYPE__EFFECTS_ON_CELL);
 		createEReference(pieceTypeEClass, PIECE_TYPE__DISALLOWED_STATES);
 
 		cellStateEClass = createEClass(CELL_STATE);
@@ -522,10 +522,10 @@ public class BgPackageImpl extends EPackageImpl implements BgPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPieceType_Symbol(), ecorePackage.getEString(), "symbol", null, 1, 1, PieceType.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPieceType_Effectsoncell(), this.getEffectOnCell(), null, "effectsoncell", null, 0, -1,
+		initEReference(getPieceType_EffectsOnCell(), this.getEffectOnCell(), null, "effectsOnCell", null, 0, -1,
 				PieceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPieceType_DisallowedStates(), this.getCellState(), null, "disallowedStates", null, 1, -1,
+		initEReference(getPieceType_DisallowedStates(), this.getCellState(), null, "disallowedStates", null, 0, -1,
 				PieceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

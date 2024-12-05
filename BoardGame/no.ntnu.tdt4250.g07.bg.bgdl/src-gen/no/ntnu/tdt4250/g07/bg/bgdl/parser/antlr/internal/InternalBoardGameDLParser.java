@@ -731,7 +731,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                     						}
                     					
 
-                    						newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellCrossReference_8_1_0());
+                    						newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsOnCellEffectOnCellCrossReference_8_1_0());
                     					
                     pushFollow(FOLLOW_11);
                     ruleEString();
@@ -778,7 +778,7 @@ public class InternalBoardGameDLParser extends AbstractInternalAntlrParser {
                     	    							}
                     	    						
 
-                    	    							newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellCrossReference_8_2_1_0());
+                    	    							newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsOnCellEffectOnCellCrossReference_8_2_1_0());
                     	    						
                     	    pushFollow(FOLLOW_11);
                     	    ruleEString();

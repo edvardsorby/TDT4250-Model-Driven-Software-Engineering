@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getSymbol <em>Symbol</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getEffectsoncell <em>Effectsoncell</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getEffectsOnCell <em>Effects On Cell</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.impl.PieceTypeImpl#getDisallowedStates <em>Disallowed States</em>}</li>
  * </ul>
  *
@@ -73,14 +73,14 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 	protected String symbol = SYMBOL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getEffectsoncell() <em>Effectsoncell</em>}' reference list.
+	 * The cached value of the '{@link #getEffectsOnCell() <em>Effects On Cell</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEffectsoncell()
+	 * @see #getEffectsOnCell()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EffectOnCell> effectsoncell;
+	protected EList<EffectOnCell> effectsOnCell;
 
 	/**
 	 * The cached value of the '{@link #getDisallowedStates() <em>Disallowed States</em>}' reference list.
@@ -163,12 +163,12 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 	 * @generated
 	 */
 	@Override
-	public EList<EffectOnCell> getEffectsoncell() {
-		if (effectsoncell == null) {
-			effectsoncell = new EObjectResolvingEList<EffectOnCell>(EffectOnCell.class, this,
-					BgPackage.PIECE_TYPE__EFFECTSONCELL);
+	public EList<EffectOnCell> getEffectsOnCell() {
+		if (effectsOnCell == null) {
+			effectsOnCell = new EObjectResolvingEList<EffectOnCell>(EffectOnCell.class, this,
+					BgPackage.PIECE_TYPE__EFFECTS_ON_CELL);
 		}
-		return effectsoncell;
+		return effectsOnCell;
 	}
 
 	/**
@@ -197,8 +197,8 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 			return getName();
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			return getSymbol();
-		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
-			return getEffectsoncell();
+		case BgPackage.PIECE_TYPE__EFFECTS_ON_CELL:
+			return getEffectsOnCell();
 		case BgPackage.PIECE_TYPE__DISALLOWED_STATES:
 			return getDisallowedStates();
 		}
@@ -220,9 +220,9 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			setSymbol((String) newValue);
 			return;
-		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
-			getEffectsoncell().clear();
-			getEffectsoncell().addAll((Collection<? extends EffectOnCell>) newValue);
+		case BgPackage.PIECE_TYPE__EFFECTS_ON_CELL:
+			getEffectsOnCell().clear();
+			getEffectsOnCell().addAll((Collection<? extends EffectOnCell>) newValue);
 			return;
 		case BgPackage.PIECE_TYPE__DISALLOWED_STATES:
 			getDisallowedStates().clear();
@@ -246,8 +246,8 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			setSymbol(SYMBOL_EDEFAULT);
 			return;
-		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
-			getEffectsoncell().clear();
+		case BgPackage.PIECE_TYPE__EFFECTS_ON_CELL:
+			getEffectsOnCell().clear();
 			return;
 		case BgPackage.PIECE_TYPE__DISALLOWED_STATES:
 			getDisallowedStates().clear();
@@ -268,8 +268,8 @@ public class PieceTypeImpl extends BoardGameElementImpl implements PieceType {
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case BgPackage.PIECE_TYPE__SYMBOL:
 			return SYMBOL_EDEFAULT == null ? symbol != null : !SYMBOL_EDEFAULT.equals(symbol);
-		case BgPackage.PIECE_TYPE__EFFECTSONCELL:
-			return effectsoncell != null && !effectsoncell.isEmpty();
+		case BgPackage.PIECE_TYPE__EFFECTS_ON_CELL:
+			return effectsOnCell != null && !effectsOnCell.isEmpty();
 		case BgPackage.PIECE_TYPE__DISALLOWED_STATES:
 			return disallowedStates != null && !disallowedStates.isEmpty();
 		}

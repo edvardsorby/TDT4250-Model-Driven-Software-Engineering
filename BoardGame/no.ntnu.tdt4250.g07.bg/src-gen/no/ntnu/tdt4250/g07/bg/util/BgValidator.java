@@ -388,25 +388,24 @@ public class BgValidator extends EObjectValidator {
 	 */
 	public boolean validateBoardGame_DirectionCanOnlyBeUsedOnce(BoardGame boardGame, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		
+
 		boolean valid = true;
-		
+
 		ArrayList<Direction> directions = new ArrayList<>();
-		
+
 		for (BoardGameElement element : boardGame.getBoardGameElements()) {
 			if (element instanceof WinCondition) {
 				for (WinConditionElement winCondition : ((WinCondition) element).getWinConditionElements()) {
 					if (winCondition instanceof Line) {
-						directions.add(((Line)winCondition).getDirection());
+						directions.add(((Line) winCondition).getDirection());
 					}
 				}
 			}
 		}
-			
-		if(!hasUniqueElements(directions)) {
-			valid=false;
+
+		if (!hasUniqueElements(directions)) {
+			valid = false;
 		}
-		
 
 		if (!valid) {
 			if (diagnostics != null) {

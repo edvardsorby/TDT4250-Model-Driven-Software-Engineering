@@ -2728,31 +2728,31 @@ public class InternalBoardGameDLParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PieceType__Group_8__1__Impl"
-    // InternalBoardGameDL.g:897:1: rule__PieceType__Group_8__1__Impl : ( ( rule__PieceType__EffectsoncellAssignment_8_1 ) ) ;
+    // InternalBoardGameDL.g:897:1: rule__PieceType__Group_8__1__Impl : ( ( rule__PieceType__EffectsOnCellAssignment_8_1 ) ) ;
     public final void rule__PieceType__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBoardGameDL.g:901:1: ( ( ( rule__PieceType__EffectsoncellAssignment_8_1 ) ) )
-            // InternalBoardGameDL.g:902:1: ( ( rule__PieceType__EffectsoncellAssignment_8_1 ) )
+            // InternalBoardGameDL.g:901:1: ( ( ( rule__PieceType__EffectsOnCellAssignment_8_1 ) ) )
+            // InternalBoardGameDL.g:902:1: ( ( rule__PieceType__EffectsOnCellAssignment_8_1 ) )
             {
-            // InternalBoardGameDL.g:902:1: ( ( rule__PieceType__EffectsoncellAssignment_8_1 ) )
-            // InternalBoardGameDL.g:903:2: ( rule__PieceType__EffectsoncellAssignment_8_1 )
+            // InternalBoardGameDL.g:902:1: ( ( rule__PieceType__EffectsOnCellAssignment_8_1 ) )
+            // InternalBoardGameDL.g:903:2: ( rule__PieceType__EffectsOnCellAssignment_8_1 )
             {
-             before(grammarAccess.getPieceTypeAccess().getEffectsoncellAssignment_8_1()); 
-            // InternalBoardGameDL.g:904:2: ( rule__PieceType__EffectsoncellAssignment_8_1 )
-            // InternalBoardGameDL.g:904:3: rule__PieceType__EffectsoncellAssignment_8_1
+             before(grammarAccess.getPieceTypeAccess().getEffectsOnCellAssignment_8_1()); 
+            // InternalBoardGameDL.g:904:2: ( rule__PieceType__EffectsOnCellAssignment_8_1 )
+            // InternalBoardGameDL.g:904:3: rule__PieceType__EffectsOnCellAssignment_8_1
             {
             pushFollow(FOLLOW_2);
-            rule__PieceType__EffectsoncellAssignment_8_1();
+            rule__PieceType__EffectsOnCellAssignment_8_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getPieceTypeAccess().getEffectsoncellAssignment_8_1()); 
+             after(grammarAccess.getPieceTypeAccess().getEffectsOnCellAssignment_8_1()); 
 
             }
 
@@ -2981,31 +2981,31 @@ public class InternalBoardGameDLParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PieceType__Group_8_2__1__Impl"
-    // InternalBoardGameDL.g:977:1: rule__PieceType__Group_8_2__1__Impl : ( ( rule__PieceType__EffectsoncellAssignment_8_2_1 ) ) ;
+    // InternalBoardGameDL.g:977:1: rule__PieceType__Group_8_2__1__Impl : ( ( rule__PieceType__EffectsOnCellAssignment_8_2_1 ) ) ;
     public final void rule__PieceType__Group_8_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBoardGameDL.g:981:1: ( ( ( rule__PieceType__EffectsoncellAssignment_8_2_1 ) ) )
-            // InternalBoardGameDL.g:982:1: ( ( rule__PieceType__EffectsoncellAssignment_8_2_1 ) )
+            // InternalBoardGameDL.g:981:1: ( ( ( rule__PieceType__EffectsOnCellAssignment_8_2_1 ) ) )
+            // InternalBoardGameDL.g:982:1: ( ( rule__PieceType__EffectsOnCellAssignment_8_2_1 ) )
             {
-            // InternalBoardGameDL.g:982:1: ( ( rule__PieceType__EffectsoncellAssignment_8_2_1 ) )
-            // InternalBoardGameDL.g:983:2: ( rule__PieceType__EffectsoncellAssignment_8_2_1 )
+            // InternalBoardGameDL.g:982:1: ( ( rule__PieceType__EffectsOnCellAssignment_8_2_1 ) )
+            // InternalBoardGameDL.g:983:2: ( rule__PieceType__EffectsOnCellAssignment_8_2_1 )
             {
-             before(grammarAccess.getPieceTypeAccess().getEffectsoncellAssignment_8_2_1()); 
-            // InternalBoardGameDL.g:984:2: ( rule__PieceType__EffectsoncellAssignment_8_2_1 )
-            // InternalBoardGameDL.g:984:3: rule__PieceType__EffectsoncellAssignment_8_2_1
+             before(grammarAccess.getPieceTypeAccess().getEffectsOnCellAssignment_8_2_1()); 
+            // InternalBoardGameDL.g:984:2: ( rule__PieceType__EffectsOnCellAssignment_8_2_1 )
+            // InternalBoardGameDL.g:984:3: rule__PieceType__EffectsOnCellAssignment_8_2_1
             {
             pushFollow(FOLLOW_2);
-            rule__PieceType__EffectsoncellAssignment_8_2_1();
+            rule__PieceType__EffectsOnCellAssignment_8_2_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getPieceTypeAccess().getEffectsoncellAssignment_8_2_1()); 
+             after(grammarAccess.getPieceTypeAccess().getEffectsOnCellAssignment_8_2_1()); 
 
             }
 
@@ -5727,9 +5727,9 @@ public class InternalBoardGameDLParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__PieceType__DisallowedStatesAssignment_7_1"
 
 
-    // $ANTLR start "rule__PieceType__EffectsoncellAssignment_8_1"
-    // InternalBoardGameDL.g:1918:1: rule__PieceType__EffectsoncellAssignment_8_1 : ( ( ruleEString ) ) ;
-    public final void rule__PieceType__EffectsoncellAssignment_8_1() throws RecognitionException {
+    // $ANTLR start "rule__PieceType__EffectsOnCellAssignment_8_1"
+    // InternalBoardGameDL.g:1918:1: rule__PieceType__EffectsOnCellAssignment_8_1 : ( ( ruleEString ) ) ;
+    public final void rule__PieceType__EffectsOnCellAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -5740,21 +5740,21 @@ public class InternalBoardGameDLParser extends AbstractInternalContentAssistPars
             // InternalBoardGameDL.g:1923:2: ( ( ruleEString ) )
             // InternalBoardGameDL.g:1924:3: ( ruleEString )
             {
-             before(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellCrossReference_8_1_0()); 
+             before(grammarAccess.getPieceTypeAccess().getEffectsOnCellEffectOnCellCrossReference_8_1_0()); 
             // InternalBoardGameDL.g:1925:3: ( ruleEString )
             // InternalBoardGameDL.g:1926:4: ruleEString
             {
-             before(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellEStringParserRuleCall_8_1_0_1()); 
+             before(grammarAccess.getPieceTypeAccess().getEffectsOnCellEffectOnCellEStringParserRuleCall_8_1_0_1()); 
             pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellEStringParserRuleCall_8_1_0_1()); 
+             after(grammarAccess.getPieceTypeAccess().getEffectsOnCellEffectOnCellEStringParserRuleCall_8_1_0_1()); 
 
             }
 
-             after(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellCrossReference_8_1_0()); 
+             after(grammarAccess.getPieceTypeAccess().getEffectsOnCellEffectOnCellCrossReference_8_1_0()); 
 
             }
 
@@ -5773,12 +5773,12 @@ public class InternalBoardGameDLParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end "rule__PieceType__EffectsoncellAssignment_8_1"
+    // $ANTLR end "rule__PieceType__EffectsOnCellAssignment_8_1"
 
 
-    // $ANTLR start "rule__PieceType__EffectsoncellAssignment_8_2_1"
-    // InternalBoardGameDL.g:1937:1: rule__PieceType__EffectsoncellAssignment_8_2_1 : ( ( ruleEString ) ) ;
-    public final void rule__PieceType__EffectsoncellAssignment_8_2_1() throws RecognitionException {
+    // $ANTLR start "rule__PieceType__EffectsOnCellAssignment_8_2_1"
+    // InternalBoardGameDL.g:1937:1: rule__PieceType__EffectsOnCellAssignment_8_2_1 : ( ( ruleEString ) ) ;
+    public final void rule__PieceType__EffectsOnCellAssignment_8_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -5789,21 +5789,21 @@ public class InternalBoardGameDLParser extends AbstractInternalContentAssistPars
             // InternalBoardGameDL.g:1942:2: ( ( ruleEString ) )
             // InternalBoardGameDL.g:1943:3: ( ruleEString )
             {
-             before(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellCrossReference_8_2_1_0()); 
+             before(grammarAccess.getPieceTypeAccess().getEffectsOnCellEffectOnCellCrossReference_8_2_1_0()); 
             // InternalBoardGameDL.g:1944:3: ( ruleEString )
             // InternalBoardGameDL.g:1945:4: ruleEString
             {
-             before(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellEStringParserRuleCall_8_2_1_0_1()); 
+             before(grammarAccess.getPieceTypeAccess().getEffectsOnCellEffectOnCellEStringParserRuleCall_8_2_1_0_1()); 
             pushFollow(FOLLOW_2);
             ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellEStringParserRuleCall_8_2_1_0_1()); 
+             after(grammarAccess.getPieceTypeAccess().getEffectsOnCellEffectOnCellEStringParserRuleCall_8_2_1_0_1()); 
 
             }
 
-             after(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellCrossReference_8_2_1_0()); 
+             after(grammarAccess.getPieceTypeAccess().getEffectsOnCellEffectOnCellCrossReference_8_2_1_0()); 
 
             }
 
@@ -5822,7 +5822,7 @@ public class InternalBoardGameDLParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end "rule__PieceType__EffectsoncellAssignment_8_2_1"
+    // $ANTLR end "rule__PieceType__EffectsOnCellAssignment_8_2_1"
 
 
     // $ANTLR start "rule__CellState__NameAssignment_1"

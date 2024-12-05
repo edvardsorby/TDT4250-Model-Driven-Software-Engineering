@@ -169,13 +169,13 @@ public interface BgPackage extends EPackage {
 	int PIECE_TYPE__SYMBOL = BOARD_GAME_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Effectsoncell</b></em>' reference list.
+	 * The feature id for the '<em><b>Effects On Cell</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIECE_TYPE__EFFECTSONCELL = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
+	int PIECE_TYPE__EFFECTS_ON_CELL = BOARD_GAME_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Disallowed States</b></em>' reference list.
@@ -502,15 +502,15 @@ public interface BgPackage extends EPackage {
 	EAttribute getPieceType_Symbol();
 
 	/**
-	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getEffectsoncell <em>Effectsoncell</em>}'.
+	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getEffectsOnCell <em>Effects On Cell</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Effectsoncell</em>'.
-	 * @see no.ntnu.tdt4250.g07.bg.PieceType#getEffectsoncell()
+	 * @return the meta object for the reference list '<em>Effects On Cell</em>'.
+	 * @see no.ntnu.tdt4250.g07.bg.PieceType#getEffectsOnCell()
 	 * @see #getPieceType()
 	 * @generated
 	 */
-	EReference getPieceType_Effectsoncell();
+	EReference getPieceType_EffectsOnCell();
 
 	/**
 	 * Returns the meta object for the reference list '{@link no.ntnu.tdt4250.g07.bg.PieceType#getDisallowedStates <em>Disallowed States</em>}'.
@@ -765,12 +765,12 @@ public interface BgPackage extends EPackage {
 		EAttribute PIECE_TYPE__SYMBOL = eINSTANCE.getPieceType_Symbol();
 
 		/**
-		 * The meta object literal for the '<em><b>Effectsoncell</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Effects On Cell</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PIECE_TYPE__EFFECTSONCELL = eINSTANCE.getPieceType_Effectsoncell();
+		EReference PIECE_TYPE__EFFECTS_ON_CELL = eINSTANCE.getPieceType_EffectsOnCell();
 
 		/**
 		 * The meta object literal for the '<em><b>Disallowed States</b></em>' reference list feature.

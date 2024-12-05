@@ -28,7 +28,7 @@ class BoardGameDLFormatter extends AbstractFormatter2 {
 	}
 
 	def dispatch void format(PieceType pieceType, extension IFormattableDocument document) {
-		for (effectOnCell : pieceType.effectsoncell) {
+		for (effectOnCell : pieceType.effectsOnCell) {
 			effectOnCell.format
 		}
 	}

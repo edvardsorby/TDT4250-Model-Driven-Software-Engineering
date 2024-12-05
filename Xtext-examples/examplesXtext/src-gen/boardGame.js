@@ -6,14 +6,14 @@ import React from 'react'
 import { checkIsFinishedFunction } from "./winConditions.js";
 
 export default function BoardGame() {
-  const boardSize = 5; // Size of the board
+  const boardSize = 3; // Size of the board
   let players = [
-{symbol:"🐻",
-disallowedStates: ["Occupied","HunterHunt",],
-effectsOnCell: [{state: "Occupied", x:0, y:0},{state: "BearEat", x:-1, y:0},{state: "BearEat", x:1, y:0},]},
-{symbol:"‍🧑‍🌾",
-disallowedStates: ["Occupied","BearEat",],
-effectsOnCell: [{state: "Occupied", x:0, y:0},{state: "HunterHunt", x:0, y:-1},{state: "HunterHunt", x:0, y:1},]},]
+{symbol:"✖️",
+disallowedStates: ["Occupied",],
+effectsOnCell: [{state: "Occupied", x:0, y:0},]},
+{symbol:"⭕",
+disallowedStates: ["Occupied",],
+effectsOnCell: [{state: "Occupied", x:0, y:0},]},]
 	
   const [board, setBoard] = useState(Array(boardSize).fill(Array(boardSize).fill(null)));
   const [currentPlayer, setCurrentPlayer] = useState(0);
@@ -145,7 +145,7 @@ effectsOnCell: [{state: "Occupied", x:0, y:0},{state: "HunterHunt", x:0, y:-1},{
   return (
     
 <View style={boardStyles.container}>
-     <Text style={boardStyles.title}>BearHunt</Text>
+     <Text style={boardStyles.title}>Tic-Tac-Toe</Text>
      <Text style={boardStyles.message}>
              Players: {players.map((player, index) => (
                <Text
@@ -173,8 +173,9 @@ effectsOnCell: [{state: "Occupied", x:0, y:0},{state: "HunterHunt", x:0, y:-1},{
      <View style={boardStyles.rules}>
 		             <Text style={boardStyles.rule}>Rules:</Text>
 	             
-<Text style={boardStyles.rule}>4  in a row</Text>
-<Text style={boardStyles.rule}>4  in a column</Text>
+<Text style={boardStyles.rule}>3  in a row</Text>
+<Text style={boardStyles.rule}>3  in a column</Text>
+<Text style={boardStyles.rule}>3  in a diagonal</Text>
     </View>	
       <CustomButton title="Reset" onPress={resetGame} />
       

@@ -146,7 +146,7 @@ public class BoardGameDLSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         symbol=EString 
 	 *         disallowedStates+=[CellState|EString] 
 	 *         disallowedStates+=[CellState|EString]* 
-	 *         (effectsoncell+=[EffectOnCell|EString] effectsoncell+=[EffectOnCell|EString]*)?
+	 *         (effectsOnCell+=[EffectOnCell|EString] effectsOnCell+=[EffectOnCell|EString]*)?
 	 *     )
 	 * </pre>
 	 */

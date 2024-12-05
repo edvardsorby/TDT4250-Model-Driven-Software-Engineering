@@ -229,7 +229,7 @@ export default boardGame;
 			  let players = [«FOR pieceType : pieceTypes»
 		      {symbol:"«pieceType.symbol»",
 		      disallowedStates: [«FOR state : pieceType.disallowedStates»"«state.name»",«ENDFOR»],
-		      effectsOnCell: [«FOR effect : pieceType.effectsoncell»{state: "«effect.cellState.name»", x:«effect.x», y:«effect.y»},«ENDFOR»]},«ENDFOR»]
+		      effectsOnCell: [«FOR effect : pieceType.effectsOnCell»{state: "«effect.cellState.name»", x:«effect.x», y:«effect.y»},«ENDFOR»]},«ENDFOR»]
 	
 			  const [board, setBoard] = useState(Array(boardSize).fill(Array(boardSize).fill(null)));
 			  const [currentPlayer, setCurrentPlayer] = useState(0);

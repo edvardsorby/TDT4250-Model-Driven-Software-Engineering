@@ -39,8 +39,8 @@ public class BoardGameDLFormatter extends AbstractFormatter2 {
   }
 
   protected void _format(final PieceType pieceType, @Extension final IFormattableDocument document) {
-    EList<EffectOnCell> _effectsoncell = pieceType.getEffectsoncell();
-    for (final EffectOnCell effectOnCell : _effectsoncell) {
+    EList<EffectOnCell> _effectsOnCell = pieceType.getEffectsOnCell();
+    for (final EffectOnCell effectOnCell : _effectsOnCell) {
       document.<EffectOnCell>format(effectOnCell);
     }
   }

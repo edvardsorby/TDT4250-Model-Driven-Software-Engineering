@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getName <em>Name</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getSymbol <em>Symbol</em>}</li>
- *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getEffectsoncell <em>Effectsoncell</em>}</li>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getEffectsOnCell <em>Effects On Cell</em>}</li>
  *   <li>{@link no.ntnu.tdt4250.g07.bg.PieceType#getDisallowedStates <em>Disallowed States</em>}</li>
  * </ul>
  *
@@ -69,16 +69,16 @@ public interface PieceType extends BoardGameElement {
 	void setSymbol(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Effectsoncell</b></em>' reference list.
+	 * Returns the value of the '<em><b>Effects On Cell</b></em>' reference list.
 	 * The list contents are of type {@link no.ntnu.tdt4250.g07.bg.EffectOnCell}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Effectsoncell</em>' reference list.
-	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getPieceType_Effectsoncell()
+	 * @return the value of the '<em>Effects On Cell</em>' reference list.
+	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getPieceType_EffectsOnCell()
 	 * @model
 	 * @generated
 	 */
-	EList<EffectOnCell> getEffectsoncell();
+	EList<EffectOnCell> getEffectsOnCell();
 
 	/**
 	 * Returns the value of the '<em><b>Disallowed States</b></em>' reference list.
@@ -87,7 +87,7 @@ public interface PieceType extends BoardGameElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Disallowed States</em>' reference list.
 	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getPieceType_DisallowedStates()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	EList<CellState> getDisallowedStates();

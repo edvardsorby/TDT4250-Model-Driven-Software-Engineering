@@ -123,14 +123,14 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		private final RuleCall cDisallowedStatesCellStateEStringParserRuleCall_7_1_0_1 = (RuleCall)cDisallowedStatesCellStateCrossReference_7_1_0.eContents().get(1);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cEffectsOnCellKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cEffectsoncellAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final CrossReference cEffectsoncellEffectOnCellCrossReference_8_1_0 = (CrossReference)cEffectsoncellAssignment_8_1.eContents().get(0);
-		private final RuleCall cEffectsoncellEffectOnCellEStringParserRuleCall_8_1_0_1 = (RuleCall)cEffectsoncellEffectOnCellCrossReference_8_1_0.eContents().get(1);
+		private final Assignment cEffectsOnCellAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final CrossReference cEffectsOnCellEffectOnCellCrossReference_8_1_0 = (CrossReference)cEffectsOnCellAssignment_8_1.eContents().get(0);
+		private final RuleCall cEffectsOnCellEffectOnCellEStringParserRuleCall_8_1_0_1 = (RuleCall)cEffectsOnCellEffectOnCellCrossReference_8_1_0.eContents().get(1);
 		private final Group cGroup_8_2 = (Group)cGroup_8.eContents().get(2);
 		private final Keyword cCommaKeyword_8_2_0 = (Keyword)cGroup_8_2.eContents().get(0);
-		private final Assignment cEffectsoncellAssignment_8_2_1 = (Assignment)cGroup_8_2.eContents().get(1);
-		private final CrossReference cEffectsoncellEffectOnCellCrossReference_8_2_1_0 = (CrossReference)cEffectsoncellAssignment_8_2_1.eContents().get(0);
-		private final RuleCall cEffectsoncellEffectOnCellEStringParserRuleCall_8_2_1_0_1 = (RuleCall)cEffectsoncellEffectOnCellCrossReference_8_2_1_0.eContents().get(1);
+		private final Assignment cEffectsOnCellAssignment_8_2_1 = (Assignment)cGroup_8_2.eContents().get(1);
+		private final CrossReference cEffectsOnCellEffectOnCellCrossReference_8_2_1_0 = (CrossReference)cEffectsOnCellAssignment_8_2_1.eContents().get(0);
+		private final RuleCall cEffectsOnCellEffectOnCellEStringParserRuleCall_8_2_1_0_1 = (RuleCall)cEffectsOnCellEffectOnCellCrossReference_8_2_1_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//PieceType returns PieceType:
@@ -138,7 +138,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		//    name=EString '{'
 		//        'Symbol' symbol=EString
 		//        'DisallowedStates' disallowedStates+= [CellState|EString] ( "," disallowedStates+=[CellState | EString])*
-		//        ('EffectsOnCell' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* )?
+		//        ('EffectsOnCell' effectsOnCell+=[EffectOnCell|EString] ( "," effectsOnCell+=[EffectOnCell|EString])* )?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -146,7 +146,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		//name=EString '{'
 		//    'Symbol' symbol=EString
 		//    'DisallowedStates' disallowedStates+= [CellState|EString] ( "," disallowedStates+=[CellState | EString])*
-		//    ('EffectsOnCell' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* )?
+		//    ('EffectsOnCell' effectsOnCell+=[EffectOnCell|EString] ( "," effectsOnCell+=[EffectOnCell|EString])* )?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -198,35 +198,35 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 		//EString
 		public RuleCall getDisallowedStatesCellStateEStringParserRuleCall_7_1_0_1() { return cDisallowedStatesCellStateEStringParserRuleCall_7_1_0_1; }
 		
-		//('EffectsOnCell' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* )?
+		//('EffectsOnCell' effectsOnCell+=[EffectOnCell|EString] ( "," effectsOnCell+=[EffectOnCell|EString])* )?
 		public Group getGroup_8() { return cGroup_8; }
 		
 		//'EffectsOnCell'
 		public Keyword getEffectsOnCellKeyword_8_0() { return cEffectsOnCellKeyword_8_0; }
 		
-		//effectsoncell+=[EffectOnCell|EString]
-		public Assignment getEffectsoncellAssignment_8_1() { return cEffectsoncellAssignment_8_1; }
+		//effectsOnCell+=[EffectOnCell|EString]
+		public Assignment getEffectsOnCellAssignment_8_1() { return cEffectsOnCellAssignment_8_1; }
 		
 		//[EffectOnCell|EString]
-		public CrossReference getEffectsoncellEffectOnCellCrossReference_8_1_0() { return cEffectsoncellEffectOnCellCrossReference_8_1_0; }
+		public CrossReference getEffectsOnCellEffectOnCellCrossReference_8_1_0() { return cEffectsOnCellEffectOnCellCrossReference_8_1_0; }
 		
 		//EString
-		public RuleCall getEffectsoncellEffectOnCellEStringParserRuleCall_8_1_0_1() { return cEffectsoncellEffectOnCellEStringParserRuleCall_8_1_0_1; }
+		public RuleCall getEffectsOnCellEffectOnCellEStringParserRuleCall_8_1_0_1() { return cEffectsOnCellEffectOnCellEStringParserRuleCall_8_1_0_1; }
 		
-		//( "," effectsoncell+=[EffectOnCell|EString])*
+		//( "," effectsOnCell+=[EffectOnCell|EString])*
 		public Group getGroup_8_2() { return cGroup_8_2; }
 		
 		//","
 		public Keyword getCommaKeyword_8_2_0() { return cCommaKeyword_8_2_0; }
 		
-		//effectsoncell+=[EffectOnCell|EString]
-		public Assignment getEffectsoncellAssignment_8_2_1() { return cEffectsoncellAssignment_8_2_1; }
+		//effectsOnCell+=[EffectOnCell|EString]
+		public Assignment getEffectsOnCellAssignment_8_2_1() { return cEffectsOnCellAssignment_8_2_1; }
 		
 		//[EffectOnCell|EString]
-		public CrossReference getEffectsoncellEffectOnCellCrossReference_8_2_1_0() { return cEffectsoncellEffectOnCellCrossReference_8_2_1_0; }
+		public CrossReference getEffectsOnCellEffectOnCellCrossReference_8_2_1_0() { return cEffectsOnCellEffectOnCellCrossReference_8_2_1_0; }
 		
 		//EString
-		public RuleCall getEffectsoncellEffectOnCellEStringParserRuleCall_8_2_1_0_1() { return cEffectsoncellEffectOnCellEStringParserRuleCall_8_2_1_0_1; }
+		public RuleCall getEffectsOnCellEffectOnCellEStringParserRuleCall_8_2_1_0_1() { return cEffectsOnCellEffectOnCellEStringParserRuleCall_8_2_1_0_1; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
@@ -638,7 +638,7 @@ public class BoardGameDLGrammarAccess extends AbstractElementFinder.AbstractGram
 	//    name=EString '{'
 	//        'Symbol' symbol=EString
 	//        'DisallowedStates' disallowedStates+= [CellState|EString] ( "," disallowedStates+=[CellState | EString])*
-	//        ('EffectsOnCell' effectsoncell+=[EffectOnCell|EString] ( "," effectsoncell+=[EffectOnCell|EString])* )?
+	//        ('EffectsOnCell' effectsOnCell+=[EffectOnCell|EString] ( "," effectsOnCell+=[EffectOnCell|EString])* )?
 	//    '}';
 	public PieceTypeElements getPieceTypeAccess() {
 		return pPieceType;

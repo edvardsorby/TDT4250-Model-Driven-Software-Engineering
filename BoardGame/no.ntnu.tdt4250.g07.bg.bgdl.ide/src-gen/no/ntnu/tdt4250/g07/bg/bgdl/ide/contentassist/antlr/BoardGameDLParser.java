@@ -54,8 +54,8 @@ public class BoardGameDLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPieceTypeAccess().getSymbolAssignment_4(), "rule__PieceType__SymbolAssignment_4");
 			builder.put(grammarAccess.getPieceTypeAccess().getDisallowedStatesAssignment_6(), "rule__PieceType__DisallowedStatesAssignment_6");
 			builder.put(grammarAccess.getPieceTypeAccess().getDisallowedStatesAssignment_7_1(), "rule__PieceType__DisallowedStatesAssignment_7_1");
-			builder.put(grammarAccess.getPieceTypeAccess().getEffectsoncellAssignment_8_1(), "rule__PieceType__EffectsoncellAssignment_8_1");
-			builder.put(grammarAccess.getPieceTypeAccess().getEffectsoncellAssignment_8_2_1(), "rule__PieceType__EffectsoncellAssignment_8_2_1");
+			builder.put(grammarAccess.getPieceTypeAccess().getEffectsOnCellAssignment_8_1(), "rule__PieceType__EffectsOnCellAssignment_8_1");
+			builder.put(grammarAccess.getPieceTypeAccess().getEffectsOnCellAssignment_8_2_1(), "rule__PieceType__EffectsOnCellAssignment_8_2_1");
 			builder.put(grammarAccess.getCellStateAccess().getNameAssignment_1(), "rule__CellState__NameAssignment_1");
 			builder.put(grammarAccess.getWinConditionAccess().getWinConditionElementsAssignment_2(), "rule__WinCondition__WinConditionElementsAssignment_2");
 			builder.put(grammarAccess.getWinConditionAccess().getWinConditionElementsAssignment_3(), "rule__WinCondition__WinConditionElementsAssignment_3");

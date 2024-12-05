@@ -320,7 +320,7 @@ rulePieceType returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellCrossReference_8_1_0());
+						newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsOnCellEffectOnCellCrossReference_8_1_0());
 					}
 					ruleEString
 					{
@@ -341,7 +341,7 @@ rulePieceType returns [EObject current=null]
 							}
 						}
 						{
-							newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsoncellEffectOnCellCrossReference_8_2_1_0());
+							newCompositeNode(grammarAccess.getPieceTypeAccess().getEffectsOnCellEffectOnCellCrossReference_8_2_1_0());
 						}
 						ruleEString
 						{

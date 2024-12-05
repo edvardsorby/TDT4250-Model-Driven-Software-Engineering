@@ -568,8 +568,8 @@ public class BoardGameDLGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
         _builder.append("effectsOnCell: [");
         {
-          EList<EffectOnCell> _effectsoncell = pieceType.getEffectsoncell();
-          for(final EffectOnCell effect : _effectsoncell) {
+          EList<EffectOnCell> _effectsOnCell = pieceType.getEffectsOnCell();
+          for(final EffectOnCell effect : _effectsOnCell) {
             _builder.append("{state: \"");
             String _name_1 = effect.getCellState().getName();
             _builder.append(_name_1);
