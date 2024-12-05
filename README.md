@@ -47,23 +47,23 @@ The resulting code is compiled to JavaScript files, that can be copied into the 
 - **Boardgame plugin extension** : .bg 
 - **Boardgame DSL extension** : .bgdl 
 
-### **Metamodel (Ecore):**
+**Metamodel (Ecore):**
 - Path: *BoardGame/no.ntnu.tdt4250.g07.bg/model/bg.ecore*
 - Example model instances: *BoardGame/no.ntnu.tdt4250.g07.bg.examples/*
 
-### Constraints:
+ **Constraints:**
 - Path: *BoardGame/no.ntnu.tdt4250.g07.bg/src-gen/no/ntnu/tdt4250/g07/bg/util/BgValidator.java* 
 
-### **DSL Concrete Syntax definition (Xtext):**
+ **DSL Concrete Syntax definition (Xtext):**
 - Path: *BoardGame/no.ntnu.tdt4250.g07.bg.bgdl/bin/no/ntnu/tdt4250/g07/bg/bgdl/BoardgameDL.xtext*
 
-### **Code generation (Xtend):**
+**Code generation (Xtend):**
 - Path: *BoardGame/no.ntnu.tdt4250.g07.bg.bgdl/src/no/ntnu/tdt4250/g07/bg/bgdl/generator/BoardGameDLGenerator.xtend*
 
-### **Example DSL insances (.bgdl):**
+**Example DSL insances (.bgdl):**
 - Path: *Xtext-examples/examplesXtext/src/*
 
-### **Generated code (JavaScript/React):**
+**Generated code (JavaScript/React):**
 - The model automatically generates code when saving the Xtext files and places it in the folder:
 Path: *Xtext-examples/examplesXtext/src-gen*
 
@@ -89,7 +89,7 @@ Generated files location: *Xtext-examples/examplesXtext/src-gen*
 - winConditions.js : Application/src-gen 
 - BoardStyles.js : Application/src-gen 
 
- ## About the project
+# About the project
 ### Metamodel
 The metamodel consists of the following classes: 
 - A root class boardgame that contains the other boardgame elements, that inherit from the BoardGameElement type to make it easier when defining the xtext grammar. 
