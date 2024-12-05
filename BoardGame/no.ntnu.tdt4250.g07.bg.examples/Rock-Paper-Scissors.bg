@@ -20,4 +20,8 @@
   <boardGameElements xsi:type="bg:EffectOnCell" name="MakeScissorEffectLeft" cellState="//@boardGameElements.4" x="-1"/>
   <boardGameElements xsi:type="bg:EffectOnCell" name="MakeScissorEffectAbove" cellState="//@boardGameElements.4" y="-1"/>
   <boardGameElements xsi:type="bg:EffectOnCell" name="MakeScissorEffectBelow" cellState="//@boardGameElements.4" y="1"/>
+  <boardGameElements xsi:type="bg:WinCondition">
+    <winConditionElements xsi:type="bg:Line" length="4"/>
+    <winConditionElements xsi:type="bg:Line" length="4" direction="DIAGONAL"/>
+  </boardGameElements>
 </bg:BoardGame>
