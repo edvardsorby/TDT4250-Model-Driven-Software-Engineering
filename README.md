@@ -138,3 +138,80 @@ Xtend has been used to generate the code for the application. The generator anal
 There are four files that are generated with Xtend, and need to be copied to the Application/src-gen folder in the source code for the application to work: 
 
 boardGame.js, boardStyles.js, config.js and winCondition.js 
+
+
+
+### Old metamodel
+<div style="display: flex; justify-content: center; text-align:center">
+<img src="Images/old-metamodel.png" alt="old-metamodel" width="100%">
+</div>
+
+The original plan was to implement a more sophisticated metamodel, which had to be reduced to what we have described above. The reason for this is that upon trying to implement a DSL from it, we found it very difficult, and to not waste time we decided to first implement a simpler model, and then eventually increment it.
+
+### Classes in the Model
+
+#### Rules
+The root class that would be the container for other classes.
+
+#### Board
+- Can contain multiple player piece sets, valid moves, and board states.  
+- It has a derived feature `start position`, which indicates whether the board has a standard start (like chess) or not (like tic-tac-toe).
+
+#### Board State
+- Represents a state of the board that cannot be otherwise represented by the pieces.  
+- Can be something like the king has been checked, which then can block a castling.  
+- It can also be toggleable, which for “king-checked” would be false.
+
+#### Player Piece Set
+- Must have at least one win outcome and can have draw outcomes.  
+- Contains specific pieces that are what the player can use in the game.
+
+#### Piece
+- In the player piece set, pieces can be defined with a specific start position, which would be used to derive whether the board has a start position.
+
+#### Piece Type
+- A piece must have a type, which will be characterized by:
+  - The possible piece states it can be in.  
+  - The effects it can have on other cells (e.g., a knight in chess has the targeting effect on 4 cells around it and can be in a state of being targeted as well).
+
+#### Cell
+- Representation of each cell on the board.  
+- Has `x` and `y` positions, which must be unique in each board.  
+- Each cell must have a cell type, if not applicable it could just be “default.”
+
+#### Valid Move
+- Defines what type of moves are allowed on a given board.  
+- Can be either a piece change or a cell change, or both at the same time when thinking of compound moves.  
+- It could also be extended by a board state change.
+
+#### Piece Change
+- Has relations to piece types, which can either be the type of piece that is moving or representing a piece change (like when the pawn comes to the end of the board).  
+- Has a relative position, which is present if the change is positional.  
+- Refers to conditions, which specify when it is valid.
+
+#### Cell Change
+- Refers to two cell types, which signify a change of type of cell.
+
+#### Condition
+- Represents a condition that can either be prohibited or mandatory based on the Boolean attributes.  
+- Can refer to anything that is on the board or has happened.  
+- Can refer to various states and types and can refer to a specific position relative to what move is referring to that condition.  
+- Can also refer to a line, which is a common pattern in board games.
+
+#### Line
+- Represents a specific pattern, which can be ordered or not (based on whether the line elements have positions).  
+- Can be specified as either horizontal, vertical, diagonal, or a combination of them.
+
+#### Line Element
+- Can have a position attribute, which specifies where that element in the line should be.  
+- Refers to a single state, type, piece, or cell.
+
+#### Outcome
+- Can be referred to as a draw or a win (a loss can be derived as the opponent wins or lack of further valid moves).  
+- Refers to at least one condition, which must be in place for it to evaluate to true.
+
+### Possible Modifications or Extensions
+- Adding a move that is purely a change of board state.  
+- Adding input and output cell states for cell change, such that a move can contain a change in cell state.
+
+
