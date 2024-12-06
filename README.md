@@ -2,7 +2,7 @@
 
 The project aims to develop a DSL, and related infrastructure, meant for creating board games such as Tic-tac-toe, Sudoku and Chess. The group focused on variability aspects related to the rules, as well as board size and piece types and number of players. Due to time constrains and complexity of the problem, the group has prioritized on tic-tac-toe type games, while ensuring the project remains extensible for future improvements. A description of our initially planned board game model is in (*HVOR MODELLBESKRIVELSE LIGGER*)  
 
-The resulting code is compiled to JavaScript files, that can be copied into the react project. This project is in the folder and includes an example game in the folder:  
+The resulting code is compiled to JavaScript files, that can be copied into the React Native project. This project is in the folder and includes an example game in the folder:  
 
 *final-project-group07/Application*
 <div style="display: flex; justify-content: center; text-align:center">
@@ -63,7 +63,7 @@ The resulting code is compiled to JavaScript files, that can be copied into the 
 **Example DSL insances (.bgdl):**
 - Path: *Xtext-examples/examplesXtext/src/*
 
-**Generated code (JavaScript/React):**
+**Generated code (JavaScript / React Native):**
 - The model automatically generates code when saving the Xtext files and places it in the folder:
 Path: *Xtext-examples/examplesXtext/src-gen*
 
@@ -74,11 +74,11 @@ Open the following folders in an Eclipse workspace: *final-project-group07/Board
 
 - Path: *final-project-group07/Xtext-examples/examplesXtext*
 - Create a file with the file ending “.bgdl” to use the language. 
-- The project automatically compiles to react code when saving the file. 
+- The project automatically compiles to React Native code when saving the file. 
 
 ### Resulting code: 
 
-To test out the code, you need to place it inside the React application. 
+To test out the code, you need to place it inside the React Native application. 
 
 Generated files location: *Xtext-examples/examplesXtext/src-gen*
 
@@ -87,7 +87,25 @@ Generated files location: *Xtext-examples/examplesXtext/src-gen*
 - boardGame.js : Application/src-gen 
 - Config.js: Application/src-gen 
 - winConditions.js : Application/src-gen 
-- BoardStyles.js : Application/src-gen 
+- BoardStyles.js : Application/src-gen
+
+## Application installation
+If you want to try to run the application itself, here is the procedure:
+
+0. Copy the four generated files to the Application/src-gen folder
+1. Make sure you have **Node.js** installed on your computer.
+2. Open the Application/ folder in a terminal or in an IDE with an integrated terminal.
+3. Run the command `npm install` to install all dependencies.
+4. Run the command `npm start` to start the server.
+5. Open the app in an emulator or on a physical device:
+   - **Emulator**: 
+     - Ensure you have an Android emulator installed on your system, such as through Android Studio.
+     - To start the app, run the command `npm run android` or press `a`.
+     - The app was developed using an emulator with **API version 34** and **Android 14**.
+   - **Physical Device**: 
+     - Download the app **Expo Go** on an Android or iOS device and scan the QR code in the terminal to connect.
+     - The app has been tested on a device running **Android 14**
+
 
 # About the project
 ### Metamodel
