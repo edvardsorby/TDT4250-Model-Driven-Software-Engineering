@@ -113,7 +113,9 @@ If you want to try to run the application itself, here is the procedure:
 <img src="Images/new-metamodel.png" alt="new-metamodel" width="100%">
 </div>
 The metamodel consists of the following classes:  
-A root class **BoardGame** that contains the other boardgame elements, that inherit from the `BoardGameElement` type to make it easier when defining the xtext grammar.  
+
+A root class 
+**BoardGame** that contains the other boardgame elements, that inherit from the `BoardGameElement` type to make it easier when defining the xtext grammar.  
 
 **PieceType**, that represents different pieces that are in the game. They have a name and are represented by a symbol in the game. These attributes must be unique, and each boardgame must have at least one piece type defined. Implicitly, each piece can be placed at any type of cell, and hence each piece type has defined the disallowed states it cannot be placed on.  
 
