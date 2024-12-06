@@ -109,15 +109,15 @@ If you want to try to run the application itself, here is the procedure:
 
 # About the project
 ### Metamodel
-The metamodel consists of the following classes: 
-- A root class boardgame that contains the other boardgame elements, that inherit from the BoardGameElement type to make it easier when defining the xtext grammar. 
-- PieceType, that represents different pieces that are in the game. They have a name and are represented by a symbol in the game. These attributes must be unique, and each boardgame must have at least piece piece type defined. 
-- ValidMove, which defines what a given piece type is allowed to do.  
-- Condition, which a valid move can refer to multiple of, specifies what cellstate must be in place for the move to be allowed. 
-- CellState, is just a representation of a state that a cell can be in. 
-- WinCondition, which represents all the different ways one can win, meaning if a board has for example 3 win conditions, either one of them will lead to a win. 
-- Line, represents a set of pieces of a given length, which could be either horizontal, vertical or diagonal. Within a given win condition, all the lines must be in place the win condition to evaluate to a win. 
-- EffectOnCell, represents how a given piece types affects the cells it is on or around it. A piece can have multiple effects, such that it can affect for example all the cells around it. 
+
+The metamodel consists of the following classes:  
+- A root class **BoardGame** that contains the other boardgame elements, that inherit from the `BoardGameElement` type to make it easier when defining the xtext grammar.  
+- **PieceType**, that represents different pieces that are in the game. They have a name and are represented by a symbol in the game. These attributes must be unique, and each boardgame must have at least one piece type defined. Implicitly, each piece can be placed at any type of cell, and hence each piece type has defined the disallowed states it cannot be placed on.  
+- **CellState**, is just a representation of a state that a cell can be in.  
+- **WinCondition**, which represents all the different ways one can win, meaning if a board has, for example, 3 win conditions, either one of them will lead to a win.  
+- **Line**, represents a set of pieces of a given length, which could be either horizontal, vertical, or diagonal. Within a given win condition, all the lines must be in place for the win condition to evaluate to a win.  
+- **EffectOnCell**, represents how a given piece type affects the cells it is on or around it. A piece can have multiple effects, such that it can affect, for example, all the cells around it. The X and Y attributes represent the relative position where the effect should be applied, for example “occupied” for x and y equal to 0.
+
 
 ### Constraints
 - To ensure that the user only creates valid instances of the board game, a number of constraints have been enforced in the metamodel: 
