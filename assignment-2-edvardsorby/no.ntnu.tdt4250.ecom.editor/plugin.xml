@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ecom -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="no.ntnu.tdt4250.ecom.presentation.EcomModelWizardID"
+            name="%_UI_EcomModelWizard_label"
+            class="no.ntnu.tdt4250.ecom.presentation.EcomModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EcomModelFile.gif">
+         <description>%_UI_EcomModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ecom -->
+      <editor
+            id="no.ntnu.tdt4250.ecom.presentation.EcomEditorID"
+            name="%_UI_EcomEditor_label"
+            icon="icons/full/obj16/EcomModelFile.gif"
+            extensions="ecom"
+            class="no.ntnu.tdt4250.ecom.presentation.EcomEditor"
+            contributorClass="no.ntnu.tdt4250.ecom.presentation.EcomActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

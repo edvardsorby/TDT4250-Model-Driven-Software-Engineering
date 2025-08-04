@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecom:Marketplace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecom="http://www.ntnu.no/tdt4250/ecom">
+  <categories name="Cars" description="Small cars and trucks">
+    <items category="//@categories.0" title="Toyota Camry" price="3000" description="Low miles, never driven hard" published="1728678173" seller="//@users.0"/>
+    <items category="//@categories.0" title="Scion tC" price="5000" description="Nice car for young people." published="1728600111" seller="//@users.0"/>
+  </categories>
+  <categories name="Motorcycles" description="Small and medium motorcycles">
+    <items category="//@categories.1" title="Suzuki Hayabusa" price="10000" description="Clean example for sale" published="1728923156" seller="//@users.1"/>
+  </categories>
+  <languages languageCode="EN" languageName="English" currency="USD"/>
+  <users name="John" username="johnsmith" role="//@roles.0"/>
+  <users name="Emily" username="em1" role="//@roles.0"/>
+  <users name="Phil" username="phil123" role="//@roles.1"/>
+  <roles xsi:type="ecom:NormalUser" roleName="User">
+    <privileges/>
+  </roles>
+  <roles xsi:type="ecom:Admin">
+    <privileges privilege="MODERATE_ITEMS"/>
+  </roles>
+</ecom:Marketplace>
