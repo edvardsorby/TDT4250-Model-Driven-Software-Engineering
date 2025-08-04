@@ -1,0 +1,44 @@
+/**
+ */
+package no.ntnu.tdt4250.g07.bg;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Cell State</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link no.ntnu.tdt4250.g07.bg.CellState#getName <em>Name</em>}</li>
+ * </ul>
+ *
+ * @see no.ntnu.tdt4250.g07.bg.BgPackage#getCellState()
+ * @model
+ * @generated
+ */
+public interface CellState extends BoardGameElement {
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see no.ntnu.tdt4250.g07.bg.BgPackage#getCellState_Name()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link no.ntnu.tdt4250.g07.bg.CellState#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+} // CellState

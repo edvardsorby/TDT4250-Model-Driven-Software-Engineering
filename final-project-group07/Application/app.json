@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "BoardGame",
+    "slug": "BoardGame",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "no.ntnu.tdt4250.g07.bg.application"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2804dbd0-c2e8-4639-8d89-7745474c2056"
+      }
+    },
+    "newArchEnabled": true
+  }
+}

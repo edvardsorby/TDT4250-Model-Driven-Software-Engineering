@@ -1,0 +1,39 @@
+# Eclipse settings
+.buildpath
+
+# Build output directories
+./bin/
+/target/
+
+# Maven and Gradle related files
+.mvn/
+.gradle/
+build/
+
+# Eclipse-specific files for Xtext projects
+*.xtextbin
+
+# Generated code
+*.xtend-gen/
+*.java-gen/
+*.xcore-gen/
+*.emf
+*.xpt-gen/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Logs and metadata
+*.log
+.metadata/
+
+# IntelliJ IDEA (in case some team members use it)
+.idea/
+*.iml
+out/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

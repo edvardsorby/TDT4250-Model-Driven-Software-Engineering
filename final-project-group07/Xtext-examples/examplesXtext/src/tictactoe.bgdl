@@ -1,0 +1,31 @@
+Title "Tic-Tac-Toe"
+BoardSize 3
+
+Cellstate Occupied
+
+EffectOnCell MakeOccupied{
+	newCellState Occupied
+	relativePosition(0,0)
+}
+
+PieceType X{
+	Symbol "✖️"
+	DisallowedStates Occupied
+	EffectsOnCell MakeOccupied
+}
+
+PieceType O{
+	Symbol "⭕"
+	DisallowedStates Occupied
+	EffectsOnCell MakeOccupied
+}
+
+WinCondition{
+	Line length 3 direction ROW
+	Line length 3 direction COLUMN
+	Line length 3 direction DIAGONAL
+}
+
+
+			  
+			  

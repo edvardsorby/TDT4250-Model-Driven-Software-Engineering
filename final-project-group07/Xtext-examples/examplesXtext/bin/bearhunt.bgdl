@@ -1,0 +1,48 @@
+Title "BearHunt"
+
+BoardSize 5
+Cellstate Occupied
+Cellstate BearEat
+Cellstate HunterHunt
+
+PieceType Bear {
+	Symbol "🐻"
+	DisallowedStates Occupied, HunterHunt
+	EffectsOnCell MakeOccupied, MakeBearEatLeft, MakeBearEatRight
+}
+
+PieceType Hunter {
+	Symbol "‍🧑‍🌾"
+	DisallowedStates Occupied, BearEat
+	EffectsOnCell MakeOccupied, MakeFarmerHuntAbove, MakeFarmerHuntBelow
+}
+
+WinCondition{
+	Line length 4 direction ROW
+	Line length 4 direction COLUMN
+}
+
+EffectOnCell MakeOccupied{
+	newCellState Occupied
+	relativePosition(0,0)
+}
+
+EffectOnCell MakeBearEatRight{
+	newCellState BearEat
+	relativePosition(1,0)
+}
+
+EffectOnCell MakeBearEatLeft{
+	newCellState BearEat
+	relativePosition(-1,0)
+}
+
+EffectOnCell MakeFarmerHuntBelow{
+	newCellState HunterHunt
+	relativePosition(0,1)
+}
+
+EffectOnCell MakeFarmerHuntAbove{
+	newCellState HunterHunt
+	relativePosition(0,-1)
+}

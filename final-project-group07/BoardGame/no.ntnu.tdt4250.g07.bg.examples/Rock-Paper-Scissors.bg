@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bg:BoardGame xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bg="http://www.ntnu.no/tdt4250/g07/bg" name="Rock-Paper-Scissors" size="8">
+  <boardGameElements xsi:type="bg:PieceType" name="Scissors" symbol="✂️" effectsOnCell="//@boardGameElements.7 //@boardGameElements.18 //@boardGameElements.19 //@boardGameElements.17 //@boardGameElements.16" disallowedStates="//@boardGameElements.3 //@boardGameElements.5"/>
+  <boardGameElements xsi:type="bg:PieceType" name="Rock" symbol="🪨" effectsOnCell="//@boardGameElements.7 //@boardGameElements.14 //@boardGameElements.15 //@boardGameElements.13 //@boardGameElements.12" disallowedStates="//@boardGameElements.3 //@boardGameElements.4"/>
+  <boardGameElements xsi:type="bg:PieceType" name="Paper" symbol="📄" effectsOnCell="//@boardGameElements.7 //@boardGameElements.10 //@boardGameElements.11 //@boardGameElements.9 //@boardGameElements.8" disallowedStates="//@boardGameElements.3 //@boardGameElements.6"/>
+  <boardGameElements xsi:type="bg:CellState" name="Occupied"/>
+  <boardGameElements xsi:type="bg:CellState" name="PaperEffect"/>
+  <boardGameElements xsi:type="bg:CellState" name="RockEffect"/>
+  <boardGameElements xsi:type="bg:CellState" name="ScissorEffect"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakeOccupied" cellState="//@boardGameElements.3"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakePaperEffectRight" cellState="//@boardGameElements.4" x="1"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakePaperEffectLeft" cellState="//@boardGameElements.4" x="-1"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakePaperEffectAbove" cellState="//@boardGameElements.4" y="-1"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakePaperEffectBelow" cellState="//@boardGameElements.4" y="1"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakeRockEffectRight" cellState="//@boardGameElements.4" x="1"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakeRockEffectLeft" cellState="//@boardGameElements.4" x="-1"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakeRockEffectAbove" cellState="//@boardGameElements.4" y="-1"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakeRockEffectBelow" cellState="//@boardGameElements.4" y="1"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakeScissorEffectRight" cellState="//@boardGameElements.4" x="1"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakeScissorEffectLeft" cellState="//@boardGameElements.4" x="-1"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakeScissorEffectAbove" cellState="//@boardGameElements.4" y="-1"/>
+  <boardGameElements xsi:type="bg:EffectOnCell" name="MakeScissorEffectBelow" cellState="//@boardGameElements.4" y="1"/>
+  <boardGameElements xsi:type="bg:WinCondition">
+    <winConditionElements xsi:type="bg:Line" length="4"/>
+    <winConditionElements xsi:type="bg:Line" length="4" direction="DIAGONAL"/>
+  </boardGameElements>
+</bg:BoardGame>
